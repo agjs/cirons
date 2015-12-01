@@ -1,0 +1,17 @@
+{
+  "name": "Cirons",
+  "version": "2.0.0",
+  "authors": [
+    "Philip Andersson <phandersson@icloud.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "CLOSED",
+  "homepage": "http://cirons.com",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "bootstrap-css": "~3.3.4",
+    "angular-ui-router": "ui-router#~0.2.15"
+  }
+}
