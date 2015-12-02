@@ -13,7 +13,9 @@
     "angular": "~1.4.8",
     "bootstrap-css": "~3.3.4",
     "angular-ui-router": "ui-router#~0.2.15",
-    "ui-bootstrap": "~0.14.3",
-    "font-awesome": "~4.*"
+    "font-awesome": "~4.*",
+    "angular-ui-bootstrap": "~0.14.3",
+    "semantic": "semantic-ui#~2.1.6",
+    "angular-route": "~1.4.8"
   }
 }

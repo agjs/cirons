@@ -1,0 +1,70 @@
+<script src="libs/angular/angular.min.js"></script>
+<script src="components/app.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+<!--<script type="text/javascript">-->
+
+<!--Number.prototype.formatMoney = function(c, d, t){-->
+<!--var n = this, -->
+<!--c = isNaN(c = Math.abs(c)) ? 2 : c, -->
+<!--d = d == undefined ? "." : d, -->
+<!--t = t == undefined ? "," : t, -->
+<!--s = n < 0 ? "-" : "", -->
+<!--i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", -->
+<!--j = (j = i.length) > 3 ? j % 3 : 0;-->
+<!--return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");-->
+<!--};-->
+
+<!--</script>-->
+
+
+<!--<script src="https://js.pusher.com/2.2/pusher.min.js"></script>-->
+<!--<script>-->
+    <!--// Enable pusher logging - don't include this in production-->
+
+    <!--(function(){-->
+        <!--if (!("Notification" in window)) {-->
+            <!--console.log("This browser does not support desktop notification");-->
+        <!--} else if (Notification.permission === "granted") {-->
+            <!--// If it's okay let's create a notification-->
+
+        <!--}-->
+
+        <!--// Otherwise, we need to ask the user for permission-->
+        <!--else if (Notification.permission !== 'denied') {-->
+            <!--Notification.requestPermission(function (permission) {-->
+                <!--// If the user accepts, let's create a notification-->
+                <!--if (permission === "granted") {-->
+
+                <!--}-->
+            <!--});-->
+        <!--}-->
+    <!--}());-->
+
+    <!--Pusher.log = function(message) {-->
+        <!--if (window.console && window.console.log) {-->
+            <!--window.console.log(message);-->
+        <!--}-->
+    <!--};-->
+
+    <!--var pusher = new Pusher('3400e69279ea78f5b712', {-->
+        <!--encrypted: true-->
+    <!--});-->
+    <!--var channel = pusher.subscribe('{{CLIENT}}');-->
+    <!--channel.bind('user_{{Auth::user()->id}}', function(data) {-->
+        <!--var title;-->
+        <!--switch(data.notification.type){-->
+            <!--case "normal":-->
+                <!--title = "Notification";-->
+                <!--break;-->
+            <!--case "reminder":-->
+                <!--title = "Reminder";-->
+            <!--case "urgent":-->
+                <!--title = "Warning";-->
+        <!--}-->
+
+        <!--getNotificationButton(data.notification.type);-->
+
+        <!--spawnNotification(title, data.notification.text, data.notification.link);-->
+    <!--});-->
+<!--</script>-->
