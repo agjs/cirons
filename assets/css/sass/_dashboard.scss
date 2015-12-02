@@ -1,0 +1,107 @@
+.small-box {
+    border: rgba(0, 0, 0, 0.05) 1px solid;
+    height: 70px;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 4px solid rgba(0,0,0,0);
+    font-family: 'Source Sans Pro', sans-serif;
+    transition: all 300ms ease;
+}
+
+.small-box.interactive {
+    cursor: pointer;
+}
+
+.small-box.interactive:hover {
+    background: rgba(255,255,255,0.5);
+}
+
+.small-box i.icon {
+    font-size: 26px;
+}
+
+.small-box td span {
+     display: inline-block;
+     font-size: 22px;
+     font-weight: 300;
+     color: inherit !important;
+     font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.small-box td span.suffix {
+    margin-left: 10px;
+}
+
+.small-box td strong {
+    font-weight: 400;
+    display: block;
+    margin-top: 0px;
+    color: inherit !important;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+.chart-table {
+    background: none;
+    border: none;
+    width: 100%;
+}
+
+.chart-table td {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.chart-table th {
+    text-align: left;
+    color: #616d71;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.receivable-table td {
+    padding: 20px;
+}
+
+span.receivable {
+    display: block;
+    font-size: 28px;
+    color: #3b83c0;
+    margin-bottom: 0px;
+}
+
+span.receivable strong {
+    display: inline;
+    font-size: 12px;
+}
+
+.overdue_list > div {
+    padding: 5px 0;
+}
+
+.overdue_list > div > span > a.ui.circular.label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#dashboard .widget .ui.horizontal.divider.header {
+    cursor: pointer;
+}
+
+#dashboard .widget.widget-hidden .ui.horizontal.divider.header i.icon {
+    transform: rotate(180deg);
+}
+
+.profile-image {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    background: no-repeat center center;
+    background-size: cover;
+}
