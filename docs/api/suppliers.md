@@ -59,19 +59,20 @@ Return:
 PUT `suppliers/{id}`
 
 Params:
-* "id"
-* "created_at"
-* "updated_at"
-* "company_name"
-* "contact_id"
-* "address_id"
-* "company_number"
-* "vat_no"
-* "default_category"
-* "default_vat"
-* "delivery_days"
-* "receipts"
-* "supplier_invoices"
+
+* id
+* created_at
+* updated_at
+* company_name
+* contact_id
+* address_id
+* company_number
+* vat_no
+* default_category
+* default_vat
+* delivery_days
+* receipts
+* supplier_invoices
 
 Returns:
 `JSON-object` of the new saved supplier
