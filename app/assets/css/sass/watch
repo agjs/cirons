@@ -1,1 +1,1 @@
-sass --watch cirons.scss:../cirons.css --style compressed
+sass --watch cirons.scss:../cirons.css

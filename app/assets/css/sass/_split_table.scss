@@ -2,6 +2,29 @@ $split_view_list_width: 28;
 
 body.split_table {
 
+    .split-view {
+        height: 100%;
+    }
+
+    .split-view > div:first-child {
+        width: percentage($split_view_list_width / 100);
+        float: left;
+    }
+
+    .split-view > div:last-child {
+        width: percentage((100 - $split_view_list_width) / 100);
+        float: right;
+    }
+
+    ui-view {
+        height: 100%;
+        display: block;
+    }
+
+    .split-view > div {
+        height: 100%;
+    }
+
 	.page-content {
 		padding: 0;
 		height: 100%;
@@ -18,8 +41,6 @@ body.split_table {
 		div.split-table {
 			height: 100%;
 			.list {
-				width: percentage($split_view_list_width / 100);
-				float: left;
 				height: 100%;
 				overflow: hidden;
 
@@ -133,8 +154,6 @@ body.split_table {
 			}
 
 			.open-view {
-				width: percentage((100 - $split_view_list_width) / 100);
-				float: right;
 				height: 100%;
 				overflow: auto;
 				background: white;
