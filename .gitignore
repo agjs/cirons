@@ -5,3 +5,4 @@ libs
 .idea
 .tmp
 .sass-cache
+npm-debug.log

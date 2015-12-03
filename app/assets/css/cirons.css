@@ -1,8 +1,3 @@
-.ui.breadcrumb li {
-  float: left;
-  list-style-type: none;
-  margin-right: 20px; }
-
 html, body {
   width: 100%;
   height: 100%;
@@ -1673,6 +1668,19 @@ span.receivable strong {
   background: no-repeat center center;
   background-size: cover; }
 
+body.split_table .split-view {
+  height: 100%; }
+body.split_table .split-view > div:first-child {
+  width: 28%;
+  float: left; }
+body.split_table .split-view > div:last-child {
+  width: 72%;
+  float: right; }
+body.split_table ui-view {
+  height: 100%;
+  display: block; }
+body.split_table .split-view > div {
+  height: 100%; }
 body.split_table .page-content {
   padding: 0;
   height: 100%; }
@@ -1684,8 +1692,6 @@ body.split_table .page-content {
   body.split_table .page-content div.split-table {
     height: 100%; }
     body.split_table .page-content div.split-table .list {
-      width: 28.0%;
-      float: left;
       height: 100%;
       overflow: hidden; }
       body.split_table .page-content div.split-table .list .list-toolbar {
@@ -1769,39 +1775,65 @@ body.split_table .page-content {
         body.split_table .page-content div.split-table .list ul li.open:after {
           color: white;
           right: 5px; }
-    body.split_table .page-content div.split-table .open-view {
-      width: 72%;
-      float: right;
-      height: 100%;
-      overflow: auto;
-      background: white; }
-      body.split_table .page-content div.split-table .open-view iframe {
-        height: 100%;
-        width: 100%;
-        border: none; }
-      body.split_table .page-content div.split-table .open-view .open-view-content {
-        padding: 0 30px 30px 30px; }
-        body.split_table .page-content div.split-table .open-view .open-view-content .stats {
-          padding-bottom: 20px; }
-          body.split_table .page-content div.split-table .open-view .open-view-content .stats div {
-            text-align: left; }
-          body.split_table .page-content div.split-table .open-view .open-view-content .stats div:last-child {
-            text-align: left;
-            text-transform: uppercase;
-            font-size: 10px;
-            margin-top: 5px; }
-        body.split_table .page-content div.split-table .open-view .open-view-content .toolbar {
-          height: 80px;
-          background: #eee;
-          padding: 20px 30px;
-          position: relative;
-          border: none;
-          margin: 0;
-          margin-bottom: 20px;
-          box-shadow: none;
-          moz-box-shadow: none;
-          webkit-box-shadow: none;
-          margin: 0 -30px 20px -30px;
-          z-index: 1; }
+  body.split_table .page-content .open-view {
+    height: 100%;
+    overflow: auto;
+    background: white; }
+    body.split_table .page-content .open-view hr {
+      border: none;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.2);
+      margin: 15px 0; }
+    body.split_table .page-content .open-view .open-view-content {
+      padding: 0 30px 30px 30px; }
+      body.split_table .page-content .open-view .open-view-content .stats {
+        padding-bottom: 20px; }
+        body.split_table .page-content .open-view .open-view-content .stats div {
+          text-align: left; }
+        body.split_table .page-content .open-view .open-view-content .stats div:last-child {
+          text-align: left;
+          text-transform: uppercase;
+          font-size: 10px;
+          margin-top: 5px; }
+      body.split_table .page-content .open-view .open-view-content .toolbar {
+        height: 80px;
+        background: #eee;
+        padding: 20px 30px;
+        position: relative;
+        border: none;
+        margin: 0;
+        margin-bottom: 20px;
+        box-shadow: none;
+        moz-box-shadow: none;
+        webkit-box-shadow: none;
+        margin: 0 -30px 20px -30px;
+        z-index: 1; }
+
+.page-title h1 ol {
+  display: block;
+  padding: 0;
+  margin: 0; }
+  .page-title h1 ol li {
+    display: inline-block;
+    font-size: 16px;
+    padding-right: 25px;
+    position: relative; }
+    .page-title h1 ol li a {
+      color: rgba(0, 0, 0, 0.8);
+      text-decoration: none !important; }
+    .page-title h1 ol li a:hover {
+      color: #3681b1; }
+  .page-title h1 ol li:after {
+    content: "\f105";
+    color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    right: 10px;
+    font-size: 18px;
+    font-family: FontAwesome; }
+  .page-title h1 ol li:last-child:after {
+    content: "";
+    display: none; }
+  .page-title h1 ol li:last-child {
+    padding: 0; }
 
 /*# sourceMappingURL=cirons.css.map */

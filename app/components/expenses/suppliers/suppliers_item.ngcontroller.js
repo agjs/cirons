@@ -17,4 +17,3 @@ angular.module('CIRONS-MAIN-APP').controller('suppliersSingleItemController', fu
 });
 
 })();
-

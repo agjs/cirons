@@ -1,0 +1,43 @@
+.page-title {
+  h1 {
+    ol {
+      display: block;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: inline-block;
+        font-size: 16px;
+        padding-right: 25px;
+        position: relative;
+
+        a {
+          color: rgba(0,0,0,0.8);
+          text-decoration: none !important;
+        }
+
+        a:hover {
+          color: $cirons_blue;
+        }
+      }
+
+      li:after {
+        content: "\f105";
+        color: rgba(0,0,0,0.5);
+        position: absolute;
+        right: 10px;
+        font-size: 18px;
+        font-family: FontAwesome;
+      }
+
+      li:last-child:after {
+        content: "";
+        display: none;
+      }
+
+      li:last-child {
+        padding: 0;
+      }
+    }
+  }
+}
