@@ -1,0 +1,33 @@
+<header ng-controller="navigationController">
+    <button id="speech" class="speech">
+        <i class="fa fa-microphone"></i>
+    </button>
+    <div class="page-title">
+        <h1>{{title}}</h1>
+    </div>
+
+    <div class="status-bar">
+
+        <div id="notifications_normal" ng-repeat="item in iconMenu">
+            <button>
+                <i class="{{item.icon}}"></i>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="user-bar">
+        <nav>
+                        <span>
+                            <img src="assets/images/noimage.png"/>
+                            <span>Philip Andersson</span>
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+            <ul>
+                <li><a href="#"><i class="fa fa-cogs"></i> Edit Profile</a></li>
+                <li><a ng-click="logout()"><i class="fa fa-lock"></i> Logout</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
