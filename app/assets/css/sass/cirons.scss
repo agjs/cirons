@@ -1654,6 +1654,21 @@ table.info-table {
     height: 150px;
 }
 
+
+.ui.breadcrumb li {
+    float: left;
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+
+.ui.breadcrumb a:after {
+    font-family: FontAwesome;
+    content: "\f054";
+    padding-left:10px;
+    color:#eaeaea;
+}
+
 @import "timeline";
 @import "wizard";
 @import "orderrows";
