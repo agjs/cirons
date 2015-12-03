@@ -891,7 +891,6 @@ body.dashboard .dashboard-tabs ul li a {
   display: inline-block;
   text-decoration: none;
   color: #4e4e4e;
-  font-family: 'Source Sans Pro', sans-serif;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 600;
@@ -964,7 +963,6 @@ body.dashboard .dashboard-content {
   padding: 14px 14px;
   background-color: white;
   color: #4e4e4e;
-  font-family: 'Source Sans Pro', sans-serif;
   font-size: 14px; }
 
 .widget-table td.place {
@@ -1081,12 +1079,10 @@ body.dashboard .dashboard-content {
 
 .cashflow-table th {
   text-transform: uppercase;
-  font-size: 14px;
-  font-family: 'Source Sans Pro', sans-serif; }
+  font-size: 14px; }
 
 .cashflow-table td {
   font-size: 14px;
-  font-family: 'Source Sans Pro', sans-serif;
   background: white; }
 
 .cashflow-table .chart_col {

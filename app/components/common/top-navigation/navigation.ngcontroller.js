@@ -4,7 +4,6 @@
     angular.module('CIRONS-MAIN-APP')
         .controller('navigationController', function ($scope, $rootScope, $auth, $state) {
 
-
             $scope.iconMenu = [
 
                 {
@@ -22,13 +21,9 @@
 
 
             ];
-
             $scope.logout = function() {
                 $auth.logout();
-            }
-
-
-
+            };
 
         });
 

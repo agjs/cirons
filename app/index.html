@@ -10,7 +10,7 @@
 
 </head>
 
-<body id="b">
+<body id="b" ng-class="$state.current.name == 'suppliers'  || $state.current.name == 'suppliers.item' ? 'split_table' : ''">
 
 <ng-include src="'components/common/main-menu/main-menu.html'"></ng-include>
 
@@ -24,8 +24,7 @@
             <div class="page-content">
 
                 <ui-view></ui-view>
-                <div ui-view="suppliersList"></div>
-                <div ui-view="suppliersContent"></div>
+
 
 
             </div>
@@ -49,17 +48,7 @@
 
 <!--App configuration-->
 
-<!--Routers-->
-<script src="components/dashboard/dashboard.ngrouter.js"></script>
-<script src="components/calendar/calendar.ngrouter.js"></script>
-<script src="components/sales/sales.ngrouter.js"></script>
-<script src="components/expenses/expenses.ngrouter.js"></script>
-<script src="components/authentication/authentication.ngroutes.js"></script>
-<script src="components/stock/stock.ngrouter.js"></script>
-<script src="components/purchasing/purchasing.ngrouter.js"></script>
-<script src="components/hr/hr.ngrouter.js"></script>
-<script src="components/accounting/accounting.ngrouter.js"></script>
-<script src="components/system_admin/system_admin.ngrouter.js"></script>
+
 
 
 <!--Factory-->
@@ -83,6 +72,21 @@
 <script src="components/accounting/accounting.ngcontroller.js"></script>
 <script src="components/system_admin/system_admin.ngcontroller.js"></script>
 <script src="components/expenses/suppliers/suppliers.ngcontroller.js"></script>
+<script src="components/expenses/suppliers/suppliers_item.ngcontroller.js"></script>
+
+
+<!--Routers-->
+<script src="components/dashboard/dashboard.ngrouter.js"></script>
+<script src="components/calendar/calendar.ngrouter.js"></script>
+<script src="components/sales/sales.ngrouter.js"></script>
+<script src="components/expenses/expenses.ngrouter.js"></script>
+<script src="components/authentication/authentication.ngroutes.js"></script>
+<script src="components/stock/stock.ngrouter.js"></script>
+<script src="components/purchasing/purchasing.ngrouter.js"></script>
+<script src="components/hr/hr.ngrouter.js"></script>
+<script src="components/accounting/accounting.ngrouter.js"></script>
+<script src="components/system_admin/system_admin.ngrouter.js"></script>
+
 
 </body>
 </html>

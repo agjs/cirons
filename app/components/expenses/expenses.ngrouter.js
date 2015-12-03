@@ -14,19 +14,45 @@
             })
 
             .state('suppliers', {
-
                 url: "/expenses/suppliers",
                 ncyBreadcrumb: {
                     parent: 'expenses',
                     label: 'Suppliers'
                 },
+
                 views: {
-                    'suppliersList@': {
-                        controller: 'suppliersController',
+                    '': {
+                        templateUrl: 'components/expenses/suppliers/suppliers.view.html',
+                        controller: 'suppliersController'
+
+                    },
+                    'suppliersList@suppliers': {
+                        templateUrl: 'components/expenses/suppliers/suppliers_list.view.html'
+                    }
+
+
+                }
+            })
+
+            .state('suppliers.item', {
+                url: "/:id",
+                params: {
+                    supplier: undefined
+                },
+                ncyBreadcrumb: {
+                    parent: 'suppliers',
+                    label: '{{id}}'
+                },
+                views: {
+                    '': {
+                        templateUrl: 'components/expenses/suppliers/suppliers.view.html'
+                    },
+                    'suppliersList@suppliers': {
                         templateUrl: 'components/expenses/suppliers/suppliers_list.view.html'
                     },
-                    'suppliersContent@': {
-                        templateUrl: 'components/expenses/suppliers/suppliers_content.view.html'
+                    'suppliersContent@suppliers': {
+                        templateUrl: 'components/expenses/suppliers/suppliers_content.view.html',
+                        controller: 'suppliersSingleItemController'
                     }
 
 
