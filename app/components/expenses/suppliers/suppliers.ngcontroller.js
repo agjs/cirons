@@ -5,8 +5,6 @@
         .controller('suppliersController', function ($scope, $rootScope, $auth, $state) {
 
 
-
-
         });
 
 })();

@@ -1,0 +1,46 @@
+<div class="list">
+
+    <div class="list-toolbar">
+        <button class="ui button labeled icon green">
+            <i class="icon plus"></i>
+            Add new
+        </button>
+    </div>
+
+    <ul>
+        <!-- ngRepeat: item in items -->
+        <li data-id="1" ng-click="open($event, item);" ng-repeat="item in items" class="ng-scope">
+            <div class="clearfix">
+                <i class="ng-binding">#1</i>
+                <strong class="ng-binding">coke111</strong>
+            </div>
+            <div class="sec clearfix">
+					<span class="ng-binding">
+						 items
+					</span>
+            </div>
+        </li><!-- end ngRepeat: item in items -->
+        <li data-id="2" ng-click="open($event, item);" ng-repeat="item in items" class="ng-scope">
+            <div class="clearfix">
+                <i class="ng-binding">#2</i>
+                <strong class="ng-binding">Pepsi</strong>
+            </div>
+            <div class="sec clearfix">
+					<span class="ng-binding">
+						 items
+					</span>
+            </div>
+        </li><!-- end ngRepeat: item in items -->
+        <li data-id="3" ng-click="open($event, item);" ng-repeat="item in items" class="ng-scope">
+            <div class="clearfix">
+                <i class="ng-binding">#3</i>
+                <strong class="ng-binding">Test</strong>
+            </div>
+            <div class="sec clearfix">
+					<span class="ng-binding">
+						 items
+					</span>
+            </div>
+        </li><!-- end ngRepeat: item in items -->
+    </ul>
+</div>

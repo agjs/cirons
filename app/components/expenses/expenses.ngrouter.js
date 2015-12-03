@@ -7,13 +7,30 @@
             .state('expenses', {
                 url: "/expenses",
                 controller: 'expensesController',
-                templateUrl: "components/expenses/expenses.view.html"
+                templateUrl: "components/expenses/expenses.view.html",
+                ncyBreadcrumb: {
+                    label: 'Expenses'
+                }
             })
 
-            .state('expenses.suppliers', {
-                url: "/suppliers",
-                controller: 'suppliersController',
-                templateUrl: "components/suppliers/suppliers.view.html"
+            .state('suppliers', {
+
+                url: "/expenses/suppliers",
+                ncyBreadcrumb: {
+                    parent: 'expenses',
+                    label: 'Suppliers'
+                },
+                views: {
+                    'suppliersList@': {
+                        controller: 'suppliersController',
+                        templateUrl: 'components/expenses/suppliers/suppliers_list.view.html'
+                    },
+                    'suppliersContent@': {
+                        templateUrl: 'components/expenses/suppliers/suppliers_content.view.html'
+                    }
+
+
+                }
             })
 
 

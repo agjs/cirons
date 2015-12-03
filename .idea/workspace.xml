@@ -2,10 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c23b7577-fac0-41f1-93dc-958c381d7175" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.bowerrc" afterPath="$PROJECT_DIR$/.bowerrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.js" afterPath="$PROJECT_DIR$/app/app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/elements/breadcrumb_template.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_content.view.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_list.view.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/cirons.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/cirons.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_comments.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_dashboard.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_orderrows.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_split_table.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_timeline.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_wizard.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/cirons.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_comments.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_dashboard.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_orderrows.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_split_table.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_timeline.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_wizard.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/cirons.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_comments.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_dashboard.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_orderrows.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_split_table.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_timeline.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_wizard.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/cirons.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/_dashboard.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/_orderrows.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/_split_table.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/_timeline.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/_wizard.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/cirons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/watch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/logo-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/logo-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/noimage.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.views.html" afterPath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.view.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/_comments.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/common.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/a2693691365302e5995fdb7a1ac7097ce8546bfd/cirons.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/a2693691365302e5995fdb7a1ac7097ce8546bfd/cirons.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.ngconfig.js" afterPath="$PROJECT_DIR$/app/app.ngconfig.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/cirons.css" afterPath="$PROJECT_DIR$/app/assets/css/cirons.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/cirons.css.map" afterPath="$PROJECT_DIR$/app/assets/css/cirons.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" afterPath="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/expenses/expenses.view.html" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js" afterPath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
     </list>
     <ignored path="cirons-frontend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,62 +77,102 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.0">
-              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+            <state vertical-scroll-proportion="-14.666667">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".bowerrc" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.bowerrc">
+      <file leaf-file-name="top-navigation.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.01992966">
-              <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.22456141">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="suppliers.ngcontroller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js">
+      <file leaf-file-name="app.ngconfig.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.ngconfig.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="e#326#372#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="angular-breadcrumb.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/libs/angular-breadcrumb/dist/angular-breadcrumb.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="192" column="14" selection-start-line="192" selection-start-column="14" selection-end-line="192" selection-end-column="16" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/css/sass/common.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.5">
+              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cirons.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/css/sass/cirons.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.0">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="breadcrumb_template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/common/elements/breadcrumb_template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="suppliers.view.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="expenses.ngrouter.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js">
+      <file leaf-file-name="suppliers_list.view.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_list.view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding>
-                <element signature="e#395#568#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-4.3125">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/app.js">
+      <file leaf-file-name="expenses.ngcontroller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="e#62#162#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="suppliers.views.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.views.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.25">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -98,16 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/components/common/css.html" />
-        <option value="$PROJECT_DIR$/app/style.scss" />
-        <option value="$PROJECT_DIR$/app/components/common/main-menu/main_menu.ngcontroller.js" />
-        <option value="$PROJECT_DIR$/app/components/expenses/expenses.ngfactory.js" />
-        <option value="$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js" />
-        <option value="$PROJECT_DIR$/app/components/dashboard/dashboard.scss" />
-        <option value="$PROJECT_DIR$/app/components/common/css.html" />
-        <option value="$PROJECT_DIR$/app/components/dashboard/dashboard.ngrouter.js" />
-        <option value="$PROJECT_DIR$/app/components/authentication/authentication.ngroutes.js" />
-        <option value="$PROJECT_DIR$/app/components/sales/sales.view.html" />
         <option value="$PROJECT_DIR$/app/components/dashboard/dashboard.view.html" />
         <option value="$PROJECT_DIR$/app/components/accounting/accounting.view.html" />
         <option value="$PROJECT_DIR$/app/components/calendar/calendar.view.html" />
@@ -119,7 +197,6 @@
         <option value="$PROJECT_DIR$/app/components/stock/stock.ngcontroller.js" />
         <option value="$PROJECT_DIR$/app/components/stock/stock.view.html" />
         <option value="$PROJECT_DIR$/app/components/common/main-menu/main-menu.html" />
-        <option value="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" />
         <option value="$PROJECT_DIR$/app/components/purchasing/purchasing.ngcontroller.js" />
         <option value="$PROJECT_DIR$/app/components/purchasing/purchasing.view.html" />
         <option value="$PROJECT_DIR$/app/components/purchasing/purchasing.ngrouter.js" />
@@ -135,20 +212,31 @@
         <option value="$PROJECT_DIR$/app/components/authentication/login/login.view.html" />
         <option value="$PROJECT_DIR$/app/components/authentication/authenticate_me.ngfactory.js" />
         <option value="$PROJECT_DIR$/app/components/authentication/authentication.ngfactory.js" />
-        <option value="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" />
         <option value="$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js" />
         <option value="$PROJECT_DIR$/app/components/authentication/login/login.ngcontroller.js" />
-        <option value="$PROJECT_DIR$/app/app.ngconfig.js" />
         <option value="$PROJECT_DIR$/app/app.ngrun.js" />
-        <option value="$PROJECT_DIR$/app/components/expenses/expenses.view.html" />
         <option value="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.views.html" />
-        <option value="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" />
-        <option value="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/app.js" />
-        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/.bowerrc" />
+        <option value="$PROJECT_DIR$/app/components/expenses/suppliers/supplier_list.view.html" />
+        <option value="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_content.view.html" />
+        <option value="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_list.view.html" />
+        <option value="$PROJECT_DIR$/app/assets/css/cirons.css" />
+        <option value="$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/components/expenses/expenses.view.html" />
+        <option value="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.view.html" />
+        <option value="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" />
+        <option value="$PROJECT_DIR$/app/components/common/elements/breadcrum_template.html" />
+        <option value="$PROJECT_DIR$/app/components/common/elements/breadcrumb_template.html" />
+        <option value="$PROJECT_DIR$/app/app.ngconfig.js" />
+        <option value="$PROJECT_DIR$/app/libs/angular-breadcrumb/dist/angular-breadcrumb.js" />
+        <option value="$PROJECT_DIR$/app/assets/css/sass/common.scss" />
+        <option value="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" />
       </list>
     </option>
   </component>
@@ -207,6 +295,170 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular-breadcrumb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular-breadcrumb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="top-navigation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -220,6 +472,7 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="SearchEverywhereHistoryKey" value="index&#9;FILE&#9;file:///Users/agjs/Desktop/cirons-frontend/app/index.html" />
+    <property name="editor.config.accepted" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -304,7 +557,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1502" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14296967" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -312,7 +565,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35673758" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35673758" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -374,42 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.views.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.25">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#568#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#62#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1754386">
@@ -418,18 +635,170 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
+    <entry file="file://$PROJECT_DIR$/.bowerrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0">
-          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.05978898">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.bowerrc">
+    <entry file="file://$PROJECT_DIR$/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.01992966">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.27351665">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#62#162#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/cirons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.011045655">
+          <caret line="11" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1806" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0270271">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_content.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/libs/angular-breadcrumb/dist/angular-breadcrumb.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.033210333">
+          <caret line="3" column="65" selection-start-line="3" selection-start-column="65" selection-end-line="3" selection-end-column="65" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/libs/angular-breadcrumb/release/angular-breadcrumb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6236162">
+          <caret line="278" column="0" selection-start-line="278" selection-start-column="0" selection-end-line="278" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding>
+            <element signature="e#182#441#0" expanded="true" />
+            <element signature="e#370#427#0" expanded="true" />
+            <element signature="e#677#1076#0" expanded="true" />
+            <element signature="e#717#893#0" expanded="true" />
+            <element signature="e#936#1056#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_list.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.3125">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.ngconfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#326#372#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/common/elements/breadcrumb_template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/libs/angular-breadcrumb/dist/angular-breadcrumb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="192" column="14" selection-start-line="192" selection-start-column="14" selection-end-line="192" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/common.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/cirons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.666667">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22456141">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
