@@ -108,9 +108,6 @@ section#content > .inner {
     overflow: auto;
 }
 
-nav {
-    font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
-}
 
 aside.sidebar {
     background: #eee;
@@ -522,7 +519,6 @@ tr[data-tr].delete, tr[data-url].delete {
 .vatsum {
     font-size: 22px;
     font-weight: 100;
-    font-family: "Helvetica Neue", "Open Sans", sans-serif;
     text-align: center;
 }
 
@@ -535,7 +531,6 @@ tr[data-tr].delete, tr[data-url].delete {
 .employee_cost_chart_box span {
     font-size: 16px;
     color: black;
-    font-family: "Helvetica Neue", "Open Sans", sans-serif;
     display: block;
     text-align: center;
     padding-bottom: 10px;
@@ -546,7 +541,6 @@ tr[data-tr].delete, tr[data-url].delete {
     font-weight: 100;
     display: block;
     text-align: center;
-    font-family: "Helvetica Neue", "Open Sans", sans-serif;
 }
 
 /* columns of same height styles */
@@ -693,7 +687,6 @@ form select {
     border-radius: 5px;
     line-height: 60px;
     border: 1px solid rgb(73, 198, 168);
-    font-family: "Helvetica Neue", "Lato", sans-serif;
     margin-bottom: 20px;
 }
 
@@ -911,7 +904,6 @@ section#content > .inner {
     color: #2c2c2c;
 }
 .tooltipster-shadow .tooltipster-content {
-    font-family: 'Arial', sans-serif;
     font-size: 14px;
     line-height: 16px;
     padding: 8px 10px;
