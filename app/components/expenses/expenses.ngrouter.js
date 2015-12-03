@@ -10,6 +10,12 @@
                 templateUrl: "components/expenses/expenses.view.html"
             })
 
+            .state('expenses.suppliers', {
+                url: "/suppliers",
+                controller: 'suppliersController',
+                templateUrl: "components/suppliers/suppliers.view.html"
+            })
+
 
     });
 })();

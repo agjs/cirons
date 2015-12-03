@@ -4,10 +4,10 @@
     angular.module('CIRONS-MAIN-APP').config(function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
-            .state('accounting', {
-                url: "/accounting",
+            .state('system_admin', {
+                url: "/system_admin",
                 controller: 'hrController',
-                templateUrl: "components/accounting/accounting.view.html"
+                templateUrl: "components/system_admin/system_admin.view.html"
             })
 
 

@@ -2,354 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c23b7577-fac0-41f1-93dc-958c381d7175" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/agjs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.ngrun.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/sass/_comments.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/accounting/accounting.ngcomponent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/accounting/accounting.ngcontroller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/accounting/accounting.ngfactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/accounting/accounting.ngrouter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/accounting/accounting.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/accounting/accounting.view.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/authentication/authentication.ngfactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/authentication/authentication.ngroutes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/authentication/login/login.ngcontroller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/authentication/login/login.ngfactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/authentication/login/login.view.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/calendar/calendar.ngcomponent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/calendar/calendar.ngcontroller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/calendar/calendar.ngfactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/calendar/calendar.ngrouter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/calendar/calendar.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/calendar/calendar.view.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/common.ngcomponent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/common.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/css.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/main-menu/main-menu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/main-menu/main_menu.ngcontroller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/right-sidebar/right-sidebar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/right-sidebar/right_sidebar.ngcontroller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/scripts.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/dashboard/dashboard.ngcomponent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/dashboard/dashboard.ngcontroller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/dashboard/dashboard.ngfactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/dashboard/dashboard.ngrouter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/dashboard/dashboard.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/dashboard/dashboard.view.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.ngcomponent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.ngfactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.view.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/hr/hr.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/purchasing/purchasing.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/sales/sales.ngcomponent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/sales/sales.ngcontroller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/sales/sales.ngfactory.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/sales/sales.ngrouter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/sales/sales.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/sales/sales.view.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/stock/stock.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/system_admin/system_admin.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/font-awesome/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/style.scss" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/font-awesome/css/font-awesome.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/.bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/.editorconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/.gitattributes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/CODE_OF_CONDUCT.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/karma.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/changelog.tpl.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/demo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/github-16px.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/header.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/img/glyphicons-halflings-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/img/glyphicons-halflings.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/plunker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/rainbow-generic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/rainbow-html.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/rainbow-javascript.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/rainbow.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/rainbow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/smoothscroll-angular-custom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/assets/uglifyjs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/demo/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/raw-files-generator.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/test-lib/helpers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/test-lib/jquery-1.8.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/misc/validate-commit-msg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/accordion/accordion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/accordion/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/accordion/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/accordion/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/accordion/test/accordion.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/alert/alert.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/alert/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/alert/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/alert/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/alert/test/alert.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/buttons/buttons.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/buttons/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/buttons/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/buttons/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/buttons/test/buttons.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/carousel/carousel.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/carousel/carousel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/carousel/docs/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/carousel/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/carousel/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/carousel/test/carousel.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/collapse/collapse.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/collapse/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/collapse/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/collapse/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/collapse/test/collapse.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/dateparser/dateparser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/dateparser/test/dateparser.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/datepicker/datepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/datepicker/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/datepicker/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/datepicker/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/datepicker/test/datepicker.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/dropdown/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/dropdown/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/dropdown/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/dropdown/dropdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/dropdown/test/dropdown.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/modal/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/modal/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/modal/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/modal/modal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/modal/test/modal.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/modal/test/modalWindow.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/modal/test/multiMap.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/pagination/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/pagination/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/pagination/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/pagination/pagination.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/pagination/test/pager.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/pagination/test/pagination.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/popover/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/popover/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/popover/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/popover/popover.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/popover/test/popover-html.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/popover/test/popover-template.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/popover/test/popover.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/position/position.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/position/test/position.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/position/test/test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/progressbar/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/progressbar/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/progressbar/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/progressbar/progressbar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/progressbar/test/progressbar.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/rating/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/rating/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/rating/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/rating/rating.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/rating/test/rating.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/stackedMap/stackedMap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/stackedMap/test/stackedMap.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tabs/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tabs/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tabs/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tabs/tabs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tabs/test/tabs.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/timepicker/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/timepicker/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/timepicker/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/timepicker/test/timepicker.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/timepicker/timepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tooltip/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tooltip/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tooltip/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tooltip/test/tooltip-template.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tooltip/test/tooltip.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tooltip/test/tooltip2.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/tooltip/tooltip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/typeahead/docs/demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/typeahead/docs/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/typeahead/docs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/typeahead/test/typeahead-highlight-ngsanitize.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/typeahead/test/typeahead-highlight.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/typeahead/test/typeahead-parser.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/typeahead/test/typeahead-popup.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/typeahead/test/typeahead.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/src/typeahead/typeahead.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/accordion/accordion-group.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/accordion/accordion.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/alert/alert.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/carousel/carousel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/carousel/slide.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/datepicker/datepicker.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/datepicker/day.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/datepicker/month.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/datepicker/popup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/datepicker/year.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/modal/backdrop.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/modal/window.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/pagination/pager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/pagination/pagination.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/popover/popover-html.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/popover/popover-template.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/popover/popover.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/progressbar/bar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/progressbar/progress.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/progressbar/progressbar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/rating/rating.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/tabs/tab.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/tabs/tabset.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/timepicker/timepicker.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/tooltip/tooltip-html-popup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/tooltip/tooltip-popup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/tooltip/tooltip-template-popup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/typeahead/typeahead-match.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ui-bootstrap/template/typeahead/typeahead-popup.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/cirons.css" afterPath="$PROJECT_DIR$/app/assets/css/cirons.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/cirons.css.map" afterPath="$PROJECT_DIR$/app/assets/css/cirons.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_comments.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_comments.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_dashboard.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_dashboard.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_orderrows.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_orderrows.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_split_table.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_split_table.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_timeline.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_timeline.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_wizard.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_wizard.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/cirons.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/cirons.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_comments.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_comments.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_dashboard.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_dashboard.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_orderrows.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_orderrows.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_split_table.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_split_table.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_timeline.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_timeline.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_wizard.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_wizard.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/cirons.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/cirons.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_comments.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_comments.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_dashboard.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_dashboard.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_orderrows.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_orderrows.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_split_table.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_split_table.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_timeline.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_timeline.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_wizard.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_wizard.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/cirons.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/cirons.scssc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/_comments.scss" afterPath="$PROJECT_DIR$/app/app.ngconfig.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/_dashboard.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/_dashboard.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/_orderrows.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/_orderrows.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/_split_table.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/_split_table.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/_timeline.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/_timeline.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/_wizard.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/_wizard.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/cirons.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/watch" afterPath="$PROJECT_DIR$/app/assets/css/sass/watch" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/images/logo-icon.png" afterPath="$PROJECT_DIR$/app/assets/images/logo-icon.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/images/logo-white.png" afterPath="$PROJECT_DIR$/app/assets/images/logo-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/images/logo.png" afterPath="$PROJECT_DIR$/app/assets/images/logo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/images/noimage.png" afterPath="$PROJECT_DIR$/app/assets/images/noimage.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/.bower.json" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/.bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/CHANGELOG.md" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/CHANGELOG.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/CONTRIBUTING.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/LICENSE" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/LICENSE" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/README.md" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/api/angular-ui-router.d.ts" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/api/angular-ui-router.d.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/bower.json" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/release/angular-ui-router.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/release/angular-ui-router.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/release/angular-ui-router.min.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/release/angular-ui-router.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/common.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/common.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/resolve.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/resolve.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/state.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/state.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/stateDirectives.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/stateDirectives.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/stateFilters.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/stateFilters.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/templateFactory.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/templateFactory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/urlMatcherFactory.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/urlMatcherFactory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/urlRouter.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/urlRouter.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/view.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/view.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/viewDirective.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/viewDirective.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular-ui-router/src/viewScroll.js" afterPath="$PROJECT_DIR$/app/libs/angular-ui-router/src/viewScroll.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular/.bower.json" afterPath="$PROJECT_DIR$/app/libs/angular/.bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular/README.md" afterPath="$PROJECT_DIR$/app/libs/angular/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular/angular-csp.css" afterPath="$PROJECT_DIR$/app/libs/angular/angular-csp.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular/angular.js" afterPath="$PROJECT_DIR$/app/libs/angular/angular.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular/angular.min.js" afterPath="$PROJECT_DIR$/app/libs/angular/angular.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular/angular.min.js.gzip" afterPath="$PROJECT_DIR$/app/libs/angular/angular.min.js.gzip" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular/angular.min.js.map" afterPath="$PROJECT_DIR$/app/libs/angular/angular.min.js.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular/bower.json" afterPath="$PROJECT_DIR$/app/libs/angular/bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular/index.js" afterPath="$PROJECT_DIR$/app/libs/angular/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/angular/package.json" afterPath="$PROJECT_DIR$/app/libs/angular/package.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/.bower.json" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/.bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/LICENSE" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/LICENSE" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/README.md" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/bower.json" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/css/bootstrap-theme.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/css/bootstrap-theme.css.map" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/css/bootstrap-theme.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/css/bootstrap-theme.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/css/bootstrap.css" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/css/bootstrap.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/css/bootstrap.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/fonts/glyphicons-halflings-regular.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/fonts/glyphicons-halflings-regular.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/js/bootstrap.js" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/js/bootstrap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/bootstrap-css/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/app/libs/bootstrap-css/js/bootstrap.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/.bower.json" afterPath="$PROJECT_DIR$/app/libs/font-awesome/.bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/.gitignore" afterPath="$PROJECT_DIR$/app/libs/font-awesome/.gitignore" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/.npmignore" afterPath="$PROJECT_DIR$/app/libs/font-awesome/.npmignore" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/HELP-US-OUT.txt" afterPath="$PROJECT_DIR$/app/libs/font-awesome/HELP-US-OUT.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/bower.json" afterPath="$PROJECT_DIR$/app/libs/font-awesome/bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/app/libs/font-awesome/css/font-awesome.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/css/font-awesome.css.map" afterPath="$PROJECT_DIR$/app/libs/font-awesome/css/font-awesome.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/app/libs/font-awesome/fonts/FontAwesome.otf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/app/libs/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/app/libs/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/app/libs/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/app/libs/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/app/libs/font-awesome/fonts/fontawesome-webfont.woff2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/animated.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/animated.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/bordered-pulled.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/core.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/fixed-width.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/fixed-width.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/font-awesome.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/icons.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/larger.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/larger.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/list.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/list.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/mixins.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/path.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/rotated-flipped.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/stacked.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/stacked.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/app/libs/font-awesome/less/variables.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_animated.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_animated.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_bordered-pulled.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_core.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_fixed-width.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_icons.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_larger.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_larger.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_list.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_list.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_mixins.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_path.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_rotated-flipped.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_stacked.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_stacked.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/_variables.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/app/libs/font-awesome/scss/font-awesome.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.bowerrc" afterPath="$PROJECT_DIR$/.bowerrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.views.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/hr/hr.ngcomponent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/hr/hr.ngcontroller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/hr/hr.ngfactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/hr/hr.ngrouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/hr/hr.view.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/purchasing/purchasing.ngcomponent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/purchasing/purchasing.ngcontroller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/purchasing/purchasing.ngfactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/purchasing/purchasing.ngrouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/purchasing/purchasing.view.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/stock/stock.ngcomponent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/stock/stock.ngcontroller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/stock/stock.ngfactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/stock/stock.ngrouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/stock/stock.view.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/system_admin/system_admin.ngcomponent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/system_admin/system_admin.ngcontroller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/system_admin/system_admin.ngfactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/system_admin/system_admin.ngrouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/system_admin/system_admin.view.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/authentication/login/login.ngfactory.js" afterPath="$PROJECT_DIR$/app/components/authentication/authenticate_me.ngfactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/agjs.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/agjs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.js" afterPath="$PROJECT_DIR$/app/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.ngconfig.js" afterPath="$PROJECT_DIR$/app/app.ngconfig.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.ngrun.js" afterPath="$PROJECT_DIR$/app/app.ngrun.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/cirons.css" afterPath="$PROJECT_DIR$/app/assets/css/cirons.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/cirons.css.map" afterPath="$PROJECT_DIR$/app/assets/css/cirons.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/accounting/accounting.ngcontroller.js" afterPath="$PROJECT_DIR$/app/components/accounting/accounting.ngcontroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/accounting/accounting.ngrouter.js" afterPath="$PROJECT_DIR$/app/components/accounting/accounting.ngrouter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/authentication/authentication.ngfactory.js" afterPath="$PROJECT_DIR$/app/components/authentication/authentication.ngfactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/authentication/login/login.ngcontroller.js" afterPath="$PROJECT_DIR$/app/components/authentication/login/login.ngcontroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/authentication/login/login.view.html" afterPath="$PROJECT_DIR$/app/components/authentication/login/login.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/common/main-menu/main-menu.html" afterPath="$PROJECT_DIR$/app/components/common/main-menu/main-menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js" afterPath="$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" afterPath="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/expenses/expenses.view.html" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
     </list>
     <ignored path="cirons-frontend.iws" />
@@ -371,51 +65,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="navigation.ngcontroller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calendar.ngcontroller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/calendar/calendar.ngcontroller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="top-navigation.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.230769">
-              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.ngrun.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/app.ngrun.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30441177">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.586207">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state vertical-scroll-proportion="-18.807692">
+              <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.ngrun.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.ngrun.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="expenses.view.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.25">
+              <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="expenses.ngrouter.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.38277858">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="e#182#351#0" expanded="true" />
+                <element signature="e#395#568#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="suppliers.ngcontroller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="suppliers.views.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.views.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.7586207">
+              <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -429,49 +136,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/components/common/top-navigation/navigation.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/components/common/top-navigation/right-sidebar.html" />
-        <option value="$PROJECT_DIR$/components/common/top-navigation/left-menu.html" />
-        <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/components/app.js" />
-        <option value="$PROJECT_DIR$/components/common/scripts.html" />
-        <option value="$PROJECT_DIR$/components/common/main-menu/main-menu.html" />
-        <option value="$PROJECT_DIR$/components/common/main-menu/main_menu.ngcontroller.js" />
-        <option value="$PROJECT_DIR$/components/common/common.ngrouter.js" />
         <option value="$PROJECT_DIR$/components/style.scss" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/components/common/css.html" />
         <option value="$PROJECT_DIR$/app/style.scss" />
-        <option value="$PROJECT_DIR$/app/components/common/main-menu/main-menu.html" />
         <option value="$PROJECT_DIR$/app/components/common/main-menu/main_menu.ngcontroller.js" />
-        <option value="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" />
         <option value="$PROJECT_DIR$/app/components/expenses/expenses.ngfactory.js" />
         <option value="$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js" />
-        <option value="$PROJECT_DIR$/app/components/authentication/authentication.ngfactory.js" />
         <option value="$PROJECT_DIR$/.bowerrc" />
         <option value="$PROJECT_DIR$/app/components/dashboard/dashboard.scss" />
-        <option value="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" />
         <option value="$PROJECT_DIR$/app/components/common/css.html" />
         <option value="$PROJECT_DIR$/app/components/dashboard/dashboard.ngrouter.js" />
-        <option value="$PROJECT_DIR$/app/components/authentication/login/login.view.html" />
         <option value="$PROJECT_DIR$/app/components/authentication/authentication.ngroutes.js" />
-        <option value="$PROJECT_DIR$/app/components/authentication/login/login.ngcontroller.js" />
         <option value="$PROJECT_DIR$/app/components/sales/sales.view.html" />
         <option value="$PROJECT_DIR$/app/components/dashboard/dashboard.view.html" />
         <option value="$PROJECT_DIR$/app/components/accounting/accounting.view.html" />
         <option value="$PROJECT_DIR$/app/components/calendar/calendar.view.html" />
-        <option value="$PROJECT_DIR$/app/components/expenses/expenses.view.html" />
         <option value="$PROJECT_DIR$/app/components/calendar/calendar.ngrouter.js" />
-        <option value="$PROJECT_DIR$/app/app.js" />
-        <option value="$PROJECT_DIR$/app/app.ngconfig.js" />
-        <option value="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" />
         <option value="$PROJECT_DIR$/app/components/sales/sales.ngrouter.js" />
         <option value="$PROJECT_DIR$/app/components/common/top-navigation/page_title.ngfactory.js" />
-        <option value="$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js" />
-        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/components/calendar/calendar.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/components/stock/stock.ngrouter.js" />
+        <option value="$PROJECT_DIR$/app/components/stock/stock.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/components/stock/stock.view.html" />
+        <option value="$PROJECT_DIR$/app/components/common/main-menu/main-menu.html" />
+        <option value="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" />
+        <option value="$PROJECT_DIR$/app/components/purchasing/purchasing.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/components/purchasing/purchasing.view.html" />
+        <option value="$PROJECT_DIR$/app/components/purchasing/purchasing.ngrouter.js" />
+        <option value="$PROJECT_DIR$/app/components/hr/hr.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/components/hr/hr.view.html" />
+        <option value="$PROJECT_DIR$/app/components/hr/hr.ngrouter.js" />
+        <option value="$PROJECT_DIR$/app/components/accounting/accounting.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/components/accounting/accounting.ngrouter.js" />
+        <option value="$PROJECT_DIR$/app/components/system_admin/system_admin.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/components/system_admin/system_admin.ngrouter.js" />
+        <option value="$PROJECT_DIR$/app/components/system_admin/system_admin.view.html" />
+        <option value="$PROJECT_DIR$/app/components/authentication/login/login.ngfactory.js" />
+        <option value="$PROJECT_DIR$/app/components/authentication/login/login.view.html" />
+        <option value="$PROJECT_DIR$/app/components/authentication/authenticate_me.ngfactory.js" />
+        <option value="$PROJECT_DIR$/app/components/authentication/authentication.ngfactory.js" />
+        <option value="$PROJECT_DIR$/app/app.js" />
+        <option value="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" />
+        <option value="$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/components/authentication/login/login.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/app.ngconfig.js" />
         <option value="$PROJECT_DIR$/app/app.ngrun.js" />
+        <option value="$PROJECT_DIR$/app/components/expenses/expenses.view.html" />
+        <option value="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.views.html" />
+        <option value="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js" />
       </list>
     </option>
   </component>
@@ -481,10 +196,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="y" value="30" />
-    <option name="width" value="1436" />
-    <option name="height" value="800" />
+    <option name="y" value="23" />
+    <option name="width" value="2560" />
+    <option name="height" value="1502" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -581,7 +295,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
+              <option name="myItemId" value="expenses" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirons-frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="expenses" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="suppliers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -723,16 +463,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="30" width="1436" height="800" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="2560" height="1502" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2565371" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14296967" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35734463" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35673758" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -770,273 +510,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/watch">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18477044">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/common/right-sidebar/right-sidebar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2027027">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/common/common.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/calendar/calendar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/accounting/accounting.ngcontroller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/accounting/accounting.ngfactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngcomponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/dashboard/dashboard.ngcomponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/calendar/calendar.ngfactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/calendar/calendar.ngcomponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/accounting/accounting.ngcomponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/common/right-sidebar/right_sidebar.ngcontroller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/dashboard/dashboard.ngfactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/authentication/login/login.ngfactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/dashboard/dashboard.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.92537314">
-          <caret line="106" column="1" selection-start-line="106" selection-start-column="1" selection-end-line="106" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/_dashboard.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21641791">
-          <caret line="91" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="106" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/cirons.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7835821">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngfactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4600939">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8802817">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/common/css.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14925373">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/accounting/accounting.ngrouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.bowerrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1119403">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/images/logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/authentication/authentication.ngfactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85">
-          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
-          <folding>
-            <element signature="e#1129#1231#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/sales/sales.ngfactory.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/sales/sales.ngcomponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/authentication/authentication.ngroutes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3382353">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/authentication/login/login.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38990825">
-          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#form#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/dashboard/dashboard.ngrouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30882353">
-          <caret line="22" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="e#466#546#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/sales/sales.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18292683">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/accounting/accounting.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09146342">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/calendar/calendar.view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09146342">
@@ -1053,37 +526,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13719513">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/dashboard/dashboard.ngcontroller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/common/main-menu/main_menu.ngcontroller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13235295">
-          <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-          <folding>
-            <element signature="e#216#2018#0" expanded="false" />
-            <element signature="e#437#618#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/common/main-menu/main-menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43445122">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1106,77 +552,396 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/authentication/login/login.ngcontroller.js">
+    <entry file="file://$PROJECT_DIR$/app/components/calendar/calendar.ngcontroller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56674474">
-          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.ngconfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15925059">
-          <caret line="4" column="92" selection-start-line="4" selection-start-column="92" selection-end-line="4" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29508197">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.13529412">
+          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/sales/sales.ngrouter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24355972">
+        <state vertical-scroll-proportion="0.2647059">
+          <caret line="12" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#180#356#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/sales/sales.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18292683">
+          <caret line="8" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/stock/stock.ngcomponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/stock/stock.ngrouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44705883">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#180#337#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/stock/stock.ngfactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/stock/stock.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2647059">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngcomponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/_dashboard.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4512195">
+          <caret line="88" column="23" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/cirons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25062034">
+          <caret line="302" column="1" selection-start-line="302" selection-start-column="1" selection-end-line="302" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/common/main-menu/main-menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12718205">
+          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/common/main-menu/main_menu.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.38641685">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <folding>
+            <element signature="e#437#618#0" expanded="false" />
+            <element signature="e#636#815#0" expanded="false" />
+            <element signature="e#833#1021#0" expanded="false" />
+            <element signature="e#1039#1212#0" expanded="false" />
+            <element signature="e#1230#1417#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/purchasing/purchasing.ngcomponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/purchasing/purchasing.ngfactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16280752">
+          <caret line="15" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/purchasing/purchasing.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17083947">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/purchasing/purchasing.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06512301">
+          <caret line="3" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/hr/hr.ngcomponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/hr/hr.ngfactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/purchasing/purchasing.ngrouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0723589">
+          <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#184#361#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/hr/hr.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15463917">
           <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html">
+    <entry file="file://$PROJECT_DIR$/app/components/hr/hr.ngrouter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.230769">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.16787265">
+          <caret line="8" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/calendar/calendar.ngcontroller.js">
+    <entry file="file://$PROJECT_DIR$/app/components/hr/hr.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.090448625">
+          <caret line="5" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/accounting/accounting.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.023878437">
+          <caret line="1" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/accounting/accounting.ngrouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.060781475">
+          <caret line="3" column="77" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#184#353#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/system_admin/system_admin.ngfactory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js">
+    <entry file="file://$PROJECT_DIR$/app/components/stock/stock.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08836524">
+          <caret line="8" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/system_admin/system_admin.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18851252">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/system_admin/system_admin.ngcomponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
+    <entry file="file://$PROJECT_DIR$/app/components/system_admin/system_admin.ngcontroller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.586207">
+        <state vertical-scroll-proportion="0.06512301">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/system_admin/system_admin.ngrouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2626628">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#186#361#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/authentication/authenticate_me.ngfactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12662807">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/authentication/authentication.ngfactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84370476">
+          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+          <folding>
+            <element signature="e#1194#1302#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/authentication/login/login.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.392857">
+          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.ngconfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19536904">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/app.ngrun.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30441177">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.807692">
+          <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/authentication/authentication.ngroutes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding>
+            <element signature="e#232#404#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30927834">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/authentication/login/login.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2098408">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding>
+            <element signature="e#224#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.views.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7586207">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14109986">
+          <caret line="16" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38277858">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#182#351#0" expanded="true" />
+            <element signature="e#395#568#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

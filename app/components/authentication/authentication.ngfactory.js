@@ -1,18 +1,17 @@
-(function() {
+(function () {
     'use strict';
-    module.exports = Auth;
 
-    /*@ngInject*/
-    function Auth($location, $rootScope, $http, User, $cookieStore, $q, $state) {
+
+    angular.module('CIRONS-MAIN-APP').factory('authenticationFactory', function ($location, $rootScope, $http, meFactory, $cookieStore, $q, $state) {
         var currentUser = {};
 
         var auth = {
-            refresh: function() {
-                if($cookieStore.get('token')) {
-                    currentUser = User.get();
+            refresh: function () {
+                if ($cookieStore.get('token')) {
+                    currentUser = meFactory.get();
 
 
-                    currentUser.$promise.then(function(user) {
+                    currentUser.$promise.then(function (user) {
                         $rootScope.user = user;
                     });
 
@@ -31,25 +30,25 @@
              * @param  {Function} callback - optional
              * @return {Promise}
              */
-            login: function(user, callback) {
+            login: function (user, callback) {
                 var cb = callback || angular.noop;
                 var deferred = $q.defer();
 
-                $http.post('/auth/local', {
-                    email: user.email,
+                $http.post('http://janalex.beta.cirons.com/api/v1/auth', {
+                    username: user.username,
                     password: user.password
                 }).
-                success(function(data) {
+                success(function (data) {
                     $cookieStore.put('token', data.token);
-                    currentUser = User.get();
+                    currentUser = meFactory.get();
                     deferred.resolve(data);
                     $rootScope.$broadcast('loggedIn');
-                    currentUser.$promise.then(function(user) {
+                    currentUser.$promise.then(function (user) {
                         $rootScope.user = user;
                     });
                     return cb();
                 }).
-                error(function(err) {
+                error(function (err) {
                     this.logout();
                     deferred.reject(err);
                     return cb(err);
@@ -63,7 +62,7 @@
              *
              * @param  {Function}
              */
-            logout: function() {
+            logout: function () {
                 $cookieStore.remove('token');
                 currentUser = {};
             },
@@ -73,11 +72,11 @@
              *
              * @return {Object} user
              */
-            getCurrentUser: function() {
+            getCurrentUser: function () {
                 return currentUser;
             },
 
-            hasCompanyDetails: function() {
+            hasCompanyDetails: function () {
                 return currentUser.hasOwnProperty('company');
             },
 
@@ -85,14 +84,14 @@
             /**
              * Waits for currentUser to resolve before checking if user is logged in
              */
-            isLoggedInAsync: function(cb) {
-                if(currentUser.hasOwnProperty('$promise')) {
-                    currentUser.$promise.then(function() {
+            isLoggedInAsync: function (cb) {
+                if (currentUser.hasOwnProperty('$promise')) {
+                    currentUser.$promise.then(function () {
                         cb(true);
-                    }).catch(function() {
+                    }).catch(function () {
                         cb(false);
                     });
-                } else if(currentUser.hasOwnProperty('role')) {
+                } else if (currentUser.hasOwnProperty('role')) {
                     cb(true);
                 } else {
                     cb(false);
@@ -104,14 +103,14 @@
              *
              * @return {Boolean}
              */
-            isAdmin: function() {
+            isAdmin: function () {
                 return currentUser.role === 'admin';
             },
 
             /**
              * Get auth token
              */
-            getToken: function() {
+            getToken: function () {
                 return $cookieStore.get('token');
             }
         };
@@ -119,7 +118,7 @@
         auth.refresh();
 
         return auth;
-    }
+    });
 
-    Auth.$inject = ['$location', '$rootScope', '$http', 'User', '$cookieStore', '$q', '$state'];
+
 })();

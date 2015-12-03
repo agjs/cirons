@@ -16,6 +16,8 @@
     "font-awesome": "~4.*",
     "angular-ui-bootstrap": "~0.14.3",
     "semantic": "semantic-ui#~2.1.6",
-    "angular-route": "~1.4.8"
+    "angular-route": "~1.4.8",
+    "angular-cookies": "~1.4.8",
+    "satellizer": "~0.13.1"
   }
 }

@@ -1,34 +1,30 @@
-/* global module */
-(function () {
+(function() {
+
     'use strict';
 
+    angular
+        .module('CIRONS-MAIN-APP')
+        .controller('loginController', function($scope, $auth, $state) {
 
-    angular.module('CIRONS-MAIN-APP').controller('loginController', function ($scope, Auth, $location, $window) {
-        $scope.user = {};
-        $scope.errors = {};
 
-        $scope.login = function (form) {
-            $scope.submitted = true;
 
-            if (form.$valid) {
-                Auth.login({
-                        email: $scope.user.email,
-                        password: $scope.user.password
-                    })
-                    .then(function (data) {
+        $scope.login = function() {
 
-                        $location.path('/');
-                    })
-                    .catch(function (err) {
-                        $scope.errors.other = err.message;
-                    });
-            }
-        };
+            var credentials = {
+                username: $scope.username,
+                password: $scope.password
+            };
 
-        $scope.loginOauth = function (provider) {
-            $window.location.href = '/auth/' + provider;
-        };
-    })
+            // Use Satellizer's $auth service to login
+            $auth.login(credentials).then(function(data) {
 
+                // If login is successful, redirect to the users state
+
+                $state.go('dashboard', {});
+
+            });
+        }
+
+    });
 
 })();

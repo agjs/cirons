@@ -1,8 +1,7 @@
 (function () {
     "use strict";
 
-    angular.module('CIRONS-MAIN-APP').run(['$rootScope', '$state',
-        function ($rootScope, $state) {
+    angular.module('CIRONS-MAIN-APP').run(function ($rootScope, $state, meFactory) {
 
 
             $rootScope.$on('$stateChangeSuccess',
@@ -12,9 +11,13 @@
                 }
             );
 
+            meFactory.get().then(function (user) {
+                $rootScope.loggedIn = user;
+            });
+
 
         }
-    ]);
+    );
 
 })();
 

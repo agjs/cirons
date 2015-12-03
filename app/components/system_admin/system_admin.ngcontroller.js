@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module('CIRONS-MAIN-APP')
-        .controller('accountingController', function ($scope) {
+        .controller('systemAdminController', function ($scope) {
 
 
 
