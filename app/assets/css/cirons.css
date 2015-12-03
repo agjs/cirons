@@ -1779,10 +1779,11 @@ body.split_table .page-content {
     height: 100%;
     overflow: auto;
     background: white; }
-    body.split_table .page-content .open-view iframe {
-      height: 100%;
-      width: 100%;
-      border: none; }
+    body.split_table .page-content .open-view hr {
+      border: none;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.2);
+      margin: 15px 0; }
     body.split_table .page-content .open-view .open-view-content {
       padding: 0 30px 30px 30px; }
       body.split_table .page-content .open-view .open-view-content .stats {

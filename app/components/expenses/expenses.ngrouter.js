@@ -34,6 +34,26 @@
                 }
             })
 
+            .state('suppliers.create', {
+                url: "/create",
+                ncyBreadcrumb: {
+                    parent: 'suppliers',
+                    label: 'Create new'
+                },
+                views: {
+                    '': {
+                        templateUrl: 'components/expenses/suppliers/suppliers.view.html'
+                    },
+                    'suppliersList@suppliers': {
+                        templateUrl: 'components/expenses/suppliers/suppliers_list.view.html'
+                    },
+                    'suppliersContent@suppliers': {
+                        templateUrl: 'components/expenses/suppliers/suppliers_create.view.html',
+                        controller: 'suppliersCreateController'
+                    }
+                }
+            })
+
             .state('suppliers.item', {
                 url: "/:id",
                 params: {
@@ -54,8 +74,6 @@
                         templateUrl: 'components/expenses/suppliers/suppliers_content.view.html',
                         controller: 'suppliersSingleItemController'
                     }
-
-
                 }
             })
 
