@@ -4,9 +4,6 @@
     angular.module('CIRONS-MAIN-APP')
         .controller('navigationController', function ($scope, $rootScope, $auth, $state) {
 
-            $rootScope.$watch('currentState', function (newValue, oldValue) {
-                $scope.title = newValue.name;
-            });
 
             $scope.iconMenu = [
 
@@ -30,7 +27,7 @@
                 $auth.logout();
             }
 
-         console.log($auth.isAuthenticated());
+
 
 
         });

@@ -2,58 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c23b7577-fac0-41f1-93dc-958c381d7175" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/common/elements/breadcrumb_template.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_content.view.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_list.view.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/cirons.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/cirons.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_comments.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_dashboard.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_orderrows.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_split_table.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_timeline.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/_wizard.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/0539109180e41bbb95426d73323a26b15d0d28cd/cirons.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_comments.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_dashboard.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_orderrows.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_split_table.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_timeline.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/_wizard.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/3a2f1c15f61ad40f58f5cdf3c1938c9ead3a7e0e/cirons.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_comments.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_dashboard.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_orderrows.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_split_table.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_timeline.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/_wizard.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/.sass-cache/f0d276412e45104bec046b9672f941dee150e4d9/cirons.scssc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/_dashboard.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/_orderrows.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/_split_table.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/_timeline.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/_wizard.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/cirons.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/sass/watch" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/logo-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/logo-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/noimage.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.views.html" afterPath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.view.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/css/sass/_comments.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/common.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/a2693691365302e5995fdb7a1ac7097ce8546bfd/cirons.scssc" afterPath="$PROJECT_DIR$/app/assets/css/sass/.sass-cache/a2693691365302e5995fdb7a1ac7097ce8546bfd/cirons.scssc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.ngconfig.js" afterPath="$PROJECT_DIR$/app/app.ngconfig.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/cirons.css" afterPath="$PROJECT_DIR$/app/assets/css/cirons.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/cirons.css.map" afterPath="$PROJECT_DIR$/app/assets/css/cirons.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" afterPath="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" afterPath="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.ngrouter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/expenses/expenses.view.html" afterPath="$PROJECT_DIR$/app/components/expenses/expenses.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js" afterPath="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.ngcontroller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.ngrun.js" afterPath="$PROJECT_DIR$/app/app.ngrun.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js" afterPath="$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js" />
     </list>
     <ignored path="cirons-frontend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,21 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/index.html">
+      <file leaf-file-name="top-navigation.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.666667">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.25">
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="top-navigation.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html">
+      <file leaf-file-name="navigation.ngcontroller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22456141">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,73 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="angular-breadcrumb.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/libs/angular-breadcrumb/dist/angular-breadcrumb.js">
+      <file leaf-file-name="app.ngrun.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/app.ngrun.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="192" column="14" selection-start-line="192" selection-start-column="14" selection-end-line="192" selection-end-column="16" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/css/sass/common.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5">
-              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cirons.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/css/sass/cirons.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.0">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="breadcrumb_template.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/common/elements/breadcrumb_template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="suppliers.view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="suppliers_list.view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_list.view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.3125">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="expenses.ngcontroller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.12286689">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="8" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -212,9 +101,7 @@
         <option value="$PROJECT_DIR$/app/components/authentication/login/login.view.html" />
         <option value="$PROJECT_DIR$/app/components/authentication/authenticate_me.ngfactory.js" />
         <option value="$PROJECT_DIR$/app/components/authentication/authentication.ngfactory.js" />
-        <option value="$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js" />
         <option value="$PROJECT_DIR$/app/components/authentication/login/login.ngcontroller.js" />
-        <option value="$PROJECT_DIR$/app/app.ngrun.js" />
         <option value="$PROJECT_DIR$/app/components/expenses/suppliers/suppliers.views.html" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -237,6 +124,8 @@
         <option value="$PROJECT_DIR$/app/assets/css/sass/cirons.scss" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html" />
+        <option value="$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js" />
+        <option value="$PROJECT_DIR$/app/app.ngrun.js" />
       </list>
     </option>
   </component>
@@ -719,10 +608,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_list.view.html">
+    <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3125">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.46478873">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/libs/angular-breadcrumb/dist/angular-breadcrumb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7986348">
+          <caret line="192" column="14" selection-start-line="192" selection-start-column="14" selection-end-line="192" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/common.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07017544">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/cirons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42105263">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/common/elements/breadcrumb_template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -735,10 +658,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/expenses/suppliers/suppliers_list.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16292799">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/expenses/expenses.ngcontroller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.34129694">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/navigation.ngcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -753,52 +700,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/common/elements/breadcrumb_template.html">
+    <entry file="file://$PROJECT_DIR$/app/app.ngrun.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/libs/angular-breadcrumb/dist/angular-breadcrumb.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="192" column="14" selection-start-line="192" selection-start-column="14" selection-end-line="192" selection-end-column="16" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/common.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/css/sass/cirons.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.666667">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/common/top-navigation/top-navigation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22456141">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.12286689">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="8" selection-end-column="17" />
           <folding />
         </state>
       </provider>
