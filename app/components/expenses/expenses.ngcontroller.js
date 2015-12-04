@@ -6,6 +6,11 @@
             expensesFactory.getSuppliers().then(function(expenses){
                $scope.expenses = expenses.data.length;
             });
+
+            $scope.cardType = 'Invoices';
+            $scope.cardDescription = 'Manage your invoices';
+            $scope.cardColor = 'red';
+
         });
 })();
 

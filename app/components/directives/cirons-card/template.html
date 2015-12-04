@@ -1,11 +1,11 @@
 <div class="ui cards section-boxes">
-    <div class="{{color}} card section-icon">
+    <div class="{{cardColor}} card section-icon">
         <div class="content">
-            <i class="right floated mini ui {{color}} icon {{icon}}"></i>
-            <a ui-sref="suppliers" class="header">{{type}}</a>
+            <i class="right floated mini ui {{cardColor}} icon {{icon}}"></i>
+            <a ui-sref="suppliers" class="header">{{cardType}}</a>
 
             <div class="meta">
-               {{description}}
+                {{cardDescription}}
             </div>
             <div class="description">
                 <table class="section-box-number">
@@ -18,7 +18,7 @@
                             </div>
                         </td>
                         <td>
-                            <h3>{{type}}</h3>
+                            <h3>{{cardType}}</h3>
                         </td>
                     </tr>
                 </table>
