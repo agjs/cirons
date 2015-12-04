@@ -12,7 +12,7 @@
         position: relative;
 
         a {
-          color: rgba(0,0,0,0.8);
+          color: rgba(0, 0, 0, 0.8);
           text-decoration: none !important;
         }
 
@@ -23,7 +23,7 @@
 
       li:after {
         content: "\f105";
-        color: rgba(0,0,0,0.5);
+        color: rgba(0, 0, 0, 0.5);
         position: absolute;
         right: 10px;
         font-size: 18px;
@@ -38,6 +38,77 @@
       li:last-child {
         padding: 0;
       }
+    }
+  }
+}
+
+.editable-wrap {
+  position: relative;
+  display: block;
+
+  span.editable-controls {
+    display: block;
+
+    input {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 15px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.8);
+      border: 1px solid $cirons_blue;
+      border-radius: 0;
+      outline: none !important;
+    }
+  }
+
+  .editable-buttons {
+
+    button {
+      position: absolute;
+      right: 10px;
+      top: 6px;
+      font-size: 0;
+      color: rgba(0, 0, 0, 0);
+      @include border-radius(50%);
+      height: 28px;
+      width: 28px;
+      background: $cirons_blue;
+      border: none;
+    }
+
+    button[type="submit"] {
+      right: 40px;
+    }
+
+    button[type="submit"]:after {
+      content: "\f00c";
+      font-family: FontAwesome;
+      position: absolute;
+      font-size: 16px;
+      color: white;
+      height: 28px;
+      width: 28px;
+      line-height: 23px;
+      left: 0;
+    }
+
+    button[type="button"] {
+      background: #eee;
+    }
+
+    button[type="button"]:after {
+      content: "\f00d";
+      font-family: FontAwesome;
+      position: absolute;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.4);
+      height: 28px;
+      width: 28px;
+      line-height: 21px;
+      left: 0;
     }
   }
 }

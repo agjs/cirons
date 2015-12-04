@@ -1674,7 +1674,7 @@ span.receivable strong {
 body.split_table .split-view {
   height: 100%; }
 body.split_table .split-view > div:first-child {
-  width: 28.0%;
+  width: 28%;
   float: left; }
 body.split_table .split-view > div:last-child {
   width: 72%;
@@ -1838,5 +1838,61 @@ body.split_table .page-content {
     display: none; }
   .page-title h1 ol li:last-child {
     padding: 0; }
+
+.editable-wrap {
+  position: relative;
+  display: block; }
+  .editable-wrap span.editable-controls {
+    display: block; }
+    .editable-wrap span.editable-controls input {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 15px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.8);
+      border: 1px solid #3681b1;
+      border-radius: 0;
+      outline: none !important; }
+  .editable-wrap .editable-buttons button {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    font-size: 0;
+    color: transparent;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    height: 28px;
+    width: 28px;
+    background: #3681b1;
+    border: none; }
+  .editable-wrap .editable-buttons button[type="submit"] {
+    right: 40px; }
+  .editable-wrap .editable-buttons button[type="submit"]:after {
+    content: "\f00c";
+    font-family: FontAwesome;
+    position: absolute;
+    font-size: 16px;
+    color: white;
+    height: 28px;
+    width: 28px;
+    line-height: 23px;
+    left: 0; }
+  .editable-wrap .editable-buttons button[type="button"] {
+    background: #eee; }
+  .editable-wrap .editable-buttons button[type="button"]:after {
+    content: "\f00d";
+    font-family: FontAwesome;
+    position: absolute;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.4);
+    height: 28px;
+    width: 28px;
+    line-height: 21px;
+    left: 0; }
 
 /*# sourceMappingURL=cirons.css.map */
