@@ -1800,7 +1800,7 @@ body.split_table .page-content {
           margin-top: 5px; }
       body.split_table .page-content .open-view .open-view-content .toolbar {
         height: 80px;
-        background: #eee;
+        background: #fff;
         padding: 20px 30px;
         position: relative;
         border: none;
