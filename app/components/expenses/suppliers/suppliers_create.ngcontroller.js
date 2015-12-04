@@ -5,7 +5,7 @@
 
         $scope.addSupplier = function () {
             expensesFactory.addSupplier($scope.company_name).then(function (added) {
-                console.log(added.data);
+                $scope.expenses.push(added.data);
             });
         }
 
