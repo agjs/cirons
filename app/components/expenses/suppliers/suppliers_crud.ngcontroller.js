@@ -15,8 +15,14 @@
 
         $scope.editSupplier = function (companyName) {
             expensesFactory.editSupplier($stateParams.id, companyName).then(function (edited) {
-            $scope.expenses[$stateParams.id].company_name = edited.company_name;
 
+                var x = _.find($scope.expenses, function (arg) {
+                    return arg.id == $stateParams.id;
+                });
+
+                if (x) {
+                    x.company_name = edited.company_name;
+                }
 
 
             });
