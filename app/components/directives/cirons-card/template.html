@@ -1,8 +1,8 @@
 <div class="ui cards section-boxes">
     <div class="{{cardColor}} card section-icon">
         <div class="content">
-            <i class="right floated mini ui {{cardColor}} icon {{icon}}"></i>
-            <a ui-sref="suppliers" class="header">{{cardType}}</a>
+            <i class="right floated mini ui {{cardColor}} icon {{cardIcon}}"></i>
+            <a ui-sref="{{cstate}}" class="header">{{cardType}}</a>
 
             <div class="meta">
                 {{cardDescription}}
@@ -13,7 +13,7 @@
                         <td>
                             <div class="ui red statistic">
                                 <div class="value">
-                                    {{length}}
+                                    {{cardCounter}}
                                 </div>
                             </div>
                         </td>

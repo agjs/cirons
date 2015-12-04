@@ -4,13 +4,18 @@
 angular.module('CIRONS-MAIN-APP').directive('cironsCard', function(){
 
     return {
-        templateUrl: 'components/directives/cirons-card/template.html',
-        restrict: 'E',
+        restrict: 'EA',
         scope: {
             cardType: '=ctype',
             cardDescription: '=cdesc',
-            cardColor: '=ccolor'
-        }
+            cardColor: '=ccolor',
+            cardIcon: '=cicon',
+            cardCounter: '=ccounter',
+            cstate: '@'
+        },
+        templateUrl: 'components/directives/cirons-card/template.html',
+        replace:true,
+        link: function(scope){}
     }
 
 });

@@ -5,14 +5,13 @@
         .controller('expensesController', function ($scope, expensesFactory, $state) {
 
             expensesFactory.getSuppliers().then(function(expenses){
-               $scope.expenses = expenses.data.length;
-
-
+                $scope.cardType = 'Invoices';
+                $scope.cardDescription = 'Manage your invoices';
+                $scope.cardColor = 'red';
+                $scope.cardIcon = 'building';
+                $scope.cardCounter = expenses.data.length;
+                $scope.cardState = 'suppliers';
             });
-
-            $scope.cardType = 'Invoices';
-            $scope.cardDescription = 'Manage your invoices';
-            $scope.cardColor = 'red';
 
         });
 })();
