@@ -5,10 +5,10 @@
         .factory('expensesFactory', function ($http, $q) {
             return {
 
-                getSuppliers: function() {
+                getSuppliers: function () {
                     var defer = $q.defer();
-                    return $http.get('http://janalex.beta.cirons.com/api/v1/suppliers').then(function(expenses){
-                        if(expenses) {
+                    return $http.get('http://janalex.beta.cirons.com/api/v1/suppliers').then(function (expenses) {
+                        if (expenses) {
                             return expenses;
                         } else {
                             throw new Error('No expenses found');
@@ -17,16 +17,34 @@
                     });
                 },
 
-                getSupplier: function(id) {
+                getSupplier: function (id) {
                     var defer = $q.defer();
-                    return $http.get('http://janalex.beta.cirons.com/api/v1/suppliers' + '/' + id).then(function(item){
-                        if(item) {
+                    return $http.get('http://janalex.beta.cirons.com/api/v1/suppliers' + '/' + id).then(function (item) {
+                        if (item) {
                             return item;
                         } else {
                             throw new Error('No expenses found');
                         }
 
                     });
+                },
+
+                addSupplier: function (supplier) {
+                    console.log(supplier);
+                    var defer = $q.defer();
+                    return $http({
+                        url: 'http://janalex.beta.cirons.com/api/v1/suppliers',
+                        method: 'POST',
+                        data: {company_name: supplier}
+                    }).then(function (item) {
+                        if (item) {
+                            return item;
+                        } else {
+                            throw new Error('Supplier could not be added!');
+                        }
+
+                    });
+
                 }
             }
 
