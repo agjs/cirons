@@ -27,7 +27,8 @@
 
                     },
                     'suppliersList@suppliers': {
-                        templateUrl: 'components/expenses/suppliers/suppliers_list.view.html'
+                        templateUrl: 'components/expenses/suppliers/suppliers_list.view.html',
+                        controller: 'suppliersListController'
                     }
 
 
@@ -45,7 +46,8 @@
                         templateUrl: 'components/expenses/suppliers/suppliers.view.html'
                     },
                     'suppliersList@suppliers': {
-                        templateUrl: 'components/expenses/suppliers/suppliers_list.view.html'
+                        templateUrl: 'components/expenses/suppliers/suppliers_list.view.html',
+                        controller: 'suppliersListController'
                     },
                     'suppliersContent@suppliers': {
                         templateUrl: 'components/expenses/suppliers/suppliers_create.view.html',
@@ -68,7 +70,8 @@
                         templateUrl: 'components/expenses/suppliers/suppliers.view.html'
                     },
                     'suppliersList@suppliers': {
-                        templateUrl: 'components/expenses/suppliers/suppliers_list.view.html'
+                        templateUrl: 'components/expenses/suppliers/suppliers_list.view.html',
+                        controller: 'suppliersListController'
                     },
                     'suppliersContent@suppliers': {
                         templateUrl: 'components/expenses/suppliers/suppliers_content.view.html',

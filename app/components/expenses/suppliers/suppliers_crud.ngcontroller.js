@@ -10,15 +10,15 @@
         };
 
         $scope.removeSupplier = function () {
-            expensesFactory.removeSupplier($stateParams.id).then(function (removed) {
-                console.log('supplier with id ' + $stateParams.id + '  removed!');
-            });
+            expensesFactory.removeSupplier($stateParams.id);
         };
 
         $scope.editSupplier = function (companyName) {
             expensesFactory.editSupplier($stateParams.id, companyName).then(function (edited) {
-                console.log(edited);
-                console.log('supplier with id ' + $stateParams.id + '  edited!');
+            $scope.expenses[$stateParams.id].company_name = edited.company_name;
+
+
+
             });
         };
 

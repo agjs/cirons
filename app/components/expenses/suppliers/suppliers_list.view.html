@@ -10,9 +10,10 @@
 
         <ul>
             <!-- ngRepeat: item in items -->
-            <li ui-sref="suppliers.item({id: item.id, supplier: item})" ng-repeat="item in expenses">
+            <li ui-sref="suppliers.item({id: item.id, supplier: item})" ng-repeat="item in expenses track by $index">
                 <div class="clearfix">
                     <i>{{$index + 1}}</i>
+                    <!--ng-class="{'active': (currentState() === 'suppliers.item')}"-->
                     <strong>{{item.company_name}}</strong>
                 </div>
                 <div class="sec clearfix">
