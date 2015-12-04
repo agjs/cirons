@@ -5,6 +5,8 @@
 
 ##CRUD
 
+###GET ALL
+
 GET `/suppliers`
 
 Returns:
@@ -32,6 +34,8 @@ Returns:
 
 ---
 
+###GET SINGLE
+
 GET `/suppliers/{id}`
 
 Return:
@@ -56,6 +60,8 @@ Return:
 
 ---
 
+###UPDATE
+
 PUT `suppliers/{id}`
 
 Params:
@@ -75,4 +81,29 @@ Params:
 * supplier_invoices
 
 Returns:
-`JSON-object` of the new saved supplier
+`JSON-object` of the updated supplier
+
+---
+
+###CREATE
+
+POST `suppliers/`
+
+Params:
+
+* id
+* created_at
+* updated_at
+* company_name (required)
+* contact_id
+* address_id
+* company_number
+* vat_no
+* default_category
+* default_vat
+* delivery_days
+* receipts
+* supplier_invoices
+
+Returns:
+`JSON-object` of the updated supplier
