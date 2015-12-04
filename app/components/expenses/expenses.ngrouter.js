@@ -49,7 +49,7 @@
                     },
                     'suppliersContent@suppliers': {
                         templateUrl: 'components/expenses/suppliers/suppliers_create.view.html',
-                        controller: 'suppliersCreateController'
+                        controller: 'suppliersCRUDController'
                     }
                 }
             })

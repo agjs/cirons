@@ -9,7 +9,7 @@
                 $scope.cardDescription = 'Manage your invoices';
                 $scope.cardColor = 'red';
                 $scope.cardIcon = 'building';
-                $scope.cardCounter = expenses.data.length;
+                $scope.cardCounter = expenses.length;
                 $scope.cardState = 'suppliers';
             });
 

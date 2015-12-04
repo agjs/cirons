@@ -5,7 +5,7 @@
         .controller('suppliersController', function ($scope, $rootScope, $auth, expensesFactory, $state) {
 
             expensesFactory.getSuppliers().then(function (expenses) {
-                $scope.expenses = expenses.data;
+                $scope.expenses = expenses;
             });
 
         });

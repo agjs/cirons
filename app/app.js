@@ -6,7 +6,8 @@ angular.module('CIRONS-MAIN-APP', [
     'ngRoute',
     'ngCookies',
     'satellizer',
-    'ncy-angular-breadcrumb'
+    'ncy-angular-breadcrumb',
+    'xeditable'
 
 ]);
 
