@@ -1,7 +1,11 @@
 (function() {
   "use strict";
 
-  angular.module('CIRONS-MAIN-APP').run(function($rootScope, $state, meFactory, editableOptions, editableThemes) {
+  angular.module('CIRONS-MAIN-APP').run(function($rootScope, $state, meFactory, editableOptions, editableThemes, authenticationFactory) {
+
+    authenticationFactory.getCurrentUser().then(function(d){
+      console.log(d);
+    })
 
     $rootScope.$state = $state;
 

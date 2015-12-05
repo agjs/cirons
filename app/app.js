@@ -1,7 +1,7 @@
-(function(){
-"use strict";
+(function() {
+  "use strict";
 
-angular.module('CIRONS-MAIN-APP', [
+  angular.module('CIRONS-MAIN-APP', [
     'ui.router',
     'ngRoute',
     'ngCookies',
@@ -9,7 +9,6 @@ angular.module('CIRONS-MAIN-APP', [
     'ncy-angular-breadcrumb',
     'xeditable'
 
-]);
+  ]);
 
 })();
-
