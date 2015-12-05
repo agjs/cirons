@@ -6,3 +6,4 @@ libs
 .tmp
 .sass-cache
 npm-debug.log
+.tern-project
