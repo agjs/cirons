@@ -1,25 +1,22 @@
-#TODO
+# TODO
+## Install libraries?
+- Moment.js
+- time-counter
+- countUp.js
 
-###Install libraries?
-* Moment.js
-* time-counter
-* countUp.js
+## Parts
+- Gauges
 
-###Parts
-* Gauges
+## Old Codes
+### Pusher
 
-
-
-###Old Codes
-
-####Pusher
 ```javascript
 (function(){
                 if (!("Notification" in window)) {
                     console.log("This browser does not support desktop notification");
                 } else if (Notification.permission === "granted") {
                     // If it's okay let's create a notification
-                    
+
                   }
 
                   // Otherwise, we need to ask the user for permission
@@ -27,7 +24,7 @@
                     Notification.requestPermission(function (permission) {
                       // If the user accepts, let's create a notification
                       if (permission === "granted") {
-                        
+
                       }
                     });
                   }

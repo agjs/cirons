@@ -3,9 +3,7 @@
 
   angular.module('CIRONS-MAIN-APP').run(function($rootScope, $state, meFactory, editableOptions, editableThemes, authenticationFactory) {
 
-    authenticationFactory.getCurrentUser().then(function(d){
-      console.log(d);
-    })
+    authenticationFactory.getCurrentUser();
 
     $rootScope.$state = $state;
 
