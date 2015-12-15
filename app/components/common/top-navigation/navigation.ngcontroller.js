@@ -18,10 +18,9 @@
 
     ];
 
-    meFactory.async().then(function(user){
-    $scope.user = user.data;
+    meFactory.async().then(function(user) {
+      $scope.user = user.data;
     });
-
 
   }
 
