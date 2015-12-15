@@ -8,7 +8,8 @@
     'ngCookies',
     'satellizer',
     'ncy-angular-breadcrumb',
-    'xeditable'
+    'xeditable',
+    'ngLodash'
 
   ]);
 
