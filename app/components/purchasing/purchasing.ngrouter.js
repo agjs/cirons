@@ -7,11 +7,10 @@
             .state('purchasing', {
                 url: "/purchasing",
                 controller: 'purchasingController',
-                templateUrl: "components/purchasing/purchasing.view.html"
+                templateUrl: "components/purchasing/purchasing.view.html",
+                
             })
 
 
     });
 })();
-
-

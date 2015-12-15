@@ -2,19 +2,17 @@
   'use strict';
 
 
-  angular.module('CIRONS-MAIN-APP').factory('authenticationFactory', function($location, $rootScope, $http, meFactory, $cookieStore, $q, $state) {
+  angular.module('CIRONS-MAIN-APP').factory('authenticationFactory', function($location, $rootScope, $auth, $http, meFactory, $cookieStore, $q, $state) {
     var currentUser = {};
 
     var auth = {
       refresh: function() {
         if ($cookieStore.get('token')) {
-          currentUser = meFactory.get();
-
-          currentUser.then(function(user) {
-            $rootScope.user = user;
+          meFactory.async().then(function(user) {
+            currentUser = user.data;
+            $rootScope.user = user.data;
           });
-
-          return currentUser.$promise;
+          return currentUser;
         } else {
           var dfd = $q.defer();
           dfd.resolve(false);
@@ -39,12 +37,14 @@
         }).
         success(function(data) {
           $cookieStore.put('token', data.token);
-          currentUser = meFactory.get();
+          $auth.setToken(data.token);
+
+          meFactory.async().then(function(user) {
+            currentUser = user.data;
+            $rootScope.user = user.data;
+          });
           deferred.resolve(data);
           $rootScope.$broadcast('loggedIn');
-          currentUser.then(function(user) {
-            $rootScope.user = user;
-          });
           return cb();
         }).
         error(function(err) {
@@ -79,13 +79,7 @@
        * Waits for currentUser to resolve before checking if user is logged in
        */
       isLoggedInAsync: function(cb) {
-        if (currentUser.hasOwnProperty('$promise')) {
-          currentUser.$promise.then(function() {
-            cb(true);
-          }).catch(function() {
-            cb(false);
-          });
-        } else if (currentUser.hasOwnProperty('role')) {
+        if (currentUser.hasOwnProperty('first_name')) {
           cb(true);
         } else {
           cb(false);
@@ -94,7 +88,7 @@
 
 
       isLoggedIn: function() {
-        return currentUser.hasOwnProperty('role');
+        return currentUser;
       },
 
       /**

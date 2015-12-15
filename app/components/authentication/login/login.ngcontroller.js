@@ -13,7 +13,7 @@
         $scope.submitted = true;
 
 
-        $auth.login({
+        authenticationFactory.login({
             username: $scope.username,
             password: $scope.password
           })

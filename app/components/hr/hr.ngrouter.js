@@ -7,11 +7,10 @@
             .state('hr', {
                 url: "/hr",
                 controller: 'hrController',
-                templateUrl: "components/hr/hr.view.html"
+                templateUrl: "components/hr/hr.view.html",
+                
             })
 
 
     });
 })();
-
-

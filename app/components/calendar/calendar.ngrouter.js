@@ -8,7 +8,8 @@
             .state('calendar', {
                 url: "/calendar",
                 controller: 'calendarController',
-                templateUrl: "components/calendar/calendar.view.html"
+                templateUrl: "components/calendar/calendar.view.html",
+                
             })
 
     });

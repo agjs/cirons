@@ -9,7 +9,8 @@
                 url: "/sales",
                 controller: '',
                 controllerAs: '',
-                templateUrl: "components/sales/sales.view.html"
+                templateUrl: "components/sales/sales.view.html",
+                
             })
 
 

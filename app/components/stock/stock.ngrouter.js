@@ -8,7 +8,8 @@
             .state('stock', {
                 url: "/stock",
                 controller: 'stockController',
-                templateUrl: "components/stock/stock.view.html"
+                templateUrl: "components/stock/stock.view.html",
+                
             })
 
 

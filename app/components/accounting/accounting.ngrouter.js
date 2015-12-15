@@ -1,17 +1,15 @@
-(function () {
-    "use strict";
+(function() {
+  "use strict";
 
-    angular.module('CIRONS-MAIN-APP').config(function ($stateProvider, $urlRouterProvider) {
+  angular.module('CIRONS-MAIN-APP').config(function($stateProvider, $urlRouterProvider) {
 
-        $stateProvider
-            .state('accounting', {
-                url: "/accounting",
-                controller: 'hrController',
-                templateUrl: "components/accounting/accounting.view.html"
-            })
+    $stateProvider
+      .state('accounting', {
+        url: "/accounting",
+        controller: 'hrController',
+        templateUrl: "components/accounting/accounting.view.html",
+      })
 
 
-    });
+  });
 })();
-
-
