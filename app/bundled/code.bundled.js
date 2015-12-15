@@ -47,6 +47,13 @@
 
     editableOptions.theme = 'default';
 
+    $rootScope.$on('$stateChangeSuccess',
+      function(event, toState, toParams, fromState, fromParams) {
+        $rootScope.currentState = toState.name;
+      }
+    )
+
+
     editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
 
     $rootScope.$on('$stateChangeSuccess', function(event, next) {
@@ -74,12 +81,13 @@
     require('../components/sales/sales.ngcomponent');
     require('../components/stock/stock.ngcomponent');
     require('../components/system_admin/system_admin.ngcomponent');
+    require('../components/user_settings/user_settings.ngcomponent');
 
 
     require('../components/directives/directives.ngcomponent');
 })();
 
-},{"../components/accounting/accounting.ngcomponent":5,"../components/authentication/authentication.ngcomponent":10,"../components/calendar/calendar.ngcomponent":15,"../components/common/common.ngcomponent":19,"../components/dashboard/dashboard.ngcomponent":24,"../components/directives/directives.ngcomponent":30,"../components/expenses/expenses.ngcomponent":31,"../components/hr/hr.ngcomponent":39,"../components/purchasing/purchasing.ngcomponent":43,"../components/sales/sales.ngcomponent":47,"../components/stock/stock.ngcomponent":51,"../components/system_admin/system_admin.ngcomponent":55,"../main.ngcomponent":59}],5:[function(require,module,exports){
+},{"../components/accounting/accounting.ngcomponent":5,"../components/authentication/authentication.ngcomponent":10,"../components/calendar/calendar.ngcomponent":15,"../components/common/common.ngcomponent":19,"../components/dashboard/dashboard.ngcomponent":24,"../components/directives/directives.ngcomponent":30,"../components/expenses/expenses.ngcomponent":31,"../components/hr/hr.ngcomponent":39,"../components/purchasing/purchasing.ngcomponent":43,"../components/sales/sales.ngcomponent":47,"../components/stock/stock.ngcomponent":51,"../components/system_admin/system_admin.ngcomponent":55,"../components/user_settings/user_settings.ngcomponent":59,"../main.ngcomponent":63}],5:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -1315,6 +1323,65 @@ angular.module('CIRONS-MAIN-APP')
 })();
 
 },{}],59:[function(require,module,exports){
+(function(){
+"use strict";
+
+angular.module('CIRONS-MAIN-APP')
+    .controller('userSettingsController', require('./user_settings.ngcontroller'))
+    .factory('userSettingsFactory', require('./user_settings.ngfactory'))
+    .config(require('./user_settings.ngrouter'));
+})();
+
+},{"./user_settings.ngcontroller":60,"./user_settings.ngfactory":61,"./user_settings.ngrouter":62}],60:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = userSettingsController;
+  function userSettingsController($scope) {
+
+
+  }
+
+  userSettingsController.$inject = ['$scope'];
+})();
+
+},{}],61:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = userSettingsFactory;
+
+  function userSettingsFactory($http, $q) {
+
+    return {
+
+    };
+
+  }
+
+  userSettingsFactory.$inject = ['$http', '$q'];
+
+})();
+
+},{}],62:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = userSettingsRouter;
+
+  function userSettingsRouter($stateProvider) {
+    $stateProvider
+      .state('settings', {
+        url: "/settings",
+        controller: 'userSettingsController',
+        templateUrl: "components/user_settings/user_settings.view.html",
+      })
+
+
+  }
+
+  userSettingsRouter.$inject = ['$stateProvider'];
+
+})();
+
+},{}],63:[function(require,module,exports){
 (function () {
   'use strict';
   require('./app')

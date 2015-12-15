@@ -1440,10 +1440,10 @@ table.info-table {
 .logo img {
   max-width: 100%;
 }
-@import "timeline";
-@import "wizard";
-@import "orderrows";
-@import "dashboard";
-@import "comments";
-@import "split_table";
-@import "common";
+@import "_timeline";
+@import "_wizard";
+@import "_orderrows";
+@import "_dashboard";
+@import "_comments";
+@import "_split_table";
+@import "_common";
