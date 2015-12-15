@@ -2,7 +2,7 @@
   'use strict';
   module.exports = navigationController;
 
-  function navigationController($scope, $rootScope, $auth, $state) {
+  function navigationController($scope, $rootScope, $auth, $state, meFactory) {
     $scope.iconMenu = [
 
       {
@@ -16,15 +16,15 @@
         state: ''
       }
 
-
     ];
 
-    $scope.logout = function() {
-      $auth.logout();
-    };
+    meFactory.async().then(function(user){
+    $scope.user = user.data;
+    });
+
 
   }
 
-  navigationController.$inject = ['$scope', '$rootScope', '$auth', '$state'];
+  navigationController.$inject = ['$scope', '$rootScope', '$auth', '$state', 'meFactory'];
 
 })();

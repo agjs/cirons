@@ -1,12 +1,11 @@
 (function() {
-    'use strict';
-    module.exports = accountingController;
+  'use strict';
+  module.exports = accountingController;
 
-    function accountingController($scope) {
+  function accountingController($scope) {
 
 
-    }
-
+  }
   accountingController.$inject = ['$scope'];
 
 })();

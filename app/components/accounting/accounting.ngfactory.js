@@ -1,11 +1,11 @@
 (function() {
-    'use strict';
-    module.exports = accountingFactory;
+  'use strict';
+  module.exports = accountingFactory;
 
-    function accountingFactory() {
+  function accountingFactory() {
 
 
-    }
+  }
 
   accountingFactory.$inject = [];
 
