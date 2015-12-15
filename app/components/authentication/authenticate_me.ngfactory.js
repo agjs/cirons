@@ -1,7 +1,8 @@
 (function() {
-  "use strict";
+  'use strict';
+  module.exports = authenticateMe;
 
-  angular.module('CIRONS-MAIN-APP').factory('meFactory', function($http, $q) {
+  function authenticateMe($http, $q) {
 
     return {
       async: function() {
@@ -9,6 +10,8 @@
       }
     };
 
-  });
+  }
+
+  authenticateMe.$inject = ['$http', '$q'];
 
 })();

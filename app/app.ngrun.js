@@ -1,7 +1,10 @@
 (function() {
   "use strict";
 
-  angular.module('CIRONS-MAIN-APP').run(function($rootScope, $location, $state, meFactory, editableOptions, editableThemes, $auth) {
+
+  module.exports = ngRun;
+
+  function ngRun($rootScope, $location, $state, meFactory, editableOptions, editableThemes, $auth) {
 
     editableOptions.theme = 'default';
 
@@ -13,6 +16,6 @@
         $location.path('/login');
       }
     });
-  });
-
+  }
+  ngRun.$inject = ['$rootScope', '$location', '$state', 'meFactory', 'editableOptions', 'editableThemes', '$auth'];
 })();

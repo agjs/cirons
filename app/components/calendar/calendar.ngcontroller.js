@@ -1,12 +1,12 @@
-(function () {
-    "use strict";
+(function() {
+  'use strict';
+  module.exports = calendarController;
 
-    angular.module('CIRONS-MAIN-APP')
-        .controller('calendarController', function ($scope) {
+  function calendarController($scope) {
 
 
+  }
 
-        });
+  calendarController.$inject = ['$scope'];
 
 })();
-

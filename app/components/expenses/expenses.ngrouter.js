@@ -1,8 +1,9 @@
 (function() {
-  "use strict";
+  'use strict';
+  module.exports = expensesRouter;
 
-  angular.module('CIRONS-MAIN-APP').config(function($stateProvider, $urlRouterProvider) {
-
+  function expensesRouter($stateProvider) {
+    $stateProvider
     $stateProvider
       .state('expenses', {
         url: "/expenses",
@@ -78,8 +79,10 @@
           controller: 'suppliersSingleItemController'
         }
       }
-    })
+    });
 
+  }
 
-  });
+  expensesRouter.$inject = ['$stateProvider'];
+
 })();

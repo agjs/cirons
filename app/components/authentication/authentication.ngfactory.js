@@ -1,8 +1,9 @@
 (function() {
   'use strict';
+  module.exports = authenticationFactory;
 
+  function authenticationFactory($location, $rootScope, $auth, $http, meFactory, $cookieStore, $q, $state) {
 
-  angular.module('CIRONS-MAIN-APP').factory('authenticationFactory', function($location, $rootScope, $auth, $http, meFactory, $cookieStore, $q, $state) {
     var currentUser = {};
 
     var auth = {
@@ -74,35 +75,14 @@
       getCurrentUser: function() {
         return currentUser;
       },
-
-      /**
-       * Waits for currentUser to resolve before checking if user is logged in
-       */
-      isLoggedInAsync: function(cb) {
-        if (currentUser.hasOwnProperty('first_name')) {
-          cb(true);
-        } else {
-          cb(false);
-        }
-      },
-
-
-      isLoggedIn: function() {
-        return currentUser;
-      },
-
-      /**
-       * Get auth token
-       */
-      getToken: function() {
-        return $cookieStore.get('token');
-      }
     };
 
     auth.refresh();
 
     return auth;
-  });
 
+  }
+
+  authenticationFactory.$inject = ['$location', '$rootScope', '$auth', '$http', 'meFactory', '$cookieStore', '$q', '$state'];
 
 })();

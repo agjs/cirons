@@ -1,10 +1,9 @@
 (function() {
   "use strict";
 
+module.exports = ngConfig;
 
-  angular.module('CIRONS-MAIN-APP').config(function($httpProvider, $urlRouterProvider, $locationProvider, $authProvider, $breadcrumbProvider) {
-
-
+  function ngConfig($httpProvider, $urlRouterProvider, $locationProvider, $authProvider, $breadcrumbProvider) {
 
 
     $httpProvider.interceptors.push('authenticationInterceptor');
@@ -17,7 +16,8 @@
     });
 
 
-  })
+  }
 
+ngConfig.$inject = ['$httpProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', '$breadcrumbProvider'];
 
 })();

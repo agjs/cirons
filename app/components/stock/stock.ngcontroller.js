@@ -1,9 +1,12 @@
-(function(){
-"use strict";
+(function() {
+  'use strict';
+  module.exports = stockController;
 
-angular.module('CIRONS-MAIN-APP').controller('stockController', function($scope){
+  function stockController($scope) {
 
-});
+
+  }
+
+  stockController.$inject = ['$scope'];
 
 })();
-

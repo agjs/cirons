@@ -1,16 +1,19 @@
-(function () {
-    "use strict";
+(function() {
+  'use strict';
+  module.exports = hrRouter;
 
-    angular.module('CIRONS-MAIN-APP').config(function ($stateProvider, $urlRouterProvider) {
+  function hrRouter($stateProvider) {
+    $stateProvider
+      .state('hr', {
+        url: "/hr",
+        controller: 'hrController',
+        templateUrl: "components/hr/hr.view.html",
 
-        $stateProvider
-            .state('hr', {
-                url: "/hr",
-                controller: 'hrController',
-                templateUrl: "components/hr/hr.view.html",
-                
-            })
+      })
 
 
-    });
+  }
+
+  hrRouter.$inject = ['$stateProvider'];
+
 })();

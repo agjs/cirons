@@ -1,8 +1,10 @@
+/* global module  */
 (function() {
-  "use strict";
+  'use strict';
+  module.exports = accountingRoutes;
 
-  angular.module('CIRONS-MAIN-APP').config(function($stateProvider, $urlRouterProvider) {
-
+  /*@ngInject*/
+  function accountingRoutes($stateProvider) {
     $stateProvider
       .state('accounting', {
         url: "/accounting",
@@ -10,6 +12,8 @@
         templateUrl: "components/accounting/accounting.view.html",
       })
 
+  }
 
-  });
+  accountingRoutes.$inject = ['$stateProvider'];
+
 })();

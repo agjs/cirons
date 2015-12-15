@@ -1,24 +1,26 @@
-(function(){
-"use strict";
+(function() {
+    "use strict";
+    module.exports = cironsCard;
 
-angular.module('CIRONS-MAIN-APP').directive('cironsCard', function(){
+    function cironsCard() {
 
-    return {
+      return {
         restrict: 'EA',
         scope: {
-            cardType: '=ctype',
-            cardDescription: '=cdesc',
-            cardColor: '=ccolor',
-            cardIcon: '=cicon',
-            cardCounter: '=ccounter',
-            cstate: '@'
+          cardType: '=ctype',
+          cardDescription: '=cdesc',
+          cardColor: '=ccolor',
+          cardIcon: '=cicon',
+          cardCounter: '=ccounter',
+          cstate: '@'
         },
         templateUrl: 'components/directives/cirons-card/template.html',
-        replace:true,
-        link: function(scope){}
+        replace: true,
+        link: function(scope) {}
+      }
+
     }
 
-});
+    cironsCard.$inject = [];
 
 })();
-

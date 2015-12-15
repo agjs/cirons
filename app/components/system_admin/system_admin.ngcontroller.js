@@ -1,12 +1,12 @@
-(function () {
-    "use strict";
+(function() {
+  'use strict';
+  module.exports = systemAdminController;
 
-    angular.module('CIRONS-MAIN-APP')
-        .controller('systemAdminController', function ($scope) {
+  function systemAdminController($scope) {
 
 
+  }
 
-        });
+  systemAdminController.$inject = ['$scope'];
 
 })();
-

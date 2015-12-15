@@ -1,12 +1,12 @@
-(function () {
-    "use strict";
+(function() {
+  'use strict';
+  module.exports = hrController;
 
-    angular.module('CIRONS-MAIN-APP')
-        .controller('hrController', function ($scope) {
+  function hrController($scope) {
 
 
+  }
 
-        });
+  hrController.$inject = ['$scope'];
 
 })();
-

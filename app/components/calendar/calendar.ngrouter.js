@@ -1,18 +1,18 @@
-(function () {
-    "use strict";
+(function() {
+  'use strict';
+  module.exports = calendarRouter;
 
-    angular.module('CIRONS-MAIN-APP').config(function ($stateProvider, $urlRouterProvider) {
+  function calendarRouter($stateProvider) {
+    $stateProvider
+      .state('calendar', {
+        url: "/calendar",
+        controller: 'calendarController',
+        templateUrl: "components/calendar/calendar.view.html",
 
-        $stateProvider
+      })
 
-            .state('calendar', {
-                url: "/calendar",
-                controller: 'calendarController',
-                templateUrl: "components/calendar/calendar.view.html",
-                
-            })
+  }
 
-    });
-
+  calendarRouter.$inject = ['$stateProvider'];
 
 })();

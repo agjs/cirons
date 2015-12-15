@@ -1,20 +1,19 @@
-(function () {
-    "use strict";
+(function() {
+  'use strict';
+  module.exports = salesRouter;
 
-    angular.module('CIRONS-MAIN-APP').config(function ($stateProvider, $urlRouterProvider) {
+  function salesRouter($stateProvider) {
+    $stateProvider
+      .state('sales', {
+        url: "/sales",
+        controller: 'salesController',
+        templateUrl: "components/sales/sales.view.html",
 
-        $stateProvider
-
-            .state('sales', {
-                url: "/sales",
-                controller: '',
-                controllerAs: '',
-                templateUrl: "components/sales/sales.view.html",
-                
-            })
+      })
 
 
-    });
+  }
 
+  salesRouter.$inject = ['$stateProvider'];
 
 })();

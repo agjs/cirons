@@ -1,12 +1,12 @@
-(function () {
-    "use strict";
+(function() {
+  'use strict';
+  module.exports = purchasingController;
 
-    angular.module('CIRONS-MAIN-APP')
-        .controller('purchasingController', function ($scope) {
+  function purchasingController($scope) {
 
 
+  }
 
-        });
+  purchasingController.$inject = ['$scope'];
 
 })();
-

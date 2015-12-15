@@ -1,21 +1,22 @@
-(function () {
-    "use strict";
+(function() {
+  'use strict';
+  module.exports = expensesController;
 
-    angular.module('CIRONS-MAIN-APP')
-        .controller('expensesController', function ($scope, expensesFactory, $state) {
+  function expensesController($scope, expensesFactory, $state) {
 
-            expensesFactory.getSuppliers().then(function(expenses){
+    expensesFactory.getSuppliers().then(function(expenses) {
 
-                $scope.cardType = 'Suppliers';
-                $scope.cardDescription = 'Manage your invoices';
-                $scope.cardColor = 'red';
-                $scope.cardIcon = 'building';
-                $scope.cardCounter = expenses.length;
-                $scope.cardState = 'suppliers';
+      $scope.cardType = 'Suppliers';
+      $scope.cardDescription = 'Manage your invoices';
+      $scope.cardColor = 'red';
+      $scope.cardIcon = 'building';
+      $scope.cardCounter = expenses.length;
+      $scope.cardState = 'suppliers';
 
-            });
+    });
 
+  }
 
+  expensesController.$inject = ['$scope', 'expensesFactory', '$state'];
 
-        });
 })();

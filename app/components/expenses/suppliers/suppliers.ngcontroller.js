@@ -1,14 +1,15 @@
-(function () {
-    "use strict";
+(function() {
+  'use strict';
+  module.exports = suppliersController;
 
-    angular.module('CIRONS-MAIN-APP')
-        .controller('suppliersController', function ($scope, $rootScope, $auth, expensesFactory, $state) {
+  function suppliersController($scope, $rootScope, $auth, expensesFactory, $state) {
 
-            expensesFactory.getSuppliers().then(function (expenses) {
-                $scope.expenses = expenses;
-            });
+    expensesFactory.getSuppliers().then(function(expenses) {
+      $scope.expenses = expenses;
+    });
 
-        });
+  }
+
+  suppliersController.$inject = ['$scope', '$rootScope', '$auth', 'expensesFactory', '$state'];
 
 })();
-
