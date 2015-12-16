@@ -9,8 +9,8 @@
     'satellizer',
     'ncy-angular-breadcrumb',
     'xeditable',
-    'ngLodash'
-
+    'ngLodash',
+    'ui.bootstrap'
   ]);
 
 })();

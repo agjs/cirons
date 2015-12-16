@@ -8,7 +8,7 @@
       li {
         display: inline-block;
         font-size: 16px;
-        padding-right: 25px;
+        /*padding-right: 25px;*/
         position: relative;
 
         a {
@@ -21,7 +21,7 @@
         }
       }
 
-      li:after {
+      /*li:after {
         content: "\f105";
         color: rgba(0, 0, 0, 0.5);
         position: absolute;
@@ -37,7 +37,7 @@
 
       li:last-child {
         padding: 0;
-      }
+    }*/
     }
   }
 }

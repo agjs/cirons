@@ -8,7 +8,7 @@
 
       edit: function(user) {
         return $http({
-          url: 'http://janalex.beta.cirons.com/api/v1/users',
+          url: 'http://janalex.beta.cirons.com/api/v1/me',
           method: 'PUT',
           data: user
         });

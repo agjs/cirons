@@ -1385,6 +1385,9 @@ table.info-table {
 .logo img {
   max-width: 100%; }
 
+.breadcrumb {
+  background: none !important; }
+
 .timeline {
   position: relative;
   list-style: none;
@@ -1700,7 +1703,7 @@ span.receivable strong {
 body.split_table .split-view {
   height: 100%; }
 body.split_table .split-view > div:first-child {
-  width: 28.0%;
+  width: 28%;
   float: left; }
 body.split_table .split-view > div:last-child {
   width: 72%;
@@ -1840,29 +1843,34 @@ body.split_table .page-content {
 .page-title h1 ol {
   display: block;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+      /*li:after {
+        content: "\f105";
+        color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        right: 10px;
+        font-size: 18px;
+        font-family: FontAwesome;
+      }
+
+      li:last-child:after {
+        content: "";
+        display: none;
+      }
+
+      li:last-child {
+        padding: 0;
+    }*/ }
   .page-title h1 ol li {
     display: inline-block;
     font-size: 16px;
-    padding-right: 25px;
+    /*padding-right: 25px;*/
     position: relative; }
     .page-title h1 ol li a {
       color: rgba(0, 0, 0, 0.8);
       text-decoration: none !important; }
     .page-title h1 ol li a:hover {
       color: #3681b1; }
-  .page-title h1 ol li:after {
-    content: "\f105";
-    color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    right: 10px;
-    font-size: 18px;
-    font-family: FontAwesome; }
-  .page-title h1 ol li:last-child:after {
-    content: "";
-    display: none; }
-  .page-title h1 ol li:last-child {
-    padding: 0; }
 
 .editable-wrap {
   position: relative;
