@@ -1,0 +1,28 @@
+{
+  "name": "cirons-frontend",
+  "version": "1.0.0",
+  "description": "Public",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "grunt-contrib-jshint": "^0.11.3"
+  },
+  "devDependencies": {
+    "grunt-angular-templates": "^0.5.9",
+    "grunt-browserify": "^4.0.1",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://cirons@bitbucket.org/cirons/cirons-frontend.git"
+  },
+  "author": "Aleksandar Grbic",
+  "license": "CLOSED",
+  "homepage": "https://bitbucket.org/cirons/cirons-frontend#readme"
+}

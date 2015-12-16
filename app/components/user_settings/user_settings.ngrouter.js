@@ -9,8 +9,6 @@
         controller: 'userSettingsController',
         templateUrl: "components/user_settings/user_settings.view.html",
       })
-
-
   }
 
   userSettingsRouter.$inject = ['$stateProvider'];

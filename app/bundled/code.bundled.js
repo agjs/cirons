@@ -82,8 +82,6 @@
     require('../components/stock/stock.ngcomponent');
     require('../components/system_admin/system_admin.ngcomponent');
     require('../components/user_settings/user_settings.ngcomponent');
-
-
     require('../components/directives/directives.ngcomponent');
 })();
 
@@ -1336,12 +1334,27 @@ angular.module('CIRONS-MAIN-APP')
 (function() {
   'use strict';
   module.exports = userSettingsController;
-  function userSettingsController($scope) {
+
+  function userSettingsController($scope, userSettingsFactory, meFactory) {
+
+    meFactory.async().then(function(user) {
+      $scope.user = user.data;
+    });
 
 
+    $scope.updateUser = function() {
+
+      userSettingsFactory.edit({
+        username: $scope.username,
+        first_name: $scope.first_name,
+        last_name: $scope.last_name,
+        job_title: $scope.job_title,
+        email: $scope.email
+      });
+
+    }
   }
-
-  userSettingsController.$inject = ['$scope'];
+  userSettingsController.$inject = ['$scope', 'userSettingsFactory', 'meFactory'];
 })();
 
 },{}],61:[function(require,module,exports){
@@ -1353,8 +1366,14 @@ angular.module('CIRONS-MAIN-APP')
 
     return {
 
+      edit: function(user) {
+        return $http({
+          url: 'http://janalex.beta.cirons.com/api/v1/users',
+          method: 'PUT',
+          data: user
+        });
+      }
     };
-
   }
 
   userSettingsFactory.$inject = ['$http', '$q'];
@@ -1373,8 +1392,6 @@ angular.module('CIRONS-MAIN-APP')
         controller: 'userSettingsController',
         templateUrl: "components/user_settings/user_settings.view.html",
       })
-
-
   }
 
   userSettingsRouter.$inject = ['$stateProvider'];
@@ -1387,7 +1404,6 @@ angular.module('CIRONS-MAIN-APP')
   require('./app')
   .run(require('./app.ngrun'))
   .config(require('./app.ngconfig'));
-
 })();
 
 },{"./app":1,"./app.ngconfig":2,"./app.ngrun":3}]},{},[4]);

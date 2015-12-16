@@ -6,8 +6,14 @@
 
     return {
 
+      edit: function(user) {
+        return $http({
+          url: 'http://janalex.beta.cirons.com/api/v1/users',
+          method: 'PUT',
+          data: user
+        });
+      }
     };
-
   }
 
   userSettingsFactory.$inject = ['$http', '$q'];

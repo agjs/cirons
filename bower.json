@@ -25,6 +25,7 @@
     "angular-breadcrumb": "~0.4.1",
     "angular-xeditable": "~0.1.9",
     "angular-http-auth": "~1.2.3",
-    "ng-lodash": "~0.3.0"
+    "ng-lodash": "~0.3.0",
+    "angular-ui-calendar": "~1.0.1"
   }
 }

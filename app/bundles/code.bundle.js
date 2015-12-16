@@ -13,7 +13,5 @@
     require('../components/stock/stock.ngcomponent');
     require('../components/system_admin/system_admin.ngcomponent');
     require('../components/user_settings/user_settings.ngcomponent');
-
-
     require('../components/directives/directives.ngcomponent');
 })();
