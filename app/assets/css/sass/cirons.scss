@@ -1440,6 +1440,11 @@ table.info-table {
 .logo img {
   max-width: 100%;
 }
+
+.breadcrumb {
+    background: none !important;
+}
+
 @import "_timeline";
 @import "_wizard";
 @import "_orderrows";
