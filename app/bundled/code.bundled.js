@@ -219,8 +219,8 @@ angular.module('CIRONS-MAIN-APP')
 
           meFactory.async().then(function(user) {
             currentUser = user.data;
-            $rootScope.user = user.data;
           });
+          
           deferred.resolve(data);
           $rootScope.$broadcast('loggedIn');
           return cb();
