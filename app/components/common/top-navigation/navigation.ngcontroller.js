@@ -23,11 +23,6 @@
     });
 
 
-    $scope.$watch('meFactory.async()', function(newVal){
-      console.log(newVal);
-      $scope.user = newVal;
-    });
-
   }
 
   navigationController.$inject = ['$scope', '$rootScope', '$auth', '$state', 'meFactory'];
