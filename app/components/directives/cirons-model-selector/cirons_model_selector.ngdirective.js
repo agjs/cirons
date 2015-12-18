@@ -7,12 +7,32 @@
     return {
       restrict: 'EA',
       scope: {
-        name: '=name'
+        name: '=name',
+        model: '@model',
+        modelTitle: '@modelTitle',
+        modelReturn: '@modelReturn'
       },
       templateUrl: 'components/directives/cirons-model-selector/template.html',
       replace: true,
-      controller: function($scope, $element) {
-        $scope.states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
+      controller: function($scope, $http, $element, $attrs) {
+        $scope.model = $attrs.model;
+        $http.get('http://janalex.beta.cirons.com/api/v1/' + $scope.model).then(function(items) {
+            if (items.data) {
+                var array = [];
+                for(var i = 0; i < items.data.length; i++){
+                    var item = items.data[i];
+                    item.typeaheadTitle = item[$attrs.modelTitle];
+                    //item.typeaheadReturn = item[$attrs.modelReturn];
+                    array.push(item);
+                }
+                $scope.items = array;
+                console.log($scope.items);
+            }
+        });
+        $scope.selectItem = function($item, $model, $label){
+            console.log("item selected");
+
+        };
       }
     }
 
