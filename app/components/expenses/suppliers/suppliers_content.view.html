@@ -14,23 +14,29 @@
     <h1 blur="submit" editable-text="supplier.company_name" onaftersave="editSupplier(supplier.company_name)">
       {{supplier.company_name}}</h1>
 
+
+      <!-- <div class="field">
+          <label>Model:</label>
+          <cirons-model-selector name="philip" model="suppliers" model-title="company_name" selected="supplier.company_name"></cirons-model-selector>
+      </div> -->
+
     <div class="stats">
 
-      <button class="ui labeled icon button" id="btn_bought">
+      <button ng-show="supplier.bought_for != 0" class="ui labeled icon button" id="btn_bought">
         <i class="money icon"></i>
 
         <div>{{ supplier.bought_for }}</div>
         <div>Bought for</div>
       </button>
 
-      <button class="ui labeled icon button" id="btn_si">
+      <button ng-show="supplier.supplier_invoices.length" class="ui labeled icon button" id="btn_si">
         <i class="file outline pdf icon"></i>
 
         <div>{{ supplier.supplier_invoices.length }}</div>
         <div>Supplier Invoices</div>
       </button>
 
-      <button class="ui labeled icon button" id="btn_rec">
+      <button ng-show="supplier.receipts.length" class="ui labeled icon button" id="btn_rec">
         <i class="file text outline icon"></i>
 
         <div>{{ supplier.receipts.length }}</div>
@@ -39,9 +45,8 @@
 
     </div>
 
-    <hr/>
-
     <div ng-show="supplier.supplier_invoices.length">
+      <hr/>
       <h3>Supplier Invoices</h3>
 
       <table class="ui table celled">
