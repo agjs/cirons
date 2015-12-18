@@ -10,11 +10,13 @@
         name: '=name',
         model: '@model',
         modelTitle: '@modelTitle',
-        modelReturn: '@modelReturn'
+        modelReturn: '@modelReturn',
+        selected: '=selected'
       },
       templateUrl: 'components/directives/cirons-model-selector/template.html',
       replace: true,
       controller: function($scope, $http, $element, $attrs) {
+          console.log($attrs.selected);
         $scope.model = $attrs.model;
         $http.get('http://janalex.beta.cirons.com/api/v1/' + $scope.model).then(function(items) {
             if (items.data) {
@@ -22,7 +24,6 @@
                 for(var i = 0; i < items.data.length; i++){
                     var item = items.data[i];
                     item.typeaheadTitle = item[$attrs.modelTitle];
-                    //item.typeaheadReturn = item[$attrs.modelReturn];
                     array.push(item);
                 }
                 $scope.items = array;
