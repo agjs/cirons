@@ -1,8 +1,77 @@
-<h1>Dashboard</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet, commodi corporis necessitatibus porro
-    repellat rerum totam voluptate. Accusamus aliquam assumenda consectetur, culpa cum deleniti deserunt dolorum eaque
-    earum enim ex exercitationem fugiat, in ipsa iure iusto labore nihil non nostrum possimus quidem, quisquam quos
-    recusandae rem rerum similique veniam? Amet aspernatur cumque dignissimos earum facilis odio officiis provident
-    quidem sapiente sequi sunt tempore vel, voluptas? A accusamus alias, assumenda cum doloremque ducimus illum in
-    mollitia numquam rerum saepe vitae voluptate voluptatum! Asperiores dicta exercitationem illo optio quaerat vitae.
-    Atque dolores eum fugit ipsam laborum nesciunt possimus quae quasi tempore!</p>
+<div class="dashboard-tabs clearfix">
+	<nav>
+		<ul>
+			<li>
+				<a class="active" href="#">
+					<span>Finance</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>Sales</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>Taxes</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>Expenses</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="tabbar-chart">
+		<ul>
+			<li>
+				<span>Turnover</span>
+				<strong id="tabbar-chart-turnover">120,000 SEK</strong>
+			</li>
+			<li>
+				<span>Minus Costs</span>
+				<strong id="tabbar-chart-costs">136,159 SEK</strong>
+			</li>
+			<li>
+				<span>Equals Result</span>
+				<strong id="tabbar-chart-total">-16,159 SEK</strong>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="dashboard-content">
+    <div class="tab_content">
+        <div class="ui grid">
+            <div class="column four wide">
+                <cirons-statbox
+                    color="#3681B1"
+                    text="Pending Orders"
+                    icon="chart line"
+                ></cirons-statbox>
+            </div>
+            <div class="column four wide">
+                <cirons-statbox
+                    color="#3681B1"
+                    text="Pending Orders"
+                    icon="chart line"
+                ></cirons-statbox>
+            </div>
+            <div class="column four wide">
+                <cirons-statbox
+                    color="#3681B1"
+                    text="Pending Orders"
+                    icon="chart line"
+                ></cirons-statbox>
+            </div>
+            <div class="column four wide">
+                <cirons-statbox
+                    color="#3681B1"
+                    text="Pending Orders"
+                    icon="chart line"
+                ></cirons-statbox>
+            </div>
+        </div>
+    </div>
+</div>
