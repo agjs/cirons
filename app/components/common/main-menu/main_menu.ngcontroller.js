@@ -6,7 +6,7 @@
     $scope.logoUrl = 'assets/images/logo.png';
     $scope.menu = [{
       title: 'Dashboard',
-      state: 'dashboard',
+      state: 'dashboard.finance',
       separateAfter: true,
       icon: 'fa fa-line-chart'
     }, {

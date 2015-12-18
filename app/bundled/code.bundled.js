@@ -443,7 +443,7 @@ angular.module('CIRONS-MAIN-APP')
     $scope.logoUrl = 'assets/images/logo.png';
     $scope.menu = [{
       title: 'Dashboard',
-      state: 'dashboard',
+      state: 'dashboard.finance',
       separateAfter: true,
       icon: 'fa fa-line-chart'
     }, {
@@ -611,26 +611,50 @@ angular.module('CIRONS-MAIN-APP')
     $stateProvider
       .state('dashboard', {
         url: "/dashboard",
-        controller: '',
-        controllerAs: '',
-        templateUrl: "components/dashboard/dashboard.view.html",
+        abstract: true,
+        views: {
+          '': {
+            templateUrl: "components/dashboard/dashboard.view.html",
+          }
+        }
 
       })
-      .state('dashboard.finance', {
+
+    .state('dashboard.finance', {
+        parent: 'dashboard',
         url: "/finance",
-        templateUrl: ""
+        views: {
+          'dashboardContent': {
+            templateUrl: "components/dashboard/finance/dashboard_finance.view.html",
+          }
+        }
       })
       .state('dashboard.sales', {
         url: "/sales",
-        templateUrl: ""
+        parent: 'dashboard',
+        views: {
+          'dashboardContent': {
+            templateUrl: "components/dashboard/sales/dashboard_sales.view.html",
+          }
+        }
       })
       .state('dashboard.taxes', {
         url: "/taxes",
-        templateUrl: ""
+        parent: 'dashboard',
+        views: {
+          'dashboardContent': {
+            templateUrl: "components/dashboard/taxes/dashboard_taxes.view.html",
+          }
+        }
       })
       .state('dashboard.expenses', {
         url: "/expenses",
-        templateUrl: ""
+        parent: 'dashboard',
+        views: {
+          'dashboardContent': {
+            templateUrl: "components/dashboard/expenses/dashboard_expenses.view.html",
+          }
+        }
       })
 
   }
