@@ -11,6 +11,7 @@
 </head>
 
 <body ng-class="
+currentState == 'dashboard' ? 'dashboard' : '' ||
 currentState == 'suppliers'  ||
 currentState == 'suppliers.item' ||
 currentState == 'suppliers.create' ? 'split_table' : '' ||
