@@ -1372,6 +1372,8 @@ angular.module('CIRONS-MAIN-APP')
 
     $scope.updateUser = function() {
 
+      console.log($scope.first_name);
+
       userSettingsFactory.edit({
         username: $scope.username,
         first_name: $scope.first_name,
