@@ -53,7 +53,6 @@
       }
     )
 
-
     editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
 
     $rootScope.$on('$stateChangeSuccess', function(event, next) {
@@ -547,6 +546,12 @@ angular.module('CIRONS-MAIN-APP')
 
     meFactory.async().then(function(user) {
       $scope.user = user.data;
+    });
+
+
+    $scope.$watch('meFactory.async()', function(newVal){
+      console.log(newVal);
+      $scope.user = newVal;
     });
 
   }
@@ -1390,19 +1395,8 @@ angular.module('CIRONS-MAIN-APP')
       $scope.user = user.data;
     });
 
-
     $scope.updateUser = function() {
-
-      console.log($scope.first_name);
-
-      userSettingsFactory.edit({
-        username: $scope.username,
-        first_name: $scope.first_name,
-        last_name: $scope.last_name,
-        job_title: $scope.job_title,
-        email: $scope.email
-      });
-
+      userSettingsFactory.edit($scope.user);
     }
   }
   userSettingsController.$inject = ['$scope', 'userSettingsFactory', 'meFactory'];
@@ -1422,7 +1416,11 @@ angular.module('CIRONS-MAIN-APP')
           url: 'http://janalex.beta.cirons.com/api/v1/me',
           method: 'PUT',
           data: user
-        });
+        }).success(function(done){
+        //
+        }).error(function(error){
+          console.log(error);
+        })
       }
     };
   }
