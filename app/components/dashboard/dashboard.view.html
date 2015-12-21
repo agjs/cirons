@@ -1,0 +1,44 @@
+<div class="dashboard-tabs clearfix">
+  <nav>
+    <ul>
+      <li>
+        <a ui-sref="dashboard.finance" ng-class="currentState === 'dashboard.finance' ? 'active' : ''">
+          <span>Finance</span>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="dashboard.sales" ng-class="currentState === 'dashboard.sales' ? 'active' : ''">
+          <span>Sales</span>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="dashboard.taxes" ng-class="currentState === 'dashboard.taxes' ? 'active' : ''">
+          <span>Taxes</span>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="dashboard.expenses" ng-class="currentState === 'dashboard.expenses' ? 'active' : ''">
+          <span>Expenses</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="tabbar-chart">
+    <ul>
+      <li>
+        <span>Turnover</span>
+        <strong id="tabbar-chart-turnover">120,000 SEK</strong>
+      </li>
+      <li>
+        <span>Minus Costs</span>
+        <strong id="tabbar-chart-costs">136,159 SEK</strong>
+      </li>
+      <li>
+        <span>Equals Result</span>
+        <strong id="tabbar-chart-total">-16,159 SEK</strong>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div ui-view="dashboardContent"></div>
