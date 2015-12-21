@@ -1,0 +1,32 @@
+<div class="open-view">
+
+  <div class="open-view-content">
+    <form class="ui form" ng-submit="addReceipt()">
+      <div class="toolbar">
+
+        <button class="ui dropdown button icon labeled positive">
+          <i class="check icon"></i>
+          Save and create
+        </button>
+
+      </div>
+
+      <h1>Create new:
+        {{company_name}}</h1>
+
+      <div class="field">
+        <label>Company Name</label>
+        <input ng-model="company_name" type="text">
+      </div>
+
+      <div class="field">
+        <label>Company Address</label>
+        <input ng-model="company_address" type="text">
+      </div>
+
+
+    </form>
+
+  </div>
+
+</div>

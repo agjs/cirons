@@ -7,34 +7,31 @@
     $stateProvider
       .state('expenses', {
         url: "/expenses",
-        controller: 'expensesController',
         templateUrl: "components/expenses/expenses.view.html",
         ncyBreadcrumb: {
           label: 'Expenses'
         },
-        //
       })
-
-    .state('suppliers', {
-      url: "/expenses/suppliers",
-      ncyBreadcrumb: {
-        parent: 'expenses',
-        label: 'Suppliers'
-      },
-      views: {
-        '': {
-          templateUrl: 'components/expenses/suppliers/suppliers.view.html',
-          controller: 'suppliersController'
-
+      .state('suppliers', {
+        url: "/expenses/suppliers",
+        ncyBreadcrumb: {
+          parent: 'expenses',
+          label: 'Suppliers'
         },
-        'suppliersList@suppliers': {
-          templateUrl: 'components/expenses/suppliers/suppliers_list.view.html',
-          controller: 'suppliersListController'
+        views: {
+          '': {
+            templateUrl: 'components/expenses/suppliers/suppliers.view.html',
+            controller: 'suppliersController'
+
+          },
+          'suppliersList@suppliers': {
+            templateUrl: 'components/expenses/suppliers/suppliers_list.view.html',
+            controller: 'suppliersListController'
+          }
+
+
         }
-
-
-      }
-    })
+      })
 
     .state('suppliers.create', {
       url: "/create",

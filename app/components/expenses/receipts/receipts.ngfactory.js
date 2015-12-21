@@ -1,0 +1,87 @@
+(function() {
+  'use strict';
+  module.exports = receiptsFactory;
+
+  function receiptsFactory($http, $q) {
+
+    return {
+
+      getReceipts: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/receipts').then(function(receipts) {
+          if (receipts) {
+            return receipts.data;
+          } else {
+            throw new Error('No receipts found');
+          }
+
+        });
+      },
+
+      getReceipt: function(id) {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/receipts' + '/' + id).then(function(item) {
+          if (item) {
+            return item.data;
+          } else {
+            throw new Error('No receipts found');
+          }
+
+        });
+      },
+
+      addReceipt: function(supplier) {
+        return $http({
+          url: 'http://janalex.beta.cirons.com/api/v1/receipts',
+          method: 'POST',
+          data: {
+            company_name: supplier
+          }
+        }).then(function(item) {
+          if (item) {
+            return item.data;
+          } else {
+            throw new Error('Receipt could not be added!');
+          }
+
+        });
+
+      },
+
+      removeReceipt: function(id) {
+        return $http({
+          url: 'http://janalex.beta.cirons.com/api/v1/receipts/' + id,
+          method: 'DELETE'
+        }).then(function(item) {
+          if (item) {
+            return item.data;
+          } else {
+            throw new Error('Receipt could not be deleted!');
+          }
+
+        });
+
+      },
+
+      editReceipt: function(id, companyName) {
+        return $http({
+          url: 'http://janalex.beta.cirons.com/api/v1/receipts/' + id,
+          method: 'PUT',
+          data: {
+            company_name: companyName
+          }
+        }).then(function(item) {
+          if (item) {
+            return item.data;
+          } else {
+            throw new Error('Receipt could not be edited!');
+          }
+
+        });
+
+      }
+    }
+
+  }
+
+  receiptsFactory.$inject = ['$http', '$q'];
+
+})();

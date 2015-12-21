@@ -1,17 +1,17 @@
 (function() {
   'use strict';
-  module.exports = expensesFactory;
+  module.exports = suppliersFactory;
 
-  function expensesFactory($http, $q) {
+  function suppliersFactory($http, $q) {
 
     return {
 
       getSuppliers: function() {
-        return $http.get('http://janalex.beta.cirons.com/api/v1/suppliers').then(function(expenses) {
-          if (expenses) {
-            return expenses.data;
+        return $http.get('http://janalex.beta.cirons.com/api/v1/suppliers').then(function(suppliers) {
+          if (suppliers) {
+            return suppliers.data;
           } else {
-            throw new Error('No expenses found');
+            throw new Error('No suppliers found');
           }
 
         });
@@ -22,7 +22,7 @@
           if (item) {
             return item.data;
           } else {
-            throw new Error('No expenses found');
+            throw new Error('No suppliers found');
           }
 
         });
@@ -82,6 +82,6 @@
 
   }
 
-  expensesFactory.$inject = ['$http', '$q'];
+  suppliersFactory.$inject = ['$http', '$q'];
 
 })();

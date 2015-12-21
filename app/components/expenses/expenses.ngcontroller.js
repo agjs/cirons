@@ -2,21 +2,23 @@
   'use strict';
   module.exports = expensesController;
 
-  function expensesController($scope, expensesFactory, $state) {
+  function expensesController($scope, suppliersFactory, receiptsFactory, $state) {
 
-    expensesFactory.getSuppliers().then(function(expenses) {
+    // suppliersFactory.getSuppliers().then(function(expenses) {
+    //
+    //   $scope.cardType = 'Suppliers';
+    //   $scope.cardDescription = 'Manage your invoices';
+    //   $scope.cardColor = 'red';
+    //   $scope.cardIcon = 'building';
+    //   $scope.cardCounter = expenses.length;
+    //   $scope.cardState = 'suppliers';
+    //
+    // });
 
-      $scope.cardType = 'Suppliers';
-      $scope.cardDescription = 'Manage your invoices';
-      $scope.cardColor = 'red';
-      $scope.cardIcon = 'building';
-      $scope.cardCounter = expenses.length;
-      $scope.cardState = 'suppliers';
 
-    });
 
   }
 
-  expensesController.$inject = ['$scope', 'expensesFactory', '$state'];
+  expensesController.$inject = ['$scope', 'suppliersFactory', 'receiptsFactory', '$state'];
 
 })();

@@ -5,7 +5,8 @@
     require('../components/authentication/authentication.ngcomponent');
     require('../components/dashboard/dashboard.ngcomponent');
     require('../components/accounting/accounting.ngcomponent');
-    require('../components/expenses/expenses.ngcomponent');
+    require('../components/expenses/suppliers/suppliers.ngcomponent');
+    require('../components/expenses/receipts/receipts.ngcomponent');
     require('../components/calendar/calendar.ngcomponent');
     require('../components/hr/hr.ngcomponent');
     require('../components/purchasing/purchasing.ngcomponent');

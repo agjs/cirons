@@ -2,20 +2,20 @@
   'use strict';
   module.exports = suppliersCRUDController;
 
-  function suppliersCRUDController($scope, $stateParams, expensesFactory, lodash) {
+  function suppliersCRUDController($scope, $stateParams, suppliersFactory, lodash) {
 
     $scope.addSupplier = function() {
-      expensesFactory.addSupplier($scope.company_name).then(function(added) {
+      suppliersFactory.addSupplier($scope.company_name).then(function(added) {
         $scope.expenses.push(added);
       });
     };
 
     $scope.removeSupplier = function() {
-      expensesFactory.removeSupplier($stateParams.id);
+      suppliersFactory.removeSupplier($stateParams.id);
     };
 
     $scope.editSupplier = function(companyName) {
-      expensesFactory.editSupplier($stateParams.id, companyName).then(function(edited) {
+      suppliersFactory.editSupplier($stateParams.id, companyName).then(function(edited) {
 
         var findItem = lodash.find($scope.expenses, function(arg) {
           return arg.id === $stateParams.id;
@@ -30,6 +30,6 @@
 
   }
 
-  suppliersCRUDController.$inject = ['$scope', '$stateParams', 'expensesFactory', 'lodash'];
+  suppliersCRUDController.$inject = ['$scope', '$stateParams', 'suppliersFactory', 'lodash'];
 
 })();

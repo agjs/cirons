@@ -2,14 +2,15 @@
   'use strict';
   module.exports = suppliersController;
 
-  function suppliersController($scope, $rootScope, $auth, expensesFactory, $state) {
+  function suppliersController($scope, $rootScope, $auth, suppliersFactory, $state) {
 
-    expensesFactory.getSuppliers().then(function(expenses) {
+    suppliersFactory.getSuppliers().then(function(expenses) {
       $scope.expenses = expenses;
+      $scope.cardCounter = expenses.length;
     });
 
   }
 
-  suppliersController.$inject = ['$scope', '$rootScope', '$auth', 'expensesFactory', '$state'];
+  suppliersController.$inject = ['$scope', '$rootScope', '$auth', 'suppliersFactory', '$state'];
 
 })();
