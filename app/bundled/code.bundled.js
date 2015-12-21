@@ -1004,7 +1004,7 @@ angular.module('CIRONS-MAIN-APP')
       url: "/create",
       ncyBreadcrumb: {
         parent: 'receipts',
-        label: 'Create new'
+        label: 'Write a Receipt'
       },
       views: {
         '': {
