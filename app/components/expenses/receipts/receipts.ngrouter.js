@@ -4,28 +4,27 @@
 
   function receiptsRouter($stateProvider) {
     $stateProvider
-    $stateProvider
-
       .state('receipts', {
-      url: "/receipts/receipts",
-      ncyBreadcrumb: {
-        parent: 'receipts',
-        label: 'Suppliers'
-      },
-      views: {
-        '': {
-          templateUrl: 'components/expenses/receipts/receipts.view.html',
-          controller: 'receiptsController'
+        url: "/expenses/receipts",
 
+        ncyBreadcrumb: {
+          label: 'Receipts',
+          parent: 'expenses',
         },
-        'receiptsList@receipts': {
-          templateUrl: 'components/expenses/receipts/receipts_list.view.html',
-          controller: 'receiptsListController'
+        views: {
+          '': {
+            templateUrl: 'components/expenses/receipts/receipts.view.html',
+            controller: 'receiptsController'
+
+          },
+          'receiptsList@receipts': {
+            templateUrl: 'components/expenses/receipts/receipts_list.view.html',
+
+          }
+
+
         }
-
-
-      }
-    })
+      })
 
     .state('receipts.create', {
       url: "/create",
@@ -39,7 +38,7 @@
         },
         'receiptsList@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_list.view.html',
-          controller: 'receiptsListController'
+
         },
         'receiptsContent@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_create.view.html',
@@ -63,7 +62,7 @@
         },
         'receiptsList@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_list.view.html',
-          controller: 'receiptsListController'
+
         },
         'receiptsContent@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_content.view.html',
