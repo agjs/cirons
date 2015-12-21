@@ -22,6 +22,7 @@
       $scope.user = user.data;
     });
 
+
   }
 
   navigationController.$inject = ['$scope', '$rootScope', '$auth', '$state', 'meFactory'];

@@ -1,35 +1,34 @@
-<form class="ui form" ng-submit="updateUser()">
+<form editable-form name="edit_settings"  blur="submit" class="ui form" onaftersave="updateUser()">
   <div class="ui grid">
     <div class="column twelve wide">
       <h4 class="ui dividing header">Information</h4>
       <div class="field">
         <label>Username</label>
-        <input ng-disabled="true" ng-model="username" ng-value="user.username" type="text">
+        <span ng-disabled="true" ng-value="user.username">{{user.username}}</span>
       </div>
 
       <div class="ui fields two">
         <div class="field">
           <label>First Name</label>
-          <input ng-model="first_name" ng-value="user.first_name" type="text">
+          <span editable-text="user.first_name" ng-value="user.first_name">{{user.first_name}}</span>
         </div>
 
         <div class="field">
           <label>Last Name</label>
-          <input ng-model="last_name" ng-value="user.last_name" type="text">
+          <span editable-text="user.last_name" ng-value="user.last_name" type="text">{{user.last_name}}</span>
         </div>
-
       </div>
 
       <div class="ui fields two">
 
         <div class="field">
           <label>Job Title</label>
-          <input ng-model="job_title" ng-value="user.job_title" type="text">
+          <span editable-text="user.job_title" ng-value="user.job_title">{{user.job_title}}</span>
         </div>
 
         <div class="field">
           <label>Email Address</label>
-          <input ng-model="email" ng-value="user.email" type="text">
+          <span editable-text="user.email" ng-value="user.email">{{user.email}}</span>
         </div>
 
       </div>
@@ -56,7 +55,15 @@
 
     </div>
   </div>
+  <br/>
 
-  <br>
+  <button class="ui button" ng-click="edit_settings.$show()" ng-show="!edit_settings.$visible" type="button">
+    Edit
+  </button>
+
+  <button class="ui button" ng-click="edit_settings.$cancel()" ng-disabled="edit_settings.$waiting" ng-show="edit_settings.$visible" type="button">
+    Cancel
+  </button>
+
   <button class="ui button" type="submit">Submit</button>
 </form>

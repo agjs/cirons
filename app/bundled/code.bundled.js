@@ -24,8 +24,12 @@
 
   function ngConfig($httpProvider, $urlRouterProvider, $locationProvider, $authProvider, $breadcrumbProvider) {
 
+
+
     $httpProvider.interceptors.push('authenticationInterceptor');
+    $urlRouterProvider.otherwise('/dashboard/finance');
     $locationProvider.html5Mode(false);
+
     $authProvider.loginUrl = 'http://janalex.beta.cirons.com/api/v1/auth';
     $breadcrumbProvider.setOptions({
       template: 'bootstrap3'
@@ -52,7 +56,6 @@
         $rootScope.currentState = toState.name;
       }
     )
-
 
     editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
 
@@ -220,8 +223,8 @@ angular.module('CIRONS-MAIN-APP')
 
           meFactory.async().then(function(user) {
             currentUser = user.data;
-            $rootScope.user = user.data;
           });
+          
           deferred.resolve(data);
           $rootScope.$broadcast('loggedIn');
           return cb();
@@ -444,7 +447,7 @@ angular.module('CIRONS-MAIN-APP')
     $scope.logoUrl = 'assets/images/logo.png';
     $scope.menu = [{
       title: 'Dashboard',
-      state: 'dashboard',
+      state: 'dashboard.finance',
       separateAfter: true,
       icon: 'fa fa-line-chart'
     }, {
@@ -549,6 +552,7 @@ angular.module('CIRONS-MAIN-APP')
       $scope.user = user.data;
     });
 
+
   }
 
   navigationController.$inject = ['$scope', '$rootScope', '$auth', '$state', 'meFactory'];
@@ -606,26 +610,50 @@ angular.module('CIRONS-MAIN-APP')
     $stateProvider
       .state('dashboard', {
         url: "/dashboard",
-        controller: '',
-        controllerAs: '',
-        templateUrl: "components/dashboard/dashboard.view.html",
+        abstract: true,
+        views: {
+          '': {
+            templateUrl: "components/dashboard/dashboard.view.html",
+          }
+        }
 
       })
-      .state('dashboard.finance', {
+
+    .state('dashboard.finance', {
+        parent: 'dashboard',
         url: "/finance",
-        templateUrl: ""
+        views: {
+          'dashboardContent': {
+            templateUrl: "components/dashboard/finance/dashboard_finance.view.html",
+          }
+        }
       })
       .state('dashboard.sales', {
         url: "/sales",
-        templateUrl: ""
+        parent: 'dashboard',
+        views: {
+          'dashboardContent': {
+            templateUrl: "components/dashboard/sales/dashboard_sales.view.html",
+          }
+        }
       })
       .state('dashboard.taxes', {
         url: "/taxes",
-        templateUrl: ""
+        parent: 'dashboard',
+        views: {
+          'dashboardContent': {
+            templateUrl: "components/dashboard/taxes/dashboard_taxes.view.html",
+          }
+        }
       })
       .state('dashboard.expenses', {
         url: "/expenses",
-        templateUrl: ""
+        parent: 'dashboard',
+        views: {
+          'dashboardContent': {
+            templateUrl: "components/dashboard/expenses/dashboard_expenses.view.html",
+          }
+        }
       })
 
   }
@@ -1416,17 +1444,8 @@ angular.module('CIRONS-MAIN-APP')
       $scope.user = user.data;
     });
 
-
     $scope.updateUser = function() {
-
-      userSettingsFactory.edit({
-        username: $scope.username,
-        first_name: $scope.first_name,
-        last_name: $scope.last_name,
-        job_title: $scope.job_title,
-        email: $scope.email
-      });
-
+      userSettingsFactory.edit($scope.user);
     }
   }
   userSettingsController.$inject = ['$scope', 'userSettingsFactory', 'meFactory'];
@@ -1446,7 +1465,11 @@ angular.module('CIRONS-MAIN-APP')
           url: 'http://janalex.beta.cirons.com/api/v1/me',
           method: 'PUT',
           data: user
-        });
+        }).success(function(done){
+        //
+        }).error(function(error){
+          console.log(error);
+        })
       }
     };
   }

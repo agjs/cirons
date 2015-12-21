@@ -14,7 +14,6 @@
       }
     )
 
-
     editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
 
     $rootScope.$on('$stateChangeSuccess', function(event, next) {

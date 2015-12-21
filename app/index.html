@@ -11,9 +11,15 @@
 </head>
 
 <body ng-class="
-currentState == 'dashboard' ? 'dashboard' : '' ||
-currentState == 'suppliers'  ||
-currentState == 'suppliers.item' ||
+
+currentState == 'dashboard'                 ||
+currentState == 'dashboard.finance'         ||
+currentState == 'dashboard.sales'           ||
+currentState == 'dashboard.taxes'           ||
+currentState == 'dashboard.expenses' ? 'dashboard' : ''
+||
+currentState == 'suppliers'                 ||
+currentState == 'suppliers.item'            ||
 currentState == 'suppliers.create' ? 'split_table' : '' ||
 isAuthenticated() ? '' : 'overwriteBg'" ng-controller="mainController">
 

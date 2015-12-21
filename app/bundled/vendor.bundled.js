@@ -233,12 +233,12 @@ function BreadcrumbDirective($interpolate, $breadcrumb, $rootScope) {
             '<span class="divider" ng-hide="$last">/</span>' +
             '</li>' +
             '</ul>',
-        bootstrap3: '<ol class="breadcrumb">' +
+        bootstrap3: '<div class="ui breadcrumb">' +
             '<li ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract">' +
             '<a ng-switch-when="false" href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a>' +
             '<span ng-switch-when="true">{{step.ncyBreadcrumbLabel}}</span>' +
             '</li>' +
-            '</ol>'
+            '</div>'
     };
 
     return {
@@ -254,7 +254,7 @@ function BreadcrumbDirective($interpolate, $breadcrumb, $rootScope) {
                 var renderBreadcrumb = function() {
                     deregisterWatchers(labelWatchers);
                     labelWatchers = [];
-                    
+
                     var viewScope = $breadcrumb.$getLastViewScope();
                     scope.steps = $breadcrumb.getStatesChain();
                     angular.forEach(scope.steps, function (step) {
@@ -264,7 +264,7 @@ function BreadcrumbDirective($interpolate, $breadcrumb, $rootScope) {
                             // Watcher for further viewScope updates
                             registerWatchers(labelWatchers, parseLabel, viewScope, step);
                         } else {
-                            step.ncyBreadcrumbLabel = step.name;
+                            step.ncyBreadcrumbLabel = step.name.replace(".", " - ");;
                         }
                     });
                 };
@@ -304,7 +304,7 @@ function BreadcrumbLastDirective($interpolate, $breadcrumb, $rootScope) {
                     var renderLabel = function() {
                         deregisterWatchers(labelWatchers);
                         labelWatchers = [];
-                        
+
                         var viewScope = $breadcrumb.$getLastViewScope();
                         var lastStep = $breadcrumb.getLastStep();
                         if(lastStep) {
@@ -350,13 +350,13 @@ function BreadcrumbTextDirective($interpolate, $breadcrumb, $rootScope) {
             if(template) {
                 cElement.html(template);
             }
-            
+
             var separator = cElement.attr(cAttrs.$attr.ncyBreadcrumbTextSeparator) || ' / ';
 
             return {
                 post: function postLink(scope) {
                     var labelWatchers = [];
-                    
+
                     var registerWatchersText = function(labelWatcherArray, interpolationFunction, viewScope) {
                         angular.forEach(getExpression(interpolationFunction), function(expression) {
                             var watcher = viewScope.$watch(expression, function(newValue, oldValue) {
@@ -371,7 +371,7 @@ function BreadcrumbTextDirective($interpolate, $breadcrumb, $rootScope) {
                     var renderLabel = function() {
                         deregisterWatchers(labelWatchers);
                         labelWatchers = [];
-                        
+
                         var viewScope = $breadcrumb.$getLastViewScope();
                         var steps = $breadcrumb.getStatesChain();
                         var combinedLabels = [];
@@ -385,7 +385,7 @@ function BreadcrumbTextDirective($interpolate, $breadcrumb, $rootScope) {
                                 combinedLabels.push(step.name);
                             }
                         });
-                        
+
                         scope.ncyBreadcrumbChain = combinedLabels.join(separator);
                     };
 
