@@ -1,0 +1,110 @@
+@media(max-width:767px){
+
+    .user-bar, aside.menu header a.logo, #speech, .tabbar-chart, section.content.hide-sidebar aside.sidebar {
+        display: none;
+    }
+
+    aside.menu {
+        left: -260px;
+    }
+    .body {
+        margin: 0;
+    }
+    .status-bar {
+        right: 0;
+    }
+    .page-title h1 ol li {
+        display: none;
+    }
+    .page-title h1 ol li.active {
+        display: inline-block;
+    }
+    .breadcrumb {
+        li {
+            display: none;
+        }
+        li.active {
+            display: inline-block;
+        }
+    }
+    .breadcrumb>li+li.active:before {
+        display: none;
+        content: none;
+    }
+    section.content {
+        padding-top: 60px;
+    }
+    body.split_table {
+        position: relative;
+    }
+    body.split_table .split-view {
+        width: 200%;
+        left: 0;
+        top: 0;
+        transition: all 400ms ease;
+    }
+    body.split_table ui-view {
+        overflow: hidden;
+        overflow-y: auto;
+    }
+    body.split_table .split-view > div:first-child {
+        width: 50%;
+        float: left;
+    }
+    body.split_table .split-view > div:last-child {
+        width: 50%;
+        float: right;
+    }
+    body.split_table .split-view.active {
+        margin-left: -100%;
+    }
+
+    .page-title h1 ol {
+        display: inline-block;
+    }
+    header .page-title h1 {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+    aside.menu header {
+        display: none;
+    }
+
+    aside.menu > nav#main {
+        padding-top: 0;
+    }
+
+    aside.menu {
+        transition: all 300ms ease;
+        width: 80%;
+    }
+
+    aside.menu.open {
+        position: absolute;
+        z-index: 999;
+        left: 0;
+        -webkit-box-shadow: 2px 0px 10px 0px rgba(50, 50, 50, 0.75);
+        -moz-box-shadow:    2px 0px 10px 0px rgba(50, 50, 50, 0.75);
+        box-shadow:         2px 0px 10px 0px rgba(50, 50, 50, 0.75);
+    }
+
+    header .page-title:before {
+        content: '\f0c9';
+        font-family: FontAwesome;
+        color: rgba(0, 0, 0, 0.3);
+        font-size: 24px;
+        height: 50px;
+        width: 50px;
+        margin-right: 20px;
+        line-height: 50px;
+        text-align: center;
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+        display: inline-block;
+    }
+
+}
+@media(min-width:768px){}
+@media(min-width:992px){}
+@media(min-width:1200px){}
