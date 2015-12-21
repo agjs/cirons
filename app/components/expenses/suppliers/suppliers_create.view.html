@@ -1,25 +1,32 @@
 <div class="open-view">
 
-    <div class="open-view-content">
-        <form class="ui form" ng-submit="addSupplier()">
-            <div class="toolbar">
+  <div class="open-view-content">
+    <form class="ui form" ng-submit="addSupplier()">
+      <div class="toolbar">
 
-                <button class="ui dropdown button icon labeled positive">
-                    <i class="check icon"></i>
-                    Save and create
-                </button>
+        <button class="ui dropdown button icon labeled positive">
+          <i class="check icon"></i>
+          Save and create
+        </button>
 
-            </div>
+      </div>
 
-            <h1>Create new: {{company_name}}</h1>
+      <h1>Create new:
+        {{company_name}}</h1>
 
-            <div class="field">
-                <label>Company Name</label>
-                <input type="text" ng-model="company_name">
-            </div>
+      <div class="field">
+        <label>Company Name</label>
+        <input ng-model="company_name" type="text">
+      </div>
 
-        </form>
+      <div class="field">
+        <label>Company Address</label>
+        <input ng-model="company_address" type="text">
+      </div>
 
-    </div>
+
+    </form>
+
+  </div>
 
 </div>
