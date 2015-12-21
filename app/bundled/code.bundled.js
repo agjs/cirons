@@ -1250,7 +1250,7 @@ angular.module('CIRONS-MAIN-APP')
       url: "/create",
       ncyBreadcrumb: {
         parent: 'suppliers',
-        label: 'Create new'
+        label: 'Add New Supplier'
       },
       views: {
         '': {

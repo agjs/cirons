@@ -37,7 +37,7 @@
       url: "/create",
       ncyBreadcrumb: {
         parent: 'suppliers',
-        label: 'Create new'
+        label: 'Add New Supplier'
       },
       views: {
         '': {
