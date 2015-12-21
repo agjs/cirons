@@ -1364,12 +1364,6 @@ table.info-table {
   list-style-type: none;
   margin-right: 10px; }
 
-.ui.breadcrumb a:after {
-  font-family: FontAwesome;
-  content: "\f054";
-  padding-left: 10px;
-  color: #eaeaea; }
-
 .loginUnauth {
   width: 500px;
   margin: auto; }
@@ -1703,7 +1697,7 @@ span.receivable strong {
 body.split_table .split-view {
   height: 100%; }
 body.split_table .split-view > div:first-child {
-  width: 28%;
+  width: 28.0%;
   float: left; }
 body.split_table .split-view > div:last-child {
   width: 72%;
