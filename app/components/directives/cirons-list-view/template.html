@@ -1,0 +1,26 @@
+
+<div class="split-table clearfix ng-scope">
+  <div class="list">
+
+    <div class="list-toolbar">
+      <a class="ui button labeled icon green" ui-sref="{{newitemstate}}">
+        <i class="icon plus"></i>
+        Add new
+      </a>
+    </div>
+    <ul>
+      <li ng-repeat="item in data track by $index" ui-sref="{{singleitemstate}}">
+        <div class="clearfix">
+          <i>{{$index + 1}}</i>
+          <strong>{{item.company_name}}</strong>
+        </div>
+        <div class="sec clearfix">
+          <span class="ng-binding">
+            {{ (item.receipts.length + item.supplier_invoices.length) }}
+            items
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

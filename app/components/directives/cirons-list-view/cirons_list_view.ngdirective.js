@@ -1,21 +1,26 @@
 (function() {
     "use strict";
-    module.exports = cironsCard;
+    module.exports = cirons_list_card;
 
-    function cironsCard() {
+    function cirons_list_card() {
 
       return {
         restrict: 'EA',
         scope: {
-            // TODO
+            newitemstate: '@',
+            singleitemstate: '@',
+            data: '='
+
         },
         templateUrl: 'components/directives/cirons-list-view/template.html',
         replace: true,
-        link: function(scope) {}
+        link: function(scope) {
+
+        }
       }
 
     }
 
-    cironsCard.$inject = [];
+    cirons_list_card.$inject = [];
 
 })();

@@ -1,29 +1,5 @@
-<div class="split-table clearfix ng-scope">
-  <div class="list">
-
-    <div class="list-toolbar">
-      <a class="ui button labeled icon green" ui-sref="suppliers.create">
-        <i class="icon plus"></i>
-        Add new
-      </a>
-    </div>
-
-    <ul>
-      <!-- ngRepeat: item in items -->
-      <li ng-repeat="item in expenses track by $index" ui-sref="suppliers.item({id: item.id, supplier: item})">
-        <div class="clearfix">
-          <i>{{$index + 1}}</i>
-          <!--ng-class="{'active': (currentState() === 'suppliers.item')}"-->
-          <strong>{{item.company_name}}</strong>
-        </div>
-        <div class="sec clearfix">
-          <span class="ng-binding">
-            {{ (item.receipts.length + item.supplier_invoices.length) }}
-            items
-          </span>
-        </div>
-      </li>
-      <!-- end ngRepeat: item in items -->
-    </ul>
-  </div>
-</div>
+<cirons-list
+  singleitemstate="suppliers.item({id: item.id, supplier: item})"
+  newitemstate="suppliers.create"
+  data="expenses"
+></cirons-list>

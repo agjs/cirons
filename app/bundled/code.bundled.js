@@ -693,23 +693,28 @@ angular.module('CIRONS-MAIN-APP')
 },{}],29:[function(require,module,exports){
 (function() {
     "use strict";
-    module.exports = cironsCard;
+    module.exports = cirons_list_card;
 
-    function cironsCard() {
+    function cirons_list_card() {
 
       return {
         restrict: 'EA',
         scope: {
-            // TODO
+            newitemstate: '@',
+            singleitemstate: '@',
+            data: '='
+
         },
         templateUrl: 'components/directives/cirons-list-view/template.html',
         replace: true,
-        link: function(scope) {}
+        link: function(scope) {
+
+        }
       }
 
     }
 
-    cironsCard.$inject = [];
+    cirons_list_card.$inject = [];
 
 })();
 
@@ -1101,7 +1106,6 @@ angular.module('CIRONS-MAIN-APP')
   function suppliersListController($scope, $state) {
 
     $scope.currentState = function() {
-      console.log($state.current);
       return $state.current.name;
     };
 
