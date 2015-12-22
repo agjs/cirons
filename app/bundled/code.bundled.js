@@ -674,7 +674,7 @@ angular.module('CIRONS-MAIN-APP')
   "use strict";
   module.exports = cironsCard;
 
-  function cironsCard(suppliersFactory, receiptsFactory) {
+  function cironsCard() {
     return {
 
       restrict: 'EA',
@@ -684,28 +684,13 @@ angular.module('CIRONS-MAIN-APP')
         cardColor: '@ccolor',
         cardIcon: '@cicon',
         cardCounterDesc: '@ccounterdesc',
-        cardCounter: '=ccounter',
+        cardCounter: '=',
         cardCounterSecondary: '=csecondary',
-        cstate: '@'
+        cstate: '@',
+        ccontroller: '='
       },
-
       templateUrl: 'components/directives/cirons-card/template.html',
-      replace: true,
 
-      link: function(scope, element, attrs, controller) {
-        //
-        // if (scope.cardType == 'Suppliers') {
-        //   suppliersFactory.getSuppliers().then(function(suppliers) {
-        //     scope.cardCounter = suppliers.length;
-        //   })
-        //
-        //
-        // } else if (scope.cardType == 'Receipts') {
-        //   receiptsFactory.getReceipts().then(function(receipts) {
-        //     scope.cardCounter = receipts.length;
-        //   })
-        // }
-      }
     }
 
   }
@@ -839,16 +824,13 @@ angular.module('CIRONS-MAIN-APP')
 
   function expensesController($scope, suppliersFactory, receiptsFactory, $state) {
 
-    // suppliersFactory.getSuppliers().then(function(expenses) {
-    //
-    //   $scope.cardType = 'Suppliers';
-    //   $scope.cardDescription = 'Manage your invoices';
-    //   $scope.cardColor = 'red';
-    //   $scope.cardIcon = 'building';
-    //   $scope.cardCounter = expenses.length;
-    //   $scope.cardState = 'suppliers';
-    //
-    // });
+    suppliersFactory.countSuppliers().then(function(suppliers) {
+      $scope.suppliersCount = suppliers;
+    });
+
+    receiptsFactory.countReceipts().then(function(receipts) {
+      $scope.receiptsCount = receipts;
+    });
 
 
 

@@ -2,7 +2,7 @@
   "use strict";
   module.exports = cironsCard;
 
-  function cironsCard(suppliersFactory, receiptsFactory) {
+  function cironsCard() {
     return {
 
       restrict: 'EA',
@@ -12,28 +12,13 @@
         cardColor: '@ccolor',
         cardIcon: '@cicon',
         cardCounterDesc: '@ccounterdesc',
-        cardCounter: '=ccounter',
+        cardCounter: '=',
         cardCounterSecondary: '=csecondary',
-        cstate: '@'
+        cstate: '@',
+        ccontroller: '='
       },
-
       templateUrl: 'components/directives/cirons-card/template.html',
-      replace: true,
 
-      link: function(scope, element, attrs, controller) {
-        //
-        // if (scope.cardType == 'Suppliers') {
-        //   suppliersFactory.getSuppliers().then(function(suppliers) {
-        //     scope.cardCounter = suppliers.length;
-        //   })
-        //
-        //
-        // } else if (scope.cardType == 'Receipts') {
-        //   receiptsFactory.getReceipts().then(function(receipts) {
-        //     scope.cardCounter = receipts.length;
-        //   })
-        // }
-      }
     }
 
   }

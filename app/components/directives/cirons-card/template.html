@@ -1,31 +1,31 @@
 <div class="ui cards section-boxes">
-    <div class="{{cardColor}} card section-icon">
-        <div class="content">
-            <i class="right floated mini ui {{cardColor}} icon {{cardIcon}}"></i>
-            <a ui-sref="{{cstate}}" class="header">{{cardType}}</a>
+  <div class="{{cardColor}} card section-icon">
+    <div class="content">
+      <i class="right floated mini ui {{cardColor}} icon {{cardIcon}}"></i>
+      <a class="header" ui-sref="{{cstate}}">{{cardType}}</a>
 
-            <div class="meta">
-                {{cardDescription}}
-            </div>
-            <div class="description">
-                <table class="section-box-number">
-                    <tr>
-                        <td>
-                            <div class="ui {{cardColor}} statistic">
-                                <div class="value">
-                                    {{cardCounter}}
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <h3>{{cardCounterDesc}}</h3>
-                            <p ng-show="cardCounterSecondary.length">
-                                {{cardCounterSecondary}}
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+      <div class="meta">
+        {{cardDescription}}
+      </div>
+      <div class="description">
+        <table class="section-box-number">
+          <tr>
+            <td>
+              <div class="ui {{cardColor}} statistic">
+                <div class="value">
+                  {{cardCounter}}
+                </div>
+              </div>
+            </td>
+            <td>
+              <h3>{{cardCounterDesc}}</h3>
+              <p ng-show="cardCounterSecondary.length">
+                {{cardCounterSecondary}}
+              </p>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
+  </div>
 </div>

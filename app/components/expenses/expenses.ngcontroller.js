@@ -4,16 +4,13 @@
 
   function expensesController($scope, suppliersFactory, receiptsFactory, $state) {
 
-    // suppliersFactory.getSuppliers().then(function(expenses) {
-    //
-    //   $scope.cardType = 'Suppliers';
-    //   $scope.cardDescription = 'Manage your invoices';
-    //   $scope.cardColor = 'red';
-    //   $scope.cardIcon = 'building';
-    //   $scope.cardCounter = expenses.length;
-    //   $scope.cardState = 'suppliers';
-    //
-    // });
+    suppliersFactory.countSuppliers().then(function(suppliers) {
+      $scope.suppliersCount = suppliers;
+    });
+
+    receiptsFactory.countReceipts().then(function(receipts) {
+      $scope.receiptsCount = receipts;
+    });
 
 
 

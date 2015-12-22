@@ -1,9 +1,7 @@
-<div class="ui grid stacked">
-  <div ng-controller="suppliersCountController">
-    <cirons-card ccolor="red" ccounter="cardCounter" ccounterdesc="Suppliers" cdesc="Manage your suppliers" cicon="building" cstate="suppliers" ctype="Suppliers"></cirons-card>
-  </div>
+<div class="ui grid stacked" ng-controller="expensesController">
 
-  <div ng-controller="receiptsCountController">
-    <cirons-card ccolor="red" ccounter="cardCounter" ccounterdesc="Receipts" cdesc="Manage your receipts" cicon="file" cstate="receipts" ctype="Receipts"></cirons-card>
-  </div>
+  <cirons-card card-counter="suppliersCount" ccolor="red" ccounterdesc="Suppliers" cdesc="Manage your suppliers" cicon="building" cstate="suppliers" ctype="Suppliers"></cirons-card>
+
+  <cirons-card card-counter="receiptsCount" ccolor="red" ccounterdesc="Receipts" cdesc="Manage your receipts" cicon="file" cstate="receipts" ctype="Receipts"></cirons-card>
+
 </div>
