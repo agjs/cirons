@@ -19,10 +19,7 @@
           },
           'receiptsList@receipts': {
             templateUrl: 'components/expenses/receipts/receipts_list.view.html',
-
           }
-
-
         }
       })
 
