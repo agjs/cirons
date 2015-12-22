@@ -1,8 +1,17 @@
-<h1>Sales</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet, commodi corporis necessitatibus porro
-    repellat rerum totam voluptate. Accusamus aliquam assumenda consectetur, culpa cum deleniti deserunt dolorum eaque
-    earum enim ex exercitationem fugiat, in ipsa iure iusto labore nihil non nostrum possimus quidem, quisquam quos
-    recusandae rem rerum similique veniam? Amet aspernatur cumque dignissimos earum facilis odio officiis provident
-    quidem sapiente sequi sunt tempore vel, voluptas? A accusamus alias, assumenda cum doloremque ducimus illum in
-    mollitia numquam rerum saepe vitae voluptate voluptatum! Asperiores dicta exercitationem illo optio quaerat vitae.
-    Atque dolores eum fugit ipsam laborum nesciunt possimus quae quasi tempore!</p>
+<div class="ui grid stacked">
+  <div ng-controller="ordersController">
+    <cirons-card ccolor="olive" ccounter="cardCounter" csecondary="cardSecondary" cdesc="Manage your orders" cicon="file" cstate="suppliers" ctype="Orders" ccounterdesc="Pending Orders"></cirons-card>
+  </div>
+
+  <div ng-controller="invoicesController">
+    <cirons-card ccolor="olive" ccounter="cardCounter" csecondary="cardSecondary" cdesc="Manage your invoices" cicon="file" cstate="suppliers" ctype="Invoices" ccounterdesc="Due Invoices"></cirons-card>
+  </div>
+
+  <div ng-controller="productsController">
+    <cirons-card ccolor="olive" ccounter="cardCounter" csecondary="cardSecondary" cdesc="Manage your products" cicon="database" cstate="suppliers" ctype="Products" ccounterdesc="Products"></cirons-card>
+  </div>
+
+  <div ng-controller="contactsController">
+    <cirons-card ccolor="olive" ccounter="cardCounter" csecondary="cardSecondary" cdesc="Manage your contacts" cicon="users" cstate="suppliers" ctype="Customers" ccounterdesc="Customers"></cirons-card>
+  </div>
+</div>

@@ -7,3 +7,5 @@ libs
 .sass-cache
 npm-debug.log
 .tern-project
+.DS_Store
+bundle
