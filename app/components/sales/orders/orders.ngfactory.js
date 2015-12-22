@@ -17,6 +17,17 @@
         });
       },
 
+      countOrders: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/orders?count').then(function(orders) {
+          if (orders) {
+            return orders.data;
+          } else {
+            throw new Error('No orders found');
+          }
+
+        });
+      },
+
       getPendingOrders: function(){
           return $http.get('http://janalex.beta.cirons.com/api/v1/orders/step/pending').then(function(orders) {
             if (orders) {

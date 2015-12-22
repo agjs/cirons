@@ -8,14 +8,14 @@
       $scope.invoices = invoices;
     });
 
-    invoicesFactory.getUnpaidInvoices().then(function(invoices){
-        $scope.unpaid = invoices;
-        $scope.cardCounter = invoices.length;
+    invoicesFactory.getUnpaidInvoices().then(function(invoices) {
+      $scope.unpaid = invoices;
+      $scope.cardCounter = invoices.length;
     });
 
-    invoicesFactory.getUnpaidInvoicesSum().then(function(data){
-        $scope.unpaid_sum = data;
-        $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
+    invoicesFactory.getUnpaidInvoicesSum().then(function(data) {
+      $scope.unpaid_sum = data;
+      $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
     });
 
   }

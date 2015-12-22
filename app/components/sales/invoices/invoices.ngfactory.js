@@ -17,6 +17,17 @@
         });
       },
 
+      countInvoices: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/invoices?count').then(function(invoices) {
+          if (invoices) {
+            return invoices.data;
+          } else {
+            throw new Error('No invoices found');
+          }
+
+        });
+      },
+
       getUnpaidInvoices: function() {
         return $http.get('http://janalex.beta.cirons.com/api/v1/invoices/not_step/paid').then(function(invoices) {
           if (invoices) {

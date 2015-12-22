@@ -1,17 +1,11 @@
-<div class="ui grid stacked">
-  <div ng-controller="ordersController">
-    <cirons-card ccolor="olive" ccounter="cardCounter" csecondary="cardSecondary" cdesc="Manage your orders" cicon="file" cstate="suppliers" ctype="Orders" ccounterdesc="Pending Orders"></cirons-card>
-  </div>
+<div class="ui grid stacked" ng-controller="salesController">
 
-  <div ng-controller="invoicesController">
-    <cirons-card ccolor="olive" ccounter="cardCounter" csecondary="cardSecondary" cdesc="Manage your invoices" cicon="file" cstate="suppliers" ctype="Invoices" ccounterdesc="Due Invoices"></cirons-card>
-  </div>
+  <cirons-card ccolor="olive" card-counter="ordersCount" ccounterdesc="Pending Orders" cdesc="Manage your orders" cicon="file" csecondary="cardSecondary" cstate="suppliers" ctype="Orders"></cirons-card>
 
-  <div ng-controller="productsController">
-    <cirons-card ccolor="olive" ccounter="cardCounter" csecondary="cardSecondary" cdesc="Manage your products" cicon="database" cstate="suppliers" ctype="Products" ccounterdesc="Products"></cirons-card>
-  </div>
+  <cirons-card card-counter="invoicesCount" ccolor="olive" ccounterdesc="Due Invoices" cdesc="Manage your invoices" cicon="file" csecondary="cardSecondary" cstate="suppliers" ctype="Invoices"></cirons-card>
 
-  <div ng-controller="contactsController">
-    <cirons-card ccolor="olive" ccounter="cardCounter" csecondary="cardSecondary" cdesc="Manage your contacts" cicon="users" cstate="suppliers" ctype="Customers" ccounterdesc="Customers"></cirons-card>
-  </div>
+  <cirons-card ccolor="olive" card-counter="productsCount" ccounterdesc="Products" cdesc="Manage your products" cicon="database" csecondary="cardSecondary" cstate="suppliers" ctype="Products"></cirons-card>
+
+  <cirons-card card-counter="contactsCount" ccolor="olive" ccounterdesc="Customers" cdesc="Manage your contacts" cicon="users" csecondary="cardSecondary" cstate="suppliers" ctype="Customers"></cirons-card>
+
 </div>

@@ -17,6 +17,17 @@
         });
       },
 
+      countContacts: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/contacts?count').then(function(contacts) {
+          if (contacts) {
+            return contacts.data;
+          } else {
+            throw new Error('No contacts found');
+          }
+
+        });
+      },
+
       getContact: function(id) {
         return $http.get('http://janalex.beta.cirons.com/api/v1/contacts' + '/' + id).then(function(item) {
           if (item) {

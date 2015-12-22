@@ -17,6 +17,17 @@
         });
       },
 
+      countProducts: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/products?count').then(function(products) {
+          if (products) {
+            return products.data;
+          } else {
+            throw new Error('No products found');
+          }
+
+        });
+      },
+
       getProduct: function(id) {
         return $http.get('http://janalex.beta.cirons.com/api/v1/products' + '/' + id).then(function(item) {
           if (item) {

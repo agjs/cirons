@@ -1553,6 +1553,17 @@ angular.module('CIRONS-MAIN-APP')
         });
       },
 
+      countContacts: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/contacts?count').then(function(contacts) {
+          if (contacts) {
+            return contacts.data;
+          } else {
+            throw new Error('No contacts found');
+          }
+
+        });
+      },
+
       getContact: function(id) {
         return $http.get('http://janalex.beta.cirons.com/api/v1/contacts' + '/' + id).then(function(item) {
           if (item) {
@@ -1639,14 +1650,14 @@ angular.module('CIRONS-MAIN-APP')
       $scope.invoices = invoices;
     });
 
-    invoicesFactory.getUnpaidInvoices().then(function(invoices){
-        $scope.unpaid = invoices;
-        $scope.cardCounter = invoices.length;
+    invoicesFactory.getUnpaidInvoices().then(function(invoices) {
+      $scope.unpaid = invoices;
+      $scope.cardCounter = invoices.length;
     });
 
-    invoicesFactory.getUnpaidInvoicesSum().then(function(data){
-        $scope.unpaid_sum = data;
-        $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
+    invoicesFactory.getUnpaidInvoicesSum().then(function(data) {
+      $scope.unpaid_sum = data;
+      $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
     });
 
   }
@@ -1666,6 +1677,17 @@ angular.module('CIRONS-MAIN-APP')
 
       getInvoices: function() {
         return $http.get('http://janalex.beta.cirons.com/api/v1/invoices').then(function(invoices) {
+          if (invoices) {
+            return invoices.data;
+          } else {
+            throw new Error('No invoices found');
+          }
+
+        });
+      },
+
+      countInvoices: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/invoices?count').then(function(invoices) {
           if (invoices) {
             return invoices.data;
           } else {
@@ -1819,6 +1841,17 @@ angular.module('CIRONS-MAIN-APP')
         });
       },
 
+      countOrders: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/orders?count').then(function(orders) {
+          if (orders) {
+            return orders.data;
+          } else {
+            throw new Error('No orders found');
+          }
+
+        });
+      },
+
       getPendingOrders: function(){
           return $http.get('http://janalex.beta.cirons.com/api/v1/orders/step/pending').then(function(orders) {
             if (orders) {
@@ -1954,6 +1987,17 @@ angular.module('CIRONS-MAIN-APP')
         });
       },
 
+      countProducts: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/products?count').then(function(products) {
+          if (products) {
+            return products.data;
+          } else {
+            throw new Error('No products found');
+          }
+
+        });
+      },
+
       getProduct: function(id) {
         return $http.get('http://janalex.beta.cirons.com/api/v1/products' + '/' + id).then(function(item) {
           if (item) {
@@ -2035,12 +2079,50 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = salesController;
 
-  function salesController($scope) {
+  function salesController($scope, $filter, contactsFactory, invoicesFactory, ordersFactory, productsFactory) {
 
+    contactsFactory.countContacts().then(function(contacts) {
+      $scope.contactsCount = contacts;
+    });
+
+    invoicesFactory.countInvoices().then(function(invoices) {
+      $scope.invoicesCount = invoices;
+    });
+
+    // invoicesFactory.getUnpaidInvoices().then(function(invoices) {
+    //   $scope.unpaid = invoices;
+    // });
+
+    invoicesFactory.getUnpaidInvoicesSum().then(function(data) {
+      $scope.unpaid_sum = data;
+      $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
+    });
+
+
+    ordersFactory.countOrders().then(function(orders) {
+      $scope.ordersCount = orders;
+    });
+
+    ordersFactory.getPendingOrders().then(function(orders) {
+      $scope.pending = orders;
+      $scope.cardCounter = orders.length;
+    });
+
+    ordersFactory.getPendingOrdersSum().then(function(data) {
+      $scope.pending_sum = data;
+      $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
+    });
+
+    productsFactory.countProducts().then(function(products) {
+      $scope.productsCount = products;
+
+
+
+    });
 
   }
 
-  salesController.$inject = ['$scope'];
+  salesController.$inject = ['$scope', '$filter', 'contactsFactory', 'invoicesFactory', 'ordersFactory', 'productsFactory'];
 
 })();
 
