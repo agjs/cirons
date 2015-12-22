@@ -11,7 +11,9 @@
         cardDescription: '@cdesc',
         cardColor: '@ccolor',
         cardIcon: '@cicon',
+        cardCounterDesc: '@ccounterdesc',
         cardCounter: '=ccounter',
+        cardCounterSecondary: '=csecondary',
         cstate: '@'
       },
 
@@ -19,7 +21,7 @@
       replace: true,
 
       link: function(scope, element, attrs, controller) {
-        // 
+        //
         // if (scope.cardType == 'Suppliers') {
         //   suppliersFactory.getSuppliers().then(function(suppliers) {
         //     scope.cardCounter = suppliers.length;

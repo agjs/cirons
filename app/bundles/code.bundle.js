@@ -7,6 +7,12 @@
     require('../components/accounting/accounting.ngcomponent');
     require('../components/expenses/suppliers/suppliers.ngcomponent');
     require('../components/expenses/receipts/receipts.ngcomponent');
+
+    require('../components/sales/orders/orders.ngcomponent');
+    require('../components/sales/invoices/invoices.ngcomponent');
+    require('../components/sales/products/products.ngcomponent');
+    require('../components/sales/contacts/contacts.ngcomponent');
+
     require('../components/calendar/calendar.ngcomponent');
     require('../components/hr/hr.ngcomponent');
     require('../components/purchasing/purchasing.ngcomponent');
