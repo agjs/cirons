@@ -17,6 +17,17 @@
         });
       },
 
+      countReceipts: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/receipts?count').then(function(receipts) {
+          if (receipts) {
+            return receipts.data;
+          } else {
+            throw new Error('No receipts found');
+          }
+
+        });
+      },
+
       getReceipt: function(id) {
         return $http.get('http://janalex.beta.cirons.com/api/v1/receipts' + '/' + id).then(function(item) {
           if (item) {

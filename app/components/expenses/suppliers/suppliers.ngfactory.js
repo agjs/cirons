@@ -17,6 +17,17 @@
         });
       },
 
+        countSuppliers: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/suppliers?count').then(function(suppliers) {
+          if (suppliers) {
+            return suppliers.data;
+          } else {
+            throw new Error('Something went wrong');
+          }
+
+        });
+      },
+
       getSupplier: function(id) {
         return $http.get('http://janalex.beta.cirons.com/api/v1/suppliers' + '/' + id).then(function(item) {
           if (item) {
