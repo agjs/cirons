@@ -1,27 +1,91 @@
+
+<!-- http://jettro.github.io/c3-angular-directive/#examples -->
+
 <div class="dashboard-content" ng-controller="dashboardFinanceController">
   <div class="tab_content">
     <div class="ui grid stacked">
       <div class="column four wide">
-        <cirons-statbox color="#3681B1" icon="chart line" text="Pending Orders"></cirons-statbox>
+        <div class="small-box" style="border-color: #66bb6a; color: #66bb6a;">
+          <table height="100%" width="100%">
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" width="60px">
+                  <i class="icon chart area"></i>
+                </td>
+                <td>
+                  <span id="growth_mini_number">0.0 %</span>
+                  <strong>Growth Last Month</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
       <div class="column four wide">
-        <cirons-statbox color="#3681B1" icon="chart line" text="Pending Orders"></cirons-statbox>
+        <div class="small-box interactive" onclick="followFilterLink('/orders/', { eq_step: 'pending' })" style="border-color: #E07B53; color: #E07B53;">
+          <table height="100%" width="100%">
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" width="60px">
+                  <i class="icon file"></i>
+                </td>
+                <td>
+                  <span id="pending_orders_mini_number">0</span>
+                  <strong>Pending Orders</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
       <div class="column four wide">
-        <cirons-statbox color="#3681B1" icon="chart line" text="Pending Orders"></cirons-statbox>
+        <div class="small-box interactive" onclick="followFilterLink('/invoices/',{ gt_date: '2015-12-01' });" style="border-color: #26a69a; color: #26a69a;">
+          <table height="100%" width="100%">
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" width="60px">
+                  <i class="icon bar chart"></i>
+                </td>
+                <td>
+                  <span id="turnover_this_month_mini_number">352</span>
+                  <strong>Turnover (month)</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
       <div class="column four wide">
-        <cirons-statbox color="#3681B1" icon="chart line" text="Pending Orders"></cirons-statbox>
+        <div class="small-box interactive" id="due_invoices_mini" onclick="followFilterLink('/invoices/', { ne_step: 'paid' })" style="border-color: rgb(246, 100, 100); color: rgb(246, 100, 100);">
+          <table height="100%" width="100%">
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" width="60px">
+                  <i class="icon file"></i>
+                </td>
+                <td>
+                  <span id="due_invoices_mini_number">360.9</span>
+                  <strong>Total Due:
+                    <strong style="font-weight: bold; display: inline;"></strong>
+                    Invoices</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
+      <div class="column sixteen wide">
+        <c3chart bindto-id="stacked-bar-plot1-chart">
+          <chart-column column-color="red" column-id="data 1" column-name="Data 1" column-type="bar" column-values="30,200,100,400,150,250"/>
+          <chart-column column-color="green" column-id="data 2" column-name="Data 2" column-type="bar" column-values="50,20,10,40,15,25"/>
+          <chart-group group-values="data 1,data 2"/>
+        </c3chart>
+      </div>
+
     </div>
   </div>
 </div>
-
-<c3chart bindto-id="chart1">
-  <chart-column column-id="data 1"
-          column-values="30,200,100,400,150,250"
-          column-type="spline"/>
-  <chart-column column-id="data 2"
-                column-values="50,20,10,40,15,25"
-                column-type="line"/>
-</c3chart>
