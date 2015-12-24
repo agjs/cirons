@@ -701,17 +701,27 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = dashboardFinanceController;
 
-  function dashboardFinanceController($scope, dashboardFactory) {
+  function dashboardFinanceController($scope, $filter, dashboardFactory) {
 
 
 
     dashboardFactory.getDashboardData().then(function(data){
+      console.log(data);
       $scope.dashboardData = data;
+      $scope.dashboardData.due_invoices_mini.total = $filter('currency')(data.due_invoices_mini.total,  data.due_invoices_mini.currency, 0);
+      $scope.dashboardData.turnover_this_month_mini.total = $filter('currency')(data.turnover_this_month_mini.total, data.due_invoices_mini.currency, 0);
+
+
+
+
+
+
+
     })
 
   }
 
-  dashboardFinanceController.$inject = ['$scope', 'dashboardFactory'];
+  dashboardFinanceController.$inject = ['$scope', '$filter', 'dashboardFactory'];
 
 })();
 

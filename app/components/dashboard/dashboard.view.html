@@ -1,3 +1,6 @@
+<div ng-controller="dashboardFinanceController">
+
+
 <div class="dashboard-tabs clearfix">
   <nav>
     <ul>
@@ -27,18 +30,25 @@
     <ul>
       <li>
         <span>Turnover</span>
-        <strong id="tabbar-chart-turnover">120,000 SEK</strong>
+        <strong id="tabbar-chart-turnover">{{dashboardData.turnover.turnover}}</strong>
       </li>
       <li>
         <span>Minus Costs</span>
-        <strong id="tabbar-chart-costs">136,159 SEK</strong>
+        <strong id="tabbar-chart-costs">{{dashboardData.turnover.costs}}</strong>
       </li>
       <li>
         <span>Equals Result</span>
-        <strong id="tabbar-chart-total">-16,159 SEK</strong>
+        <strong id="tabbar-chart-total">{{dashboardData.turnover.total}}</strong>
       </li>
+
+      <li>
+        <span>Currency</span>
+        <strong id="tabbar-chart-total">{{dashboardData.turnover.currency}}</strong>
+      </li>
+
     </ul>
   </div>
 </div>
 
 <div ui-view="dashboardContent"></div>
+</div>

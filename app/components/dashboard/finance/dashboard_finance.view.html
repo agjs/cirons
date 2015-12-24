@@ -1,7 +1,7 @@
 
 <!-- http://jettro.github.io/c3-angular-directive/#examples -->
 
-<div class="dashboard-content" ng-controller="dashboardFinanceController">
+<div class="dashboard-content">
   <div class="tab_content">
     <div class="ui grid stacked">
       <div class="column four wide">
@@ -13,6 +13,8 @@
                   <i class="icon chart area"></i>
                 </td>
                 <td>
+
+
                   <span id="growth_mini_number">0.0 %</span>
                   <strong>Growth Last Month</strong>
                 </td>
@@ -31,7 +33,7 @@
                   <i class="icon file"></i>
                 </td>
                 <td>
-                  <span id="pending_orders_mini_number">0</span>
+                  <span id="pending_orders_mini_number">{{dashboardData.pending_orders_mini}}</span>
                   <strong>Pending Orders</strong>
                 </td>
               </tr>
@@ -49,7 +51,7 @@
                   <i class="icon bar chart"></i>
                 </td>
                 <td>
-                  <span id="turnover_this_month_mini_number">352</span>
+                  <span id="turnover_this_month_mini_number">{{dashboardData.turnover_this_month_mini.total}}</span>
                   <strong>Turnover (month)</strong>
                 </td>
               </tr>
@@ -57,6 +59,7 @@
           </table>
         </div>
       </div>
+
 
       <div class="column four wide">
         <div class="small-box interactive" id="due_invoices_mini" onclick="followFilterLink('/invoices/', { ne_step: 'paid' })" style="border-color: rgb(246, 100, 100); color: rgb(246, 100, 100);">
@@ -67,7 +70,7 @@
                   <i class="icon file"></i>
                 </td>
                 <td>
-                  <span id="due_invoices_mini_number">360.9</span>
+                  <span id="due_invoices_mini_number">{{dashboardData.due_invoices_mini.total}}</span>
                   <strong>Total Due:
                     <strong style="font-weight: bold; display: inline;"></strong>
                     Invoices</strong>
