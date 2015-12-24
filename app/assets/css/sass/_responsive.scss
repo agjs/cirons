@@ -1,3 +1,7 @@
+header .page-title #touch-menu {
+    display: none;
+}
+
 @media(max-width:992px){
 
     .user-bar, aside.menu header a.logo, #speech, .tabbar-chart, section.content.hide-sidebar aside.sidebar {
@@ -5,7 +9,8 @@
     }
 
     aside.menu {
-        left: -260px;
+        left: -80%;
+        z-index: 999;
     }
     .body {
         margin: 0;
@@ -63,7 +68,7 @@
         display: inline-block;
     }
     header .page-title h1 {
-        display: inline-block;
+        display: none;
         padding: 0;
         margin: 0;
     }
@@ -90,9 +95,10 @@
         box-shadow:         2px 0px 10px 0px rgba(50, 50, 50, 0.75);
     }
 
-    header .page-title:before {
-        content: '\f0c9';
-        font-family: FontAwesome;
+    aside.menu #touch-menu {
+        border: none;
+        position: absolute;
+        background: white;
         color: rgba(0, 0, 0, 0.3);
         font-size: 24px;
         height: 50px;
@@ -101,7 +107,24 @@
         line-height: 50px;
         text-align: center;
         border-right: 1px solid rgba(0, 0, 0, 0.3);
-        display: inline-block;
+        right: -70px;
+        display: block;
+        z-index: 9999;
+
+        .fa.fa-times {
+            display: none;
+        }
+    }
+
+    aside.menu.open #touch-menu {
+        background: $cirons_blue;
+        color: white;
+        .fa.fa-bars {
+            display: none;
+        }
+        .fa.fa-times {
+            display: inline;
+        }
     }
 
 }

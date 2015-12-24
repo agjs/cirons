@@ -451,6 +451,12 @@ angular.module('CIRONS-MAIN-APP')
   module.exports = mainMenuController;
 
   function mainMenuController($scope) {
+
+      $scope.touchMenuOpen = false;
+      $scope.toggleTouchMenu = function(){
+          $scope.touchMenuOpen = !$scope.touchMenuOpen;
+      };
+
     $scope.logoUrl = 'assets/images/logo.png';
     $scope.menu = [{
       title: 'Dashboard',
@@ -514,6 +520,9 @@ angular.module('CIRONS-MAIN-APP')
     $scope.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
+
+    
+
   }
 
   mainController.$inject = ['$scope', '$auth', '$state'];
@@ -689,6 +698,7 @@ angular.module('CIRONS-MAIN-APP')
         cstate: '@',
         ccontroller: '='
       },
+      replace: true,
       templateUrl: 'components/directives/cirons-card/template.html',
 
     }

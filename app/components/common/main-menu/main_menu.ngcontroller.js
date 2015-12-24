@@ -3,6 +3,12 @@
   module.exports = mainMenuController;
 
   function mainMenuController($scope) {
+
+      $scope.touchMenuOpen = false;
+      $scope.toggleTouchMenu = function(){
+          $scope.touchMenuOpen = !$scope.touchMenuOpen;
+      };
+
     $scope.logoUrl = 'assets/images/logo.png';
     $scope.menu = [{
       title: 'Dashboard',

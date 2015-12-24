@@ -246,15 +246,13 @@ header .page-title h1 {
 
 aside.menu header a.logo {
   height: 50px;
-  padding: 0 20px;
   display: block;
   line-height: 50px; }
 
 aside.menu header a.logo img {
   max-width: 180px;
-  width: 75%;
-  height: auto;
-  margin-top: 9px; }
+  width: 100%;
+  height: auto; }
 
 .status-bar {
   position: absolute;
@@ -1697,7 +1695,7 @@ span.receivable strong {
 body.split_table .split-view {
   height: 100%; }
 body.split_table .split-view > div:first-child {
-  width: 28.0%;
+  width: 28%;
   float: left; }
 body.split_table .split-view > div:last-child {
   width: 72%;
@@ -1925,12 +1923,16 @@ body.split_table .page-content {
 .display-none {
   background: red; }
 
+header .page-title #touch-menu {
+  display: none; }
+
 @media (max-width: 992px) {
   .user-bar, aside.menu header a.logo, #speech, .tabbar-chart, section.content.hide-sidebar aside.sidebar {
     display: none; }
 
   aside.menu {
-    left: -260px; }
+    left: -80%;
+    z-index: 999; }
 
   .body {
     margin: 0; }
@@ -1984,7 +1986,7 @@ body.split_table .page-content {
     display: inline-block; }
 
   header .page-title h1 {
-    display: inline-block;
+    display: none;
     padding: 0;
     margin: 0; }
 
@@ -2006,9 +2008,10 @@ body.split_table .page-content {
     -moz-box-shadow: 2px 0px 10px 0px rgba(50, 50, 50, 0.75);
     box-shadow: 2px 0px 10px 0px rgba(50, 50, 50, 0.75); }
 
-  header .page-title:before {
-    content: '\f0c9';
-    font-family: FontAwesome;
+  aside.menu #touch-menu {
+    border: none;
+    position: absolute;
+    background: white;
     color: rgba(0, 0, 0, 0.3);
     font-size: 24px;
     height: 50px;
@@ -2017,6 +2020,18 @@ body.split_table .page-content {
     line-height: 50px;
     text-align: center;
     border-right: 1px solid rgba(0, 0, 0, 0.3);
-    display: inline-block; } }
+    right: -70px;
+    display: block;
+    z-index: 9999; }
+    aside.menu #touch-menu .fa.fa-times {
+      display: none; }
+
+  aside.menu.open #touch-menu {
+    background: #3681b1;
+    color: white; }
+    aside.menu.open #touch-menu .fa.fa-bars {
+      display: none; }
+    aside.menu.open #touch-menu .fa.fa-times {
+      display: inline; } }
 
 /*# sourceMappingURL=cirons.css.map */

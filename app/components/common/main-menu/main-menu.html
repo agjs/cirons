@@ -1,4 +1,8 @@
-<aside class="menu blue" ng-controller="mainMenuController">
+<aside class="menu blue" ng-class="{'open' : touchMenuOpen}" ng-controller="mainMenuController">
+    <button id="touch-menu" ng-click="toggleTouchMenu()">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+    </button>
   <header>
     <a class="logo" href="#">
       <img alt="logo" ng-src="assets/images/logo-wide.png">

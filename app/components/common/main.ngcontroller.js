@@ -6,6 +6,9 @@
     $scope.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
+
+    
+
   }
 
   mainController.$inject = ['$scope', '$auth', '$state'];

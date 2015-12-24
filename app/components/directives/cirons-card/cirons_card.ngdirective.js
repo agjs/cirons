@@ -17,6 +17,7 @@
         cstate: '@',
         ccontroller: '='
       },
+      replace: true,
       templateUrl: 'components/directives/cirons-card/template.html',
 
     }
