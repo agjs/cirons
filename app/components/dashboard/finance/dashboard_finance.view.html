@@ -1,4 +1,4 @@
-<div class="dashboard-content">
+<div class="dashboard-content" ng-controller="dashboardFinanceController">
   <div class="tab_content">
     <div class="ui grid stacked">
       <div class="column four wide">
@@ -16,3 +16,12 @@
     </div>
   </div>
 </div>
+
+<c3chart bindto-id="chart1">
+  <chart-column column-id="data 1"
+          column-values="30,200,100,400,150,250"
+          column-type="spline"/>
+  <chart-column column-id="data 2"
+                column-values="50,20,10,40,15,25"
+                column-type="line"/>
+</c3chart>

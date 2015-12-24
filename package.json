@@ -7,6 +7,8 @@
     "doc": "docs"
   },
   "dependencies": {
+    "c3": "^0.4.11-rc4",
+    "d3": "^3.5.12",
     "grunt-contrib-jshint": "^0.11.3"
   },
   "devDependencies": {
