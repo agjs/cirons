@@ -1923,7 +1923,7 @@ body.split_table .page-content {
 .display-none {
   background: red; }
 
-header .page-title #touch-menu {
+aside.menu.open #touch-menu {
   display: none; }
 
 @media (max-width: 992px) {
