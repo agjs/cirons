@@ -1924,7 +1924,8 @@ body.split_table .page-content {
   background: red; }
 
 aside.menu #touch-menu {
-  display: none; }
+  display: none;
+  outline: none !important; }
 
 @media (max-width: 992px) {
   .user-bar, aside.menu header a.logo, #speech, .tabbar-chart, section.content.hide-sidebar aside.sidebar {

@@ -1,5 +1,6 @@
 aside.menu #touch-menu {
     display: none;
+    outline: none !important;
 }
 
 @media(max-width:992px){
