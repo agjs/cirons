@@ -1,3 +1,9 @@
+* {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -ms-border-radius: 0 !important;
+  border-radius: 0 !important; }
+
 html,
 body {
   width: 100%;
@@ -1379,6 +1385,12 @@ table.info-table {
 
 .breadcrumb {
   background: none !important; }
+
+.ui.cards > .card {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
 
 .timeline {
   position: relative;
