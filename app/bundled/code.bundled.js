@@ -703,10 +703,10 @@ angular.module('CIRONS-MAIN-APP')
 
   function dashboardFinanceController($scope, dashboardFactory) {
 
-    console.log('karina');
+
 
     dashboardFactory.getDashboardData().then(function(data){
-      console.log(data);
+      $scope.dashboardData = data;
     })
 
   }
