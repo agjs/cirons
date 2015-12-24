@@ -651,6 +651,7 @@ angular.module('CIRONS-MAIN-APP')
         views: {
           '': {
             templateUrl: "components/dashboard/dashboard.view.html",
+            controller: 'dashboardController'
           }
         }
 

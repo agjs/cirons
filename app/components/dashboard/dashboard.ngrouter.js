@@ -10,6 +10,7 @@
         views: {
           '': {
             templateUrl: "components/dashboard/dashboard.view.html",
+            controller: 'dashboardController'
           }
         }
 
