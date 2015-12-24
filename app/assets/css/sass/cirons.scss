@@ -1,3 +1,6 @@
+@import "../../libs/c3/c3.min.css";
+
+
 $cirons_blue: #3681b1;
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;

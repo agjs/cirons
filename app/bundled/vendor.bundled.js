@@ -19,8 +19,6 @@
 
 
 
-
-
 window.c3 = require('c3');
 require('../libs/c3-angular/c3-angular.min.js');
 

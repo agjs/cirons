@@ -1,3 +1,4 @@
+@import url(../../libs/c3/c3.min.css);
 * {
   -webkit-border-radius: 0 !important;
   -moz-border-radius: 0 !important;
@@ -1707,7 +1708,7 @@ span.receivable strong {
 body.split_table .split-view {
   height: 100%; }
 body.split_table .split-view > div:first-child {
-  width: 28%;
+  width: 28.0%;
   float: left; }
 body.split_table .split-view > div:last-child {
   width: 72%;
