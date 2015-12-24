@@ -2046,5 +2046,27 @@ aside.menu #touch-menu {
       display: none; }
     aside.menu.open #touch-menu .fa.fa-times {
       display: inline; } }
+/*@media(min-width:768px){}*/
+@media (min-width: 992px) and (max-width: 1200px) {
+  aside.menu {
+    transition: all 300ms ease;
+    width: 40px;
+    z-index: 999;
+    overflow-x: hidden; }
+    aside.menu header {
+      display: none; }
+
+  aside.menu > nav#main {
+    padding-top: 0; }
+
+  aside.menu:hover {
+    width: 260px; }
+
+  aside.menu > nav#main ul, aside.menu > nav#main ul li {
+    width: 260px; }
+
+  .body {
+    transition: all 300ms ease;
+    margin-left: 40px; } }
 
 /*# sourceMappingURL=cirons.css.map */
