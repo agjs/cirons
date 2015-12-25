@@ -2,7 +2,14 @@
   <div class="tab_content">
     <div class="ui grid stacked">
       <h4 class="ui horizontal divider header">Expenses Breakdown</h4>
-      <div class="column sixteen wide"></div>
+      <div class="column sixteen wide">
+        <c3chart bindto-id="pie-plot1-chart2">
+          <chart-column column-id="Data 1" column-type="pie" column-values="70"/>
+          <chart-column column-id="Data 2" column-type="pie" column-values="35"/>
+          <chart-column column-id="Data 3" column-type="pie" column-values="60"/>
+          <chart-pie expand="true"/>
+        </c3chart>
+      </div>
     </div>
   </div>
 </div>
