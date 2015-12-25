@@ -1,50 +1,38 @@
 <div class="open-view">
 
-  <div class="open-view-content" ng-controller="suppliersCRUDController">
+  <div class="open-view-content" ng-controller="receiptsCRUDController">
 
-    <div class="toolbar">
+    <div class="toolbar"></div>
 
-      <!-- <button class="ui dropdown button icon labeled default" ng-click="removeSupplier()">
-        <i class="remove icon"></i>
-        Delete Supplier
-      </button> -->
-
-    </div>
-
-    <h1 blur="submit" editable-text="supplier.company_name" onaftersave="editSupplier(supplier.company_name)">
-      {{supplier.company_name}}</h1>
-
-    <!-- <div class="field">
-          <label>Model:</label>
-          <cirons-model-selector name="philip" model="suppliers" model-title="company_name" selected="supplier.company_name"></cirons-model-selector>
-      </div> -->
+    <h1 blur="submit" editable-text="receipt.merchant" onaftersave="editReceipt(receipt.merchant)">
+      {{receipt.merchant}}</h1>
 
     <div class="stats">
 
-      <button class="ui labeled icon button" id="btn_bought" ng-show="supplier.bought_for != 0">
+      <button class="ui labeled icon button" id="btn_bought" ng-show="receipt.bought_for != 0">
         <i class="money icon"></i>
 
-        <div>{{ supplier.bought_for }}</div>
+        <div>{{ receipt.bought_for }}</div>
         <div>Bought for</div>
       </button>
 
-      <button class="ui labeled icon button" id="btn_si" ng-show="supplier.supplier_invoices.length">
+      <button class="ui labeled icon button" id="btn_si" ng-show="receipt.receipt_invoices.length">
         <i class="file outline pdf icon"></i>
 
-        <div>{{ supplier.supplier_invoices.length }}</div>
+        <div>{{ receipt.receipt_invoices.length }}</div>
         <div>Supplier Invoices</div>
       </button>
 
-      <button class="ui labeled icon button" id="btn_rec" ng-show="supplier.receipts.length">
+      <button class="ui labeled icon button" id="btn_rec" ng-show="receipt.receipts.length">
         <i class="file text outline icon"></i>
 
-        <div>{{ supplier.receipts.length }}</div>
+        <div>{{ receipt.receipts.length }}</div>
         <div>Receipts</div>
       </button>
 
     </div>
 
-    <div ng-show="supplier.supplier_invoices.length">
+    <div ng-show="receipt.receipt_invoices.length">
       <hr/>
       <h3>Supplier Invoices</h3>
 
@@ -59,7 +47,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="si in supplier.supplier_invoices">
+          <tr ng-repeat="si in receipt.receipt_invoices">
             <td>{{si.id}}</td>
             <td>{{si.sum}}</td>
             <td>{{si.category_name}}</td>
@@ -70,7 +58,7 @@
       </table>
     </div>
 
-    <div ng-show="supplier.receipts.length">
+    <div ng-show="receipt.receipts.length">
       <hr/>
       <h3>Supplier Invoices</h3>
 
@@ -85,7 +73,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="receipt in supplier.receipts">
+          <tr ng-repeat="receipt in receipt.receipts">
             <td>{{receipt.id}}</td>
             <td>{{receipt.amount}}</td>
             <td>{{receipt.category_name}}</td>

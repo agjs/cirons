@@ -14,7 +14,6 @@
     'ngLodash',
     'ui.bootstrap',
     'gridshore.c3js.chart'
-
   ]);
 
 

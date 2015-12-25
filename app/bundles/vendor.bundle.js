@@ -1,9 +1,6 @@
 (function() {
   'use strict';
 
-
-
-
   require('../libs/angular/angular.min.js');
   require('../libs/angular-ui-router/release/angular-ui-router.min.js');
   require('../libs/angular-animate/angular-animate.min.js');
@@ -18,8 +15,7 @@
   require('../libs/angular-bootstrap/ui-bootstrap-tpls.min.js');
   require('../libs/angular-loading-bar/build/loading-bar.min.js');
 
-
-window.c3 = require('c3');
-require('../libs/c3-angular/c3-angular.min.js');
+  window.c3 = require('c3');
+  require('../libs/c3-angular/c3-angular.min.js');
 
 })();

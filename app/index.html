@@ -20,11 +20,13 @@ currentState == 'dashboard.expenses' ? 'dashboard' : ''
 ||
 currentState == 'suppliers'                 ||
 currentState == 'suppliers.item'            ||
+currentState == 'receipts'                 ||
+currentState == 'receipts.item'                 ||
+currentState == 'receipts.create'                 ||
 currentState == 'contacts'            ||
 currentState == 'suppliers.create' ? 'split_table' : '' ||
 isAuthenticated() ? '' : 'overwriteBg'" ng-controller="mainController">
 
-<!-- <div id="loading" style="e">Loading</div> -->
 
   <ng-include ng-show="isAuthenticated()" src="'components/common/main-menu/main-menu.html'"></ng-include>
   <div ng-class="isAuthenticated() ? 'body' : ''">
