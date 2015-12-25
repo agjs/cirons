@@ -1466,3 +1466,8 @@ table.info-table {
 @import "_split_table";
 @import "_common";
 @import "_responsive";
+
+#loading {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}

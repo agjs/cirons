@@ -8,4 +8,7 @@ libs
 npm-debug.log
 .tern-project
 .DS_Store
+bundled
 bundle
+cirons.css
+cirons.css.map
