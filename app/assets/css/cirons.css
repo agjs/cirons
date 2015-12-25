@@ -1708,7 +1708,7 @@ span.receivable strong {
 body.split_table .split-view {
   height: 100%; }
 body.split_table .split-view > div:first-child {
-  width: 28.0%;
+  width: 28%;
   float: left; }
 body.split_table .split-view > div:last-child {
   width: 72%;
@@ -2069,5 +2069,8 @@ aside.menu #touch-menu {
   .body {
     transition: all 300ms ease;
     margin-left: 40px; } }
+#loading {
+  opacity: 0 !important;
+  visibility: hidden !important; }
 
 /*# sourceMappingURL=cirons.css.map */
