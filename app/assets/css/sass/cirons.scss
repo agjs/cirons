@@ -1,6 +1,4 @@
 @import "../../libs/c3/c3.min.css";
-
-
 $cirons_blue: #3681b1;
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -8,14 +6,12 @@ $cirons_blue: #3681b1;
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
-
 * {
-    -webkit-border-radius: 0 !important;
-    -moz-border-radius: 0 !important;
-    -ms-border-radius: 0 !important;
-    border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -ms-border-radius: 0 !important;
+  border-radius: 0 !important;
 }
-
 html,
 body {
   width: 100%;
@@ -1449,15 +1445,32 @@ table.info-table {
 .logo img {
   max-width: 100%;
 }
-
 .breadcrumb {
-    background: none !important;
+  background: none !important;
 }
-
 .ui.cards>.card {
-    @include border-radius(0);
+  @include border-radius(0);
 }
 
+#loading {
+  height: 100%;
+  width: 100%;
+  background: #3681b1;
+  line-height: 300px;
+  color: white;
+  font-size: 42px;
+  position: fixed;
+  z-index: 99999;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  transition: all 300ms ease;
+  opacity: 1;
+  visibility: visible;
+}
 @import "_timeline";
 @import "_wizard";
 @import "_orderrows";
@@ -1466,8 +1479,7 @@ table.info-table {
 @import "_split_table";
 @import "_common";
 @import "_responsive";
-
 #loading {
-    opacity: 0 !important;
-    visibility: hidden !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }

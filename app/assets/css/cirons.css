@@ -1393,6 +1393,25 @@ table.info-table {
   -ms-border-radius: 0;
   border-radius: 0; }
 
+#loading {
+  height: 100%;
+  width: 100%;
+  background: #3681b1;
+  line-height: 300px;
+  color: white;
+  font-size: 42px;
+  position: fixed;
+  z-index: 99999;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  transition: all 300ms ease;
+  opacity: 1;
+  visibility: visible; }
+
 .timeline {
   position: relative;
   list-style: none;
@@ -1708,7 +1727,7 @@ span.receivable strong {
 body.split_table .split-view {
   height: 100%; }
 body.split_table .split-view > div:first-child {
-  width: 28%;
+  width: 28.0%;
   float: left; }
 body.split_table .split-view > div:last-child {
   width: 72%;
