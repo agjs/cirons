@@ -174,7 +174,12 @@
 
     return {
       async: function() {
-        return $http.get('http://janalex.beta.cirons.com/api/v1/me');
+        return $http.get('http://janalex.beta.cirons.com/api/v1/me')
+      },
+      promise: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/me').then(function(user){
+          return user.data;
+        })
       }
     };
 
@@ -576,8 +581,8 @@ angular.module('CIRONS-MAIN-APP')
 
     ];
 
-    meFactory.async().then(function(user) {
-      $scope.user = user.data;
+    meFactory.promise().then(function(user) {
+      $scope.user = user;
     });
 
 
