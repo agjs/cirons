@@ -78,8 +78,12 @@
               </table>
             </div>
           </div>
+          <h4 class="ui horizontal divider header">
+            Sales vs. Costs
+          </h4>
 
-          <div class="column sixteen wide">
+          <div class="column eight wide">
+            <h5>PAST 12 MONTHS</h5>
             <c3chart bindto-id="stacked-bar-plot1-chart">
               <chart-column column-color="red" column-id="data 1" column-name="Data 1" column-type="bar" column-values="30,200,100,400,150,250, 30,200,100,400,150,250, 250"/>
               <chart-column column-color="green" column-id="data 2" column-name="Data 2" column-type="bar" column-values="30,200,100,400,150,250, 30,200,100,400,150,250, 250"/>
@@ -88,11 +92,96 @@
           </div>
 
           <div class="column eight wide">
-            <h1>Accounts payable</h1>
+            <h5>THIS MONTH</h5>
+            <c3chart bindto-id="stacked-bar-plot1-chart2">
+              <chart-column column-color="red" column-id="data 1" column-name="Data 1" column-type="bar" column-values="30,200,100,400,150,250, 30,200,100,400,150,250, 250"/>
+              <chart-column column-color="green" column-id="data 2" column-name="Data 2" column-type="bar" column-values="30,200,100,400,150,250, 30,200,100,400,150,250, 250"/>
+              <chart-group group-values="data 1,data 2"/>
+            </c3chart>
           </div>
 
           <div class="column eight wide">
-            <h1>Accounts receivable</h1>
+            <h4 class="ui horizontal divider header">
+              Accounts Payable
+            </h4>
+            <td valign="middle" width="50%">
+              <div>
+                <span class="receivable">
+                  <div id="accounts_payable_number" style="display: inline;">0 GBP</div>
+                  <strong id="ap_currency"></strong>
+                </span>
+              </div>
+
+              <div class="overdue_list">
+                <div>
+
+                  <span>
+                    <a class="ui blue circular label" id="ap_days0">0</a>
+                    <div id="ap_percent0" style="display: inline;">0</div>% non overdue</span>
+                </div>
+                <div>
+
+                  <span>
+                    <a class="ui yellow circular label" id="ap_days1">0</a>
+                    <div id="ap_percent1" style="display: inline;">0</div>% overdue &lt; 10 days</span>
+                </div>
+                <div>
+
+                  <span>
+                    <a class="ui orange circular label" id="ap_days2">0</a>
+                    <div id="ap_percent2" style="display: inline;">0</div>% overdue 10 - 60 days</span>
+                </div>
+                <div>
+
+                  <span>
+                    <a class="ui red circular label" id="ap_days3">0</a>
+                    <div id="ap_percent3" style="display: inline;">0</div>% overdue 60+ days</span>
+                </div>
+              </div>
+
+            </td>
+          </div>
+
+          <div class="column eight wide">
+            <h4 class="ui horizontal divider header">
+              Accounts Receivable
+            </h4>
+            <td valign="middle" width="50%">
+              <div>
+                <span class="receivable">
+                  <div id="accounts_receivable_number" style="display: inline;">361 GBP</div>
+                  <strong id="ar_currency"></strong>
+                </span>
+              </div>
+
+              <div class="overdue_list">
+                <div>
+
+                  <span>
+                    <a class="ui blue circular label" id="ar_days0">1</a>
+                    <div id="ar_percent0" style="display: inline;">100</div>% non overdue</span>
+                </div>
+                <div>
+
+                  <span>
+                    <a class="ui yellow circular label" id="ar_days1">0</a>
+                    <div id="ar_percent1" style="display: inline;">0</div>% overdue &lt; 10 days</span>
+                </div>
+                <div>
+
+                  <span>
+                    <a class="ui orange circular label" id="ar_days2">0</a>
+                    <div id="ar_percent2" style="display: inline;">0</div>% overdue 10 - 60 days</span>
+                </div>
+                <div>
+
+                  <span>
+                    <a class="ui red circular label" id="ar_days3">0</a>
+                    <div id="ar_percent3" style="display: inline;">0</div>% overdue 60+ days</span>
+                </div>
+              </div>
+
+            </td>
           </div>
 
           <div class="column sixteen wide">

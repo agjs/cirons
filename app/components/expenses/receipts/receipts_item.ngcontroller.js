@@ -9,6 +9,7 @@
 
     if (!$scope.receipt) {
       receiptsFactory.getReceipt($scope.id).then(function(item) {
+        console.log(item);
         $scope.receipt = item;
       });
     }
