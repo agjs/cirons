@@ -4,7 +4,9 @@
 
   module.exports = angular.module('CIRONS-MAIN-APP', [
     'ui.router',
+    'ngAnimate',
     'ngRoute',
+    'angular-loading-bar',
     'http-auth-interceptor',
     'ngCookies',
     'satellizer',
@@ -27,7 +29,7 @@
 
   module.exports = ngConfig;
 
-  function ngConfig($httpProvider, $urlRouterProvider, $locationProvider, $authProvider, $breadcrumbProvider) {
+  function ngConfig($httpProvider, $urlRouterProvider, $locationProvider, $authProvider, $breadcrumbProvider, cfpLoadingBarProvider) {
 
 
 
@@ -39,9 +41,15 @@
     $breadcrumbProvider.setOptions({
       template: 'bootstrap3'
     });
+
+
+    // Custom template for angular loading bar
+    // cfpLoadingBarProvider.spinnerTemplate = '<div><span class="fa fa-spinner">Loading...</div>';
+
+
   }
 
-  ngConfig.$inject = ['$httpProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', '$breadcrumbProvider'];
+  ngConfig.$inject = ['$httpProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', '$breadcrumbProvider', 'cfpLoadingBarProvider'];
 
 })();
 
@@ -603,7 +611,7 @@ angular.module('CIRONS-MAIN-APP')
       $scope.dashboardData.due_invoices_mini.total = $filter('currency')(data.due_invoices_mini.total, '', 0);
       $scope.dashboardData.turnover_this_month_mini.total = $filter('currency')(data.turnover_this_month_mini.total, '', 0);
       $scope.dashboardData.growth_mini = $filter('number')(data.growth_mini, 0) + '%';
-    })
+    });
   }
 
   dashboardController.$inject = ['$scope', '$filter', 'dashboardFactory'];

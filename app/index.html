@@ -24,7 +24,7 @@ currentState == 'contacts'            ||
 currentState == 'suppliers.create' ? 'split_table' : '' ||
 isAuthenticated() ? '' : 'overwriteBg'" ng-controller="mainController">
 
-<div id="loading" style="height: 100%; width: 100%; background: #3681b1; line-height: 300px; color: white; font-size: 42px; position: fixed; z-index: 99999; text-align: center; top: 0; left: 0; right: 0; bottom: 0; font-family: Helvetica Neue, Helvetica, sans-serif; transition: all 300ms ease; opacity: 1; visibility: visible;">Loading</div>
+<!-- <div id="loading" style="e">Loading</div> -->
 
   <ng-include ng-show="isAuthenticated()" src="'components/common/main-menu/main-menu.html'"></ng-include>
   <div ng-class="isAuthenticated() ? 'body' : ''">

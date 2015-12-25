@@ -3,7 +3,7 @@
 
   module.exports = ngConfig;
 
-  function ngConfig($httpProvider, $urlRouterProvider, $locationProvider, $authProvider, $breadcrumbProvider) {
+  function ngConfig($httpProvider, $urlRouterProvider, $locationProvider, $authProvider, $breadcrumbProvider, cfpLoadingBarProvider) {
 
 
 
@@ -15,8 +15,14 @@
     $breadcrumbProvider.setOptions({
       template: 'bootstrap3'
     });
+
+
+    // Custom template for angular loading bar
+    // cfpLoadingBarProvider.spinnerTemplate = '<div><span class="fa fa-spinner">Loading...</div>';
+
+
   }
 
-  ngConfig.$inject = ['$httpProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', '$breadcrumbProvider'];
+  ngConfig.$inject = ['$httpProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', '$breadcrumbProvider', 'cfpLoadingBarProvider'];
 
 })();

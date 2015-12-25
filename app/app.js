@@ -3,7 +3,9 @@
 
   module.exports = angular.module('CIRONS-MAIN-APP', [
     'ui.router',
+    'ngAnimate',
     'ngRoute',
+    'angular-loading-bar',
     'http-auth-interceptor',
     'ngCookies',
     'satellizer',
