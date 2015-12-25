@@ -1,3 +1,81 @@
 <div class="dashboard-content">
-<h1>Sales</h1>
+  <div class="tab_content">
+    <div class="ui grid stacked">
+      <h4 class="ui horizontal divider header">Sales</h4>
+      <div class="column sixteen wide">
+        <c3chart bindto-id="chart1">
+          <chart-column column-id="data 1" column-type="spline" column-values="30,200,100,400,150,250"/>
+          <chart-column column-id="data 2" column-type="line" column-values="50,20,10,40,15,25"/>
+        </c3chart>
+      </div>
+      <h4 class="ui horizontal divider header">Top Products</h4>
+      <div class="column four wide">
+        <c3chart bindto-id="pie-plot1-chart">
+          <chart-column column-id="Data 1" column-type="pie" column-values="70"/>
+          <chart-column column-id="Data 2" column-type="pie" column-values="35"/>
+          <chart-column column-id="Data 3" column-type="pie" column-values="60"/>
+          <chart-pie expand="true"/>
+        </c3chart>
+      </div>
+
+      <div class="column twelve wide">
+        <table class="widget-table" id="top_products">
+          <tbody>
+            <tr data-id="1">
+              <td class="place">
+                # 1
+              </td>
+              <td>
+                Consulting service for Cirons project
+              </td>
+              <td class="stat blue1" width="150px">
+                <span># Sold</span>
+                <strong>1 units</strong>
+              </td>
+              <td class="stat blue2" width="210px">
+                <span>$ Sold</span>
+                <strong>500.00 GBP</strong>
+              </td>
+              <td class="arrow">
+                <i class="angle double down icon"></i>
+              </td>
+            </tr>
+            <tr data-toggle="1">
+              <td colspan="5">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="stat blue2" width="">
+                        <span># AVG. SOLD PER MONTH</span>
+                        <strong>1 units</strong>
+                      </td>
+                      <td class="stat blue1" width="">
+                        <span>AVG. Earnings A Month</span>
+                        <strong>0.00 GBP</strong>
+                      </td>
+                      <td class="stat blue3" width="">
+                        <span>AVG. Earning Per Unit</span>
+                        <strong>0.00 GBP</strong>
+                      </td>
+                      <td class="stat blue4" width="">
+                        <span>Stock Level</span>
+                        <strong>0 units</strong>
+                      </td>
+                      <td class="stat blue5" width="">
+                        <span>Est. Out of stock</span>
+                        <strong>2015-12-25</strong>
+                      </td>
+                      <td class="notification  warning">
+                        <i class="warning sign icon"></i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
