@@ -10,7 +10,12 @@
     'ncy-angular-breadcrumb',
     'xeditable',
     'ngLodash',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'gridshore.c3js.chart'
+
   ]);
+
+
+
 
 })();

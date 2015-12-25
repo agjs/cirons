@@ -10,6 +10,7 @@
         views: {
           '': {
             templateUrl: "components/dashboard/dashboard.view.html",
+            controller: 'dashboardController'
           }
         }
 
@@ -18,6 +19,7 @@
     .state('dashboard.finance', {
         parent: 'dashboard',
         url: "/finance",
+        controller: 'dashboardFinanceController',
         views: {
           'dashboardContent': {
             templateUrl: "components/dashboard/finance/dashboard_finance.view.html",
