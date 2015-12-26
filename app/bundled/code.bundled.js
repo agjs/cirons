@@ -407,6 +407,7 @@ angular.module('CIRONS-MAIN-APP')
   module.exports = calendarController;
 
   // https://github.com/angular-ui/ui-calendar
+  // http://fullcalendar.io/docs/
 
   function calendarController($scope, calendarFactory) {
 
