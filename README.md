@@ -1,6 +1,5 @@
 # README #
 
-Public
 
 ### Who do I talk to? ###
 
