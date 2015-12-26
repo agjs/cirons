@@ -14,7 +14,8 @@
     'xeditable',
     'ngLodash',
     'ui.bootstrap',
-    'gridshore.c3js.chart'
+    'gridshore.c3js.chart',
+    'ui.calendar'
   ]);
 
 
@@ -405,12 +406,33 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = calendarController;
 
-  function calendarController($scope) {
+  // https://github.com/angular-ui/ui-calendar
 
+  function calendarController($scope, calendarFactory) {
+
+    $scope.uiConfig = {
+      calendar: {
+        height: 550,
+        editable: true,
+        header: {
+          right: 'month basicWeek basicDay agendaWeek agendaDay',
+          center: 'title',
+          left: 'today prev,next'
+        },
+        dayClick: $scope.alertEventOnClick,
+        eventDrop: $scope.alertOnDrop,
+        eventResize: $scope.alertOnResize
+      }
+    };
+
+
+    calendarFactory.getCalendarData().then(function(data) {
+      $scope.eventSources = data;
+    })
 
   }
 
-  calendarController.$inject = ['$scope'];
+  calendarController.$inject = ['$scope', 'calendarFactory'];
 
 })();
 
@@ -422,7 +444,18 @@ angular.module('CIRONS-MAIN-APP')
   function calendarFactory($http, $q) {
 
     return {
-      
+
+      getCalendarData: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/calendar').then(function(calendar) {
+          if (calendar) {
+            return calendar.data;
+          } else {
+            throw new Error('Calendar data could not be retrieved!');
+          }
+
+        });
+      }
+
     };
 
   }

@@ -2,11 +2,32 @@
   'use strict';
   module.exports = calendarController;
 
-  function calendarController($scope) {
+  // https://github.com/angular-ui/ui-calendar
 
+  function calendarController($scope, calendarFactory) {
+
+    $scope.uiConfig = {
+      calendar: {
+        height: 550,
+        editable: true,
+        header: {
+          right: 'month basicWeek basicDay agendaWeek agendaDay',
+          center: 'title',
+          left: 'today prev,next'
+        },
+        dayClick: $scope.alertEventOnClick,
+        eventDrop: $scope.alertOnDrop,
+        eventResize: $scope.alertOnResize
+      }
+    };
+
+
+    calendarFactory.getCalendarData().then(function(data) {
+      $scope.eventSources = data;
+    })
 
   }
 
-  calendarController.$inject = ['$scope'];
+  calendarController.$inject = ['$scope', 'calendarFactory'];
 
 })();

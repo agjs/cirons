@@ -9,7 +9,9 @@
   "dependencies": {
     "c3": "^0.4.11-rc4",
     "d3": "^3.5.12",
-    "grunt-contrib-jshint": "^0.11.3"
+    "grunt-contrib-jshint": "^0.11.3",
+    "jquery": "^2.1.4",
+    "moment": "^2.10.6"
   },
   "devDependencies": {
     "grunt-angular-templates": "^0.5.9",

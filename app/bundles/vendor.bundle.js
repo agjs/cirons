@@ -1,6 +1,9 @@
 (function() {
   'use strict';
 
+  global.$ = require('jquery');
+  global.moment = require('moment');
+
   require('../libs/angular/angular.min.js');
   require('../libs/angular-ui-router/release/angular-ui-router.min.js');
   require('../libs/angular-animate/angular-animate.min.js');
@@ -17,5 +20,8 @@
 
   window.c3 = require('c3');
   require('../libs/c3-angular/c3-angular.min.js');
+  require('../libs/angular-ui-calendar/src/calendar.js');
+  require('../libs/fullcalendar/dist/fullcalendar.min.js');
+  require('../libs/fullcalendar/dist/gcal.js');
 
 })();

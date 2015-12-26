@@ -1,5 +1,6 @@
 @import url(../../libs/c3/c3.min.css);
 @import url(../../libs/angular-loading-bar/build/loading-bar.min.css);
+@import url(../../libs/fullcalendar/dist/fullcalendar.css);
 * {
   -webkit-border-radius: 0 !important;
   -moz-border-radius: 0 !important;

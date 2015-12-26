@@ -13,7 +13,8 @@
     'xeditable',
     'ngLodash',
     'ui.bootstrap',
-    'gridshore.c3js.chart'
+    'gridshore.c3js.chart',
+    'ui.calendar'
   ]);
 
 
