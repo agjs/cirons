@@ -955,7 +955,6 @@ angular.module('CIRONS-MAIN-APP')
   function receiptsController($scope, $rootScope, $auth, receiptsFactory, $state) {
 
     receiptsFactory.getReceipts().then(function(receipts) {
-      console.log(receipts);
       $scope.receipts = receipts;
       $scope.cardCounter = receipts.length;
     });
@@ -1194,7 +1193,6 @@ angular.module('CIRONS-MAIN-APP')
 
     if (!$scope.receipt) {
       receiptsFactory.getReceipt($scope.id).then(function(item) {
-        console.log(item);
         $scope.receipt = item;
       });
     }
