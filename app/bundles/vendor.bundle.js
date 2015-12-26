@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  global.$ = require('jquery');
+  global.$ = global.jQuery = require('jquery');
   global.moment = require('moment');
 
   require('../libs/angular/angular.min.js');
@@ -23,5 +23,6 @@
   require('../libs/angular-ui-calendar/src/calendar.js');
   require('../libs/fullcalendar/dist/fullcalendar.min.js');
   require('../libs/fullcalendar/dist/gcal.js');
+  window.dropzone = require('../libs/dropzone/dropzone-amd-module.js');
 
 })();

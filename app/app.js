@@ -15,6 +15,7 @@
     'ui.bootstrap',
     'gridshore.c3js.chart',
     'ui.calendar'
+    
   ]);
 
 
