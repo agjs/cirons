@@ -1,4 +1,5 @@
 $split_view_list_width: 28;
+$border_color: #f5f5f5;
 
 body.split_table {
 
@@ -47,14 +48,14 @@ body.split_table {
         .list-toolbar {
           background: #f6f6f6;
           padding: 20px;
-          border-bottom: 2px solid #ccc;
+          border-bottom: 2px solid $border_color;
           height: 80px;
         }
 
         ul {
           height: 100%;
           overflow: scroll;
-          border-right: 1px solid #ccc;
+          border-right: 1px solid $border_color;
           padding: 0;
           margin: 0;
           li {
@@ -62,7 +63,7 @@ body.split_table {
             cursor: pointer;
             position: relative;
             list-style: none;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid $border_color;
             padding: 15px 35px 15px 25px;
             background: white;
             -webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.3);
@@ -184,7 +185,7 @@ body.split_table {
         }
 
         .toolbar {
-          
+
           background: #fff;
           padding: 20px 30px;
           position: relative;

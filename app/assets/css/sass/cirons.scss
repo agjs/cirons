@@ -2,6 +2,7 @@
 @import "../../libs/angular-loading-bar/build/loading-bar.min.css";
 @import "../../libs/fullcalendar/dist/fullcalendar.css";
 @import "dropzone.scss";
+
 $cirons_blue: #3681b1;
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -71,6 +72,7 @@ aside.menu header {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 100;
 }
 section#toolbar {
   height: 50px;
@@ -113,9 +115,9 @@ aside.sidebar {
   height: 100%;
   width: 300px;
   padding-top: 30px;
-  -webkit-box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.75);
-  box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.75);
+  // -webkit-box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.75);
+  // -moz-box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.75);
+  // box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.75);
   border-left: 3px solid white;
   h3 {
     font-size: 18px;
@@ -262,7 +264,7 @@ header .page-title h1 {
   height: 50px;
   line-height: 50px;
   text-transform: uppercase;
-  padding-left: 30px;
+  padding-left: 15px;
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -409,6 +411,7 @@ aside.menu header a.logo img {
   -webkit-box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.2);
   -moz-box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.2);
   box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.2);
+  z-index: 999;
 }
 .user-bar:hover > nav > ul {
   max-height: 1000px;
@@ -930,7 +933,7 @@ body.dashboard .dashboard-tabs ul li a {
 body.dashboard .dashboard-tabs ul li a span {
   display: inline-block;
   border-bottom: 4px solid rgba(0,0,0,0);
-  height: 57px;
+  height: 58px;
   line-height: 57px;
   transition: all 300ms ease;
 }
@@ -940,6 +943,19 @@ body.dashboard .dashboard-tabs ul li a.active span {
 body.dashboard .dashboard-tabs ul li a:hover span {
   border-bottom: 4px solid #ccc;
 }
+
+body.dashboard .cirons-tabs {
+    height: 60px;
+    position: relative;
+    .fixed-tabs {
+        position: fixed;
+        height: 60px;
+        right: 0;
+        left: 260px;
+        z-index: 99;
+    }
+}
+
 body.dashboard .dashboard-tabs {
   position: relative;
   div.tabbar-chart {
@@ -1474,6 +1490,7 @@ table.info-table {
   opacity: 1;
   visibility: visible;
 }
+
 @import "_timeline";
 @import "_wizard";
 @import "_orderrows";

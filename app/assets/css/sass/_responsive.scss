@@ -128,7 +128,38 @@ aside.menu #touch-menu {
         }
     }
 
+    .ui.cards > .card {
+        width: 100%;
+    }
+
+    body.dashboard .cirons-tabs {
+        .fixed-tabs {
+            left: 0;
+        }
+    }
+
+    body.dashboard .dashboard-tabs nav {
+        padding: 0;
+    }
+
+    body.dashboard .dashboard-tabs ul li a {
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+    body.dashboard .dashboard-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
 }
+
+@media(min-width: 500px) and (max-width: 992px){
+    .ui.cards > .card {
+        width: 45%;
+    }
+}
+
 /*@media(min-width:768px){}*/
 @media(min-width:992px) and (max-width: 1200px){
 
@@ -151,6 +182,12 @@ aside.menu #touch-menu {
 
     aside.menu > nav#main ul, aside.menu > nav#main ul li {
         width: 260px;
+    }
+
+    body.dashboard .cirons-tabs {
+        .fixed-tabs {
+            left: 40px;
+        }
     }
 
     .body {

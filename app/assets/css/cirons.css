@@ -325,7 +325,8 @@ aside.menu header {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0; }
+  right: 0;
+  z-index: 100; }
 
 section#toolbar {
   height: 50px;
@@ -368,9 +369,6 @@ aside.sidebar {
   height: 100%;
   width: 300px;
   padding-top: 30px;
-  -webkit-box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.75);
-  box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.75);
   border-left: 3px solid white; }
   aside.sidebar h3 {
     font-size: 18px;
@@ -512,7 +510,7 @@ header .page-title h1 {
   height: 50px;
   line-height: 50px;
   text-transform: uppercase;
-  padding-left: 30px;
+  padding-left: 15px;
   margin-bottom: 0;
   margin-top: 0; }
 
@@ -646,7 +644,8 @@ aside.menu header a.logo img {
   width: 100%;
   -webkit-box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.2);
   -moz-box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.2);
-  box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.2); }
+  box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.2);
+  z-index: 999; }
 
 .user-bar:hover > nav > ul {
   max-height: 1000px; }
@@ -1165,7 +1164,7 @@ body.dashboard .dashboard-tabs ul li a {
 body.dashboard .dashboard-tabs ul li a span {
   display: inline-block;
   border-bottom: 4px solid transparent;
-  height: 57px;
+  height: 58px;
   line-height: 57px;
   transition: all 300ms ease; }
 
@@ -1174,6 +1173,16 @@ body.dashboard .dashboard-tabs ul li a.active span {
 
 body.dashboard .dashboard-tabs ul li a:hover span {
   border-bottom: 4px solid #ccc; }
+
+body.dashboard .cirons-tabs {
+  height: 60px;
+  position: relative; }
+  body.dashboard .cirons-tabs .fixed-tabs {
+    position: fixed;
+    height: 60px;
+    right: 0;
+    left: 260px;
+    z-index: 99; }
 
 body.dashboard .dashboard-tabs {
   position: relative; }
@@ -1992,7 +2001,7 @@ span.receivable strong {
 body.split_table .split-view {
   height: 100%; }
 body.split_table .split-view > div:first-child {
-  width: 28.0%;
+  width: 28%;
   float: left; }
 body.split_table .split-view > div:last-child {
   width: 72%;
@@ -2018,12 +2027,12 @@ body.split_table .page-content {
       body.split_table .page-content div.split-table .list .list-toolbar {
         background: #f6f6f6;
         padding: 20px;
-        border-bottom: 2px solid #ccc;
+        border-bottom: 2px solid #f5f5f5;
         height: 80px; }
       body.split_table .page-content div.split-table .list ul {
         height: 100%;
         overflow: scroll;
-        border-right: 1px solid #ccc;
+        border-right: 1px solid #f5f5f5;
         padding: 0;
         margin: 0; }
         body.split_table .page-content div.split-table .list ul li {
@@ -2031,7 +2040,7 @@ body.split_table .page-content {
           cursor: pointer;
           position: relative;
           list-style: none;
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1px solid #f5f5f5;
           padding: 15px 35px 15px 25px;
           background: white;
           -webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.3);
@@ -2330,7 +2339,27 @@ aside.menu #touch-menu {
     aside.menu.open #touch-menu .fa.fa-bars {
       display: none; }
     aside.menu.open #touch-menu .fa.fa-times {
-      display: inline; } }
+      display: inline; }
+
+  .ui.cards > .card {
+    width: 100%; }
+
+  body.dashboard .cirons-tabs .fixed-tabs {
+    left: 0; }
+
+  body.dashboard .dashboard-tabs nav {
+    padding: 0; }
+
+  body.dashboard .dashboard-tabs ul li a {
+    padding: 0 10px;
+    font-size: 12px; }
+
+  body.dashboard .dashboard-content {
+    padding-left: 20px;
+    padding-right: 20px; } }
+@media (min-width: 500px) and (max-width: 992px) {
+  .ui.cards > .card {
+    width: 45%; } }
 /*@media(min-width:768px){}*/
 @media (min-width: 992px) and (max-width: 1200px) {
   aside.menu {
@@ -2349,6 +2378,9 @@ aside.menu #touch-menu {
 
   aside.menu > nav#main ul, aside.menu > nav#main ul li {
     width: 260px; }
+
+  body.dashboard .cirons-tabs .fixed-tabs {
+    left: 40px; }
 
   .body {
     transition: all 300ms ease;
