@@ -53,6 +53,11 @@
       //END REGISTER SALES OVERVIEW CHART
 
 
+      //START REGISTER TOP PRODUCTS PIE
+      $scope.topProductsData = [];
+      $scope.topProductsColumns = [];
+      //END REGISTER TOP PRODUCTS PIE
+
 
       //get dashboard data
     dashboardFactory.getDashboardData().then(function(data) {
@@ -93,6 +98,21 @@
       //END SALES OVERVIEW
 
 
+      //START TOP PRODUCT PIE
+    //   $scope.topProductsData = [];
+    //   $scope.topProductsColumns = [];
+      var product_data = {};
+      for(var i = 0; i < data.top_products.length; i++){
+          var product = data.top_products[i];
+          $scope.topProductsColumns.push({
+              id: "product"+i,
+              type: "pie",
+              name: product.product_name
+          });
+          product_data["product"+i] = product.sold;
+      }
+      $scope.topProductsData.push(product_data);
+      //END TOP PRODUCT PIE
 
 
       $scope.accountsPayableData = [{
@@ -151,7 +171,7 @@
           ]
       };
 
-
+      window.onresize();
 
     });
   }
