@@ -869,7 +869,7 @@ angular.module('CIRONS-MAIN-APP')
         ]
       };
 
-      // window.onresize();
+      $(window).trigger('resize');
 
     });
   }

@@ -227,7 +227,7 @@
         ]
       };
 
-      // window.onresize();
+      $(window).trigger('resize');
 
     });
   }
