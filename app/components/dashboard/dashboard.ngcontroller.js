@@ -4,6 +4,7 @@
 
   function dashboardController($scope, $filter, dashboardFactory) {
 
+      //START REGISTER EXPENSES CHART
       $scope.expenses_bar_currentData = [{
           "non": 0,
           "days1": 0,
@@ -17,7 +18,10 @@
           { "id": "sales", "type": "bar", "name": "Sales", "color": "#66bb6a" }
       ];
       $scope.expenses_bar_currentX = {"id": "x"};
+      //END REGISTER EXPENSES CHART
 
+
+      //START REGISTER ACCOUNTS PAYABLE CHART
       $scope.accountsPayableData = [];
       $scope.accounts_payableColumns = [
           { id: "non", type: "pie", name: "Non-overdue", color: "#2185d0" },
@@ -25,7 +29,10 @@
           { id: "days2", type: "pie", name: "Overdue 10 - 60 days", color: "#f2711c" },
           { id: "days3", type: "pie", name: "Overdue 60+ days", color: "#db2828" }
       ];
+      //END REGISTER ACCOUNTS PAYABLE CHART
 
+
+      //START REGISTER ACCOUNTS RECEIVABLE CHART
       $scope.accountsReceivableData = [];
       $scope.accounts_receivableColumns = [
           { id: "non", type: "pie", name: "Non-overdue", color: "#2185d0" },
@@ -33,7 +40,21 @@
           { id: "days2", type: "pie", name: "Overdue 10 - 60 days", color: "#f2711c" },
           { id: "days3", type: "pie", name: "Overdue 60+ days", color: "#db2828" }
       ];
+      //END REGISTER ACCOUNTS RECEIVABLE CHART
 
+
+      //START REGISTER SALES OVERVIEW CHART
+      $scope.salesOverviewData = [];
+      $scope.salesOverviewColumns = [
+          { id: "in", type: "area-spline", name: "Sales", color: "#66bb6a" },
+          { id: "out", type: "spline", name: "Earnings", color: "#E07B53" }
+      ];
+      $scope.salesOverviewX = { id: "x" };
+      //END REGISTER SALES OVERVIEW CHART
+
+
+
+      //get dashboard data
     dashboardFactory.getDashboardData().then(function(data) {
       $scope.dashboardData = data;
       $scope.dashboardData.due_invoices_mini.total = $filter('currency')(data.due_invoices_mini.total, '', 0);
@@ -55,6 +76,24 @@
               "sales": sales
           });
       }
+
+      //SALES OVERVIEW
+      for(var i = 0; i < data.sales_overview.x.length; i++){
+          var x = data.sales_overview.x[i];
+          var in_data = data.sales_overview.in[i];
+          var out = data.sales_overview.out[i];
+
+          $scope.salesOverviewData.push({
+              "x": x,
+              "in": in_data,
+              "out": out
+          });
+      }
+      console.log($scope.salesOverviewData);
+      //END SALES OVERVIEW
+
+
+
 
       $scope.accountsPayableData = [{
           "non": data.accounts_payable.array.non,

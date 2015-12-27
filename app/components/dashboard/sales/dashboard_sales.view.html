@@ -3,10 +3,11 @@
     <div class="ui grid stackable">
       <h4 class="ui horizontal divider header">Sales</h4>
       <div class="column sixteen wide">
-        <c3chart bindto-id="chart1">
-          <chart-column column-id="data 1" column-type="spline" column-values="30,200,100,400,150,250"/>
-          <chart-column column-id="data 2" column-type="line" column-values="50,20,10,40,15,25"/>
-        </c3chart>
+          <c3chart bindto-id="sales_overview_chart" chart-x="salesOverviewX" chart-columns="salesOverviewColumns" chart-data="salesOverviewData">
+              <chart-axis>
+                  <chart-axis-x axis-id="x" axis-type="category"></chart-axis-x>
+              </chart-axis>
+          </c3chart>
       </div>
       <h4 class="ui horizontal divider header">Top Products</h4>
       <div class="column four wide">
