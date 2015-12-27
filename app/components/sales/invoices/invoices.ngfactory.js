@@ -39,6 +39,17 @@
         });
       },
 
+      getUnpaidInvoicesCount: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/invoices/not_step/paid?count').then(function(invoices) {
+          if (invoices) {
+            return invoices.data;
+          } else {
+            throw new Error('No invoices found');
+          }
+
+        });
+      },
+
       getUnpaidInvoicesSum: function() {
         return $http.get('http://janalex.beta.cirons.com/api/v1/invoices/unpaid/sum').then(function(invoices) {
           if (invoices) {

@@ -8,7 +8,7 @@
       $scope.contactsCount = contacts;
     });
 
-    invoicesFactory.countInvoices().then(function(invoices) {
+    invoicesFactory.getUnpaidInvoicesCount().then(function(invoices) {
       $scope.invoicesCount = invoices;
     });
 
@@ -18,11 +18,11 @@
 
     invoicesFactory.getUnpaidInvoicesSum().then(function(data) {
       $scope.unpaid_sum = data;
-      $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
+      $scope.invoicesCardSecondary = $filter('currency')(data, "SEK ", 2);
     });
 
 
-    ordersFactory.countOrders().then(function(orders) {
+    ordersFactory.getPendingOrdersCount().then(function(orders) {
       $scope.ordersCount = orders;
     });
 
@@ -33,7 +33,7 @@
 
     ordersFactory.getPendingOrdersSum().then(function(data) {
       $scope.pending_sum = data;
-      $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
+      $scope.ordersCardSecondary = $filter('currency')(data, "SEK ", 2);
     });
 
     productsFactory.countProducts().then(function(products) {

@@ -753,7 +753,6 @@ angular.module('CIRONS-MAIN-APP')
           });
           product_data["product"+i] = product.sold;
       }
-      console.log(product_data);
       $scope.topProductsData.push(product_data);
       //END TOP PRODUCT PIE
 
@@ -2049,6 +2048,17 @@ angular.module('CIRONS-MAIN-APP')
         });
       },
 
+      getUnpaidInvoicesCount: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/invoices/not_step/paid?count').then(function(invoices) {
+          if (invoices) {
+            return invoices.data;
+          } else {
+            throw new Error('No invoices found');
+          }
+
+        });
+      },
+
       getUnpaidInvoicesSum: function() {
         return $http.get('http://janalex.beta.cirons.com/api/v1/invoices/unpaid/sum').then(function(invoices) {
           if (invoices) {
@@ -2195,6 +2205,17 @@ angular.module('CIRONS-MAIN-APP')
 
       getPendingOrders: function() {
         return $http.get('http://janalex.beta.cirons.com/api/v1/orders/step/pending').then(function(orders) {
+          if (orders) {
+            return orders.data;
+          } else {
+            throw new Error('No orders found');
+          }
+
+        });
+      },
+
+      getPendingOrdersCount: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/orders/step/pending?count').then(function(orders) {
           if (orders) {
             return orders.data;
           } else {
@@ -2426,7 +2447,7 @@ angular.module('CIRONS-MAIN-APP')
       $scope.contactsCount = contacts;
     });
 
-    invoicesFactory.countInvoices().then(function(invoices) {
+    invoicesFactory.getUnpaidInvoicesCount().then(function(invoices) {
       $scope.invoicesCount = invoices;
     });
 
@@ -2436,11 +2457,11 @@ angular.module('CIRONS-MAIN-APP')
 
     invoicesFactory.getUnpaidInvoicesSum().then(function(data) {
       $scope.unpaid_sum = data;
-      $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
+      $scope.invoicesCardSecondary = $filter('currency')(data, "SEK ", 2);
     });
 
 
-    ordersFactory.countOrders().then(function(orders) {
+    ordersFactory.getPendingOrdersCount().then(function(orders) {
       $scope.ordersCount = orders;
     });
 
@@ -2451,7 +2472,7 @@ angular.module('CIRONS-MAIN-APP')
 
     ordersFactory.getPendingOrdersSum().then(function(data) {
       $scope.pending_sum = data;
-      $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
+      $scope.ordersCardSecondary = $filter('currency')(data, "SEK ", 2);
     });
 
     productsFactory.countProducts().then(function(products) {
