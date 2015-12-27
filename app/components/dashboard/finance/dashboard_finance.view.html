@@ -91,14 +91,14 @@
             </c3chart>
           </div>
 
-          <div class="column eight wide">
+          <div class="column eight wide clearfix">
             <h4 class="ui horizontal divider header">
               Accounts Payable
             </h4>
-            <td valign="middle" width="50%">
+            <div class="accounts_left">
               <div>
                 <span class="receivable">
-                  <div id="accounts_payable_number" style="display: inline;">0 GBP</div>
+                  <div id="accounts_payable_number" style="display: inline;">{{dashboardData.accounts_payable.total | currency : "SEK " : 2}}</div>
                   <strong id="ap_currency"></strong>
                 </span>
               </div>
@@ -107,41 +107,47 @@
                 <div>
 
                   <span>
-                    <a class="ui blue circular label" id="ap_days0">0</a>
-                    <div id="ap_percent0" style="display: inline;">0</div>% non overdue</span>
+                    <a class="ui blue circular label" id="ap_days0">{{accountsPayableNumbers.non[0]}}</a>
+                    <div id="ap_percent0" style="display: inline;">{{accountsPayableNumbers.non[1]}}</div>% non overdue</span>
                 </div>
                 <div>
 
                   <span>
-                    <a class="ui yellow circular label" id="ap_days1">0</a>
-                    <div id="ap_percent1" style="display: inline;">0</div>% overdue &lt; 10 days</span>
+                    <a class="ui yellow circular label" id="ap_days1">{{accountsPayableNumbers.days1[0]}}</a>
+                    <div id="ap_percent1" style="display: inline;">{{accountsPayableNumbers.days1[1]}}</div>% overdue &lt; 10 days</span>
                 </div>
                 <div>
 
                   <span>
-                    <a class="ui orange circular label" id="ap_days2">0</a>
-                    <div id="ap_percent2" style="display: inline;">0</div>% overdue 10 - 60 days</span>
+                    <a class="ui orange circular label" id="ap_days2">{{accountsPayableNumbers.days2[0]}}</a>
+                    <div id="ap_percent2" style="display: inline;">{{accountsPayableNumbers.days2[1]}}</div>% overdue 10 - 60 days</span>
                 </div>
                 <div>
 
                   <span>
-                    <a class="ui red circular label" id="ap_days3">0</a>
-                    <div id="ap_percent3" style="display: inline;">0</div>% overdue 60+ days</span>
+                    <a class="ui red circular label" id="ap_days3">{{accountsPayableNumbers.days3[0]}}</a>
+                    <div id="ap_percent3" style="display: inline;">{{accountsPayableNumbers.days3[1]}}</div>% overdue 60+ days</span>
                 </div>
               </div>
 
-            </td>
+            </div>
+            <div class="accounts_right">
+                <c3chart bindto-id="accounts_payable_pie" chart-columns="accounts_payableColumns" chart-data="accountsPayableData">
+                    <chart-legend show-legend="false"/>
+                    <chart-size chart-width="170" chart-height="170"/>
+                </c3chart>
+            </div>
           </div>
 
-          <div class="column eight wide">
+          <div class="column eight wide clearfix">
             <h4 class="ui horizontal divider header">
               Accounts Receivable
             </h4>
-            <td valign="middle" width="50%">
+            <div class="accounts_left">
               <div>
                 <span class="receivable">
-                  <div id="accounts_receivable_number" style="display: inline;">361 GBP</div>
-                  <strong id="ar_currency"></strong>
+                  <div id="accounts_payable_number" style="display: inline;">{{dashboardData.accounts_receivable.total | currency : "SEK " : 2}}</div>
+                  <strong id="ap_currency"></strong>
                 </span>
               </div>
 
@@ -149,30 +155,36 @@
                 <div>
 
                   <span>
-                    <a class="ui blue circular label" id="ar_days0">1</a>
-                    <div id="ar_percent0" style="display: inline;">100</div>% non overdue</span>
+                    <a class="ui blue circular label" id="ap_days0">{{accountsReceivableNumbers.non[0]}}</a>
+                    <div id="ap_percent0" style="display: inline;">{{accountsReceivableNumbers.non[1]}}</div>% non overdue</span>
                 </div>
                 <div>
 
                   <span>
-                    <a class="ui yellow circular label" id="ar_days1">0</a>
-                    <div id="ar_percent1" style="display: inline;">0</div>% overdue &lt; 10 days</span>
+                    <a class="ui yellow circular label" id="ap_days1">{{accountsReceivableNumbers.days1[0]}}</a>
+                    <div id="ap_percent1" style="display: inline;">{{accountsReceivableNumbers.days1[1]}}</div>% overdue &lt; 10 days</span>
                 </div>
                 <div>
 
                   <span>
-                    <a class="ui orange circular label" id="ar_days2">0</a>
-                    <div id="ar_percent2" style="display: inline;">0</div>% overdue 10 - 60 days</span>
+                    <a class="ui orange circular label" id="ap_days2">{{accountsReceivableNumbers.days2[0]}}</a>
+                    <div id="ap_percent2" style="display: inline;">{{accountsReceivableNumbers.days2[1]}}</div>% overdue 10 - 60 days</span>
                 </div>
                 <div>
 
                   <span>
-                    <a class="ui red circular label" id="ar_days3">0</a>
-                    <div id="ar_percent3" style="display: inline;">0</div>% overdue 60+ days</span>
+                    <a class="ui red circular label" id="ap_days3">{{accountsReceivableNumbers.days3[0]}}</a>
+                    <div id="ap_percent3" style="display: inline;">{{accountsReceivableNumbers.days3[1]}}</div>% overdue 60+ days</span>
                 </div>
               </div>
 
-            </td>
+            </div>
+            <div class="accounts_right">
+                <c3chart bindto-id="accounts_receivable_pie" chart-columns="accounts_receivableColumns" chart-data="accountsReceivableData">
+                    <chart-legend show-legend="false"/>
+                    <chart-size chart-width="170" chart-height="170"/>
+                </c3chart>
+            </div>
           </div>
 
           <div class="column sixteen wide">

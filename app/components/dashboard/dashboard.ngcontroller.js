@@ -4,7 +4,12 @@
 
   function dashboardController($scope, $filter, dashboardFactory) {
 
-      $scope.expenses_bar_currentData = [];
+      $scope.expenses_bar_currentData = [{
+          "non": 0,
+          "days1": 0,
+          "days2": 0,
+          "days3": 0
+      }];
       $scope.expenses_bar_currentColumns = [
           { "id": "variable", "type": "bar", "name": "Variable", "color": "#F2C61F" },
           { "id": "fixed", "type": "bar", "name": "Fixed", "color": "#FF8200" },
@@ -12,6 +17,22 @@
           { "id": "sales", "type": "bar", "name": "Sales", "color": "#66bb6a" }
       ];
       $scope.expenses_bar_currentX = {"id": "x"};
+
+      $scope.accountsPayableData = [];
+      $scope.accounts_payableColumns = [
+          { id: "non", type: "pie", name: "Non-overdue", color: "#2185d0" },
+          { id: "days1", type: "pie", name: "Overdue > 10 days", color: "#fbbd08" },
+          { id: "days2", type: "pie", name: "Overdue 10 - 60 days", color: "#f2711c" },
+          { id: "days3", type: "pie", name: "Overdue 60+ days", color: "#db2828" }
+      ];
+
+      $scope.accountsReceivableData = [];
+      $scope.accounts_receivableColumns = [
+          { id: "non", type: "pie", name: "Non-overdue", color: "#2185d0" },
+          { id: "days1", type: "pie", name: "Overdue > 10 days", color: "#fbbd08" },
+          { id: "days2", type: "pie", name: "Overdue 10 - 60 days", color: "#f2711c" },
+          { id: "days3", type: "pie", name: "Overdue 60+ days", color: "#db2828" }
+      ];
 
     dashboardFactory.getDashboardData().then(function(data) {
       $scope.dashboardData = data;
@@ -34,7 +55,65 @@
               "sales": sales
           });
       }
-      console.log($scope.expenses_bar_currentData);
+
+      $scope.accountsPayableData = [{
+          "non": data.accounts_payable.array.non,
+          "days1": data.accounts_payable.array.days1,
+          "days2": data.accounts_payable.array.days2,
+          "days3": data.accounts_payable.array.days3
+      }];
+
+      $scope.accountsPayableEntries = data.accounts_payable.array.non + data.accounts_payable.array.days1 + data.accounts_payable.array.days2 + data.accounts_payable.array.days3;
+
+      $scope.accountsPayableNumbers = {
+          non: [
+              data.accounts_payable.array.non,
+              Math.round(data.accounts_payable.array.non / $scope.accountsPayableEntries * 100 * 10) / 10
+          ],
+          days1: [
+              data.accounts_payable.array.days1,
+              Math.round(data.accounts_payable.array.days1 / $scope.accountsPayableEntries * 100 * 10) / 10
+          ],
+          days2: [
+              data.accounts_payable.array.days2,
+              Math.round(data.accounts_payable.array.days2 / $scope.accountsPayableEntries * 100 * 10) / 10
+          ],
+          days3: [
+              data.accounts_payable.array.days3,
+              Math.round(data.accounts_payable.array.days3 / $scope.accountsPayableEntries * 100 * 10) / 10
+          ]
+      };
+
+      $scope.accountsReceivableData = [{
+          "non": data.accounts_receivable.array.non,
+          "days1": data.accounts_receivable.array.days1,
+          "days2": data.accounts_receivable.array.days2,
+          "days3": data.accounts_receivable.array.days3
+      }];
+
+      $scope.accountsReceivableEntries = data.accounts_receivable.array.non + data.accounts_receivable.array.days1 + data.accounts_receivable.array.days2 + data.accounts_receivable.array.days3;
+
+      $scope.accountsReceivableNumbers = {
+          non: [
+              data.accounts_receivable.array.non,
+              Math.round(data.accounts_receivable.array.non / $scope.accountsReceivableEntries * 100 * 10) / 10
+          ],
+          days1: [
+              data.accounts_receivable.array.days1,
+              Math.round(data.accounts_receivable.array.days1 / $scope.accountsReceivableEntries * 100 * 10) / 10
+          ],
+          days2: [
+              data.accounts_receivable.array.days2,
+              Math.round(data.accounts_receivable.array.days2 / $scope.accountsReceivableEntries * 100 * 10) / 10
+          ],
+          days3: [
+              data.accounts_receivable.array.days3,
+              Math.round(data.accounts_receivable.array.days3 / $scope.accountsReceivableEntries * 100 * 10) / 10
+          ]
+      };
+
+
+
     });
   }
 

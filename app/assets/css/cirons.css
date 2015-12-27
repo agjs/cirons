@@ -1667,6 +1667,15 @@ table.info-table {
   -ms-border-radius: 0;
   border-radius: 0; }
 
+.dashboard .accounts_left {
+  width: 50%;
+  float: left; }
+  .dashboard .accounts_left span > div {
+    margin-bottom: 20px; }
+.dashboard .accounts_right {
+  width: 50%;
+  float: right; }
+
 #loading {
   height: 100%;
   width: 100%;

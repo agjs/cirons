@@ -1471,6 +1471,21 @@ table.info-table {
   @include border-radius(0);
 }
 
+.dashboard {
+    .accounts_left {
+        width: 50%;
+        float: left;
+
+        span > div {
+            margin-bottom: 20px;
+        }
+    }
+    .accounts_right {
+        width: 50%;
+        float: right;
+    }
+}
+
 #loading {
   height: 100%;
   width: 100%;
