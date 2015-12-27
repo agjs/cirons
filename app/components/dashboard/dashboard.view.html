@@ -1,54 +1,54 @@
 <div class="cirons-tabs">
-<div class="fixed-tabs">
-<div class="dashboard-tabs clearfix">
-  <nav>
-    <ul>
-      <li>
-        <a ng-class="currentState === 'dashboard.finance' ? 'active' : ''" ui-sref="dashboard.finance">
-          <span>Finance</span>
-        </a>
-      </li>
-      <li>
-        <a ng-class="currentState === 'dashboard.sales' ? 'active' : ''" ui-sref="dashboard.sales">
-          <span>Sales</span>
-        </a>
-      </li>
-      <li>
-        <a ng-class="currentState === 'dashboard.taxes' ? 'active' : ''" ui-sref="dashboard.taxes">
-          <span>Taxes</span>
-        </a>
-      </li>
-      <li>
-        <a ng-class="currentState === 'dashboard.expenses' ? 'active' : ''" ui-sref="dashboard.expenses">
-          <span>Expenses</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <div class="tabbar-chart">
-    <ul>
-      <li>
-        <span>Turnover</span>
-        <strong id="tabbar-chart-turnover">{{dashboardData.turnover.turnover}}</strong>
-      </li>
-      <li>
-        <span>Minus Costs</span>
-        <strong id="tabbar-chart-costs">{{dashboardData.turnover.costs}}</strong>
-      </li>
-      <li>
-        <span>Equals Result</span>
-        <strong id="tabbar-chart-total">{{dashboardData.turnover.total}}</strong>
-      </li>
+  <div class="fixed-tabs">
+    <div class="dashboard-tabs clearfix">
+      <nav>
+        <ul>
+          <li>
+            <a ng-class="currentState === 'dashboard.finance' ? 'active' : ''" ui-sref="dashboard.finance">
+              <span>Finance</span>
+            </a>
+          </li>
+          <li>
+            <a ng-class="currentState === 'dashboard.sales' ? 'active' : ''" ui-sref="dashboard.sales">
+              <span>Sales</span>
+            </a>
+          </li>
+          <li>
+            <a ng-class="currentState === 'dashboard.taxes' ? 'active' : ''" ui-sref="dashboard.taxes">
+              <span>Taxes</span>
+            </a>
+          </li>
+          <li>
+            <a ng-class="currentState === 'dashboard.expenses' ? 'active' : ''" ui-sref="dashboard.expenses">
+              <span>Expenses</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="tabbar-chart">
+        <ul>
+          <li>
+            <span>Turnover</span>
+            <strong id="tabbar-chart-turnover">{{dashboardData.turnover.turnover}}</strong>
+          </li>
+          <li>
+            <span>Minus Costs</span>
+            <strong id="tabbar-chart-costs">{{dashboardData.turnover.costs}}</strong>
+          </li>
+          <li>
+            <span>Equals Result</span>
+            <strong id="tabbar-chart-total">{{dashboardData.turnover.total}}</strong>
+          </li>
 
-      <li>
-        <span>Currency</span>
-        <strong id="tabbar-chart-total">{{dashboardData.turnover.currency}}</strong>
-      </li>
+          <li>
+            <span>Currency</span>
+            <strong id="tabbar-chart-total">{{dashboardData.turnover.currency}}</strong>
+          </li>
 
-    </ul>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
-</div>
 </div>
 
 <div ui-view="dashboardContent"></div>
