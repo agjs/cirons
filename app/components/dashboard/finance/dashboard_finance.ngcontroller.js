@@ -4,7 +4,7 @@
 
   function dashboardFinanceController($scope, $filter, dashboardFactory) {
 
-
+      
 
   }
 
