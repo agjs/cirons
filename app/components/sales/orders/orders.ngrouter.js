@@ -17,7 +17,7 @@
             controller: 'ordersController'
 
           },
-          'orderList@orders': {
+          'ordersList@orders': {
             templateUrl: 'components/sales/orders/orders_list.view.html',
           }
         }
@@ -33,11 +33,11 @@
         '': {
           templateUrl: 'components/sales/orders/orders.view.html'
         },
-        'orderList@orders': {
+        'ordersList@orders': {
           templateUrl: 'components/sales/orders/orders_list.view.html',
 
         },
-        'orderContent@orders': {
+        'ordersContent@orders': {
           templateUrl: 'components/sales/orders/orders_create.view.html',
           controller: 'ordersCRUDController'
         }
@@ -57,11 +57,11 @@
         '': {
           templateUrl: 'components/sales/orders/orders.view.html'
         },
-        'orderList@orders': {
+        'ordersList@orders': {
           templateUrl: 'components/sales/orders/orders_list.view.html',
 
         },
-        'orderContent@orders': {
+        'ordersContent@orders': {
           templateUrl: 'components/sales/orders/orders_content.view.html',
           controller: 'ordersSingleItemController'
         }

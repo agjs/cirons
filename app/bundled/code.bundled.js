@@ -2445,7 +2445,7 @@ angular.module('CIRONS-MAIN-APP')
             controller: 'ordersController'
 
           },
-          'orderList@orders': {
+          'ordersList@orders': {
             templateUrl: 'components/sales/orders/orders_list.view.html',
           }
         }
@@ -2461,11 +2461,11 @@ angular.module('CIRONS-MAIN-APP')
         '': {
           templateUrl: 'components/sales/orders/orders.view.html'
         },
-        'orderList@orders': {
+        'ordersList@orders': {
           templateUrl: 'components/sales/orders/orders_list.view.html',
 
         },
-        'orderContent@orders': {
+        'ordersContent@orders': {
           templateUrl: 'components/sales/orders/orders_create.view.html',
           controller: 'ordersCRUDController'
         }
@@ -2475,7 +2475,7 @@ angular.module('CIRONS-MAIN-APP')
     .state('orders.item', {
       url: "/:id",
       params: {
-        supplier: undefined
+        order: undefined
       },
       ncyBreadcrumb: {
         parent: 'orders',
@@ -2485,11 +2485,11 @@ angular.module('CIRONS-MAIN-APP')
         '': {
           templateUrl: 'components/sales/orders/orders.view.html'
         },
-        'orderList@orders': {
+        'ordersList@orders': {
           templateUrl: 'components/sales/orders/orders_list.view.html',
 
         },
-        'orderContent@orders': {
+        'ordersContent@orders': {
           templateUrl: 'components/sales/orders/orders_content.view.html',
           controller: 'ordersSingleItemController'
         }
