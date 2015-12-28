@@ -760,8 +760,16 @@ angular.module('CIRONS-MAIN-APP')
     $scope.topProductsColumns = [];
     //END REGISTER TOP PRODUCTS PIE
 
+    //START REGISTER TOP CUSTOMERS PIE
+    $scope.topCustomersData = [];
+    $scope.topCustomersColumns = [];
+    //END REGISTER TOP CUSTOMERS PIE
 
-    //get dashboard data
+
+    /*
+    GET DASHBOARD DATA.
+    Returns: Object of data
+    */
     dashboardFactory.getDashboardData().then(function(data) {
       $scope.dashboardData = data;
       $scope.dashboardData.due_invoices_mini.total = $filter('currency')(data.due_invoices_mini.total, '', 0);
@@ -815,8 +823,6 @@ angular.module('CIRONS-MAIN-APP')
       //END EXPENSES PIE
 
       //START TOP PRODUCT PIE
-      //   $scope.topProductsData = [];
-      //   $scope.topProductsColumns = [];
       var product_data = {};
       for (var i = 0; i < data.top_products.length; i++) {
         var product = data.top_products[i];
@@ -829,6 +835,20 @@ angular.module('CIRONS-MAIN-APP')
       }
       $scope.topProductsData.push(product_data);
       //END TOP PRODUCT PIE
+
+      //START TOP CUSTOMERS PIE
+      var customer_data = {};
+      for(var i = 0; i < data.top_customers.length; i++){
+          var contact = data.top_customers[i];
+          $scope.topCustomersColumns.push({
+              id: "customer" + i,
+              type: "pie",
+              name: contact.name
+          });
+          customer_data["customer" + i] = contact.invoiced;
+      }
+      $scope.topCustomersData.push(customer_data);
+      //END TOP CUSTOMERS PIE
 
 
       $scope.accountsPayableData = [{

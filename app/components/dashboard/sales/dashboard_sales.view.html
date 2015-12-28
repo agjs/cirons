@@ -77,52 +77,51 @@
       <h4 class="ui horizontal divider header">Top Customers</h4>
 
       <div class="column four wide">
-        <c3chart bindto-id="pie-plot1-chart2">
-          <chart-column column-id="Data 1" column-type="pie" column-values="70"/>
-          <chart-column column-id="Data 2" column-type="pie" column-values="35"/>
-          <chart-column column-id="Data 3" column-type="pie" column-values="60"/>
-          <chart-pie expand="true"/>
-        </c3chart>
+          <c3chart bindto-id="top_customers_pie" chart-data="topCustomersData" chart-columns="topCustomersColumns">
+            <chart-pie expand="true"/>
+            <chart-size chart-width="220" chart-height="220"/>
+            <chart-legend show-legend="false"/>
+          </c3chart>
       </div>
 
       <div class="column twelve wide">
         <table class="widget-table" id="top_customers">
           <tbody>
-            <tr data-id="1">
+            <tr data-id="1" ng-repeat-start="contact in dashboardData.top_customers track by $index">
               <td class="place">
-                # 1
+                # {{$index + 1}}
               </td>
               <td>
-                Maacann Group AB
+                {{contact.name}}
               </td>
               <td class="stat blue1" width="150px">
                 <span>$ Invoiced</span>
-                <strong>360.94 GBP</strong>
+                <strong>{{ contact.invoiced | currency:"SEK ":2 }}</strong>
               </td>
               <td class="arrow">
                 <i class="angle double down icon"></i>
               </td>
             </tr>
-            <tr data-toggle="1">
+            <tr data-toggle="1" ng-repeat-end>
               <td colspan="4">
                 <table>
                   <tbody>
                     <tr>
                       <td class="stat blue2" width="">
                         <span># Orders</span>
-                        <strong>0</strong>
+                        <strong>{{contact.orders}}</strong>
                       </td>
                       <td class="stat blue1" width="">
                         <span>$ Total Earnings</span>
-                        <strong>0.00 GBP</strong>
+                        <strong>{{ contact.earnings | currency:"SEK ":2 }}</strong>
                       </td>
                       <td class="stat blue3" width="">
                         <span>AVG. Margin</span>
-                        <strong>0 %</strong>
+                        <strong>{{contact.avg_margin | number : 2}} %</strong>
                       </td>
                       <td class="stat blue4" width="">
                         <span>LifeTime Customer Value</span>
-                        <strong>0.00</strong>
+                        <strong>{{contact.lifetime_customer_value | number : 2}}</strong>
                       </td>
                     </tr>
                   </tbody>
