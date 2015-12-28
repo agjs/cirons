@@ -765,6 +765,11 @@ angular.module('CIRONS-MAIN-APP')
     $scope.topCustomersColumns = [];
     //END REGISTER TOP CUSTOMERS PIE
 
+    //START SUPPLIERS TOP CUSTOMERS PIE
+    $scope.topSuppliersData = [];
+    $scope.topSuppliersColumns = [];
+    //END SUPPLIERS TOP CUSTOMERS PIE
+
 
     /*
     GET DASHBOARD DATA.
@@ -821,6 +826,20 @@ angular.module('CIRONS-MAIN-APP')
       }
       $scope.expensesPieData.push(expenses_data);
       //END EXPENSES PIE
+
+      //START TOP SUPPLIERS PIE
+      var suppliers_data = [];
+      for(var i = 0; i < data.top_suppliers.length; i++){
+          var supplier = data.top_suppliers[i];
+          $scope.topSuppliersColumns.push({
+              id: "supplier" + i,
+              type: "pie",
+              name: supplier.company_name
+          });
+          suppliers_data["supplier" + i] = supplier.total;
+      }
+      $scope.topSuppliersData.push(suppliers_data);
+      //END TOP SUPPLIERS PIE
 
       //START TOP PRODUCT PIE
       var product_data = {};

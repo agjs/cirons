@@ -132,6 +132,56 @@
         </table>
       </div>
 
+      <h4 class="ui horizontal divider header">Top Suppliers</h4>
+
+      <div class="column four wide">
+          <c3chart bindto-id="top_suppliers_pie" chart-data="topSuppliersData" chart-columns="topSuppliersColumns">
+            <chart-pie expand="true"/>
+            <chart-size chart-width="220" chart-height="220"/>
+            <chart-legend show-legend="false"/>
+          </c3chart>
+      </div>
+
+      <div class="column twelve wide">
+        <table class="widget-table" id="top_suppliers">
+          <tbody>
+            <tr data-id="1" ng-repeat-start="supplier in dashboardData.top_suppliers track by $index">
+              <td class="place">
+                # {{$index + 1}}
+              </td>
+              <td>
+                {{supplier.company_name}}
+              </td>
+              <td class="stat blue1" width="150px">
+                <span>$ Billed</span>
+                <strong>{{ supplier.total | currency:"SEK ":2 }}</strong>
+              </td>
+              <td class="arrow">
+                <i class="angle double down icon"></i>
+              </td>
+            </tr>
+            <tr data-toggle="1" ng-repeat-end>
+              <td colspan="4">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="stat blue2" width="">
+                        <span># Supplier Invoices</span>
+                        <strong>{{supplier.supplier_invoices}}</strong>
+                      </td>
+                      <td class="stat blue1" width="">
+                        <span># Receipts</span>
+                        <strong>{{ supplier.receipts }}</strong>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <!-- <h4 class="ui horizontal divider header">Top Suppliers</h4> -->
       <div class="column sixteen wide">
         <div class="widget">
