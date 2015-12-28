@@ -109,7 +109,7 @@
     require('../components/directives/directives.ngcomponent');
 })();
 
-},{"../components/accounting/accounting.ngcomponent":5,"../components/authentication/authentication.ngcomponent":10,"../components/calendar/calendar.ngcomponent":15,"../components/common/common.ngcomponent":19,"../components/dashboard/dashboard.ngcomponent":24,"../components/directives/directives.ngcomponent":34,"../components/expenses/receipts/receipts.ngcomponent":36,"../components/expenses/suppliers/suppliers.ngcomponent":42,"../components/hr/hr.ngcomponent":49,"../components/purchasing/purchasing.ngcomponent":53,"../components/sales/contacts/contacts.ngcomponent":57,"../components/sales/invoices/invoices.ngcomponent":60,"../components/sales/orders/orders.ngcomponent":63,"../components/sales/products/products.ngcomponent":66,"../components/sales/sales.ngcomponent":69,"../components/stock/stock.ngcomponent":73,"../components/system_admin/system_admin.ngcomponent":77,"../components/user_settings/user_settings.ngcomponent":81,"../main.ngcomponent":85}],5:[function(require,module,exports){
+},{"../components/accounting/accounting.ngcomponent":5,"../components/authentication/authentication.ngcomponent":10,"../components/calendar/calendar.ngcomponent":15,"../components/common/common.ngcomponent":19,"../components/dashboard/dashboard.ngcomponent":24,"../components/directives/directives.ngcomponent":34,"../components/expenses/receipts/receipts.ngcomponent":36,"../components/expenses/suppliers/suppliers.ngcomponent":42,"../components/hr/hr.ngcomponent":49,"../components/purchasing/purchasing.ngcomponent":53,"../components/sales/contacts/contacts.ngcomponent":57,"../components/sales/invoices/invoices.ngcomponent":60,"../components/sales/orders/orders.ngcomponent":63,"../components/sales/products/products.ngcomponent":69,"../components/sales/sales.ngcomponent":72,"../components/stock/stock.ngcomponent":76,"../components/system_admin/system_admin.ngcomponent":80,"../components/user_settings/user_settings.ngcomponent":84,"../main.ngcomponent":88}],5:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -2270,34 +2270,29 @@ angular.module('CIRONS-MAIN-APP')
 
   angular.module('CIRONS-MAIN-APP')
     .controller('ordersController', require('./orders.ngcontroller'))
-    .factory('ordersFactory', require('./orders.ngfactory'));
+    .controller('ordersCRUDController', require('./orders_crud.ngcontroller'))
+    .controller('ordersSingleItemController', require('./orders_item.ngcontroller'))
+    .factory('ordersFactory', require('./orders.ngfactory'))
+    .config(require('./orders.ngrouter'));
 
 })();
 
-},{"./orders.ngcontroller":64,"./orders.ngfactory":65}],64:[function(require,module,exports){
+},{"./orders.ngcontroller":64,"./orders.ngfactory":65,"./orders.ngrouter":66,"./orders_crud.ngcontroller":67,"./orders_item.ngcontroller":68}],64:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersController;
 
-  function ordersController($scope, $rootScope, $auth, ordersFactory, $state, $filter) {
+  function ordersController($scope, $rootScope, $auth, ordersFactory, $state) {
 
     ordersFactory.getOrders().then(function(orders) {
       $scope.orders = orders;
     });
 
-    ordersFactory.getPendingOrders().then(function(orders){
-        $scope.pending = orders;
-        $scope.cardCounter = orders.length;
-    });
 
-    ordersFactory.getPendingOrdersSum().then(function(data){
-        $scope.pending_sum = data;
-        $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
-    });
 
   }
 
-  ordersController.$inject = ['$scope', '$rootScope', '$auth', 'ordersFactory', '$state', '$filter'];
+  ordersController.$inject = ['$scope', '$rootScope', '$auth', 'ordersFactory', '$state'];
 
 })();
 
@@ -2432,6 +2427,142 @@ angular.module('CIRONS-MAIN-APP')
 
 },{}],66:[function(require,module,exports){
 (function() {
+  'use strict';
+  module.exports = ordersRouter;
+
+  function ordersRouter($stateProvider) {
+    $stateProvider
+      .state('orders', {
+        url: "/sales/orders",
+
+        ncyBreadcrumb: {
+          label: 'Orders',
+          parent: 'sales',
+        },
+        views: {
+          '': {
+            templateUrl: 'components/sales/orders/orders.view.html',
+            controller: 'ordersController'
+
+          },
+          'orderList@orders': {
+            templateUrl: 'components/sales/orders/orders_list.view.html',
+          }
+        }
+      })
+
+    .state('orders.create', {
+      url: "/create",
+      ncyBreadcrumb: {
+        parent: 'orders',
+        label: 'Write a Order'
+      },
+      views: {
+        '': {
+          templateUrl: 'components/sales/orders/orders.view.html'
+        },
+        'orderList@orders': {
+          templateUrl: 'components/sales/orders/orders_list.view.html',
+
+        },
+        'orderContent@orders': {
+          templateUrl: 'components/sales/orders/orders_create.view.html',
+          controller: 'ordersCRUDController'
+        }
+      }
+    })
+
+    .state('orders.item', {
+      url: "/:id",
+      params: {
+        supplier: undefined
+      },
+      ncyBreadcrumb: {
+        parent: 'orders',
+        label: '{{id}}'
+      },
+      views: {
+        '': {
+          templateUrl: 'components/sales/orders/orders.view.html'
+        },
+        'orderList@orders': {
+          templateUrl: 'components/sales/orders/orders_list.view.html',
+
+        },
+        'orderContent@orders': {
+          templateUrl: 'components/sales/orders/orders_content.view.html',
+          controller: 'ordersSingleItemController'
+        }
+      }
+    });
+
+  }
+
+  ordersRouter.$inject = ['$stateProvider'];
+
+})();
+
+},{}],67:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = ordersCRUDController;
+
+  function ordersCRUDController($scope, $stateParams, ordersFactory, lodash) {
+
+    $scope.addOrder = function() {
+      ordersFactory.addOrder($scope.order).then(function(added) {
+        $scope.orders.push(added);
+      });
+    };
+
+    $scope.removeOrder = function() {
+      ordersFactory.removeOrder($stateParams.id);
+    };
+
+    $scope.editOrder = function(data) {
+      ordersFactory.editOrder($stateParams.id, data).then(function(edited) {
+
+        var findItem = lodash.find($scope.orders, function(arg) {
+          return arg.id === $stateParams.id;
+        });
+
+        if (findItem) {
+          findItem = edited;
+        }
+
+      });
+    };
+
+  }
+
+  ordersCRUDController.$inject = ['$scope', '$stateParams', 'ordersFactory', 'lodash'];
+
+})();
+
+},{}],68:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = ordersSingleItemController;
+
+  function ordersSingleItemController($scope, $stateParams, ordersFactory) {
+    $scope.order = $stateParams.order;
+    $scope.id = $stateParams.id;
+
+
+    if (!$scope.order) {
+      ordersFactory.getOrder($scope.id).then(function(item) {
+        $scope.order = item;
+      });
+    }
+
+  }
+
+  ordersSingleItemController.$inject = ['$scope', '$stateParams', 'ordersFactory'];
+
+})();
+
+},{}],69:[function(require,module,exports){
+(function() {
   "use strict";
 
   angular.module('CIRONS-MAIN-APP')
@@ -2440,7 +2571,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./products.ngcontroller":67,"./products.ngfactory":68}],67:[function(require,module,exports){
+},{"./products.ngcontroller":70,"./products.ngfactory":71}],70:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = productsController;
@@ -2458,7 +2589,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],68:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = productsFactory;
@@ -2564,7 +2695,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],69:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -2575,7 +2706,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./sales.ngcontroller":70,"./sales.ngfactory":71,"./sales.ngrouter":72}],70:[function(require,module,exports){
+},{"./sales.ngcontroller":73,"./sales.ngfactory":74,"./sales.ngrouter":75}],73:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = salesController;
@@ -2627,7 +2758,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],71:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = salesFactory;
@@ -2644,7 +2775,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],72:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = salesRouter;
@@ -2665,7 +2796,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],73:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -2676,7 +2807,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./stock.ngcontroller":74,"./stock.ngfactory":75,"./stock.ngrouter":76}],74:[function(require,module,exports){
+},{"./stock.ngcontroller":77,"./stock.ngfactory":78,"./stock.ngrouter":79}],77:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockController;
@@ -2690,7 +2821,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],75:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockFactory;
@@ -2707,7 +2838,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],76:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockRouter;
@@ -2728,7 +2859,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],77:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -2738,7 +2869,7 @@ angular.module('CIRONS-MAIN-APP')
     .config(require('./system_admin.ngrouter'));
 })();
 
-},{"./system_admin.ngcontroller":78,"./system_admin.ngfactory":79,"./system_admin.ngrouter":80}],78:[function(require,module,exports){
+},{"./system_admin.ngcontroller":81,"./system_admin.ngfactory":82,"./system_admin.ngrouter":83}],81:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = systemAdminController;
@@ -2750,7 +2881,7 @@ angular.module('CIRONS-MAIN-APP')
   systemAdminController.$inject = ['$scope'];
 })();
 
-},{}],79:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = systemAdminFactory;
@@ -2767,7 +2898,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],80:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockRouter;
@@ -2788,7 +2919,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],81:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -2798,7 +2929,7 @@ angular.module('CIRONS-MAIN-APP')
     .config(require('./user_settings.ngrouter'));
 })();
 
-},{"./user_settings.ngcontroller":82,"./user_settings.ngfactory":83,"./user_settings.ngrouter":84}],82:[function(require,module,exports){
+},{"./user_settings.ngcontroller":85,"./user_settings.ngfactory":86,"./user_settings.ngrouter":87}],85:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsController;
@@ -2816,7 +2947,7 @@ angular.module('CIRONS-MAIN-APP')
   userSettingsController.$inject = ['$scope', 'userSettingsFactory', 'meFactory'];
 })();
 
-},{}],83:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsFactory;
@@ -2843,7 +2974,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],84:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsRouter;
@@ -2861,7 +2992,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],85:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 (function () {
   'use strict';
   require('./app')
