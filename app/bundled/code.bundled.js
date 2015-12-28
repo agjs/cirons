@@ -644,7 +644,23 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = dashboardController;
 
-  function dashboardController($scope, $filter, dashboardFactory) {
+  function dashboardController($scope, $filter, dashboardFactory, productsFactory) {
+
+    //START PRODUCT STOCK
+    $scope.input = {
+        stock: ""
+    };
+    $scope.productStockItems = [];
+    $scope.productStockItemsFilter = function(){
+        console.log("filter products: " + $scope.input.stock);
+        productsFactory.getProductStockFilters($scope.input.stock).then(function(data){
+            $scope.productStockItems = data;
+        });
+    };
+    productsFactory.getProductStockFilters("").then(function(data){
+        $scope.productStockItems = data;
+    });
+    //END PRODUCT STOCK
 
     //START REGISTER EXPENSES CHART
     $scope.expenses_bar_currentData = [{
@@ -931,7 +947,7 @@ angular.module('CIRONS-MAIN-APP')
     });
   }
 
-  dashboardController.$inject = ['$scope', '$filter', 'dashboardFactory'];
+  dashboardController.$inject = ['$scope', '$filter', 'dashboardFactory', 'productsFactory'];
 
 })();
 
@@ -2460,6 +2476,16 @@ angular.module('CIRONS-MAIN-APP')
           }
 
         });
+      },
+
+      getProductStockFilters: function(filters){
+          return $http.get('http://janalex.beta.cirons.com/api/v1/stocks/filter/?filter=' + filters).then(function(products) {
+            if (products) {
+              return products.data;
+            } else {
+              throw new Error('No products found');
+            }
+          });
       },
 
       countProducts: function() {

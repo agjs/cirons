@@ -192,7 +192,7 @@
                 <tr>
                   <th colspan="5">
                     <div class="ui icon input fluid">
-                      <input id="filter" placeholder="Search product..." type="text">
+                      <input id="filter" ng-model="input.stock" ng-change="productStockItemsFilter()" placeholder="Search product..." type="text">
                       <i class="icon search"></i>
                     </div>
                   </th>
@@ -205,7 +205,15 @@
                   <th>Warehouse</th>
                 </tr>
               </thead>
-              <tbody id="list"></tbody>
+              <tbody id="list">
+                  <tr ng-repeat="stock in productStockItems">
+                    <td>{{stock.product.name}}</td>
+                    <td>{{stock.quantity}}</td>
+                    <td>{{stock.exp_date || "Not enough info"}}</td>
+                    <td>{{stock.product.out_of_stock_date}}</td>
+                    <td>{{stock.warehouse.name}}</td>
+                  </tr>
+              </tbody>
             </table>
           </div>
         </div>

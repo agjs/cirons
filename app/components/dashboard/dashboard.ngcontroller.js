@@ -2,7 +2,23 @@
   'use strict';
   module.exports = dashboardController;
 
-  function dashboardController($scope, $filter, dashboardFactory) {
+  function dashboardController($scope, $filter, dashboardFactory, productsFactory) {
+
+    //START PRODUCT STOCK
+    $scope.input = {
+        stock: ""
+    };
+    $scope.productStockItems = [];
+    $scope.productStockItemsFilter = function(){
+        console.log("filter products: " + $scope.input.stock);
+        productsFactory.getProductStockFilters($scope.input.stock).then(function(data){
+            $scope.productStockItems = data;
+        });
+    };
+    productsFactory.getProductStockFilters("").then(function(data){
+        $scope.productStockItems = data;
+    });
+    //END PRODUCT STOCK
 
     //START REGISTER EXPENSES CHART
     $scope.expenses_bar_currentData = [{
@@ -289,6 +305,6 @@
     });
   }
 
-  dashboardController.$inject = ['$scope', '$filter', 'dashboardFactory'];
+  dashboardController.$inject = ['$scope', '$filter', 'dashboardFactory', 'productsFactory'];
 
 })();
