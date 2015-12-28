@@ -679,6 +679,10 @@ angular.module('CIRONS-MAIN-APP')
     };
     //END REGISTER EXPENSES CHART
 
+    //START REGISTER EXPENSES PIE
+    $scope.expensesPieData = [];
+    $scope.expensesPieColumns = [];
+    //END REGISTER EXPENSES PIE
 
     //START REGISTER ACCOUNTS PAYABLE CHART
     $scope.accountsPayableData = [];
@@ -795,6 +799,20 @@ angular.module('CIRONS-MAIN-APP')
 
       //END SALES OVERVIEW
 
+      //START EXPENSES PIE
+      var expenses_data = [];
+      for(var i = 0; i < data.expenses_pie_breakdown.length; i++){
+          var expense = data.expenses_pie_breakdown[i];
+          $scope.expensesPieColumns.push({
+              id: expense[0],
+              name: expense[0],
+              type: "pie"
+          });
+
+          expenses_data[expense[0]] = expense[1];
+      }
+      $scope.expensesPieData.push(expenses_data);
+      //END EXPENSES PIE
 
       //START TOP PRODUCT PIE
       //   $scope.topProductsData = [];
