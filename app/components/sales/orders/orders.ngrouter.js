@@ -47,7 +47,7 @@
     .state('orders.item', {
       url: "/:id",
       params: {
-        supplier: undefined
+        order: undefined
       },
       ncyBreadcrumb: {
         parent: 'orders',
