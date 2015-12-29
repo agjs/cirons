@@ -1,0 +1,67 @@
+<div class="payments" ng-show="invoice.step != 'draft'">
+
+	<div class="add_payment_to_invoice">
+		<button ng-click="addPayment = !addPayment" class="ui button positive labeled icon">
+			<i class="icon plus"></i>
+			Add payment
+		</button>
+	</div>
+
+    <div ng-show="addPayment" class="ui segment blue">
+        <div class="ui two fields">
+            <div class="field">
+                <label>Amount Paid</label>
+                <input type="text" ng-model="newPayment.amount">
+            </div>
+            <div class="field">
+                <label>Date</label>
+                <input type="date" ng-model="newPayment.date">
+            </div>
+        </div>
+        <div ng-show="settings.income_accounts.length" class="field">
+            <label>Income Account</label>
+            <select ng-model="newPayment.income_account_no">
+                <option ng-repeat="account in settings.income_accounts" value="{{account.id}}">{{account.name}}</option>
+            </select>
+        </div>
+        <div class="field">
+            <button type="button" ng-click="savePayment(); addPayment = false;" class="ui button positive labeled icon">
+                <i class="icon check"></i>
+                Save and add payment
+            </button>
+        </div>
+    </div>
+
+	<div class="payment-timeline">
+
+        <ul class="timeline">
+
+    		<li class="right red">
+    			<span>Total debt</span>
+    			<strong>{{grandTotal | number: 2}} {{invoice.currency}}</strong>
+    		</li>
+
+            <li ng-repeat="payment in invoice.payments" class="left green">
+    			<span>Paid to {{ payment.account_name }}</span>
+    			<strong>{{ payment.amount | number: 2 }}</strong>
+    			<span>on {{ payment.date }}</span>
+    		</li>
+
+            <li class="right red" ng-show="invoice.payments.length">
+    			<span>New debt</span>
+    			<strong>{{ totalDebt | number : 2 }}</strong>
+    		</li>
+
+            <li class="done green" ng-show="totalDebt <= 10"></li>
+
+        </ul>
+
+	</div>
+
+
+</div>
+<div ng-show="invoice.step == 'draft'">
+    <p>
+        You must first book the invoice before you can add payments to it!
+    </p>
+</div>

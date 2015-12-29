@@ -3,9 +3,11 @@
 
   angular.module('CIRONS-MAIN-APP')
     .controller('invoicesController', require('./invoices.ngcontroller'))
+    .controller('invoicesCreateController', require('./invoices_create.ngcontroller'))
     .controller('invoicesCRUDController', require('./invoices_crud.ngcontroller'))
     .controller('invoicesSingleItemController', require('./invoices_item.ngcontroller'))
     .factory('invoicesFactory', require('./invoices.ngfactory'))
+    .factory('paymentsFactory', require('./payments.ngfactory'))
     .config(require('./invoices.ngrouter'));
 
 })();

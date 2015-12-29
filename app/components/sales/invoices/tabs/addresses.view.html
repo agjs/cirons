@@ -1,0 +1,27 @@
+<div class="ui grid stackable">
+
+    <div class="column eight wide">
+        <h4 class="ui horizontal divider header">
+        	<i class="building icon"></i>
+        	Billing Address
+        </h4>
+
+        <cirons-address-selector
+            address="invoice.billing_address"
+            onchange="changeBillingAddress(address)"
+        />
+    </div>
+
+    <div class="column eight wide">
+        <h4 class="ui horizontal divider header">
+        	<i class="shipping icon"></i>
+        	Shipping Address
+        </h4>
+
+        <cirons-address-selector
+            address="invoice.shipping_address"
+            onchange="changeShippingAddress(address)"
+        />
+    </div>
+
+</div>

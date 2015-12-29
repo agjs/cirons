@@ -27,7 +27,7 @@
       url: "/create",
       ncyBreadcrumb: {
         parent: 'invoices',
-        label: 'Write a Invoice'
+        label: 'Create an Invoice'
       },
       views: {
         '': {
@@ -39,13 +39,14 @@
         },
         'invoicesContent@invoices': {
           templateUrl: 'components/sales/invoices/invoices_create.view.html',
-          controller: 'invoicesCRUDController'
+          controller: 'invoicesCreateController'
         }
       }
     })
 
     .state('invoices.item', {
       url: "/:id",
+      abstract: true,
       params: {
         invoice: undefined
       },
@@ -66,6 +67,91 @@
           controller: 'invoicesSingleItemController'
         }
       }
+    })
+
+    .state("invoices.item.general", {
+        url: "/general",
+        parent: 'invoices.item',
+        params: {
+          invoice: undefined
+        },
+        ncyBreadcrumb: {
+          parent: 'invoices.item',
+          label: 'General'
+        },
+        views: {
+            "tabContent": {
+                templateUrl: 'components/sales/invoices/tabs/general.view.html'
+            }
+        }
+    })
+
+    .state("invoices.item.addresses", {
+        url: "/addresses",
+        parent: 'invoices.item',
+        params: {
+          invoice: undefined
+        },
+        ncyBreadcrumb: {
+          parent: 'invoices.item',
+          label: 'Addresses'
+        },
+        views: {
+            "tabContent": {
+                templateUrl: 'components/sales/invoices/tabs/addresses.view.html'
+            }
+        }
+    })
+
+    .state("invoices.item.profit", {
+        url: "/profit",
+        parent: 'invoices.item',
+        params: {
+          invoice: undefined
+        },
+        ncyBreadcrumb: {
+          parent: 'invoices.item',
+          label: 'Profit'
+        },
+        views: {
+            "tabContent": {
+                templateUrl: 'components/sales/invoices/tabs/profit.view.html'
+            }
+        }
+    })
+
+    .state("invoices.item.payments", {
+        url: "/payments",
+        parent: 'invoices.item',
+        params: {
+          invoice: undefined
+        },
+        ncyBreadcrumb: {
+          parent: 'invoices.item',
+          label: 'Payments'
+        },
+        views: {
+            "tabContent": {
+                templateUrl: 'components/sales/invoices/tabs/payments.view.html'
+            }
+        }
+    })
+
+    .state("invoices.item.accounting", {
+        url: "/accounting",
+        parent: 'invoices.item',
+        params: {
+          invoice: undefined
+        },
+        ncyBreadcrumb: {
+          parent: 'invoices.item',
+          label: 'Accounting'
+        },
+        views: {
+            "tabContent": {
+                templateUrl: 'components/sales/invoices/tabs/accounting.view.html'
+            }
+        }
     });
 
   }

@@ -2,21 +2,100 @@
 
   <div class="open-view-content">
     <form class="ui form">
-      <div class="toolbar">
+        <div class="pane-steps">
+            <div ng-class="
+                invoice.steps.length == 1 ? 'one' : '' ||
+                invoice.steps.length == 2 ? 'two' : '' ||
+                invoice.steps.length == 3 ? 'three' : '' ||
+                invoice.steps.length == 4 ? 'four' : '' ||
+                invoice.steps.length == 5 ? 'five' : ''
+            " class="ui steps">
+                <div class="step" ng-class="{completed: step[1].completed, disabled: step[1].disabled, active: step[1].active}" ng-repeat="step in invoice.steps">
+                    <i class="icon" ng-class="step[1].icon"></i>
+                    <div class="content">
+                        <div class="title">{{step[1].title}}</div>
+                        <div class="description">{{step[1].description}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-toolbar">
+                <div ng-show="invoice.step == 'draft'">
+                    <button class="ui button yellow" ng-click="bookInvoice()">
+        				Book Invoice
+        			</button>
+                </div>
+                <div ng-show="invoice.step == 'booked'">
+                    <a href="/invoices/pdf/{{invoice.id}}" class="ui button labeled icon">
+            			<i class="icon file pdf outline"></i>
+            			Download PDF
+            		</a>
 
-        <!-- <button class="ui dropdown button icon labeled normal">
-          <i class="edit icon"></i>
-          Edit
-        </button>
+            		<button class="ui button yellow" ng-click="changeStep('sent')">
+            			Mark as sent
+            		</button>
 
-        <button class="ui dropdown button icon labeled negative">
-          <i class="remove icon"></i>
-          Remove
-        </button> -->
+            		<button ng-click="createCreditNote()" class="ui button blue">
+            			Create Credit Note
+            		</button>
+                </div>
+                <div ng-show="invoice.step == 'sent'">
+                    <a href="/invoices/pdf/{{invoice.id}}" class="ui button labeled icon">
+            			<i class="icon file pdf outline"></i>
+            			Download PDF
+            		</a>
 
-      </div>
-      <div class="ui grid stackable">
+                    <!-- <button class="ui button default labeled icon" ng-click="changeStep('draft')">
+            			<i class="icon remove circle"></i>
+            			Draft Invoice
+            		</button> -->
 
-      </div>
+                    <button ng-click="createCreditNote()" class="ui button blue">
+            			Create Credit Note
+            		</button>
+                </div>
+                <div ng-show="invoice.step == 'paid'">
+                    <a href="/invoices/pdf/{{invoice.id}}" class="ui button labeled icon">
+            			<i class="icon file pdf outline"></i>
+            			Download PDF
+            		</a>
+                    <button ng-click="createCreditNote()" class="ui button blue">
+            			Create Credit Note
+            		</button>
+                </div>
+            </div>
+        </div>
+        <div class="pane-tabs clearfix">
+            <nav>
+              <ul>
+                <li>
+                  <a ng-class="currentState === 'invoices.item.general' ? 'active' : ''" ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
+                    <span>General</span>
+                  </a>
+                </li>
+                <li>
+                  <a ng-class="currentState === 'invoices.item.profit' ? 'active' : ''" ui-sref="invoices.item.profit({id: invoice.id, invoice: invoice})">
+                    <span>Profit</span>
+                  </a>
+                </li>
+                <li>
+                  <a ng-class="currentState === 'invoices.item.addresses' ? 'active' : ''" ui-sref="invoices.item.addresses({id: invoice.id, invoice: invoice})">
+                    <span>Addresses</span>
+                  </a>
+                </li>
+                <li>
+                  <a ng-class="currentState === 'invoices.item.payments' ? 'active' : ''" ui-sref="invoices.item.payments({id: invoice.id, invoice: invoice})">
+                    <span>Payments</span>
+                  </a>
+                </li>
+                <li>
+                  <a ng-class="currentState === 'invoices.item.accounting' ? 'active' : ''" ui-sref="invoices.item.accounting({id: invoice.id, invoice: invoice})">
+                    <span>Accounting</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+      <div ui-view="tabContent"></div>
+    </form>
   </div>
 </div>

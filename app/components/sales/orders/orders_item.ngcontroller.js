@@ -18,8 +18,6 @@
       });
     }
 
-    $(".dropdown").dropdown();
-
     $scope.newrow = {
         ordered: 0,
         q: 0,
@@ -94,7 +92,7 @@
             var row = $scope.order.order_rows[i];
             console.log(row);
             $scope.subTotal += row.q * row.price;
-            $scope.totalVAT += row.q * ( (row.vat / 100) + 1 );
+            $scope.totalVAT += (row.q * row.price) * ( row.vat / 100 );
         }
         $scope.grandTotal = $scope.subTotal + $scope.totalVAT;
         console.log($scope.subTotal, $scope.totalVAT, $scope.grandTotal);

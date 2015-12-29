@@ -117,7 +117,24 @@
 
         });
 
-      }
+        },
+
+        bookInvoice: function(id) {
+          return $http({
+            url: 'http://janalex.beta.cirons.com/api/v1/invoices/' + id + '/book',
+            method: 'PUT'
+          }).then(function(item) {
+            if (item) {
+              return item.data;
+            } else {
+              throw new Error('Invoice could not be edited!');
+            }
+
+          });
+
+        }
+
+
     }
 
   }

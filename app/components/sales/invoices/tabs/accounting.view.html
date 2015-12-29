@@ -1,0 +1,26 @@
+<table class="ui table celled">
+	<thead>
+		<tr>
+			<th>Account</th>
+			<th>Account Name</th>
+			<th>Debit</th>
+			<th>Credit</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="account in invoice.accounts">
+			<td>{{ account.account_no }}</td>
+			<td>{{ account.account_name }}</td>
+			<td>{{ account.debit | number : 2 }}</td>
+			<td>{{ account.credit | number : 2 }}</td>
+		</tr>
+    </tbody>
+	<tfoot>
+		<tr>
+			<th>Account</th>
+			<th>Account Name</th>
+			<th>Debit</th>
+			<th>Credit</th>
+		</tr>
+	</tfoot>
+</table>
