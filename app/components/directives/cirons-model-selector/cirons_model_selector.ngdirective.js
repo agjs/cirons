@@ -18,6 +18,7 @@
       controller: function($scope, $http, $element, $attrs) {
           console.log($attrs.selected);
         $scope.model = $attrs.model;
+        $scope.items = [];
         $http.get('http://janalex.beta.cirons.com/api/v1/' + $scope.model).then(function(items) {
             if (items.data) {
                 var array = [];

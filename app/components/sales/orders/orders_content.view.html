@@ -2,26 +2,80 @@
 
   <div class="open-view-content">
     <form class="ui form">
-      <div class="toolbar">
+        <div class="pane-steps">
+            <div ng-class="
+                order.steps.length == 1 ? 'one' : '' ||
+                order.steps.length == 2 ? 'two' : '' ||
+                order.steps.length == 3 ? 'three' : '' ||
+                order.steps.length == 4 ? 'four' : '' ||
+                order.steps.length == 5 ? 'five' : ''
+            " class="ui steps">
+                <div class="step" ng-class="{completed: step[1].completed, disabled: step[1].disabled, active: step[1].active}" ng-repeat="step in order.steps">
+                    <i class="icon" ng-class="step[1].icon"></i>
+                    <div class="content">
+                        <div class="title">{{step[1].title}}</div>
+                        <div class="description">{{step[1].description}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="steps-toolbar">
+                <div ng-show="order.step == 'pending'">
+                    <button ng-click="changeStep('shipped')" class="ui button blue labeled icon">
+            			<i class="icon shipping"></i>
+                        Order is shipped
+            		</button>
+                    <button ng-click="generateInvoice()" ng-show="order.invoices.length == 0" class="ui button labeled icon">
+            			<i class="icon file pdf outline"></i>
+            			Create Invoice
+		            </button>
+                </div>
+                <div ng-show="order.step == 'shipped'">
+                    <button ng-click="generateInvoice()" ng-show="order.invoices.length == 0" class="ui button labeled icon">
+            			<i class="icon file pdf outline"></i>
+            			Create Invoice
+            		</button>
+                    <button ng-click="changeStep('delivered')" class="ui button positive labeled icon">
+            			<i class="icon shipping"></i>
+            			Order is delivered
+            		</button>
+                </div>
+                <div ng-show="order.step == 'delivered'">
+                    <button ng-click="generateInvoice()" ng-show="order.invoices.length == 0" class="ui button labeled icon">
+            			<i class="icon file pdf outline"></i>
+            			Create Invoice
+            		</button>
+                </div>
+                <div ng-show="order.step == 'cancelled'">
+                    <button ng-click="changeStep('pending')" class="ui black button labeled icon">
+            			<i class="icon check"></i>
+            			Uncancel order
+            		</button>
+                </div>
+            </div>
+        </div>
 
-        <!-- <button class="ui dropdown button icon labeled normal">
-          <i class="edit icon"></i>
-          Edit
-        </button>
-
-        <button class="ui dropdown button icon labeled negative">
-          <i class="remove icon"></i>
-          Remove
-        </button> -->
-
-      </div>
-      <div class="ui grid stackable">
-
-          orderid: {{order.id}}
-
-          <br>
-          contact: {{order.contact}}
-
-      </div>
+        <div class="pane-tabs clearfix">
+            <nav>
+              <ul>
+                <li>
+                  <a ng-class="currentState === 'orders.item.general' ? 'active' : ''" ui-sref="orders.item.general({id: order.id, order: order})">
+                    <span>General</span>
+                  </a>
+                </li>
+                <li>
+                  <a ng-class="currentState === 'orders.item.profit' ? 'active' : ''" ui-sref="orders.item.profit({id: order.id, order: order})">
+                    <span>Profit</span>
+                  </a>
+                </li>
+                <li>
+                  <a ng-class="currentState === 'orders.item.addresses' ? 'active' : ''" ui-sref="orders.item.addresses({id: order.id, order: order})">
+                    <span>Addresses</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+      <div ui-view="tabContent"></div>
+    </form>
   </div>
 </div>

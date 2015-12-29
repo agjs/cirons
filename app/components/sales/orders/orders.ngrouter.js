@@ -46,6 +46,7 @@
 
     .state('orders.item', {
       url: "/:id",
+      abstract: true,
       params: {
         order: undefined
       },
@@ -66,6 +67,57 @@
           controller: 'ordersSingleItemController'
         }
       }
+    })
+
+    .state("orders.item.general", {
+        url: "/general",
+        parent: 'orders.item',
+        params: {
+          order: undefined
+        },
+        ncyBreadcrumb: {
+          parent: 'orders.item',
+          label: 'General'
+        },
+        views: {
+            "tabContent": {
+                templateUrl: 'components/sales/orders/tabs/general.view.html'
+            }
+        }
+    })
+
+    .state("orders.item.addresses", {
+        url: "/addresses",
+        parent: 'orders.item',
+        params: {
+          order: undefined
+        },
+        ncyBreadcrumb: {
+          parent: 'orders.item',
+          label: 'Addresses'
+        },
+        views: {
+            "tabContent": {
+                templateUrl: 'components/sales/orders/tabs/addresses.view.html'
+            }
+        }
+    })
+
+    .state("orders.item.profit", {
+        url: "/profit",
+        parent: 'orders.item',
+        params: {
+          order: undefined
+        },
+        ncyBreadcrumb: {
+          parent: 'orders.item',
+          label: 'Profit'
+        },
+        views: {
+            "tabContent": {
+                templateUrl: 'components/sales/orders/tabs/profit.view.html'
+            }
+        }
     });
 
   }

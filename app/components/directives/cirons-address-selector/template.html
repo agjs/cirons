@@ -1,0 +1,28 @@
+<div>
+    <div class="ui fields two">
+        <div class="field">
+            <label>Street Name</label>
+            <input ng-blur="onchange()" type="text" ng-model="address.route">
+        </div>
+        <div class="field">
+            <label>Street Number</label>
+            <input ng-blur="onchange()" type="text" ng-model="address.street_number">
+        </div>
+    </div>
+
+    <div class="ui fields two">
+        <div class="field">
+            <label>City</label>
+            <input ng-blur="onchange()" type="text" ng-model="address.locality">
+        </div>
+        <div class="field">
+            <label>Postal code</label>
+            <input ng-blur="onchange()" type="text" ng-model="address.postal_code">
+        </div>
+    </div>
+
+    <div class="field">
+        <label>Country</label>
+        <input ng-blur="onchange()" type="text" ng-model="address.country">
+    </div>
+</div>

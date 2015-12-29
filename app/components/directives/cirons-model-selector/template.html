@@ -1,1 +1,3 @@
-<input ng-model="name" type="text" typeahead-on-select="selectItem($item, $model, $label)" uib-typeahead="item as item.typeaheadTitle for item in items | filter:{typeaheadTitle:$viewValue}">
+items: {{items}}
+
+<input ng-model="name" type="text" uib-typeahead="item as item.typeaheadTitle for item in items | filter:{typeaheadTitle:$viewValue}">

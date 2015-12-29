@@ -1,0 +1,24 @@
+<table class="ui table celled">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Sale</th>
+            <th>Cost</th>
+            <th>Profit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in order.order_rows">
+            <td>{{row.product.name}}</td>
+			<td>{{row.row_total | number : 2}}</td>
+			<td>{{row.total_cost | number : 2}}</td>
+			<td width="200px">
+				<div class="profit-cost">
+					<div ng-class="row.profitable ? 'positive' : 'negative'" style="width: {{row.profit_percent | number : 2}}%;">
+					{{row.profit_percent | number : 2}}%
+					</div>
+				</div>
+			</td>
+        </tr>
+    </tbody>
+</table>

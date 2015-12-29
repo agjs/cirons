@@ -43,6 +43,7 @@ body.split_table {
       height: 100%;
       .list {
         height: 100%;
+        border-right: 1px solid #ccc;
         overflow: hidden;
 
         .list-toolbar {
@@ -159,7 +160,7 @@ body.split_table {
     .open-view {
       height: 100%;
       overflow: auto;
-      background: white;
+      background: #eee;
 
       hr {
         border: none;

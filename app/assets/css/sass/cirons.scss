@@ -1506,6 +1506,68 @@ table.info-table {
   visibility: visible;
 }
 
+.pane-tabs {
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  margin: 0 -30px 20px -30px;
+}
+.pane-tabs ul,
+.pane-tabs ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.pane-tabs ul li {
+  display: inline;
+}
+.pane-tabs nav {
+  padding: 0 30px;
+}
+.pane-tabs ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #4e4e4e;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+}
+.pane-tabs ul li a span {
+  display: inline-block;
+  border-bottom: 4px solid rgba(0,0,0,0);
+  height: 58px;
+  line-height: 57px;
+  transition: all 300ms ease;
+}
+
+.pane-tabs ul li:first-child a {
+    padding-left: 0 !important;
+}
+
+.pane-tabs ul li a.active span {
+  border-bottom: 4px solid $cirons_blue;
+}
+
+.pane-tabs ul li a:hover span {
+  border-bottom: 4px solid #ccc;
+}
+
+.pane-steps {
+    margin: 0 -30px 0 -30px;
+
+    .ui.steps {
+        margin: 0;
+    }
+
+    .steps-toolbar {
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+}
+
 @import "_timeline";
 @import "_wizard";
 @import "_orderrows";

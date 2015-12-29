@@ -1695,6 +1695,59 @@ table.info-table {
   opacity: 1;
   visibility: visible; }
 
+.pane-tabs {
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  margin: 0 -30px 20px -30px; }
+
+.pane-tabs ul,
+.pane-tabs ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+.pane-tabs ul li {
+  display: inline; }
+
+.pane-tabs nav {
+  padding: 0 30px; }
+
+.pane-tabs ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #4e4e4e;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px; }
+
+.pane-tabs ul li a span {
+  display: inline-block;
+  border-bottom: 4px solid transparent;
+  height: 58px;
+  line-height: 57px;
+  transition: all 300ms ease; }
+
+.pane-tabs ul li:first-child a {
+  padding-left: 0 !important; }
+
+.pane-tabs ul li a.active span {
+  border-bottom: 4px solid #3681b1; }
+
+.pane-tabs ul li a:hover span {
+  border-bottom: 4px solid #ccc; }
+
+.pane-steps {
+  margin: 0 -30px 0 -30px; }
+  .pane-steps .ui.steps {
+    margin: 0; }
+  .pane-steps .steps-toolbar {
+    padding: 20px;
+    border-bottom: 1px solid #ccc; }
+
 .timeline {
   position: relative;
   list-style: none;
@@ -2032,6 +2085,7 @@ body.split_table .page-content {
     height: 100%; }
     body.split_table .page-content div.split-table .list {
       height: 100%;
+      border-right: 1px solid #ccc;
       overflow: hidden; }
       body.split_table .page-content div.split-table .list .list-toolbar {
         background: #f6f6f6;
@@ -2117,7 +2171,7 @@ body.split_table .page-content {
   body.split_table .page-content .open-view {
     height: 100%;
     overflow: auto;
-    background: white; }
+    background: #eee; }
     body.split_table .page-content .open-view hr {
       border: none;
       height: 1px;

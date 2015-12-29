@@ -88,6 +88,19 @@
 
       },
 
+      generateInvoice: function(id){
+          return $http({
+              url: 'http://janalex.beta.cirons.com/api/v1/orders/' + id + '/generate/invoice/',
+              method: 'POST'
+          }).then(function(invoice){
+              if(invoice){
+                  return invoice.data;
+              } else {
+                  throw new Error('Invoice could not be generated');
+              }
+          });
+      },
+
       removeOrder: function(id) {
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/orders/' + id,
