@@ -27,7 +27,7 @@
       url: "/create",
       ncyBreadcrumb: {
         parent: 'orders',
-        label: 'Write a Order'
+        label: 'Create an Order'
       },
       views: {
         '': {
@@ -39,7 +39,7 @@
         },
         'ordersContent@orders': {
           templateUrl: 'components/sales/orders/orders_create.view.html',
-          controller: 'ordersCRUDController'
+          controller: 'ordersCreateController'
         }
       }
     })
