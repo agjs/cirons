@@ -1748,6 +1748,9 @@ table.info-table {
     padding: 20px;
     border-bottom: 1px solid #ccc; }
 
+.dropdown-div {
+  display: inline; }
+
 .timeline {
   position: relative;
   list-style: none;

@@ -1,0 +1,9 @@
+<div class="ui labeled icon top right pointing dropdown teal button">
+    <i class="icon download cloud"></i>
+    <span class="text">Download</span>
+    <div class="menu">
+        <a href="/orders/{{order.id}}/pdf" class="item"><i class="icon blue file outline pdf"></i> Order Note</a>
+        <a href="/orders/{{order.id}}/packing_list" class="item"><i class="icon brown file outline pdf"></i> Packing List</a>
+        <a ng-repeat="invoice in order.invoices" href="/invoices/pdf/{{invoice.id}}" class="item"><i class="icon teal file outline pdf"></i> Invoice #{{invoice.invoice_no}}</a>
+    </div>
+</div>

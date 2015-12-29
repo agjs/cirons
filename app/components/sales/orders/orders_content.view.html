@@ -20,6 +20,11 @@
             </div>
             <div class="steps-toolbar">
                 <div ng-show="order.step == 'pending'">
+
+                    <cirons-order-download
+                        order="order"
+                    ></cirons-order-download>
+
                     <button ng-click="changeStep('shipped')" class="ui button blue labeled icon">
             			<i class="icon shipping"></i>
                         Order is shipped
@@ -30,6 +35,9 @@
 		            </button>
                 </div>
                 <div ng-show="order.step == 'shipped'">
+                    <cirons-order-download
+                        order="order"
+                    ></cirons-order-download>
                     <button ng-click="generateInvoice()" ng-show="order.invoices.length == 0" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Create Invoice
@@ -40,6 +48,9 @@
             		</button>
                 </div>
                 <div ng-show="order.step == 'delivered'">
+                    <cirons-order-download
+                        order="order"
+                    ></cirons-order-download>
                     <button ng-click="generateInvoice()" ng-show="order.invoices.length == 0" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Create Invoice

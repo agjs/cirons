@@ -17,6 +17,7 @@
   require('../libs/angular-bootstrap/ui-bootstrap.min.js');
   require('../libs/angular-bootstrap/ui-bootstrap-tpls.min.js');
   require('../libs/angular-loading-bar/build/loading-bar.min.js');
+  require('../libs/semantic/dist/semantic.min.js');
 
   window.c3 = require('c3');
   require('../libs/c3-angular/c3-angular.min.js');

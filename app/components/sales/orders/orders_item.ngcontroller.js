@@ -18,6 +18,8 @@
       });
     }
 
+    $(".dropdown").dropdown();
+
     $scope.newrow = {
         ordered: 0,
         q: 0,
