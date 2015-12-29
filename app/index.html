@@ -23,10 +23,18 @@ currentState == 'suppliers.item'            ||
 currentState == 'orders' ||
 currentState == 'orders.item' ||
 currentState == 'orders.create' ||
+currentState == 'invoices' ||
+currentState == 'invoices.item' ||
+currentState == 'invoices.create' ||
+currentState == 'products' ||
+currentState == 'products.item' ||
+currentState == 'products.create' ||
+currentState == 'contacts' ||
+currentState == 'contacts.item' ||
+currentState == 'contacts.create' ||
 currentState == 'receipts'                 ||
 currentState == 'receipts.item'                 ||
 currentState == 'receipts.create'                 ||
-currentState == 'contacts'            ||
 currentState == 'suppliers.create' ? 'split_table' : '' ||
 isAuthenticated() ? '' : 'overwriteBg'" ng-controller="mainController">
 

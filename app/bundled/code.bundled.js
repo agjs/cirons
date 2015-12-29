@@ -109,7 +109,7 @@
     require('../components/directives/directives.ngcomponent');
 })();
 
-},{"../components/accounting/accounting.ngcomponent":5,"../components/authentication/authentication.ngcomponent":10,"../components/calendar/calendar.ngcomponent":15,"../components/common/common.ngcomponent":19,"../components/dashboard/dashboard.ngcomponent":24,"../components/directives/directives.ngcomponent":34,"../components/expenses/receipts/receipts.ngcomponent":36,"../components/expenses/suppliers/suppliers.ngcomponent":42,"../components/hr/hr.ngcomponent":49,"../components/purchasing/purchasing.ngcomponent":53,"../components/sales/contacts/contacts.ngcomponent":57,"../components/sales/invoices/invoices.ngcomponent":60,"../components/sales/orders/orders.ngcomponent":63,"../components/sales/products/products.ngcomponent":69,"../components/sales/sales.ngcomponent":72,"../components/stock/stock.ngcomponent":76,"../components/system_admin/system_admin.ngcomponent":80,"../components/user_settings/user_settings.ngcomponent":84,"../main.ngcomponent":88}],5:[function(require,module,exports){
+},{"../components/accounting/accounting.ngcomponent":5,"../components/authentication/authentication.ngcomponent":10,"../components/calendar/calendar.ngcomponent":15,"../components/common/common.ngcomponent":19,"../components/dashboard/dashboard.ngcomponent":24,"../components/directives/directives.ngcomponent":34,"../components/expenses/receipts/receipts.ngcomponent":36,"../components/expenses/suppliers/suppliers.ngcomponent":42,"../components/hr/hr.ngcomponent":49,"../components/purchasing/purchasing.ngcomponent":53,"../components/sales/contacts/contacts.ngcomponent":57,"../components/sales/invoices/invoices.ngcomponent":63,"../components/sales/orders/orders.ngcomponent":69,"../components/sales/products/products.ngcomponent":75,"../components/sales/sales.ngcomponent":81,"../components/stock/stock.ngcomponent":85,"../components/system_admin/system_admin.ngcomponent":89,"../components/user_settings/user_settings.ngcomponent":93,"../main.ngcomponent":97}],5:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -572,8 +572,6 @@ angular.module('CIRONS-MAIN-APP')
     $scope.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
-
-    
 
   }
 
@@ -1980,11 +1978,14 @@ angular.module('CIRONS-MAIN-APP')
 
   angular.module('CIRONS-MAIN-APP')
     .controller('contactsController', require('./contacts.ngcontroller'))
-    .factory('contactsFactory', require('./contacts.ngfactory'));
+    .controller('contactsCRUDController', require('./contacts_crud.ngcontroller'))
+    .controller('contactsSingleItemController', require('./contacts_item.ngcontroller'))
+    .factory('contactsFactory', require('./contacts.ngfactory'))
+    .config(require('./contacts.ngrouter'));
 
 })();
 
-},{"./contacts.ngcontroller":58,"./contacts.ngfactory":59}],58:[function(require,module,exports){
+},{"./contacts.ngcontroller":58,"./contacts.ngfactory":59,"./contacts.ngrouter":60,"./contacts_crud.ngcontroller":61,"./contacts_item.ngcontroller":62}],58:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = contactsController;
@@ -1993,8 +1994,9 @@ angular.module('CIRONS-MAIN-APP')
 
     contactsFactory.getContacts().then(function(contacts) {
       $scope.contacts = contacts;
-      $scope.cardCounter = contacts.length;
     });
+
+
 
   }
 
@@ -2100,42 +2102,173 @@ angular.module('CIRONS-MAIN-APP')
 
 },{}],60:[function(require,module,exports){
 (function() {
+  'use strict';
+  module.exports = contactsRouter;
+
+  function contactsRouter($stateProvider) {
+    $stateProvider
+      .state('contacts', {
+        url: "/sales/contacts",
+
+        ncyBreadcrumb: {
+          label: 'Contacts',
+          parent: 'sales',
+        },
+        views: {
+          '': {
+            templateUrl: 'components/sales/contacts/contacts.view.html',
+            controller: 'contactsController'
+
+          },
+          'contactsList@contacts': {
+            templateUrl: 'components/sales/contacts/contacts_list.view.html',
+          }
+        }
+      })
+
+    .state('contacts.create', {
+      url: "/create",
+      ncyBreadcrumb: {
+        parent: 'contacts',
+        label: 'Write a Contact'
+      },
+      views: {
+        '': {
+          templateUrl: 'components/sales/contacts/contacts.view.html'
+        },
+        'contactsList@contacts': {
+          templateUrl: 'components/sales/contacts/contacts_list.view.html',
+
+        },
+        'contactsContent@contacts': {
+          templateUrl: 'components/sales/contacts/contacts_create.view.html',
+          controller: 'contactsCRUDController'
+        }
+      }
+    })
+
+    .state('contacts.item', {
+      url: "/:id",
+      params: {
+        contact: undefined
+      },
+      ncyBreadcrumb: {
+        parent: 'contacts',
+        label: '{{id}}'
+      },
+      views: {
+        '': {
+          templateUrl: 'components/sales/contacts/contacts.view.html'
+        },
+        'contactsList@contacts': {
+          templateUrl: 'components/sales/contacts/contacts_list.view.html',
+
+        },
+        'contactsContent@contacts': {
+          templateUrl: 'components/sales/contacts/contacts_content.view.html',
+          controller: 'contactsSingleItemController'
+        }
+      }
+    });
+
+  }
+
+  contactsRouter.$inject = ['$stateProvider'];
+
+})();
+
+},{}],61:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = contactsCRUDController;
+
+  function contactsCRUDController($scope, $stateParams, contactsFactory, lodash) {
+
+    $scope.addContact = function() {
+      contactsFactory.addContact($scope.contact).then(function(added) {
+        $scope.contacts.push(added);
+      });
+    };
+
+    $scope.removeContact = function() {
+      contactsFactory.removeContact($stateParams.id);
+    };
+
+    $scope.editContact = function(data) {
+      contactsFactory.editContact($stateParams.id, data).then(function(edited) {
+
+        var findItem = lodash.find($scope.contacts, function(arg) {
+          return arg.id === $stateParams.id;
+        });
+
+        if (findItem) {
+          findItem = edited;
+        }
+
+      });
+    };
+
+  }
+
+  contactsCRUDController.$inject = ['$scope', '$stateParams', 'contactsFactory', 'lodash'];
+
+})();
+
+},{}],62:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = contactsSingleItemController;
+
+  function contactsSingleItemController($scope, $stateParams, contactsFactory) {
+    $scope.contact = $stateParams.contact;
+    $scope.id = $stateParams.id;
+
+
+    if (!$scope.contact) {
+      contactsFactory.getContact($scope.id).then(function(item) {
+        $scope.contact = item;
+      });
+    }
+
+  }
+
+  contactsSingleItemController.$inject = ['$scope', '$stateParams', 'contactsFactory'];
+
+})();
+
+},{}],63:[function(require,module,exports){
+(function() {
   "use strict";
 
   angular.module('CIRONS-MAIN-APP')
     .controller('invoicesController', require('./invoices.ngcontroller'))
-    .factory('invoicesFactory', require('./invoices.ngfactory'));
+    .controller('invoicesCRUDController', require('./invoices_crud.ngcontroller'))
+    .controller('invoicesSingleItemController', require('./invoices_item.ngcontroller'))
+    .factory('invoicesFactory', require('./invoices.ngfactory'))
+    .config(require('./invoices.ngrouter'));
 
 })();
 
-},{"./invoices.ngcontroller":61,"./invoices.ngfactory":62}],61:[function(require,module,exports){
+},{"./invoices.ngcontroller":64,"./invoices.ngfactory":65,"./invoices.ngrouter":66,"./invoices_crud.ngcontroller":67,"./invoices_item.ngcontroller":68}],64:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = invoicesController;
 
-  function invoicesController($scope, $rootScope, $auth, invoicesFactory, $state, $filter) {
+  function invoicesController($scope, $rootScope, $auth, invoicesFactory, $state) {
 
     invoicesFactory.getInvoices().then(function(invoices) {
       $scope.invoices = invoices;
     });
 
-    invoicesFactory.getUnpaidInvoices().then(function(invoices) {
-      $scope.unpaid = invoices;
-      $scope.cardCounter = invoices.length;
-    });
 
-    invoicesFactory.getUnpaidInvoicesSum().then(function(data) {
-      $scope.unpaid_sum = data;
-      $scope.cardSecondary = $filter('currency')(data, "SEK ", 2);
-    });
 
   }
 
-  invoicesController.$inject = ['$scope', '$rootScope', '$auth', 'invoicesFactory', '$state', '$filter'];
+  invoicesController.$inject = ['$scope', '$rootScope', '$auth', 'invoicesFactory', '$state'];
 
 })();
 
-},{}],62:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = invoicesFactory;
@@ -2264,7 +2397,143 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],63:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = invoicesRouter;
+
+  function invoicesRouter($stateProvider) {
+    $stateProvider
+      .state('invoices', {
+        url: "/sales/invoices",
+
+        ncyBreadcrumb: {
+          label: 'Invoices',
+          parent: 'sales',
+        },
+        views: {
+          '': {
+            templateUrl: 'components/sales/invoices/invoices.view.html',
+            controller: 'invoicesController'
+
+          },
+          'invoicesList@invoices': {
+            templateUrl: 'components/sales/invoices/invoices_list.view.html',
+          }
+        }
+      })
+
+    .state('invoices.create', {
+      url: "/create",
+      ncyBreadcrumb: {
+        parent: 'invoices',
+        label: 'Write a Invoice'
+      },
+      views: {
+        '': {
+          templateUrl: 'components/sales/invoices/invoices.view.html'
+        },
+        'invoicesList@invoices': {
+          templateUrl: 'components/sales/invoices/invoices_list.view.html',
+
+        },
+        'invoicesContent@invoices': {
+          templateUrl: 'components/sales/invoices/invoices_create.view.html',
+          controller: 'invoicesCRUDController'
+        }
+      }
+    })
+
+    .state('invoices.item', {
+      url: "/:id",
+      params: {
+        invoice: undefined
+      },
+      ncyBreadcrumb: {
+        parent: 'invoices',
+        label: '{{id}}'
+      },
+      views: {
+        '': {
+          templateUrl: 'components/sales/invoices/invoices.view.html'
+        },
+        'invoicesList@invoices': {
+          templateUrl: 'components/sales/invoices/invoices_list.view.html',
+
+        },
+        'invoicesContent@invoices': {
+          templateUrl: 'components/sales/invoices/invoices_content.view.html',
+          controller: 'invoicesSingleItemController'
+        }
+      }
+    });
+
+  }
+
+  invoicesRouter.$inject = ['$stateProvider'];
+
+})();
+
+},{}],67:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = invoicesCRUDController;
+
+  function invoicesCRUDController($scope, $stateParams, invoicesFactory, lodash) {
+
+    $scope.addInvoice = function() {
+      invoicesFactory.addInvoice($scope.invoice).then(function(added) {
+        $scope.invoices.push(added);
+      });
+    };
+
+    $scope.removeInvoice = function() {
+      invoicesFactory.removeInvoice($stateParams.id);
+    };
+
+    $scope.editInvoice = function(data) {
+      invoicesFactory.editInvoice($stateParams.id, data).then(function(edited) {
+
+        var findItem = lodash.find($scope.invoices, function(arg) {
+          return arg.id === $stateParams.id;
+        });
+
+        if (findItem) {
+          findItem = edited;
+        }
+
+      });
+    };
+
+  }
+
+  invoicesCRUDController.$inject = ['$scope', '$stateParams', 'invoicesFactory', 'lodash'];
+
+})();
+
+},{}],68:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = invoicesSingleItemController;
+
+  function invoicesSingleItemController($scope, $stateParams, invoicesFactory) {
+    $scope.invoice = $stateParams.invoice;
+    $scope.id = $stateParams.id;
+
+
+    if (!$scope.invoice) {
+      invoicesFactory.getInvoice($scope.id).then(function(item) {
+        $scope.invoice = item;
+      });
+    }
+
+  }
+
+  invoicesSingleItemController.$inject = ['$scope', '$stateParams', 'invoicesFactory'];
+
+})();
+
+},{}],69:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -2277,7 +2546,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./orders.ngcontroller":64,"./orders.ngfactory":65,"./orders.ngrouter":66,"./orders_crud.ngcontroller":67,"./orders_item.ngcontroller":68}],64:[function(require,module,exports){
+},{"./orders.ngcontroller":70,"./orders.ngfactory":71,"./orders.ngrouter":72,"./orders_crud.ngcontroller":73,"./orders_item.ngcontroller":74}],70:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersController;
@@ -2296,7 +2565,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],65:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersFactory;
@@ -2425,7 +2694,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],66:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersRouter;
@@ -2502,7 +2771,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],67:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersCRUDController;
@@ -2539,7 +2808,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],68:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersSingleItemController;
@@ -2561,17 +2830,20 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],69:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 (function() {
   "use strict";
 
   angular.module('CIRONS-MAIN-APP')
     .controller('productsController', require('./products.ngcontroller'))
-    .factory('productsFactory', require('./products.ngfactory'));
+    .controller('productsCRUDController', require('./products_crud.ngcontroller'))
+    .controller('productsSingleItemController', require('./products_item.ngcontroller'))
+    .factory('productsFactory', require('./products.ngfactory'))
+    .config(require('./products.ngrouter'));
 
 })();
 
-},{"./products.ngcontroller":70,"./products.ngfactory":71}],70:[function(require,module,exports){
+},{"./products.ngcontroller":76,"./products.ngfactory":77,"./products.ngrouter":78,"./products_crud.ngcontroller":79,"./products_item.ngcontroller":80}],76:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = productsController;
@@ -2580,8 +2852,9 @@ angular.module('CIRONS-MAIN-APP')
 
     productsFactory.getProducts().then(function(products) {
       $scope.products = products;
-      $scope.cardCounter = products.length;
     });
+
+
 
   }
 
@@ -2589,7 +2862,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],71:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = productsFactory;
@@ -2695,7 +2968,143 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],72:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = productsRouter;
+
+  function productsRouter($stateProvider) {
+    $stateProvider
+      .state('products', {
+        url: "/sales/products",
+
+        ncyBreadcrumb: {
+          label: 'Products',
+          parent: 'sales',
+        },
+        views: {
+          '': {
+            templateUrl: 'components/sales/products/products.view.html',
+            controller: 'productsController'
+
+          },
+          'productsList@products': {
+            templateUrl: 'components/sales/products/products_list.view.html',
+          }
+        }
+      })
+
+    .state('products.create', {
+      url: "/create",
+      ncyBreadcrumb: {
+        parent: 'products',
+        label: 'Write a Product'
+      },
+      views: {
+        '': {
+          templateUrl: 'components/sales/products/products.view.html'
+        },
+        'productsList@products': {
+          templateUrl: 'components/sales/products/products_list.view.html',
+
+        },
+        'productsContent@products': {
+          templateUrl: 'components/sales/products/products_create.view.html',
+          controller: 'productsCRUDController'
+        }
+      }
+    })
+
+    .state('products.item', {
+      url: "/:id",
+      params: {
+        product: undefined
+      },
+      ncyBreadcrumb: {
+        parent: 'products',
+        label: '{{id}}'
+      },
+      views: {
+        '': {
+          templateUrl: 'components/sales/products/products.view.html'
+        },
+        'productsList@products': {
+          templateUrl: 'components/sales/products/products_list.view.html',
+
+        },
+        'productsContent@products': {
+          templateUrl: 'components/sales/products/products_content.view.html',
+          controller: 'productsSingleItemController'
+        }
+      }
+    });
+
+  }
+
+  productsRouter.$inject = ['$stateProvider'];
+
+})();
+
+},{}],79:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = productsCRUDController;
+
+  function productsCRUDController($scope, $stateParams, productsFactory, lodash) {
+
+    $scope.addProduct = function() {
+      productsFactory.addProduct($scope.product).then(function(added) {
+        $scope.products.push(added);
+      });
+    };
+
+    $scope.removeProduct = function() {
+      productsFactory.removeProduct($stateParams.id);
+    };
+
+    $scope.editProduct = function(data) {
+      productsFactory.editProduct($stateParams.id, data).then(function(edited) {
+
+        var findItem = lodash.find($scope.products, function(arg) {
+          return arg.id === $stateParams.id;
+        });
+
+        if (findItem) {
+          findItem = edited;
+        }
+
+      });
+    };
+
+  }
+
+  productsCRUDController.$inject = ['$scope', '$stateParams', 'productsFactory', 'lodash'];
+
+})();
+
+},{}],80:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = productsSingleItemController;
+
+  function productsSingleItemController($scope, $stateParams, productsFactory) {
+    $scope.product = $stateParams.product;
+    $scope.id = $stateParams.id;
+
+
+    if (!$scope.product) {
+      productsFactory.getProduct($scope.id).then(function(item) {
+        $scope.product = item;
+      });
+    }
+
+  }
+
+  productsSingleItemController.$inject = ['$scope', '$stateParams', 'productsFactory'];
+
+})();
+
+},{}],81:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -2706,7 +3115,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./sales.ngcontroller":73,"./sales.ngfactory":74,"./sales.ngrouter":75}],73:[function(require,module,exports){
+},{"./sales.ngcontroller":82,"./sales.ngfactory":83,"./sales.ngrouter":84}],82:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = salesController;
@@ -2758,7 +3167,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],74:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = salesFactory;
@@ -2775,7 +3184,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],75:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = salesRouter;
@@ -2796,7 +3205,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],76:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -2807,7 +3216,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./stock.ngcontroller":77,"./stock.ngfactory":78,"./stock.ngrouter":79}],77:[function(require,module,exports){
+},{"./stock.ngcontroller":86,"./stock.ngfactory":87,"./stock.ngrouter":88}],86:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockController;
@@ -2821,7 +3230,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],78:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockFactory;
@@ -2838,7 +3247,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],79:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockRouter;
@@ -2859,7 +3268,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],80:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -2869,7 +3278,7 @@ angular.module('CIRONS-MAIN-APP')
     .config(require('./system_admin.ngrouter'));
 })();
 
-},{"./system_admin.ngcontroller":81,"./system_admin.ngfactory":82,"./system_admin.ngrouter":83}],81:[function(require,module,exports){
+},{"./system_admin.ngcontroller":90,"./system_admin.ngfactory":91,"./system_admin.ngrouter":92}],90:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = systemAdminController;
@@ -2881,7 +3290,7 @@ angular.module('CIRONS-MAIN-APP')
   systemAdminController.$inject = ['$scope'];
 })();
 
-},{}],82:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = systemAdminFactory;
@@ -2898,7 +3307,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],83:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockRouter;
@@ -2919,7 +3328,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],84:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -2929,7 +3338,7 @@ angular.module('CIRONS-MAIN-APP')
     .config(require('./user_settings.ngrouter'));
 })();
 
-},{"./user_settings.ngcontroller":85,"./user_settings.ngfactory":86,"./user_settings.ngrouter":87}],85:[function(require,module,exports){
+},{"./user_settings.ngcontroller":94,"./user_settings.ngfactory":95,"./user_settings.ngrouter":96}],94:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsController;
@@ -2947,7 +3356,7 @@ angular.module('CIRONS-MAIN-APP')
   userSettingsController.$inject = ['$scope', 'userSettingsFactory', 'meFactory'];
 })();
 
-},{}],86:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsFactory;
@@ -2974,7 +3383,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],87:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsRouter;
@@ -2992,7 +3401,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],88:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 (function () {
   'use strict';
   require('./app')

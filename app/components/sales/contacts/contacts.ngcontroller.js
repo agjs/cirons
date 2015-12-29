@@ -6,8 +6,9 @@
 
     contactsFactory.getContacts().then(function(contacts) {
       $scope.contacts = contacts;
-      $scope.cardCounter = contacts.length;
     });
+
+
 
   }
 

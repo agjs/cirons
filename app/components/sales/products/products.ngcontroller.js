@@ -6,8 +6,9 @@
 
     productsFactory.getProducts().then(function(products) {
       $scope.products = products;
-      $scope.cardCounter = products.length;
     });
+
+
 
   }
 
