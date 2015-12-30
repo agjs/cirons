@@ -188,12 +188,266 @@
           </div>
 
           <div class="column sixteen wide">
-            <h1>Cashflow</h1>
+              <h4 class="ui horizontal divider header">
+                Cashflow
+              </h4>
+
+              <c3chart bindto-id="cashflow-predict" show-labels="true">
+                <chart-column column-id="likely"
+                            column-name="Likely scenario"
+                            column-color="#2185D0"
+                            column-values="25000,32000,29000,31000,36000"
+                            column-type="spline"/>
+                <chart-column column-id="faster"
+                            column-name="Faster receivables"
+                            column-color="#66BB6A"
+                            column-values="29000,37000,32000,35000,38000"
+                            column-type="spline"/>
+                  <chart-size chart-height="170"/>
+              </c3chart>
+
+              <div class="ui grid stackable after-cashflow-chart">
+                  <div class="column twelve wide">
+
+                      <div class="ui segments net-positions">
+                          <div class="ui segment">
+                              <strong>NET POSITIONS</strong>
+                          </div>
+                          <div class="ui segment blue">
+                              <div class="ui grid stackable">
+                                  <div class="column four wide">
+
+                                      <span class="desc">
+                                          Year to date
+                                      </span>
+
+                                      <div class="chart">
+                                          <c3chart bindto-id="net1">
+                                              <chart-column column-id="expenses"
+                                                column-name="Expenses"
+                                                column-color="#DB2828"
+                                                column-type="donut"
+                                                column-values="400149.21"
+                                              ></chart-column>
+                                              <chart-column column-id="income"
+                                                column-name="Income"
+                                                column-color="#2185D0"
+                                                column-type="donut"
+                                                column-values="500204.16"
+                                              ></chart-column>
+                                              <chart-size chart-width="140" chart-height="140"/>
+                                              <chart-padding chart-top="0" chart-left="0" chart-right="0" chart-bottom="10"/>
+                                              <chart-donut title="100,054.95" show-label="true" width="5"/>
+                                              <chart-legend show-legend="false"/>
+                                          </c3chart>
+                                      </div>
+
+                                      <span class="sum-desc">Income</span>
+                                      <strong class="sum">500,204.16</strong>
+                                      <div class="divider"></div>
+                                      <span class="sum-desc">Expenses</span>
+                                      <strong class="sum negative">400,149.21</strong>
+
+
+                                  </div>
+                                  <div class="column four wide">
+
+                                      <span class="desc">
+                                          Last quarter to date
+                                      </span>
+
+                                      <div class="chart">
+                                          <c3chart bindto-id="net2">
+                                              <chart-column column-id="expenses"
+                                                column-name="Expenses"
+                                                column-color="#DB2828"
+                                                column-type="donut"
+                                                column-values="112825.11"
+                                              ></chart-column>
+                                              <chart-column column-id="income"
+                                                column-name="Income"
+                                                column-color="#2185D0"
+                                                column-type="donut"
+                                                column-values="140294.34"
+                                              ></chart-column>
+                                              <chart-size chart-width="140" chart-height="140"/>
+                                              <chart-padding chart-top="0" chart-left="0" chart-right="0" chart-bottom="10"/>
+                                              <chart-donut title="27,439.23" show-label="true" width="5"/>
+                                              <chart-legend show-legend="false"/>
+                                          </c3chart>
+                                      </div>
+
+                                      <span class="sum-desc">Income</span>
+                                      <strong class="sum">140,294.34</strong>
+                                      <div class="divider"></div>
+                                      <span class="sum-desc">Expenses</span>
+                                      <strong class="sum negative">112,825.11</strong>
+
+
+                                  </div>
+                                  <div class="column four wide">
+
+                                      <span class="desc">
+                                          Last month
+                                      </span>
+
+                                      <div class="chart">
+                                          <c3chart bindto-id="net3">
+                                              <chart-column column-id="expenses"
+                                                column-name="Expenses"
+                                                column-color="#DB2828"
+                                                column-type="donut"
+                                                column-values="6136"
+                                              ></chart-column>
+                                              <chart-column column-id="income"
+                                                column-name="Income"
+                                                column-color="#2185D0"
+                                                column-type="donut"
+                                                column-values="9293.10"
+                                              ></chart-column>
+                                              <chart-size chart-width="140" chart-height="140"/>
+                                              <chart-padding chart-top="0" chart-left="0" chart-right="0" chart-bottom="10"/>
+                                              <chart-donut title="3,157.10" show-label="true" width="5"/>
+                                              <chart-legend show-legend="false"/>
+                                          </c3chart>
+                                      </div>
+
+                                      <span class="sum-desc">Income</span>
+                                      <strong class="sum">9,293.10</strong>
+                                      <div class="divider"></div>
+                                      <span class="sum-desc">Expenses</span>
+                                      <strong class="sum negative">6,136.00</strong>
+
+
+                                  </div>
+                                  <div class="column four wide">
+
+                                      <span class="desc">
+                                          Last week
+                                      </span>
+
+                                      <div class="chart">
+                                          <c3chart bindto-id="net4">
+                                              <chart-column column-id="expenses"
+                                                column-name="Expenses"
+                                                column-color="#DB2828"
+                                                column-type="donut"
+                                                column-values="2614"
+                                              ></chart-column>
+                                              <chart-column column-id="income"
+                                                column-name="Income"
+                                                column-color="#2185D0"
+                                                column-type="donut"
+                                                column-values="2348"
+                                              ></chart-column>
+                                              <chart-size chart-width="140" chart-height="140"/>
+                                              <chart-padding chart-top="0" chart-left="0" chart-right="0" chart-bottom="10"/>
+                                              <chart-donut title="266" show-label="true" width="5"/>
+                                              <chart-legend show-legend="false"/>
+                                          </c3chart>
+                                      </div>
+
+                                      <span class="sum-desc">Income</span>
+                                      <strong class="sum">2,348.00</strong>
+                                      <div class="divider"></div>
+                                      <span class="sum-desc">Expenses</span>
+                                      <strong class="sum negative">2,614.00</strong>
+
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+                  <div class="column four wide">
+                      <table class="ui table celled cashflow-sheet">
+                          <thead>
+                              <tr>
+                                  <th colspan="2">
+                                      <select class="ui input fluid">
+                                          <option>December 2015</option>
+                                          <option>November 2015</option>
+                                          <option>October 2015</option>
+                                          <option>September 2015</option>
+                                          <option>August 2015</option>
+                                          <option>July 2015</option>
+                                          <option>June 2015</option>
+                                          <option>May 2015</option>
+                                      </select>
+                                  </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>Month Start</td>
+                                  <td>
+                                      45,468.00
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>Recurring</td>
+                                  <td>
+                                      -32,458.00
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>Payables</td>
+                                  <td>
+                                      -12,503.00
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>Receivables</td>
+                                  <td>
+                                      72,868.00
+                                  </td>
+                              </tr>
+                              <tr class="total">
+                                  <td>Total</td>
+                                  <td>
+                                      <strong>73,375.00</strong>
+                                  </td>
+                              </tr>
+                              <tr class="end">
+                                  <td>Month End</td>
+                                  <td>
+                                      <strong>65,456.00</strong>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+
           </div>
 
           <div class="column sixteen wide">
-            <h1>Turnover</h1>
+              <h4 class="ui horizontal divider header">
+                Budget Summary
+              </h4>
+
+                <c3chart bindto-id="budget-chart">
+                  <chart-column column-id="data 1"
+                            column-name="This budget"
+                            column-color="#15B19E"
+                            column-values="30,200,100,400,150,250"
+                            column-type="bar"/>
+                  <chart-column column-id="data 2"
+                            column-name="This years actual"
+                            column-color="#66bb6a"
+                            column-values="20,210,70,350,250,50"
+                            column-type="bar"/>
+                  <chart-column column-id="last_year"
+                            column-name="Last year actual"
+                            column-color="#26a69a"
+                            column-values="25,225,85,320,210,40"
+                            column-type="bar"/>
+                </c3chart>
+
           </div>
+
+          
         </div>
       </div>
     </div>
