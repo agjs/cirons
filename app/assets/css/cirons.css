@@ -2123,7 +2123,16 @@ body.split_table .page-content {
             font-size: 16px;
             font-weight: 600;
             display: inline-block;
-            font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif; }
+            font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+            width: 100%;
+            position: absolute;
+            padding-right: 70px;
+            text-overflow: ellipsis;
+            height: 16px;
+            display: -webkit-inline-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden; }
           body.split_table .page-content div.split-table .list ul li .sec {
             margin-top: 10px;
             position: relative;

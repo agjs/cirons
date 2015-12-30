@@ -210,8 +210,22 @@
                     <td>{{stock.product.name}}</td>
                     <td>{{stock.quantity}}</td>
                     <td>{{stock.exp_date || "Not enough info"}}</td>
-                    <td>{{stock.product.out_of_stock_date}}</td>
-                    <td>{{stock.warehouse.name}}</td>
+                    <td>
+                        <div ng-show="stock.product.out_of_stock_date" class="ui label" ng-class="
+                            daysUntil(stock.product.out_of_stock_date) <= 10 ? 'red' : '' ||
+                            daysUntil(stock.product.out_of_stock_date) <= 90 && daysUntil(stock.product.out_of_stock_date) > 10 ? 'yellow' : '' ||
+                            daysUntil(stock.product.out_of_stock_date) > 90 ? 'blue' : ''
+                        ">
+                            <i ng-show="daysUntil(stock.product.out_of_stock_date) <= 10" class="icon remove"></i>
+                            <i ng-show="daysUntil(stock.product.out_of_stock_date) > 90 && daysUntil(stock.product.out_of_stock_date) > 10" class="icon check"></i>
+                            <i ng-show="daysUntil(stock.product.out_of_stock_date) <= 90" class="warning sign icon"></i>
+                            {{stock.product.out_of_stock_date}}
+                        </div>
+                        <div ng-hide="stock.product.out_of_stock_date">No data</div>
+                    </td>
+                    <td>
+                        <span class="ui blue tag label">{{stock.warehouse.name}}</span>
+                    </td>
                   </tr>
               </tbody>
             </table>

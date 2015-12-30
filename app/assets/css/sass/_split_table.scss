@@ -85,6 +85,15 @@ body.split_table {
               font-weight: 600;
               display: inline-block;
               font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+              width: 100%;
+                position: absolute;
+                padding-right: 70px;
+                text-overflow: ellipsis;
+                height: 16px;
+                display: -webkit-inline-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
 
             .sec {
