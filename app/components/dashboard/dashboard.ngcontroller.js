@@ -18,6 +18,17 @@
     productsFactory.getProductStockFilters("").then(function(data) {
       $scope.productStockItems = data;
     });
+
+    $scope.daysUntil = function(date){
+        var date = new Date(date);
+        var today = new Date();
+
+        var m = moment(date);
+        var mt = moment(today);
+        var diff = m.diff(mt, 'days');
+
+        return diff;
+    };
     //END PRODUCT STOCK
 
     //START REGISTER EXPENSES CHART

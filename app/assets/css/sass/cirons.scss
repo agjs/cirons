@@ -1572,6 +1572,59 @@ table.info-table {
     display: inline;
 }
 
+.cashflow-sheet {
+    height: 370px;
+    select {
+        width: 100%;
+    }
+
+    .total, .end {
+        td {
+            border-top: 2px solid $cirons_blue !important;
+        }
+    }
+}
+
+.after-cashflow-chart {
+    padding-top: 30px !important;
+}
+
+.net-positions {
+    span.desc {
+        font-size: 14px;
+        color: rgba(0,0,0,0.6);
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    span.sum-desc {
+        font-size: 12px;
+        color: rgba(0,0,0,0.6);
+        display: block;
+        padding: 10px 0 3px 0;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    strong.sum {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        color: $cirons_blue;
+    }
+
+    strong.sum.negative {
+        color: #DB2828;
+    }
+
+    div.divider {
+        height: 10px;
+    }
+}
+
 @import "_timeline";
 @import "_wizard";
 @import "_orderrows";

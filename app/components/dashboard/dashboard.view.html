@@ -5,7 +5,7 @@
         <ul>
           <li>
             <a ng-class="currentState === 'dashboard.finance' ? 'active' : ''" ui-sref="dashboard.finance">
-              <span>General</span>
+              <span>Finance</span>
             </a>
           </li>
           <li>
@@ -29,15 +29,15 @@
         <ul>
           <li>
             <span>Turnover</span>
-            <strong id="tabbar-chart-turnover">{{dashboardData.turnover.turnover}}</strong>
+            <strong id="tabbar-chart-turnover">{{dashboardData.turnover.turnover | number: 2}}</strong>
           </li>
           <li>
             <span>Minus Costs</span>
-            <strong id="tabbar-chart-costs">{{dashboardData.turnover.costs}}</strong>
+            <strong id="tabbar-chart-costs">{{dashboardData.turnover.costs | number: 2}}</strong>
           </li>
           <li>
             <span>Equals Result</span>
-            <strong id="tabbar-chart-total">{{dashboardData.turnover.total}}</strong>
+            <strong id="tabbar-chart-total">{{dashboardData.turnover.total | number: 2}}</strong>
           </li>
 
           <li>

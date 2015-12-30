@@ -1751,6 +1751,41 @@ table.info-table {
 .dropdown-div {
   display: inline; }
 
+.cashflow-sheet {
+  height: 370px; }
+  .cashflow-sheet select {
+    width: 100%; }
+  .cashflow-sheet .total td, .cashflow-sheet .end td {
+    border-top: 2px solid #3681b1 !important; }
+
+.after-cashflow-chart {
+  padding-top: 30px !important; }
+
+.net-positions span.desc {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  display: block;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: 400; }
+.net-positions span.sum-desc {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  display: block;
+  padding: 10px 0 3px 0;
+  text-align: center;
+  font-weight: 400; }
+.net-positions strong.sum {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  color: #3681b1; }
+.net-positions strong.sum.negative {
+  color: #DB2828; }
+.net-positions div.divider {
+  height: 10px; }
+
 .timeline {
   position: relative;
   list-style: none;
@@ -2123,7 +2158,16 @@ body.split_table .page-content {
             font-size: 16px;
             font-weight: 600;
             display: inline-block;
-            font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif; }
+            font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+            width: 100%;
+            position: absolute;
+            padding-right: 70px;
+            text-overflow: ellipsis;
+            height: 16px;
+            display: -webkit-inline-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden; }
           body.split_table .page-content div.split-table .list ul li .sec {
             margin-top: 10px;
             position: relative;
