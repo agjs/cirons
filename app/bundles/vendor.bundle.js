@@ -26,4 +26,7 @@
   require('../libs/fullcalendar/dist/gcal.js');
   window.dropzone = require('../libs/dropzone/dropzone-amd-module.js');
 
+  require('../libs/pusher/dist/pusher.min.js');
+  require('../libs/pusher-angular/lib/pusher-angular.min.js');
+
 })();
