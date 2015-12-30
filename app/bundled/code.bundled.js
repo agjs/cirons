@@ -654,18 +654,24 @@ angular.module('CIRONS-MAIN-APP')
     meFactory.promise().then(function(user) {
       $scope.user = user;
 
-      pusherClient.subscribe('maacann').bind('user_' + user.id, function(data) {
+
+      var pusher = $pusher(pusherClient);
+
+      pusher.subscribe('maacann');
+      pusher.bind('user_' + user.id, function(data) {
+        // var title;
+        // switch (data.notification.type) {
+        //   case "normal":
+        //     title = "Notification";
+        //     break;
+        //   case "reminder":
+        //     title = "Reminder";
+        //   case "urgent":
+        //     title = "Warning";
+        // }
         console.log(data);
-        var title;
-        switch (data.notification.type) {
-          case "normal":
-            title = "Notification";
-            break;
-          case "reminder":
-            title = "Reminder";
-          case "urgent":
-            title = "Warning";
-        }
+        
+
 
         //this is a function that reloads the notifications for that button in upper right corner, it does a simple http-request and loads the data to the dropdown
         getNotificationButton(data.notification.type);
@@ -674,6 +680,9 @@ angular.module('CIRONS-MAIN-APP')
         //this sends a native notification to the computer via chrome/safari/firefox Notification API.
         spawnNotification(title, data.notification.text, data.notification.link);
       });
+
+      console.log('channel', pusher);
+
 
     });
 
@@ -709,7 +718,6 @@ angular.module('CIRONS-MAIN-APP')
 
       });
     }
-
 
   }
 

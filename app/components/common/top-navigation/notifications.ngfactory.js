@@ -23,7 +23,6 @@
       });
     }
 
-
   }
 
   notificationsFactory.$inject = ['$http', '$q'];
