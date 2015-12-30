@@ -6,17 +6,17 @@
 
     //START PRODUCT STOCK
     $scope.input = {
-        stock: ""
+      stock: ""
     };
     $scope.productStockItems = [];
-    $scope.productStockItemsFilter = function(){
-        console.log("filter products: " + $scope.input.stock);
-        productsFactory.getProductStockFilters($scope.input.stock).then(function(data){
-            $scope.productStockItems = data;
-        });
-    };
-    productsFactory.getProductStockFilters("").then(function(data){
+    $scope.productStockItemsFilter = function() {
+      console.log("filter products: " + $scope.input.stock);
+      productsFactory.getProductStockFilters($scope.input.stock).then(function(data) {
         $scope.productStockItems = data;
+      });
+    };
+    productsFactory.getProductStockFilters("").then(function(data) {
+      $scope.productStockItems = data;
     });
     //END PRODUCT STOCK
 
@@ -170,8 +170,11 @@
           "sales": sales
         });
       }
-
-      //SALES OVERVIEW
+      $scope.isActive = false;
+      $scope.activeButton = function() {
+          $scope.isActive = !$scope.isActive;
+        }
+        //SALES OVERVIEW
       for (var i = 0; i < data.sales_overview.x.length; i++) {
         var x = data.sales_overview.x[i];
         var in_data = data.sales_overview.in[i];
@@ -188,29 +191,29 @@
 
       //START EXPENSES PIE
       var expenses_data = [];
-      for(var i = 0; i < data.expenses_pie_breakdown.length; i++){
-          var expense = data.expenses_pie_breakdown[i];
-          $scope.expensesPieColumns.push({
-              id: expense[0],
-              name: expense[0],
-              type: "pie"
-          });
+      for (var i = 0; i < data.expenses_pie_breakdown.length; i++) {
+        var expense = data.expenses_pie_breakdown[i];
+        $scope.expensesPieColumns.push({
+          id: expense[0],
+          name: expense[0],
+          type: "pie"
+        });
 
-          expenses_data[expense[0]] = expense[1];
+        expenses_data[expense[0]] = expense[1];
       }
       $scope.expensesPieData.push(expenses_data);
       //END EXPENSES PIE
 
       //START TOP SUPPLIERS PIE
       var suppliers_data = [];
-      for(var i = 0; i < data.top_suppliers.length; i++){
-          var supplier = data.top_suppliers[i];
-          $scope.topSuppliersColumns.push({
-              id: "supplier" + i,
-              type: "pie",
-              name: supplier.company_name
-          });
-          suppliers_data["supplier" + i] = supplier.total;
+      for (var i = 0; i < data.top_suppliers.length; i++) {
+        var supplier = data.top_suppliers[i];
+        $scope.topSuppliersColumns.push({
+          id: "supplier" + i,
+          type: "pie",
+          name: supplier.company_name
+        });
+        suppliers_data["supplier" + i] = supplier.total;
       }
       $scope.topSuppliersData.push(suppliers_data);
       //END TOP SUPPLIERS PIE
@@ -228,17 +231,16 @@
       }
       $scope.topProductsData.push(product_data);
       //END TOP PRODUCT PIE
-
       //START TOP CUSTOMERS PIE
       var customer_data = {};
-      for(var i = 0; i < data.top_customers.length; i++){
-          var contact = data.top_customers[i];
-          $scope.topCustomersColumns.push({
-              id: "customer" + i,
-              type: "pie",
-              name: contact.name
-          });
-          customer_data["customer" + i] = contact.invoiced;
+      for (var i = 0; i < data.top_customers.length; i++) {
+        var contact = data.top_customers[i];
+        $scope.topCustomersColumns.push({
+          id: "customer" + i,
+          type: "pie",
+          name: contact.name
+        });
+        customer_data["customer" + i] = contact.invoiced;
       }
       $scope.topCustomersData.push(customer_data);
       //END TOP CUSTOMERS PIE

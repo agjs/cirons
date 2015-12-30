@@ -3,17 +3,17 @@
     <div class="ui grid stackable">
       <h4 class="ui horizontal divider header">Sales</h4>
       <div class="column sixteen wide">
-          <c3chart bindto-id="sales_overview_chart" chart-x="salesOverviewX" chart-columns="salesOverviewColumns" chart-data="salesOverviewData">
-              <chart-axis>
-                  <chart-axis-x axis-id="x" axis-type="category"></chart-axis-x>
-              </chart-axis>
-          </c3chart>
+        <c3chart bindto-id="sales_overview_chart" chart-columns="salesOverviewColumns" chart-data="salesOverviewData" chart-x="salesOverviewX">
+          <chart-axis>
+            <chart-axis-x axis-id="x" axis-type="category"></chart-axis-x>
+          </chart-axis>
+        </c3chart>
       </div>
       <h4 class="ui horizontal divider header">Top Products</h4>
       <div class="column four wide">
-        <c3chart bindto-id="top_products_pie" chart-data="topProductsData" chart-columns="topProductsColumns">
+        <c3chart bindto-id="top_products_pie" chart-columns="topProductsColumns" chart-data="topProductsData">
           <chart-pie expand="true"/>
-          <chart-size chart-width="220" chart-height="220"/>
+          <chart-size chart-height="220" chart-width="220"/>
           <chart-legend show-legend="false"/>
         </c3chart>
       </div>
@@ -21,33 +21,36 @@
       <div class="column twelve wide">
         <table class="widget-table" id="top_products">
           <tbody>
-            <tr ng-repeat-start="product in dashboardData.top_products track by $index" data-id="1">
+            <tr data-id="{{$index + 1}}" ng-repeat-start="product in dashboardData.top_products track by $index">
               <td class="place">
-                # {{$index + 1}}
+                #
+                {{$index + 1}}
               </td>
               <td>
                 {{product.product_name}}
               </td>
               <td class="stat blue1" width="150px">
                 <span># Sold</span>
-                <strong>{{product.total_sold}} units</strong>
+                <strong>{{product.total_sold}}
+                  units</strong>
               </td>
               <td class="stat blue2" width="210px">
                 <span>$ Sold</span>
                 <strong>{{product.sold | currency:"SEK ":2}}</strong>
               </td>
               <td class="arrow">
-                <i ng-click="product.show = !product.show" class="angle double down icon"></i>
+                <i class="angle double down icon" ng-click="activeButton()"></i>
               </td>
             </tr>
-            <tr ng-repeat-end data-toggle="1" ng-show="product.show = false">
+            <tr data-toggle="{{$index + 1}}" ng-class="{'active': isActive}" ng-repeat-end>
               <td colspan="5">
                 <table>
                   <tbody>
                     <tr>
                       <td class="stat blue2" width="">
                         <span># AVG. SOLD PER MONTH</span>
-                        <strong>{{product.avg_sold_per_month}} units</strong>
+                        <strong>{{product.avg_sold_per_month}}
+                          units</strong>
                       </td>
                       <td class="stat blue1" width="">
                         <span>AVG. Earnings A Month</span>
@@ -59,7 +62,8 @@
                       </td>
                       <td class="stat blue4" width="">
                         <span>Stock Level</span>
-                        <strong>{{product.stock}} units</strong>
+                        <strong>{{product.stock}}
+                          units</strong>
                       </td>
                       <td class="stat blue5" width="">
                         <span>Est. Out of stock</span>
@@ -77,11 +81,11 @@
       <h4 class="ui horizontal divider header">Top Customers</h4>
 
       <div class="column four wide">
-          <c3chart bindto-id="top_customers_pie" chart-data="topCustomersData" chart-columns="topCustomersColumns">
-            <chart-pie expand="true"/>
-            <chart-size chart-width="220" chart-height="220"/>
-            <chart-legend show-legend="false"/>
-          </c3chart>
+        <c3chart bindto-id="top_customers_pie" chart-columns="topCustomersColumns" chart-data="topCustomersData">
+          <chart-pie expand="true"/>
+          <chart-size chart-height="220" chart-width="220"/>
+          <chart-legend show-legend="false"/>
+        </c3chart>
       </div>
 
       <div class="column twelve wide">
@@ -89,7 +93,8 @@
           <tbody>
             <tr data-id="1" ng-repeat-start="contact in dashboardData.top_customers track by $index">
               <td class="place">
-                # {{$index + 1}}
+                #
+                {{$index + 1}}
               </td>
               <td>
                 {{contact.name}}
@@ -117,7 +122,8 @@
                       </td>
                       <td class="stat blue3" width="">
                         <span>AVG. Margin</span>
-                        <strong>{{contact.avg_margin | number : 2}} %</strong>
+                        <strong>{{contact.avg_margin | number : 2}}
+                          %</strong>
                       </td>
                       <td class="stat blue4" width="">
                         <span>LifeTime Customer Value</span>
@@ -135,11 +141,11 @@
       <h4 class="ui horizontal divider header">Top Suppliers</h4>
 
       <div class="column four wide">
-          <c3chart bindto-id="top_suppliers_pie" chart-data="topSuppliersData" chart-columns="topSuppliersColumns">
-            <chart-pie expand="true"/>
-            <chart-size chart-width="220" chart-height="220"/>
-            <chart-legend show-legend="false"/>
-          </c3chart>
+        <c3chart bindto-id="top_suppliers_pie" chart-columns="topSuppliersColumns" chart-data="topSuppliersData">
+          <chart-pie expand="true"/>
+          <chart-size chart-height="220" chart-width="220"/>
+          <chart-legend show-legend="false"/>
+        </c3chart>
       </div>
 
       <div class="column twelve wide">
@@ -147,7 +153,8 @@
           <tbody>
             <tr data-id="1" ng-repeat-start="supplier in dashboardData.top_suppliers track by $index">
               <td class="place">
-                # {{$index + 1}}
+                #
+                {{$index + 1}}
               </td>
               <td>
                 {{supplier.company_name}}
@@ -192,7 +199,7 @@
                 <tr>
                   <th colspan="5">
                     <div class="ui icon input fluid">
-                      <input id="filter" ng-model="input.stock" ng-change="productStockItemsFilter()" placeholder="Search product..." type="text">
+                      <input id="filter" ng-change="productStockItemsFilter()" ng-model="input.stock" placeholder="Search product..." type="text">
                       <i class="icon search"></i>
                     </div>
                   </th>
@@ -206,13 +213,13 @@
                 </tr>
               </thead>
               <tbody id="list">
-                  <tr ng-repeat="stock in productStockItems">
-                    <td>{{stock.product.name}}</td>
-                    <td>{{stock.quantity}}</td>
-                    <td>{{stock.exp_date || "Not enough info"}}</td>
-                    <td>{{stock.product.out_of_stock_date}}</td>
-                    <td>{{stock.warehouse.name}}</td>
-                  </tr>
+                <tr ng-repeat="stock in productStockItems">
+                  <td>{{stock.product.name}}</td>
+                  <td>{{stock.quantity}}</td>
+                  <td>{{stock.exp_date || "Not enough info"}}</td>
+                  <td>{{stock.product.out_of_stock_date}}</td>
+                  <td>{{stock.warehouse.name}}</td>
+                </tr>
               </tbody>
             </table>
           </div>
