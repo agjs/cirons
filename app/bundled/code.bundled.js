@@ -103,6 +103,8 @@
     require('../components/sales/products/products.ngcomponent');
     require('../components/sales/contacts/contacts.ngcomponent');
 
+    require('../components/stock/warehouses/warehouses.ngcomponent');
+
     require('../components/calendar/calendar.ngcomponent');
     require('../components/hr/hr.ngcomponent');
     require('../components/purchasing/purchasing.ngcomponent');
@@ -113,7 +115,7 @@
     require('../components/directives/directives.ngcomponent');
 })();
 
-},{"../components/accounting/accounting.ngcomponent":5,"../components/authentication/authentication.ngcomponent":10,"../components/calendar/calendar.ngcomponent":15,"../components/common/common.ngcomponent":19,"../components/dashboard/dashboard.ngcomponent":25,"../components/directives/directives.ngcomponent":37,"../components/expenses/receipts/receipts.ngcomponent":39,"../components/expenses/suppliers/suppliers.ngcomponent":45,"../components/hr/hr.ngcomponent":52,"../components/purchasing/purchasing.ngcomponent":56,"../components/sales/contacts/contacts.ngcomponent":60,"../components/sales/invoices/invoices.ngcomponent":66,"../components/sales/orders/orders.ngcomponent":75,"../components/sales/products/products.ngcomponent":82,"../components/sales/sales.ngcomponent":88,"../components/stock/stock.ngcomponent":92,"../components/system_admin/system_admin.ngcomponent":96,"../components/user_settings/user_settings.ngcomponent":100,"../main.ngcomponent":104}],5:[function(require,module,exports){
+},{"../components/accounting/accounting.ngcomponent":5,"../components/authentication/authentication.ngcomponent":10,"../components/calendar/calendar.ngcomponent":15,"../components/common/common.ngcomponent":19,"../components/dashboard/dashboard.ngcomponent":25,"../components/directives/directives.ngcomponent":37,"../components/expenses/receipts/receipts.ngcomponent":39,"../components/expenses/suppliers/suppliers.ngcomponent":45,"../components/hr/hr.ngcomponent":52,"../components/purchasing/purchasing.ngcomponent":56,"../components/sales/contacts/contacts.ngcomponent":60,"../components/sales/invoices/invoices.ngcomponent":66,"../components/sales/orders/orders.ngcomponent":75,"../components/sales/products/products.ngcomponent":82,"../components/sales/sales.ngcomponent":88,"../components/stock/stock.ngcomponent":92,"../components/stock/warehouses/warehouses.ngcomponent":97,"../components/system_admin/system_admin.ngcomponent":103,"../components/user_settings/user_settings.ngcomponent":107,"../main.ngcomponent":111}],5:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -503,7 +505,7 @@ angular.module('CIRONS-MAIN-APP')
     .factory("notificationsFactory", require("./top-navigation/notifications.ngfactory.js"))
 })();
 
-},{"../../settings.ngfactory.js":105,"./main-menu/main_menu.ngcontroller":20,"./main.ngcontroller":21,"./right-sidebar/right_sidebar.ngcontroller":22,"./top-navigation/navigation.ngcontroller":23,"./top-navigation/notifications.ngfactory.js":24}],20:[function(require,module,exports){
+},{"../../settings.ngfactory.js":112,"./main-menu/main_menu.ngcontroller":20,"./main.ngcontroller":21,"./right-sidebar/right_sidebar.ngcontroller":22,"./top-navigation/navigation.ngcontroller":23,"./top-navigation/notifications.ngfactory.js":24}],20:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = mainMenuController;
@@ -670,15 +672,11 @@ angular.module('CIRONS-MAIN-APP')
         //     title = "Warning";
         // }
         console.log(data);
-        
+
+        getNotificationButton(data.notification.type); // Where does this method comes from ?????
+        spawnNotification(title, data.notification.text, data.notification.link); // Where does this method comes from ?????
 
 
-        //this is a function that reloads the notifications for that button in upper right corner, it does a simple http-request and loads the data to the dropdown
-        getNotificationButton(data.notification.type);
-
-
-        //this sends a native notification to the computer via chrome/safari/firefox Notification API.
-        spawnNotification(title, data.notification.text, data.notification.link);
       });
 
       console.log('channel', pusher);
@@ -2966,12 +2964,14 @@ angular.module('CIRONS-MAIN-APP')
         $scope.products = products;
     });
 
+
+
     if (!$scope.invoice) {
       invoicesFactory.getInvoice($scope.id).then(function(item) {
         $scope.invoice = item;
         $scope.getTotals();
       });
-    }
+    } 
 
     $scope.getContacts = function(){
         if($scope.contacts.length){
@@ -4471,6 +4471,374 @@ angular.module('CIRONS-MAIN-APP')
 })();
 
 },{}],96:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = stocksFactory;
+
+  function stocksFactory($http, $q) {
+
+    return {
+        getStockFromWarehouse: function(warehouse_id){
+            return $http.get('http://janalex.beta.cirons.com/api/v1/warehouses/' + warehouse_id + '/stock/').then(function(stock){
+                if(stock){
+                    return stock.data;
+                } else {
+                    throw new Error('cant get stock from warehouse');
+                }
+            });
+        },
+
+        updateStock: function(id, data){
+            return $http.put('http://janalex.beta.cirons.com/api/v1/stocks/' + id, data).then(function(stock){
+                if(stock){
+                    return stock.data;
+                } else {
+                    throw new Error('cant update stock');
+                }
+            });
+        },
+
+        addToWarehouse: function(warehouse_id, data){
+            return $http.post('http://janalex.beta.cirons.com/api/v1/warehouses/' + warehouse_id + '/stock/', data).then(function(stock){
+                if(stock){
+                    return stock.data;
+                } else {
+                    throw new Error('cant add to stock');
+                }
+            })
+        }
+    }
+
+  }
+
+  stocksFactory.$inject = ['$http', '$q'];
+
+})();
+
+},{}],97:[function(require,module,exports){
+(function() {
+  "use strict";
+
+  angular.module('CIRONS-MAIN-APP')
+    .controller('warehousesController', require('./warehouses.ngcontroller'))
+    .controller('warehousesCRUDController', require('./warehouses_crud.ngcontroller'))
+    .controller('warehousesSingleItemController', require('./warehouses_item.ngcontroller'))
+    .factory('warehousesFactory', require('./warehouses.ngfactory'))
+    .factory('stocksFactory', require('./stocks.ngfactory'))
+    .config(require('./warehouses.ngrouter'));
+
+})();
+
+},{"./stocks.ngfactory":96,"./warehouses.ngcontroller":98,"./warehouses.ngfactory":99,"./warehouses.ngrouter":100,"./warehouses_crud.ngcontroller":101,"./warehouses_item.ngcontroller":102}],98:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = warehousesController;
+
+  function warehousesController($scope, $rootScope, $auth, warehousesFactory, $state) {
+
+    warehousesFactory.getWarehouses().then(function(warehouses) {
+      $scope.warehouses = warehouses;
+    });
+
+
+
+  }
+
+  warehousesController.$inject = ['$scope', '$rootScope', '$auth', 'warehousesFactory', '$state'];
+
+})();
+
+},{}],99:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = warehousesFactory;
+
+  function warehousesFactory($http, $q) {
+
+    return {
+
+      getWarehouses: function() {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/warehouses').then(function(warehouses) {
+          if (warehouses) {
+            return warehouses.data;
+          } else {
+            throw new Error('No warehouses found');
+          }
+
+        });
+      },
+
+      getWarehouse: function(id) {
+        return $http.get('http://janalex.beta.cirons.com/api/v1/warehouses' + '/' + id).then(function(item) {
+          if (item) {
+            return item.data;
+          } else {
+            throw new Error('No warehouses found');
+          }
+
+        });
+      },
+
+      addWarehouse: function(data) {
+        return $http({
+          url: 'http://janalex.beta.cirons.com/api/v1/warehouses',
+          method: 'POST',
+          data: data
+        }).then(function(item) {
+          if (item) {
+            return item.data;
+          } else {
+            throw new Error('Warehouse could not be added!');
+          }
+
+        });
+
+      },
+
+      removeWarehouse: function(id) {
+        return $http({
+          url: 'http://janalex.beta.cirons.com/api/v1/warehouses/' + id,
+          method: 'DELETE'
+        }).then(function(item) {
+          if (item) {
+            return item.data;
+          } else {
+            throw new Error('Warehouse could not be deleted!');
+          }
+
+        });
+
+      },
+
+      editWarehouse: function(id, data) {
+        return $http({
+          url: 'http://janalex.beta.cirons.com/api/v1/warehouses/' + id,
+          method: 'PUT',
+          data: data
+        }).then(function(item) {
+          if (item) {
+            return item.data;
+          } else {
+            throw new Error('Warehouse could not be edited!');
+          }
+
+        });
+
+      }
+    }
+
+  }
+
+  warehousesFactory.$inject = ['$http', '$q'];
+
+})();
+
+},{}],100:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = warehousesRouter;
+
+  function warehousesRouter($stateProvider) {
+    $stateProvider
+      .state('warehouses', {
+        url: "/stock/warehouses",
+
+        ncyBreadcrumb: {
+          label: 'Warehouses',
+          parent: 'stock',
+        },
+        views: {
+          '': {
+            templateUrl: 'components/stock/warehouses/warehouses.view.html',
+            controller: 'warehousesController'
+
+          },
+          'warehousesList@warehouses': {
+            templateUrl: 'components/stock/warehouses/warehouses_list.view.html',
+          }
+        }
+      })
+
+    .state('warehouses.create', {
+      url: "/create",
+      ncyBreadcrumb: {
+        parent: 'warehouses',
+        label: 'Add a Warehouse'
+      },
+      views: {
+        '': {
+          templateUrl: 'components/stock/warehouses/warehouses.view.html'
+        },
+        'warehousesList@warehouses': {
+          templateUrl: 'components/stock/warehouses/warehouses_list.view.html',
+
+        },
+        'warehousesContent@warehouses': {
+          templateUrl: 'components/stock/warehouses/warehouses_create.view.html',
+          controller: 'warehousesCRUDController'
+        }
+      }
+    })
+
+    .state('warehouses.item', {
+      url: "/:id",
+      params: {
+        warehouse: undefined
+      },
+      ncyBreadcrumb: {
+        parent: 'warehouses',
+        label: '{{id}}'
+      },
+      views: {
+        '': {
+          templateUrl: 'components/stock/warehouses/warehouses.view.html'
+        },
+        'warehousesList@warehouses': {
+          templateUrl: 'components/stock/warehouses/warehouses_list.view.html',
+
+        },
+        'warehousesContent@warehouses': {
+          templateUrl: 'components/stock/warehouses/warehouses_content.view.html',
+          controller: 'warehousesSingleItemController'
+        }
+      }
+    });
+
+  }
+
+  warehousesRouter.$inject = ['$stateProvider'];
+
+})();
+
+},{}],101:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = warehousesCRUDController;
+
+  function warehousesCRUDController($scope, $stateParams, warehousesFactory, lodash, $state) {
+
+    $scope.warehouse = {
+        name: '',
+        address: {}
+    };
+
+    $scope.addWarehouse = function() {
+      warehousesFactory.addWarehouse($scope.warehouse).then(function(added) {
+        $scope.warehouses.push(added);
+        $state.go('warehouses.item', {id: added.id, warehouse: added});
+      });
+    };
+
+    $scope.removeWarehouse = function() {
+      warehousesFactory.removeWarehouse($stateParams.id);
+    };
+
+    $scope.editWarehouse = function(data) {
+      warehousesFactory.editWarehouse($stateParams.id, data).then(function(edited) {
+
+        var findItem = lodash.find($scope.warehouses, function(arg) {
+          return arg.id === $stateParams.id;
+        });
+
+        if (findItem) {
+          findItem = edited;
+        }
+
+      });
+    };
+
+  }
+
+  warehousesCRUDController.$inject = ['$scope', '$stateParams', 'warehousesFactory', 'lodash', '$state'];
+
+})();
+
+},{}],102:[function(require,module,exports){
+(function() {
+  'use strict';
+  module.exports = warehousesSingleItemController;
+
+  function warehousesSingleItemController($scope, $stateParams, warehousesFactory, lodash, stocksFactory, productsFactory) {
+    $scope.warehouse = $stateParams.warehouse;
+    $scope.id = $stateParams.id;
+
+
+    if (!$scope.warehouse) {
+      warehousesFactory.getWarehouse($scope.id).then(function(item) {
+        $scope.warehouse = item;
+        $scope.getStock();
+        $scope.getProducts();
+      });
+    }
+
+    $scope.products = [];
+    $scope.getProducts = function(){
+        productsFactory.getProducts().then(function(products){
+            $scope.products = products;
+        });
+    };
+    $scope.getProducts();
+
+    $scope.addStock = false;
+    $scope.newStockData = {
+        product: null,
+        quantity: 0,
+        exp_date: new Date()
+    };
+    $scope.newStock = $scope.newStockData;
+
+    $scope.stocks = [];
+
+    $scope.addNewStock = function(){
+        var data = $scope.newStock;
+        if(data.product && data.product.id){
+            data.product_id = data.product.id;
+            stocksFactory.addToWarehouse($scope.id, data).then(function(stock){
+                $scope.stocks.push(stock);
+                $scope.newStock = $scope.newStockData;
+            });
+        } else {
+            alert('You need to select a product');
+        }
+    };
+
+    $scope.getStock = function(){
+        stocksFactory.getStockFromWarehouse($scope.id).then(function(stock){
+            $scope.stocks = stock;
+        });
+    };
+    $scope.getStock();
+
+    $scope.editStock = function(stock){
+        stocksFactory.updateStock(stock.id, stock).then(function(stock){
+            console.log("updated stock");
+        });
+    };
+
+    $scope.editName = function(name){
+        console.log("new name: " , name);
+        warehousesFactory.editWarehouse($stateParams.id, {
+            name: name
+        }).then(function(edited) {
+
+          var findItem = lodash.find($scope.warehouses, function(arg) {
+            return arg.id === $stateParams.id;
+          });
+
+          if (findItem) {
+            findItem.name = edited.name;
+          }
+
+        });
+    };
+
+  }
+
+  warehousesSingleItemController.$inject = ['$scope', '$stateParams', 'warehousesFactory', 'lodash', 'stocksFactory', 'productsFactory'];
+
+})();
+
+},{}],103:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -4480,7 +4848,7 @@ angular.module('CIRONS-MAIN-APP')
     .config(require('./system_admin.ngrouter'));
 })();
 
-},{"./system_admin.ngcontroller":97,"./system_admin.ngfactory":98,"./system_admin.ngrouter":99}],97:[function(require,module,exports){
+},{"./system_admin.ngcontroller":104,"./system_admin.ngfactory":105,"./system_admin.ngrouter":106}],104:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = systemAdminController;
@@ -4492,7 +4860,7 @@ angular.module('CIRONS-MAIN-APP')
   systemAdminController.$inject = ['$scope'];
 })();
 
-},{}],98:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = systemAdminFactory;
@@ -4509,7 +4877,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],99:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockRouter;
@@ -4530,7 +4898,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],100:[function(require,module,exports){
+},{}],107:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -4540,7 +4908,7 @@ angular.module('CIRONS-MAIN-APP')
     .config(require('./user_settings.ngrouter'));
 })();
 
-},{"./user_settings.ngcontroller":101,"./user_settings.ngfactory":102,"./user_settings.ngrouter":103}],101:[function(require,module,exports){
+},{"./user_settings.ngcontroller":108,"./user_settings.ngfactory":109,"./user_settings.ngrouter":110}],108:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsController;
@@ -4558,7 +4926,7 @@ angular.module('CIRONS-MAIN-APP')
   userSettingsController.$inject = ['$scope', 'userSettingsFactory', 'meFactory'];
 })();
 
-},{}],102:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsFactory;
@@ -4585,7 +4953,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],103:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsRouter;
@@ -4603,7 +4971,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],104:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 (function () {
   'use strict';
   require('./app')
@@ -4611,7 +4979,7 @@ angular.module('CIRONS-MAIN-APP')
   .config(require('./app.ngconfig'));
 })();
 
-},{"./app":1,"./app.ngconfig":2,"./app.ngrun":3}],105:[function(require,module,exports){
+},{"./app":1,"./app.ngconfig":2,"./app.ngrun":3}],112:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = settingsFactory;

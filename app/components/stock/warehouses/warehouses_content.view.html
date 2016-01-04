@@ -1,0 +1,76 @@
+<div class="open-view">
+
+  <div class="open-view-content">
+
+      <div class="toolbar">
+
+        <!-- <button class="ui dropdown button icon labeled default" ng-click="removeSupplier()">
+          <i class="remove icon"></i>
+          Delete Supplier
+        </button> -->
+
+      </div>
+
+      <h1 blur="submit" editable-text="warehouse.name" onaftersave="editName(warehouse.name)">{{warehouse.name}}</h1>
+
+      <button type="button" class="ui button labeled icon positive" ng-click="addStock = !addStock;">
+          <i class="icon plus"></i>
+          Add new row
+      </button>
+
+      <hr>
+
+      <form action="javascript:;" ng-submit="addNewStock()">
+      <table class="ui table celled">
+          <tr>
+              <th>
+                  Product
+              </th>
+              <th>
+                  Quantity on stock
+              </th>
+              <th colspan="2">
+                  Expiry Date
+              </th>
+          </tr>
+          <tr ng-show="addStock">
+              <td>
+                 <div class="ui mini input fluid">
+                     <input ng-model="newStock.product" type="text" uib-typeahead="item as item.name for item in products | filter:{name:$viewValue}" placeholder="Search product">
+                 </div>
+             </td>
+              <td>
+                  <div class="ui mini input">
+                      <input type="number" ng-model="newStock.quantity">
+                  </div>
+              </td>
+              <td>
+                  <div class="ui mini input">
+                      <input type="date" ng-model="newStock.exp_date">
+                  </div>
+              </td>
+              <td>
+                  <button type="submit" class="ui mini button icon positive">
+                      <i class="icon plus"></i>
+                  </button>
+              </td>
+          </tr>
+          <tr ng-repeat="stock in stocks">
+              <td>
+                  {{stock.product.name}}
+              </td>
+              <td>
+                  <div class="ui mini input">
+                      <input type="text" ng-blur="editStock(stock)" ng-model="stock.quantity">
+                  </div>
+              </td>
+              <td colspan="2">
+                  <div class="ui mini input">
+                      <input type="text" ng-blur="editStock(stock)" ng-model="stock.exp_date">
+                  </div>
+              </td>
+          </tr>
+      </table>
+
+  </div>
+</div>

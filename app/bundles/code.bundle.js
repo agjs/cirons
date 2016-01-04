@@ -13,6 +13,8 @@
     require('../components/sales/products/products.ngcomponent');
     require('../components/sales/contacts/contacts.ngcomponent');
 
+    require('../components/stock/warehouses/warehouses.ngcomponent');
+
     require('../components/calendar/calendar.ngcomponent');
     require('../components/hr/hr.ngcomponent');
     require('../components/purchasing/purchasing.ngcomponent');

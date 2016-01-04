@@ -16,12 +16,14 @@
         $scope.products = products;
     });
 
+
+
     if (!$scope.invoice) {
       invoicesFactory.getInvoice($scope.id).then(function(item) {
         $scope.invoice = item;
         $scope.getTotals();
       });
-    }
+    } 
 
     $scope.getContacts = function(){
         if($scope.contacts.length){

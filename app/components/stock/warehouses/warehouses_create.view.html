@@ -1,0 +1,41 @@
+<div class="open-view">
+
+  <div class="open-view-content">
+    <form class="ui form" ng-submit="addWarehouse()">
+      <div class="toolbar">
+
+        <button type="submit" class="ui dropdown button icon labeled positive">
+          <i class="check icon"></i>
+          Save and create
+        </button>
+        <div class="ui button" onclick="cancel()">Cancel</div>
+      </div>
+      <div class="">
+
+          <div>
+              <h4 class="ui horizontal divider header">
+              	<i class="info icon"></i>
+              	General Information
+              </h4>
+
+              <div class="field">
+                  <label>Name of warehouse</label>
+                  <input type="text" ng-model="warehouse.name">
+              </div>
+          </div>
+          <hr>
+          <div>
+              <h4 class="ui horizontal divider header">
+              	<i class="marker icon"></i>
+              	Address Information
+              </h4>
+
+              <cirons-address-selector
+                    address="warehouse.address"
+              ></cirons-address-selector>
+          </div>
+
+      </div>
+  </form>
+  </div>
+</div>
