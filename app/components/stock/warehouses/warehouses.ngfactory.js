@@ -17,6 +17,17 @@
         });
       },
 
+      countWarehouses: function(){
+          return $http.get('http://janalex.beta.cirons.com/api/v1/warehouses?count').then(function(warehouses) {
+            if (warehouses) {
+              return warehouses.data;
+            } else {
+              throw new Error('No warehouses found');
+            }
+
+          });
+      },
+
       getWarehouse: function(id) {
         return $http.get('http://janalex.beta.cirons.com/api/v1/warehouses' + '/' + id).then(function(item) {
           if (item) {

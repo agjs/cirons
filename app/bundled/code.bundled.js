@@ -4423,12 +4423,19 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = stockController;
 
-  function stockController($scope) {
+  function stockController($scope, productsFactory, warehousesFactory) {
 
+      productsFactory.countProducts().then(function(products) {
+        $scope.productsCount = products;
+      });
+
+      warehousesFactory.countWarehouses().then(function(count) {
+        $scope.warehousesCount = count;
+      });
 
   }
 
-  stockController.$inject = ['$scope'];
+  stockController.$inject = ['$scope', 'productsFactory', 'warehousesFactory'];
 
 })();
 
@@ -4566,6 +4573,17 @@ angular.module('CIRONS-MAIN-APP')
           }
 
         });
+      },
+
+      countWarehouses: function(){
+          return $http.get('http://janalex.beta.cirons.com/api/v1/warehouses?count').then(function(warehouses) {
+            if (warehouses) {
+              return warehouses.data;
+            } else {
+              throw new Error('No warehouses found');
+            }
+
+          });
       },
 
       getWarehouse: function(id) {
