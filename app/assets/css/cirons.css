@@ -1793,6 +1793,12 @@ table.info-table {
   margin: 0;
   padding: 0; }
 
+.field-desc {
+  font-weight: bold;
+  height: 38px;
+  line-height: 38px;
+  font-size: 14px; }
+
 .timeline {
   position: relative;
   list-style: none;

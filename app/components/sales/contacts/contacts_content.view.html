@@ -1,7 +1,7 @@
 <div class="open-view">
 
   <div class="open-view-content">
-    <form class="ui form">
+    <form class="ui form" ng-submit="saveContact()">
       <div class="toolbar">
 
         <!-- <button class="ui dropdown button icon labeled normal">
@@ -17,6 +17,71 @@
       </div>
       <div class="ui grid stackable">
 
+          <div class="column four wide field-desc">
+              Primary Contact
+          </div>
+          <div class="column four wide">
+              <div class="field">
+                  <input type="text" ng-blur="saveContact()" placeholder="First Name" ng-model="contact.first_name">
+              </div>
+          </div>
+          <div class="column four wide">
+              <div class="field">
+                  <input type="text" ng-blur="saveContact()" placeholder="Last Name" ng-model="contact.last_name">
+              </div>
+          </div>
       </div>
+
+      <div class="ui grid stackable">
+          <div class="column four wide field-desc">
+              Company Name
+          </div>
+          <div class="column eight wide">
+              <div class="field">
+                  <input type="text" ng-blur="saveContact()" placeholder="Company Name" ng-model="contact.company_name">
+              </div>
+          </div>
+      </div>
+
+      <div class="ui grid stackable">
+          <div class="column four wide field-desc">
+              VAT-number
+          </div>
+          <div class="column eight wide">
+              <div class="field">
+                  <input type="text" ng-blur="saveContact()" placeholder="VAT-number" ng-model="contact.vat_no">
+              </div>
+          </div>
+      </div>
+
+      <div class="ui grid stackable">
+          <div class="column four wide field-desc">
+              Email &amp; Phone
+          </div>
+          <div class="column four wide">
+              <div class="field">
+                  <input type="text" ng-blur="saveContact()" placeholder="Email-address" ng-model="contact.primary_email">
+              </div>
+          </div>
+          <div class="column four wide">
+              <div class="field">
+                  <input type="text" ng-blur="saveContact()" placeholder="Phone number" ng-model="contact.primary_phone">
+              </div>
+          </div>
+      </div>
+
+      <div class="ui grid stackable">
+          <div class="column four wide field-desc">
+              Default Address
+          </div>
+          <div class="column eight wide">
+              <cirons-address-selector
+                address="contact.address"
+                onchange="saveContact()"
+              ></cirons-address-selector>
+          </div>
+      </div>
+
+    </form>
   </div>
 </div>

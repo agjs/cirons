@@ -2384,35 +2384,20 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = contactsCRUDController;
 
-  function contactsCRUDController($scope, $stateParams, contactsFactory, lodash) {
+  function contactsCRUDController($scope, $stateParams, contactsFactory, lodash, $state) {
+
+    $scope.contact = {};
 
     $scope.addContact = function() {
       contactsFactory.addContact($scope.contact).then(function(added) {
-        $scope.contacts.push(added);
-      });
-    };
-
-    $scope.removeContact = function() {
-      contactsFactory.removeContact($stateParams.id);
-    };
-
-    $scope.editContact = function(data) {
-      contactsFactory.editContact($stateParams.id, data).then(function(edited) {
-
-        var findItem = lodash.find($scope.contacts, function(arg) {
-          return arg.id === $stateParams.id;
-        });
-
-        if (findItem) {
-          findItem = edited;
-        }
-
+        $scope.contacts.unshift(added);
+        $state.go("contacts.item", {id: added.id, contact: added});
       });
     };
 
   }
 
-  contactsCRUDController.$inject = ['$scope', '$stateParams', 'contactsFactory', 'lodash'];
+  contactsCRUDController.$inject = ['$scope', '$stateParams', 'contactsFactory', 'lodash', '$state'];
 
 })();
 
@@ -2421,7 +2406,7 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = contactsSingleItemController;
 
-  function contactsSingleItemController($scope, $stateParams, contactsFactory) {
+  function contactsSingleItemController($scope, $stateParams, contactsFactory, lodash) {
     $scope.contact = $stateParams.contact;
     $scope.id = $stateParams.id;
 
@@ -2432,9 +2417,20 @@ angular.module('CIRONS-MAIN-APP')
       });
     }
 
+    $scope.saveContact = function(){
+        contactsFactory.editContact($scope.id, $scope.contact).then(function(contact){
+            var findItem = lodash.find($scope.contacts, function(arg) {
+              return arg.id === $stateParams.id;
+            });
+            if (findItem) {
+              findItem = contact;
+            }
+        });
+    };
+
   }
 
-  contactsSingleItemController.$inject = ['$scope', '$stateParams', 'contactsFactory'];
+  contactsSingleItemController.$inject = ['$scope', '$stateParams', 'contactsFactory', 'lodash'];
 
 })();
 

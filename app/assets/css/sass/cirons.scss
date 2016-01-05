@@ -1634,6 +1634,13 @@ table.info-table {
     padding: 0;
 }
 
+.field-desc {
+    font-weight: bold;
+    height: 38px;
+    line-height: 38px;
+    font-size: 14px;
+}
+
 @import "_timeline";
 @import "_wizard";
 @import "_orderrows";
