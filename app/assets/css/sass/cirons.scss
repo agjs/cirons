@@ -1625,6 +1625,15 @@ table.info-table {
     }
 }
 
+.seperator {
+    height: 20px;
+}
+
+.field h3 {
+    margin: 0;
+    padding: 0;
+}
+
 @import "_timeline";
 @import "_wizard";
 @import "_orderrows";

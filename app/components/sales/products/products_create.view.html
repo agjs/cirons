@@ -11,11 +11,83 @@
         <div class="ui button" onclick="cancel()">Cancel</div>
       </div>
       <div class="ui grid stackable">
-
-
-          
-
-
       </div>
+
+              <h4 class="ui horizontal divider header">
+              	<i class="info icon"></i>
+              	General information
+              </h4>
+
+              <div class="field">
+                  <label>Product name</label>
+                  <input type="text" ng-model="product.name">
+              </div>
+
+              <div class="field" >
+                  <label>Supplier</label>
+                  <input ng-model="product.supplier" type="text" uib-typeahead="item as item.company_name for item in suppliers | filter:{company_name:$viewValue}" placeholder="Search supplier">
+              </div>
+
+              <div class="two fields">
+
+                  <div class="field">
+                      <label>SKU</label>
+                      <input type="text" ng-model="product.sku">
+                  </div>
+
+                  <div class="field">
+                      <label>Reference</label>
+                      <input type="text" ng-model="product.reference">
+                  </div>
+
+              </div>
+
+              <div class="two fields">
+                  <div class="field">
+                      <label>Type of product</label>
+                      <div class="ui field inline">
+                          <input type="checkbox" id="product_physical" ng-true-value="1" ng-false-value="0" ng-model="product.virtual" value="1" ng-checked="product.virtual == 1">
+                          <label for="product_physical">Is this a virtual product?</label>
+                      </div>
+                      <!-- <label>Reference</label>
+                      <input type="text" ng-model="product.reference"> -->
+                  </div>
+                  <div class="field">
+                      <label>VAT %</label>
+                      <select ng-model="product.vat_id">
+                          <option ng-repeat="vat_rule in settings.vat_rules" value="{{vat_rule.id}}">{{vat_rule.name}} {{vat_rule.percent}}%</option>
+                      </select>
+                  </div>
+              </div>
+
+              <h4 class="ui horizontal divider header">
+              	<i class="money icon"></i>
+              	Cost Information
+              </h4>
+
+              <div class="three fields">
+                  <div class="field">
+                      <label>Currency</label>
+                      <select ng-model="product.currency">
+                          <option ng-repeat="currency in settings.currencies" value="{{currency.ISO}}">{{currency.ISO}}</option>
+                      </select>
+                  </div>
+                  <div class="field">
+                      <label>Cost Price</label>
+                      <input type="text" ng-model="product.cost_price">
+                  </div>
+                  <div class="field">
+                      <label>Extra Costs</label>
+                      <div class="ui action input">
+                          <input type="text" ng-model="product.extra_cost_value">
+                          <select style="width: 100px;" class="ui compact selection dropdown" ng-model="product.extra_cost_type">
+                              <option value="fixed">Fixed</option>
+                              <option value="percent">%</option>
+                          </select>
+                      </div>
+                  </div>
+              </div>
+
+    </form>
   </div>
 </div>

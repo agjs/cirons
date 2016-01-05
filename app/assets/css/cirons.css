@@ -1786,6 +1786,13 @@ table.info-table {
 .net-positions div.divider {
   height: 10px; }
 
+.seperator {
+  height: 20px; }
+
+.field h3 {
+  margin: 0;
+  padding: 0; }
+
 .timeline {
   position: relative;
   list-style: none;
