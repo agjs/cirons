@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     require('../main.ngcomponent');
-    require('../components/common/common.ngcomponent')
+    require('../components/common/common.ngcomponent');
     require('../components/authentication/authentication.ngcomponent');
     require('../components/dashboard/dashboard.ngcomponent');
     require('../components/accounting/accounting.ngcomponent');
@@ -14,6 +14,10 @@
     require('../components/sales/contacts/contacts.ngcomponent');
 
     require('../components/stock/warehouses/warehouses.ngcomponent');
+
+    require('../components/purchasing/purchase_orders/purchase_orders.ngcomponent');
+
+    require('../components/hr/users/users.ngcomponent');
 
     require('../components/calendar/calendar.ngcomponent');
     require('../components/hr/hr.ngcomponent');

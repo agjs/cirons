@@ -1,0 +1,65 @@
+<div class="open-view">
+
+  <div class="open-view-content">
+    <form class="ui form" ng-submit="addUser()">
+      <div class="toolbar">
+
+        <button class="ui dropdown button icon labeled positive">
+          <i class="check icon"></i>
+          Save and create
+        </button>
+        <div class="ui button" onclick="cancel()">Cancel</div>
+      </div>
+      <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="4000" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+
+      <div class="ui grid stackable">
+        <div class="column sixteen wide">
+          <h4 class="ui dividing header">Information</h4>
+          <div class="field">
+            <label>Username</label>
+            <input type="text" ng-model="user.username">
+          </div>
+
+          <div class="ui fields two">
+            <div class="field">
+              <label>First Name</label>
+              <input type="text" ng-model="user.first_name">
+            </div>
+
+            <div class="field">
+              <label>Last Name</label>
+              <input type="text" ng-model="user.last_name">
+            </div>
+          </div>
+
+          <div class="ui fields two">
+
+            <div class="field">
+              <label>Job Title</label>
+              <input type="text" ng-model="user.job_title">
+            </div>
+
+            <div class="field">
+              <label>Email Address</label>
+              <input type="email" ng-model="user.email">
+            </div>
+
+          </div>
+          <h4 class="ui dividing header">Password</h4>
+          <div class="ui fields two">
+
+            <div class="field">
+              <label>New Password</label>
+              <input ng-model="user.password" type="text">
+            </div>
+
+            <div class="field">
+              <label>New Password confirmation</label>
+              <input ng-model="user.password_confirmation" type="text">
+            </div>
+
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

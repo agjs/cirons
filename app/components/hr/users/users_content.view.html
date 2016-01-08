@@ -1,0 +1,78 @@
+<div class="open-view">
+
+  <div class="open-view-content">
+    <form class="ui form" ng-submit="saveUser()">
+      <div class="toolbar">
+
+        <!-- <button class="ui dropdown button icon labeled normal">
+          <i class="edit icon"></i>
+          Edit
+        </button>
+
+        <button class="ui dropdown button icon labeled negative">
+          <i class="remove icon"></i>
+          Remove
+        </button> -->
+
+      </div>
+      <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="4000" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+      
+      <div class="ui grid stackable">
+        <div class="column sixteen wide">
+          <h4 class="ui dividing header">Information</h4>
+          <div class="field">
+            <label>Username</label>
+            {{user.username}}
+          </div>
+
+          <div class="ui fields two">
+            <div class="field">
+              <label>First Name</label>
+              <input ng-blur="saveUser()" type="text" ng-model="user.first_name">
+            </div>
+
+            <div class="field">
+              <label>Last Name</label>
+              <input ng-blur="saveUser()" type="text" ng-model="user.last_name">
+            </div>
+          </div>
+
+          <div class="ui fields two">
+
+            <div class="field">
+              <label>Job Title</label>
+              <input ng-blur="saveUser()" type="text" ng-model="user.job_title">
+            </div>
+
+            <div class="field">
+              <label>Email Address</label>
+              <input ng-blur="saveUser()" type="email" ng-model="user.email">
+            </div>
+
+          </div>
+          <h4 class="ui dividing header">Password</h4>
+          <div class="ui fields two">
+
+            <div class="field">
+              <label>New Password</label>
+              <input ng-model="password" type="text">
+            </div>
+
+            <div class="field">
+              <label>New Password confirmation</label>
+              <input ng-model="password_confirmation" type="text">
+            </div>
+
+          </div>
+          <div class="field">
+              <button type="button" ng-click="savePassword()" class="ui button icon labeled">
+                  <i class="icon check"></i>
+                  Save new password
+              </button>
+          </div>
+        </div>
+      </div>
+
+  </form>
+  </div>
+</div>

@@ -2,11 +2,14 @@
   'use strict';
   module.exports = purchasingController;
 
-  function purchasingController($scope) {
+  function purchasingController($scope, purchaseOrdersFactory) {
+      $scope.ordersCount = 0;
 
-
+      purchaseOrdersFactory.getPurchaseOrders().then(function(orders){
+          $scope.ordersCount = orders.length;
+      });
   }
 
-  purchasingController.$inject = ['$scope'];
+  purchasingController.$inject = ['$scope', 'purchaseOrdersFactory'];
 
 })();

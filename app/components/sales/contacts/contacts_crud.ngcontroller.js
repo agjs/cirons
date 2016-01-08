@@ -13,6 +13,10 @@
       });
     };
 
+    $scope.cancel = function(){
+        $state.go("contacts");
+    };
+
   }
 
   contactsCRUDController.$inject = ['$scope', '$stateParams', 'contactsFactory', 'lodash', '$state'];
