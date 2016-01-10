@@ -62,7 +62,6 @@
         //   case "urgent":
         //     title = "Warning";
         // }
-        console.log(data);
 
         getNotificationButton(data.notification.type); // Where does this method comes from ?????
         spawnNotification(title, data.notification.text, data.notification.link); // Where does this method comes from ?????
@@ -70,7 +69,6 @@
 
       });
 
-      console.log('channel', pusher);
 
 
     });

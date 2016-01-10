@@ -38,10 +38,10 @@
 
 
     $httpProvider.interceptors.push('authenticationInterceptor');
+
     $httpProvider.interceptors.push(function($q) {
       return {
-        'response': function(response) {
-
+        response: function(response) {
            if(response.data && response.data.validation_error){
                for(var key in response.data.validation_error){
                    var errors = response.data.validation_error[key];
@@ -65,10 +65,6 @@
     $breadcrumbProvider.setOptions({
       template: 'bootstrap3'
     });
-
-
-    // Custom template for angular loading bar
-    cfpLoadingBarProvider.spinnerTemplate = '';
 
 
   }
@@ -222,7 +218,7 @@
       $scope.verifications = verifications;
     });
 
-
+    
 
   }
 
@@ -900,7 +896,6 @@ angular.module('CIRONS-MAIN-APP')
         //   case "urgent":
         //     title = "Warning";
         // }
-        console.log(data);
 
         getNotificationButton(data.notification.type); // Where does this method comes from ?????
         spawnNotification(title, data.notification.text, data.notification.link); // Where does this method comes from ?????
@@ -908,7 +903,6 @@ angular.module('CIRONS-MAIN-APP')
 
       });
 
-      console.log('channel', pusher);
 
 
     });
@@ -6188,7 +6182,6 @@ angular.module('CIRONS-MAIN-APP')
         initSettings: function(){
             return $http.get("http://janalex.beta.cirons.com/api/v1/settings").then(function(data){
                 settings = data.data;
-                console.log(settings);
                 return data.data;
             });
         },

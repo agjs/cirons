@@ -8,7 +8,6 @@
         initSettings: function(){
             return $http.get("http://janalex.beta.cirons.com/api/v1/settings").then(function(data){
                 settings = data.data;
-                console.log(settings);
                 return data.data;
             });
         },

@@ -7,10 +7,10 @@
 
 
     $httpProvider.interceptors.push('authenticationInterceptor');
+
     $httpProvider.interceptors.push(function($q) {
       return {
-        'response': function(response) {
-
+        response: function(response) {
            if(response.data && response.data.validation_error){
                for(var key in response.data.validation_error){
                    var errors = response.data.validation_error[key];
@@ -34,10 +34,6 @@
     $breadcrumbProvider.setOptions({
       template: 'bootstrap3'
     });
-
-
-    // Custom template for angular loading bar
-    cfpLoadingBarProvider.spinnerTemplate = '';
 
 
   }
