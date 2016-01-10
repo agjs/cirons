@@ -1,0 +1,84 @@
+<table class="ui table celled table-toggle">
+
+    <thead>
+        <tr>
+            <th>
+                NO
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                VAT
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Date
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat-start="v in verifications" ng-click="v.show = !v.show" class="toggler" ng-class="v.show === true ? 'toggled' : ''">
+            <td>
+                A{{v.id}}
+            </td>
+            <td>
+                {{v.amount | currency: " SEK" : 2}}
+            </td>
+            <td>
+                {{v.vat | currency: " SEK" : 2}}
+            </td>
+            <td>
+                {{v.description}}
+            </td>
+            <td>
+                {{v.date}}
+            </td>
+        </tr>
+        <tr ng-show="v.show === true" ng-class="v.show === true ? 'toggled' : ''" ng-repeat-end>
+            <td colspan="5">
+
+                <table class="ui table celled">
+                    <thead>
+                        <tr>
+                            <th>
+                                Account
+                            </th>
+                            <th>
+                                Account Name
+                            </th>
+                            <th>
+                                Debit
+                            </th>
+                            <th>
+                                Credit
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                Account
+                            </th>
+                            <th>
+                                Account Name
+                            </th>
+                            <th>
+                                Debit
+                            </th>
+                            <th>
+                                Credit
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </td>
+        </tr>
+    </tbody>
+
+
+</table>

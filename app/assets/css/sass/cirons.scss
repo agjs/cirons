@@ -4,6 +4,8 @@
 @import "dropzone.scss";
 
 $cirons_blue: #3681b1;
+$cirons_light: lighten($cirons_blue, 45);
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -1639,6 +1641,17 @@ table.info-table {
     height: 38px;
     line-height: 38px;
     font-size: 14px;
+}
+
+.table-toggle {
+    td {
+        transition: all 500ms ease;
+    }
+    .toggler:hover, tr.toggled {
+        td {
+            background: $cirons_light;
+        }
+    }
 }
 
 @import "_timeline";

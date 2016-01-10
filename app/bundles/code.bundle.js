@@ -19,6 +19,8 @@
 
     require('../components/hr/users/users.ngcomponent');
 
+    require('../components/accounting/verifications/verifications.ngcomponent');
+
     require('../components/calendar/calendar.ngcomponent');
     require('../components/hr/hr.ngcomponent');
     require('../components/purchasing/purchasing.ngcomponent');

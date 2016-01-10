@@ -1799,6 +1799,11 @@ table.info-table {
   line-height: 38px;
   font-size: 14px; }
 
+.table-toggle td {
+  transition: all 500ms ease; }
+.table-toggle .toggler:hover td, .table-toggle tr.toggled td {
+  background: #d9e9f3; }
+
 .timeline {
   position: relative;
   list-style: none;
