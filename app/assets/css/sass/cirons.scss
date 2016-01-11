@@ -1683,8 +1683,7 @@ table.info-table {
         cursor: pointer;
     }
 
-    .list {
-        ul {
+    ul.list {
             margin: 0;
             padding: 0;
             li {
@@ -1700,7 +1699,7 @@ table.info-table {
                 }
             }
         }
-    }
+    
 }
 
 @import "_timeline";
