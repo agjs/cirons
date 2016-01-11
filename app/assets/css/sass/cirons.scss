@@ -1674,6 +1674,35 @@ table.info-table {
     }
 }
 
+.cirons-upload {
+    .drop {
+        background: url(assets/images/upload.png) no-repeat center center;
+        background-size: 100% auto;
+        padding-top: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .list {
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                margin: 0;
+                padding: 7px;
+                border-bottom: 1px solid #ccc;
+                font-size: 14px;
+                list-style: none;
+
+                a {
+                    color: $cirons_blue;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
 @import "_timeline";
 @import "_wizard";
 @import "_orderrows";

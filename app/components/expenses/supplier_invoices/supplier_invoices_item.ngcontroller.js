@@ -25,7 +25,15 @@
     }
 
     $scope.save = function(){
+        if($scope.supplierInvoice && $scope.supplierInvoice.supplier){
+            $scope.saving = $scope.supplierInvoice;
+            $scope.saving.supplier_id = $scope.saving.supplier.id;
+            delete $scope.saving.supplier;
 
+            supplierInvoicesFactory.editSupplierInvoice($scope.id, $scope.saving).then(function(edited){
+                $scope.supplierInvoice = edited;
+            });
+        }
     };
 
     $scope.paid_date = null;

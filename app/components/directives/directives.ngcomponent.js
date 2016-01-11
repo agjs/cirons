@@ -10,6 +10,7 @@ angular.module('CIRONS-MAIN-APP')
 .directive('cironsDropzone', require('./cirons-dropzone/cirons_dropzone.ngdirective'))
 .directive('cironsOrderDownload', require('./cirons-order-download/cirons_order_download.ngdirective'))
 .directive('cironsCheckbox', require('./cirons-checkbox/cirons_checkbox.ngdirective'))
+.directive('cironsAttachments', require('./cirons-attachments/cirons_attachments.ngdirective'))
 .directive('cironsAddressSelector', require('./cirons-address-selector/cirons_address_selector.ngdirective'));
 
 })();

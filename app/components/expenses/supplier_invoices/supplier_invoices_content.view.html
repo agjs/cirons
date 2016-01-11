@@ -16,58 +16,71 @@
 
       </div>
 
-      <div class="field" ng-show="supplierInvoice.supplier">
-          <label>Supplier</label>
-          <h3>{{supplierInvoice.supplier.company_name}}
-              <button type="button" class="ui button mini icon" ng-click="changeSupplier = !changeSupplier">
-                  <i class="icon pencil"></i>
-              </button>
-          </h3>
-      </div>
+      <div class="ui grid stackable">
+          <div class="column eight wide">
+              <div class="field" ng-show="supplierInvoice.supplier">
+                  <label>Supplier</label>
+                  <h3>{{supplierInvoice.supplier.company_name}}
+                      <button type="button" class="ui button mini icon" ng-click="changeSupplier = !changeSupplier">
+                          <i class="icon pencil"></i>
+                      </button>
+                  </h3>
+              </div>
 
-      <div class="field" ng-show="changeSupplier">
-          <label ng-show="supplierInvoice.supplier">Change supplier</label>
-          <label ng-hide="supplierInvoice.supplier">Supplier</label>
-          <input ng-model="newSupplier" type="text" typeahead-on-select="onSupplierSelect($item, $model, $label); changeSupplier = false;" uib-typeahead="item as item.company_name for item in suppliers | filter:{company_name:$viewValue}" placeholder="Search supplier">
-      </div>
+              <div class="field" ng-show="changeSupplier">
+                  <label ng-show="supplierInvoice.supplier">Change supplier</label>
+                  <label ng-hide="supplierInvoice.supplier">Supplier</label>
+                  <input ng-model="newSupplier" type="text" typeahead-on-select="onSupplierSelect($item, $model, $label); changeSupplier = false;" uib-typeahead="item as item.company_name for item in suppliers | filter:{company_name:$viewValue}" placeholder="Search supplier">
+              </div>
 
-      <div class="seperator"></div>
+              <div class="seperator"></div>
 
-      <div class="inline field">
-        <label>Amount</label>
-        <input type="text" ng-blur="save()" ng-model="supplierInvoice.amount">
-      </div>
+              <div class="inline field">
+                <label>Amount</label>
+                <input type="text" ng-blur="save()" ng-model="supplierInvoice.sum">
+              </div>
 
-      <div class="inline field">
-        <label>VAT</label>
-        <select ng-change="save()" ng-model="supplierInvoice.vat">
-          <option ng-repeat="rule in settings.vat_rules" value="{{rule.percent}}">{{rule.percent}}%</option>
-        </select>
-      </div>
+              <div class="inline field">
+                <label>VAT</label>
+                <select ng-change="save()" ng-model="supplierInvoice.vat">
+                  <option ng-repeat="rule in settings.vat_rules" value="{{rule.percent}}">{{rule.percent}}%</option>
+                </select>
+              </div>
 
-      <div class="inline field">
-        <label>Date</label>
-        <input type="date" ng-blur="save()" ng-model="supplierInvoice.date">
-      </div>
+              <div class="inline field">
+                <label>Date</label>
+                <input type="date" ng-blur="save()" ng-model="supplierInvoice.date">
+              </div>
 
-      <div class="inline field">
-        <label>Due Date</label>
-        <input type="date" ng-blur="save()" ng-model="supplierInvoice.duedate">
-      </div>
+              <div class="inline field">
+                <label>Due Date</label>
+                <input type="date" ng-blur="save()" ng-model="supplierInvoice.duedate">
+              </div>
 
-      <div class="inline field">
-          <label>Currency</label>
-          <select ng-change="save()" ng-model="supplierInvoice.currency">
-              <option ng-repeat="currency in settings.currencies" value="{{currency.ISO}}">{{currency.ISO}}</option>
-          </select>
-      </div>
+              <div class="inline field">
+                  <label>Currency</label>
+                  <select ng-change="save()" ng-model="supplierInvoice.currency">
+                      <option ng-repeat="currency in settings.currencies" value="{{currency.ISO}}">{{currency.ISO}}</option>
+                  </select>
+              </div>
 
-      <div class="inline field">
-          <label>Payment status</label>
-          <select ng-change="save()" ng-model="supplierInvoice.paid">
-              <option value="0000-00-00">Unpaid</option>
-              <option value="{{paid_date}}">Paid</option>
-          </select>
+              <div class="inline field">
+                  <label>Payment status</label>
+                  <select ng-change="save()" ng-model="supplierInvoice.paid">
+                      <option value="0000-00-00">Unpaid</option>
+                      <option value="{{paid_date}}">Paid</option>
+                  </select>
+              </div>
+          </div>
+          <div class="column eight wide">
+
+              <cirons-attachments
+                object-id="{{supplierInvoice.id}}"
+                object-type="SupplierInvoice"
+                attachments="supplierInvoice.attachments"
+              ></cirons-attachments>
+
+          </div>
       </div>
 
   </form>
