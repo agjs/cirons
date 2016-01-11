@@ -837,6 +837,14 @@ angular.module('CIRONS-MAIN-APP')
   module.exports = navigationController;
 
   function navigationController($scope, $pusher, $auth, $state, meFactory, notificationsFactory) {
+
+
+    $scope.logout = function() {
+      $auth.logout();
+      $state.go('login');
+    }
+
+
     $scope.iconMenu = [
 
       {
