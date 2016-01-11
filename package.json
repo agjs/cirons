@@ -9,15 +9,19 @@
   "dependencies": {
     "c3": "^0.4.11-rc4",
     "d3": "^3.5.12",
-    "grunt-contrib-jshint": "^0.11.3",
+    "grunt": "^0.4.5",
     "jquery": "^2.1.4",
     "moment": "^2.10.6"
   },
   "devDependencies": {
     "grunt-angular-templates": "^0.5.9",
     "grunt-browserify": "^4.0.1",
-    "grunt-contrib-jshint": "^0.11.3",
-    "grunt-contrib-uglify": "^0.11.0"
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-injector": "^0.6.1",
+    "grunt-string-replace": "^1.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

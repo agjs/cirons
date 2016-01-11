@@ -8,8 +8,8 @@
     };
 
     $scope.settings = [];
-    settingsFactory.initSettings().then(function(settings){
-        $scope.settings = settings;
+    settingsFactory.initSettings().then(function(settings) {
+      $scope.settings = settings;
     });
 
   }

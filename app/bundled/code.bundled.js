@@ -838,6 +838,14 @@ angular.module('CIRONS-MAIN-APP')
   module.exports = navigationController;
 
   function navigationController($scope, $pusher, $auth, $state, meFactory, notificationsFactory) {
+
+
+    $scope.logout = function() {
+      $auth.logout();
+      $state.go('login');
+    }
+
+
     $scope.iconMenu = [
 
       {
@@ -6354,6 +6362,7 @@ angular.module('CIRONS-MAIN-APP')
   userSettingsController.$inject = ['$scope', 'userSettingsFactory', 'meFactory'];
 })();
 
+<<<<<<< HEAD
 (function() {
   'use strict';
   module.exports = validationInterceptor;
@@ -6375,6 +6384,9 @@ angular.module('CIRONS-MAIN-APP')
 })();
 
 },{}],134:[function(require,module,exports){
+=======
+},{}],128:[function(require,module,exports){
+>>>>>>> bc602b60a613caec47c9b40feab5fc4768f33601
 (function() {
   'use strict';
   module.exports = userSettingsFactory;
