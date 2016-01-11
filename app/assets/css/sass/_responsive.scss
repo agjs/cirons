@@ -65,6 +65,19 @@ aside.menu #touch-menu {
         margin-left: -100%;
     }
 
+    body.split_table[data-state*=".item"]  .split-view,
+    body.split_table[data-state*=".create"]  .split-view {
+        margin-left: -100%;
+
+        .mobile-back-button {
+            
+        }
+    }
+
+    body.split_table .page-content .open-view .open-view-content {
+        padding: 0 15px 15px 15px;
+    }
+
     .page-title h1 ol {
         display: inline-block;
     }

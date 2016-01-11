@@ -2761,6 +2761,36 @@ table.info-table {
 .table-toggle .toggler:hover td, .table-toggle tr.toggled td {
   background: #d9e9f3; }
 
+.open-view .ui.form .inline.field label {
+  min-width: 120px;
+  display: inline-block; }
+.open-view .ui.form .inline.field input, .open-view .ui.form .inline.field select {
+  width: 100%;
+  max-width: 250px;
+  display: inline-block; }
+
+.cirons-upload .drop {
+  background: url(assets/images/upload.png) no-repeat center center;
+  background-size: 100% auto;
+  padding-top: 100%;
+  width: 100%;
+  cursor: pointer; }
+.cirons-upload ul.list {
+  margin: 0;
+  padding: 0; }
+  .cirons-upload ul.list li {
+    margin: 0;
+    padding: 7px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    list-style: none; }
+    .cirons-upload ul.list li a {
+      color: #3681b1;
+      text-decoration: none; }
+
+.mobile-back-button {
+  display: none; }
+
 .timeline {
   position: relative;
   list-style: none;
@@ -3373,6 +3403,13 @@ aside.menu #touch-menu {
 
   body.split_table .split-view.active {
     margin-left: -100%; }
+
+  body.split_table[data-state*=".item"] .split-view,
+  body.split_table[data-state*=".create"] .split-view {
+    margin-left: -100%; }
+
+  body.split_table .page-content .open-view .open-view-content {
+    padding: 0 15px 15px 15px; }
 
   .page-title h1 ol {
     display: inline-block; }

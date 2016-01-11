@@ -1699,7 +1699,11 @@ table.info-table {
                 }
             }
         }
-    
+
+}
+
+.mobile-back-button {
+    display: none;
 }
 
 @import "_timeline";

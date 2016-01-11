@@ -812,6 +812,9 @@ angular.module('CIRONS-MAIN-APP')
       $scope.settings = settings;
     });
 
+    $scope.uicurrentstate = $state.current.name;
+    console.log($state);
+
   }
 
   mainController.$inject = ['$scope', '$auth', '$state', 'settingsFactory'];
@@ -1429,19 +1432,19 @@ angular.module('CIRONS-MAIN-APP')
   "use strict";
   module.exports = cirons_attachments;
 
-  function cirons_attachments($auth) {
+  function cirons_attachments($auth, $timeout) {
 
     var _token = "Bearer" + " " + $auth.getToken();
-    console.log(_token);
 
     return {
       restrict: 'EA',
       scope: {
           objectType: '@',
-          objectId: '@',
+          objectId: '=',
           attachments: '=',
           onchange: '&'
       },
+      transclude: true,
       templateUrl: 'components/directives/cirons-attachments/template.html',
       replace: true,
       link: function(scope, element, attrs) {
@@ -1456,7 +1459,6 @@ angular.module('CIRONS-MAIN-APP')
             previewTemplate += "            <\/div>";
             previewTemplate += "        <\/li>";
 
-            console.log("scope: ", attrs.objectType, attrs.objectId);
 
           element.find(".drop").first().dropzone({
               url: 'http://janalex.beta.cirons.com/api/v1/attachments',
@@ -1465,8 +1467,19 @@ angular.module('CIRONS-MAIN-APP')
               headers: {
                   "Authorization": _token
               },
-              success: function(){
-
+              init: function(){
+                  this.on("success", function (file) {
+                      this.removeAllFiles();
+                  });
+              },
+              success: function(file, response){
+                  $timeout(function () {
+                      scope.attachments.push(response);
+                  },0);
+              },
+              sending: function(file, xhr, data){
+                  data.append("object_id", scope.objectId);
+                  data.append("object_type", attrs.objectType);
               },
               previewTemplate: previewTemplate,
               previewsContainer: document.getElementById('preview_list')
@@ -1476,7 +1489,7 @@ angular.module('CIRONS-MAIN-APP')
 
   }
 
-  cirons_attachments.$inject = ['$auth'];
+  cirons_attachments.$inject = ['$auth', '$timeout'];
 
 })();
 
@@ -2245,35 +2258,62 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = supplierInvoicesCRUDController;
 
-  function supplierInvoicesCRUDController($scope, $stateParams, supplierInvoicesFactory, lodash) {
+  function supplierInvoicesCRUDController($scope, $stateParams, supplierInvoicesFactory, lodash, suppliersFactory, $state) {
+
+    $scope.supplierInvoice = {
+        supplier: null,
+        date: new Date(),
+        duedate: new Date(),
+        paid: "0000-00-00",
+        attachments: []
+    };
+
+    $scope.changeSupplier = false;
+    $scope.checkSupplier = function(){
+        if(!$scope.supplierInvoice){
+            return;
+        }
+        if($scope.supplierInvoice.supplier){
+            $scope.changeSupplier = false;
+        } else {
+            $scope.changeSupplier = true;
+        }
+    };
+    $scope.checkSupplier();
+    $scope.suppliers = [];
+    $scope.getSuppliers = function(){
+        suppliersFactory.getSuppliers().then(function(suppliers){
+            $scope.suppliers = suppliers;
+        });
+    };
+    $scope.getSuppliers();
 
     $scope.addSupplierInvoice = function() {
-      supplierInvoicesFactory.addSupplierInvoice($scope.supplierInvoice).then(function(added) {
-        $scope.supplier_invoices.push(added);
+      var newInvoice = $scope.supplierInvoice;
+      newInvoice.supplier_id = newInvoice.supplier.id;
+      delete newInvoice.supplier;
+
+      supplierInvoicesFactory.addSupplierInvoice(newInvoice).then(function(added) {
+        $scope.supplierInvoices.unshift(added);
+        $state.go('supplier_invoices.item', {id: added.id, supplierInvoice: added});
       });
     };
 
-    $scope.removeSupplierInvoice = function() {
-      supplierInvoicesFactory.removeSupplierInvoice($stateParams.id);
-    };
-
-    $scope.editSupplierInvoice = function(data) {
-      supplierInvoicesFactory.editSupplierInvoice($stateParams.id, data).then(function(edited) {
-
-        var findItem = lodash.find($scope.supplier_invoices, function(arg) {
-          return arg.id === $stateParams.id;
-        });
-
-        if (findItem) {
-          findItem = edited;
+    $scope.onSupplierSelect = function($item, $model, $label){
+        if($scope.supplierInvoice.supplier.id){
+            supplierInvoicesFactory.editSupplierInvoice($scope.id, {
+                supplier_id: $scope.supplierInvoice.supplier.id
+            }).then(function(edited){
+                $scope.changeSupplier = false;
+            });
         }
-
-      });
     };
+
+
 
   }
 
-  supplierInvoicesCRUDController.$inject = ['$scope', '$stateParams', 'supplierInvoicesFactory', 'lodash'];
+  supplierInvoicesCRUDController.$inject = ['$scope', '$stateParams', 'supplierInvoicesFactory', 'lodash', 'suppliersFactory', '$state'];
 
 })();
 

@@ -2,7 +2,7 @@
   "use strict";
   module.exports = cirons_attachments;
 
-  function cirons_attachments($auth) {
+  function cirons_attachments($auth, $timeout) {
 
     var _token = "Bearer" + " " + $auth.getToken();
 
@@ -29,9 +29,6 @@
             previewTemplate += "            <\/div>";
             previewTemplate += "        <\/li>";
 
-            console.log("attachments: ", scope.attachments);
-
-            console.log("scope: ", attrs.objectType, scope.objectId);
 
           element.find(".drop").first().dropzone({
               url: 'http://janalex.beta.cirons.com/api/v1/attachments',
@@ -46,8 +43,9 @@
                   });
               },
               success: function(file, response){
-                  scope.attachments.push(response);
-                  console.log(scope.attachments);
+                  $timeout(function () {
+                      scope.attachments.push(response);
+                  },0);
               },
               sending: function(file, xhr, data){
                   data.append("object_id", scope.objectId);
@@ -61,6 +59,6 @@
 
   }
 
-  cirons_attachments.$inject = ['$auth'];
+  cirons_attachments.$inject = ['$auth', '$timeout'];
 
 })();

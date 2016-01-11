@@ -8,6 +8,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-injector');
   grunt.loadNpmTasks('grunt-string-replace');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-ftp-deploy');
+  grunt.loadNpmTasks("grunt-remove-logging");
   //grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.initConfig({
@@ -126,16 +128,6 @@ module.exports = function(grunt) {
       }
   },
 
-    watch: {
-      scripts: {
-        files: ['app/components/**/*.js', 'app/components/**/*.html'],
-        tasks: ['default'],
-        options: {
-          spawn: false,
-        },
-      },
-    },
-
     'string-replace': {
       dist: {
         files: {
@@ -148,11 +140,33 @@ module.exports = function(grunt) {
           }]
         }
       }
+  },
+
+  removelogging: {
+    dist: {
+      src: "dist/code.js",
+      options: {
+        // see below for options. this is optional.
+      }
+    }
+},
+
+  'ftp-deploy': {
+      build: {
+        auth: {
+          host: 'cirons.com',
+          port: 21,
+          authKey: 'glesys'
+        },
+        src: 'dist',
+        dest: '/private/var/cirons/frontend',
+        exclusions: ['dist/**/.DS_Store', 'dist/**/Thumbs.db', 'dist/tmp']
+      }
     }
 
   });
 
   grunt.registerTask('default', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector']);
-  grunt.registerTask('production', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector', 'string-replace']);
+  grunt.registerTask('production', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector', 'string-replace', 'removelogging', 'ftp-deploy']);
 
 };

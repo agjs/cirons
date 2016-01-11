@@ -63,7 +63,7 @@ currentState == 'receipts'                 ||
 currentState == 'receipts.item'                 ||
 currentState == 'receipts.create'                 ||
 currentState == 'suppliers.create' ? 'split_table' : '' ||
-isAuthenticated() ? '' : 'overwriteBg'" ng-controller="mainController">
+isAuthenticated() ? '' : 'overwriteBg'" data-state="{{currentState}}" ng-controller="mainController">
 
 
   <ng-include ng-show="isAuthenticated()" src="'components/common/main-menu/main-menu.html'"></ng-include>

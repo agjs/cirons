@@ -12,6 +12,8 @@
       $scope.settings = settings;
     });
 
+    
+
   }
 
   mainController.$inject = ['$scope', '$auth', '$state', 'settingsFactory'];
