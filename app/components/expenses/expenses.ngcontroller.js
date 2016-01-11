@@ -2,7 +2,7 @@
   'use strict';
   module.exports = expensesController;
 
-  function expensesController($scope, suppliersFactory, receiptsFactory, $state) {
+  function expensesController($scope, suppliersFactory, receiptsFactory, $state, supplierInvoicesFactory) {
 
     suppliersFactory.countSuppliers().then(function(suppliers) {
       $scope.suppliersCount = suppliers;
@@ -12,10 +12,12 @@
       $scope.receiptsCount = receipts;
     });
 
-
+    supplierInvoicesFactory.getSupplierInvoices().then(function(si){
+        $scope.supplierInvoicesCount = si.length;
+    });
 
   }
 
-  expensesController.$inject = ['$scope', 'suppliersFactory', 'receiptsFactory', '$state'];
+  expensesController.$inject = ['$scope', 'suppliersFactory', 'receiptsFactory', '$state', 'supplierInvoicesFactory'];
 
 })();

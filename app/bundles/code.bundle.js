@@ -6,6 +6,7 @@
     require('../components/dashboard/dashboard.ngcomponent');
     require('../components/accounting/accounting.ngcomponent');
     require('../components/expenses/suppliers/suppliers.ngcomponent');
+    require('../components/expenses/supplier_invoices/supplier_invoices.ngcomponent');
     require('../components/expenses/receipts/receipts.ngcomponent');
 
     require('../components/sales/orders/orders.ngcomponent');
