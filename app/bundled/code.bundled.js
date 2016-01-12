@@ -16,8 +16,9 @@
     'ui.bootstrap',
     'gridshore.c3js.chart',
     'ui.calendar',
-    'pusher-angular'
-
+    'pusher-angular',
+    'angulartics',
+    'angulartics.google.analytics'
   ]);
 
   window.pusherClient = new Pusher('3400e69279ea78f5b712', {
@@ -59,6 +60,7 @@
     });
 
     $urlRouterProvider.otherwise('/dashboard/finance');
+
     $locationProvider.html5Mode(false);
 
     $authProvider.loginUrl = 'http://janalex.beta.cirons.com/api/v1/auth';
@@ -807,13 +809,10 @@ angular.module('CIRONS-MAIN-APP')
       return $auth.isAuthenticated();
     };
 
-    $scope.settings = [];
-    settingsFactory.initSettings().then(function(settings) {
-      $scope.settings = settings;
-    });
-
-    
-
+    // $scope.settings = [];
+    // settingsFactory.initSettings().then(function(settings) {
+    //   $scope.settings = settings;
+    // });
   }
 
   mainController.$inject = ['$scope', '$auth', '$state', 'settingsFactory'];
@@ -6654,6 +6653,12 @@ angular.module('CIRONS-MAIN-APP')
           settings = data.data;
           return data.data;
         });
+      },
+      startGetSettings: function(){
+          return $http.get("http://janalex.beta.cirons.com/api/v1/settings").then(function(data) {
+            settings = data.data;
+            return data.data;
+          });
       },
       getSettings: function() {
         return settings;

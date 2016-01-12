@@ -11,6 +11,12 @@
           return data.data;
         });
       },
+      startGetSettings: function(){
+          return $http.get("http://janalex.beta.cirons.com/api/v1/settings").then(function(data) {
+            settings = data.data;
+            return data.data;
+          });
+      },
       getSettings: function() {
         return settings;
       }

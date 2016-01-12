@@ -7,13 +7,10 @@
       return $auth.isAuthenticated();
     };
 
-    $scope.settings = [];
-    settingsFactory.initSettings().then(function(settings) {
-      $scope.settings = settings;
-    });
-
-    
-
+    // $scope.settings = [];
+    // settingsFactory.initSettings().then(function(settings) {
+    //   $scope.settings = settings;
+    // });
   }
 
   mainController.$inject = ['$scope', '$auth', '$state', 'settingsFactory'];

@@ -15,8 +15,9 @@
     'ui.bootstrap',
     'gridshore.c3js.chart',
     'ui.calendar',
-    'pusher-angular'
-
+    'pusher-angular',
+    'angulartics',
+    'angulartics.google.analytics'
   ]);
 
   window.pusherClient = new Pusher('3400e69279ea78f5b712', {

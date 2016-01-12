@@ -4,8 +4,17 @@
 @import "xeditable.scss";
 @import "dropzone.scss";
 
-$cirons_blue: #3681b1;
+$cirons_blue: #3681B1;
 $cirons_light: lighten($cirons_blue, 45);
+
+$header_color: white;
+
+$nav_item_bg: rgba(255,255,255,0.1);
+$nav_item_color: rgba(255,255,255,0.8);
+$nav_item_icon_bg: rgba(0,0,0,0.1);
+
+$breadcrumb_color: #777;
+$breadcrumb_active_color: #777;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -41,8 +50,8 @@ aside.menu nav#main ul {
   overflow: auto;
 }
 aside.menu.blue > nav#main ul li a {
-  color: rgba(255, 255, 255, 0.8);
-  background: rgba(255,255,255,0.1);
+  color: $nav_item_color;
+  background: $nav_item_bg;
   margin-bottom: 3px;
 }
 aside.menu {
@@ -54,7 +63,13 @@ aside.menu {
   bottom: 0;
 }
 
+.breadcrumb>.active {
+    color: $breadcrumb_color;
+}
 
+li.ng-scope.active {
+    color: $breadcrumb_active_color;
+}
 
 .body {
   width: auto;
@@ -65,7 +80,7 @@ aside.menu {
 .body header,
 aside.menu header {
   height: 50px;
-  background: white;
+  background: $header_color;
   -webkit-box-shadow: 0 3px 5px 0 rgba(50, 50, 50, 0.1);
   -moz-box-shadow: 0 3px 5px 0 rgba(50, 50, 50, 0.1);
   box-shadow: 0 3px 5px 0 rgba(50, 50, 50, 0.1);
@@ -248,7 +263,7 @@ aside.menu > nav#main ul li a span {
 }
 aside.menu > nav#main ul li a i {
   font-size: 20px;
-  background: rgba(0,0,0,0.1);
+  background: $nav_item_icon_bg;
   width: 40px;
   display: inline-block;
   text-align: center;

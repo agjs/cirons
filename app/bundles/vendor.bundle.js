@@ -29,4 +29,7 @@
   require('../libs/pusher/dist/pusher.min.js');
   require('../libs/pusher-angular/lib/pusher-angular.min.js');
 
+  require('../libs/angulartics/dist/angulartics.min.js');
+  require('../libs/angulartics-google-analytics/dist/angulartics-google-analytics.min.js');
+
 })();

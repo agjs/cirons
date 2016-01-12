@@ -28,6 +28,7 @@
     });
 
     $urlRouterProvider.otherwise('/dashboard/finance');
+
     $locationProvider.html5Mode(false);
 
     $authProvider.loginUrl = 'http://janalex.beta.cirons.com/api/v1/auth';
