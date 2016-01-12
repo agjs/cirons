@@ -1,0 +1,41 @@
+<table class="ui table celled">
+    <thead>
+		<tr>
+			<th width="1"></th>
+			<th>ID #</th>
+			<th>Customer</th>
+			<th>Status</th>
+			<th>Order Status</th>
+			<th class="right">Invoice Sum</th>
+			<th>Invoice Date</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+    <tbody>
+        <tr ng-repeat="invoice in invoices" ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
+			<td>
+                <input type="checkbox">
+            </td>
+			<td>{{invoice.invoice_no}}</td>
+			<td>{{invoice.contact.name}}</td>
+			<td>{{invoice.step}}</td>
+			<td>{{ (invoice.order ? invoice.order.step : '') }}</td>
+			<td class="right">{{invoice.grand_total}} {{invoice.currency}}</td>
+			<td>{{invoice.date}}</td>
+			<td>
+            </td>
+		</tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th width="1"></th>
+            <th>ID #</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Order Status</th>
+            <th class="right">Invoice Sum</th>
+            <th>Invoice Date</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+</table>

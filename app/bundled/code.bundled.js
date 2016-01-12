@@ -4166,10 +4166,10 @@ angular.module('CIRONS-MAIN-APP')
         },
         views: {
           '': {
-            templateUrl: 'components/sales/invoices/invoices.view.html',
+            templateUrl: 'components/sales/invoices/invoices_table.view.html',
             controller: 'invoicesController'
-
-          },
+          }
+          ,
           'invoicesList@invoices': {
             templateUrl: 'components/sales/invoices/invoices_list.view.html',
           }
@@ -4186,11 +4186,11 @@ angular.module('CIRONS-MAIN-APP')
         '': {
           templateUrl: 'components/sales/invoices/invoices.view.html'
         },
-        'invoicesList@invoices': {
+        'invoicesList': {
           templateUrl: 'components/sales/invoices/invoices_list.view.html',
 
         },
-        'invoicesContent@invoices': {
+        'invoicesContent': {
           templateUrl: 'components/sales/invoices/invoices_create.view.html',
           controller: 'invoicesCreateController'
         }
@@ -4211,11 +4211,11 @@ angular.module('CIRONS-MAIN-APP')
         '': {
           templateUrl: 'components/sales/invoices/invoices.view.html'
         },
-        'invoicesList@invoices': {
+        'invoicesList': {
           templateUrl: 'components/sales/invoices/invoices_list.view.html',
 
         },
-        'invoicesContent@invoices': {
+        'invoicesContent': {
           templateUrl: 'components/sales/invoices/invoices_content.view.html',
           controller: 'invoicesSingleItemController'
         }
