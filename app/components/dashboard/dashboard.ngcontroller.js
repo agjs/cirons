@@ -32,12 +32,7 @@
     //END PRODUCT STOCK
 
     //START REGISTER EXPENSES CHART
-    $scope.expenses_bar_currentData = [{
-      "non": 0,
-      "days1": 0,
-      "days2": 0,
-      "days3": 0
-    }];
+    $scope.expenses_bar_currentData = [];
     $scope.expenses_bar_currentColumns = [{
       "id": "variable",
       "type": "bar",
