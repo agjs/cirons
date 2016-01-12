@@ -11,6 +11,8 @@ angular.module('CIRONS-MAIN-APP')
 .directive('cironsOrderDownload', require('./cirons-order-download/cirons_order_download.ngdirective'))
 .directive('cironsCheckbox', require('./cirons-checkbox/cirons_checkbox.ngdirective'))
 .directive('cironsAttachments', require('./cirons-attachments/cirons_attachments.ngdirective'))
+.directive('ngEnter', require('./ng-enter/ng_enter.ngdirective'))
+.directive('cironsStatusBadge', require('./cirons-status-badge/cirons_status_badge.ngdirective'))
 .directive('cironsAddressSelector', require('./cirons-address-selector/cirons_address_selector.ngdirective'));
 
 })();

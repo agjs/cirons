@@ -138,10 +138,10 @@
                 <input ng-model="newrow.product" type="text" uib-typeahead="item as item.name for item in products | filter:{name:$viewValue}">
             </td>
             <td>
-                <input type="text" ng-model="newrow.ordered">
+                <input ng-enter="addOrderRow()" type="text" ng-model="newrow.ordered">
             </td>
             <td>
-                <input type="text" ng-model="newrow.q">
+                <input ng-enter="addOrderRow()" type="text" ng-model="newrow.q">
             </td>
             <td>
                 <select ng-model="newrow.q_type">
@@ -167,7 +167,7 @@
 				</select>
             </td>
             <td>
-                <input type="text" ng-model="newrow.price">
+                <input ng-enter="addOrderRow()" type="text" ng-model="newrow.price">
             </td>
             <td>
                 <button type="button" ng-click="addOrderRow()" class="ui button positive tiny">Add</button>

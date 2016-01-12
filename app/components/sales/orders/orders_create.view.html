@@ -1,6 +1,6 @@
 <div class="open-view">
 
-  <div class="open-view-content">
+  <div class="open-view-content ui form">
     <form class="ui form" ng-submit="saveOrder()">
       <div class="toolbar">
 
@@ -10,6 +10,7 @@
         </button>
         <div class="ui button" onclick="cancel()">Cancel</div>
       </div>
+  </form>
       <div class="ui grid stackable">
           <div class="column four wide">
               <label>Customer Name</label>
@@ -136,10 +137,10 @@
                       <input ng-model="newrow.product" type="text" uib-typeahead="item as item.name for item in products | filter:{name:$viewValue}">
                   </td>
                   <td>
-                      <input type="text" ng-model="newrow.ordered">
+                      <input ng-enter="addOrderRow()" type="text" ng-model="newrow.ordered">
                   </td>
                   <td>
-                      <input type="text" ng-model="newrow.q">
+                      <input ng-enter="addOrderRow()" type="text" ng-model="newrow.q">
                   </td>
                   <td>
                       <select ng-model="newrow.q_type">
@@ -165,7 +166,7 @@
       				</select>
                   </td>
                   <td>
-                      <input type="text" ng-model="newrow.price">
+                      <input type="text" ng-enter="addOrderRow()" ng-model="newrow.price">
                   </td>
                   <td>
                       <button type="button" ng-click="addOrderRow()" class="ui button positive tiny">Add</button>
