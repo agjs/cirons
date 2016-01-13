@@ -16,6 +16,8 @@ $nav_item_icon_bg: rgba(0,0,0,0.1);
 $breadcrumb_color: #777;
 $breadcrumb_active_color: #777;
 
+$table_row_hover_bg: rgba(0,0,0,0.1);
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -1719,6 +1721,32 @@ table.info-table {
 
 .mobile-back-button {
     display: none;
+}
+
+.ui.table.celled.object-table {
+    border: none;
+    tbody {
+        tr {
+            transition: all 300ms ease;
+            td {
+                span.ui.label {
+                    background-color: rgba(0,0,0,0) !important;
+                }
+            }
+        }
+        tr[ui-sref] {
+            cursor: pointer;
+        }
+        tr:hover {
+            background: $table_row_hover_bg;
+        }
+    }
+}
+
+.object-tabe-heading {
+    padding: 20px;
+    background: white;
+    border-bottom: 1px solid #ccc;
 }
 
 @import "_timeline";

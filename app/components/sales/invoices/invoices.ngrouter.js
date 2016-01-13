@@ -16,10 +16,10 @@
             templateUrl: 'components/sales/invoices/invoices_table.view.html',
             controller: 'invoicesController'
           }
-          ,
-          'invoicesList@invoices': {
-            templateUrl: 'components/sales/invoices/invoices_list.view.html',
-          }
+        //   ,
+        //   'invoicesList@invoices': {
+        //     templateUrl: 'components/sales/invoices/invoices_list.view.html',
+        //   }
         }
       })
 
@@ -30,14 +30,14 @@
         label: 'Create an Invoice'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/sales/invoices/invoices.view.html'
         },
-        'invoicesList': {
+        'invoicesList@invoices.create': {
           templateUrl: 'components/sales/invoices/invoices_list.view.html',
-
+          controller: 'invoicesController'
         },
-        'invoicesContent': {
+        'invoicesContent@invoices.create': {
           templateUrl: 'components/sales/invoices/invoices_create.view.html',
           controller: 'invoicesCreateController'
         }
@@ -55,14 +55,14 @@
         label: '{{id}}'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/sales/invoices/invoices.view.html'
         },
-        'invoicesList': {
+        'invoicesList@invoices.item': {
           templateUrl: 'components/sales/invoices/invoices_list.view.html',
-
+          controller: 'invoicesController'
         },
-        'invoicesContent': {
+        'invoicesContent@invoices.item': {
           templateUrl: 'components/sales/invoices/invoices_content.view.html',
           controller: 'invoicesSingleItemController'
         }
@@ -80,7 +80,7 @@
           label: 'General'
         },
         views: {
-            "tabContent": {
+            "tabContent@invoices.item": {
                 templateUrl: 'components/sales/invoices/tabs/general.view.html'
             }
         }
@@ -97,7 +97,7 @@
           label: 'Addresses'
         },
         views: {
-            "tabContent": {
+            "tabContent@invoices.item": {
                 templateUrl: 'components/sales/invoices/tabs/addresses.view.html'
             }
         }
@@ -114,7 +114,7 @@
           label: 'Profit'
         },
         views: {
-            "tabContent": {
+            "tabContent@invoices.item": {
                 templateUrl: 'components/sales/invoices/tabs/profit.view.html'
             }
         }
@@ -131,7 +131,7 @@
           label: 'Payments'
         },
         views: {
-            "tabContent": {
+            "tabContent@invoices.item": {
                 templateUrl: 'components/sales/invoices/tabs/payments.view.html'
             }
         }
@@ -148,7 +148,7 @@
           label: 'Accounting'
         },
         views: {
-            "tabContent": {
+            "tabContent@invoices.item": {
                 templateUrl: 'components/sales/invoices/tabs/accounting.view.html'
             }
         }

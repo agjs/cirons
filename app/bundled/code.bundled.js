@@ -139,7 +139,7 @@
   require('../components/directives/directives.ngcomponent');
 })();
 
-},{"../components/accounting/accounting.ngcomponent":5,"../components/accounting/verifications/verifications.ngcomponent":9,"../components/authentication/authentication.ngcomponent":16,"../components/calendar/calendar.ngcomponent":21,"../components/common/common.ngcomponent":25,"../components/dashboard/dashboard.ngcomponent":31,"../components/directives/directives.ngcomponent":46,"../components/expenses/receipts/receipts.ngcomponent":49,"../components/expenses/supplier_invoices/supplier_invoices.ngcomponent":55,"../components/expenses/suppliers/suppliers.ngcomponent":61,"../components/hr/hr.ngcomponent":68,"../components/hr/users/users.ngcomponent":72,"../components/purchasing/purchase_orders/purchase_orders.ngcomponent":78,"../components/purchasing/purchasing.ngcomponent":84,"../components/sales/contacts/contacts.ngcomponent":88,"../components/sales/invoices/invoices.ngcomponent":94,"../components/sales/orders/orders.ngcomponent":103,"../components/sales/products/products.ngcomponent":110,"../components/sales/sales.ngcomponent":116,"../components/stock/stock.ngcomponent":120,"../components/stock/warehouses/warehouses.ngcomponent":125,"../components/system_admin/system_admin.ngcomponent":131,"../components/user_settings/user_settings.ngcomponent":135,"../main.ngcomponent":139}],5:[function(require,module,exports){
+},{"../components/accounting/accounting.ngcomponent":5,"../components/accounting/verifications/verifications.ngcomponent":9,"../components/authentication/authentication.ngcomponent":16,"../components/calendar/calendar.ngcomponent":21,"../components/common/common.ngcomponent":25,"../components/dashboard/dashboard.ngcomponent":33,"../components/directives/directives.ngcomponent":48,"../components/expenses/receipts/receipts.ngcomponent":52,"../components/expenses/supplier_invoices/supplier_invoices.ngcomponent":58,"../components/expenses/suppliers/suppliers.ngcomponent":64,"../components/hr/hr.ngcomponent":71,"../components/hr/users/users.ngcomponent":75,"../components/purchasing/purchase_orders/purchase_orders.ngcomponent":81,"../components/purchasing/purchasing.ngcomponent":87,"../components/sales/contacts/contacts.ngcomponent":91,"../components/sales/invoices/invoices.ngcomponent":97,"../components/sales/orders/orders.ngcomponent":106,"../components/sales/products/products.ngcomponent":113,"../components/sales/sales.ngcomponent":119,"../components/stock/stock.ngcomponent":123,"../components/stock/warehouses/warehouses.ngcomponent":128,"../components/system_admin/system_admin.ngcomponent":134,"../components/user_settings/user_settings.ngcomponent":138,"../main.ngcomponent":142}],5:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -730,10 +730,100 @@ angular.module('CIRONS-MAIN-APP')
     .controller('rightSidebarController', require('./right-sidebar/right_sidebar.ngcontroller'))
     .controller('navigationController', require('./top-navigation/navigation.ngcontroller'))
     .factory("settingsFactory", require("../../settings.ngfactory.js"))
+    .factory("infoFactory", require("./info.ngfactory.js"))
     .factory("notificationsFactory", require("./top-navigation/notifications.ngfactory.js"))
+    .filter("dateRange", require("./filters/dateRange.ngfilter"))
 })();
 
-},{"../../settings.ngfactory.js":140,"./main-menu/main_menu.ngcontroller":26,"./main.ngcontroller":27,"./right-sidebar/right_sidebar.ngcontroller":28,"./top-navigation/navigation.ngcontroller":29,"./top-navigation/notifications.ngfactory.js":30}],26:[function(require,module,exports){
+},{"../../settings.ngfactory.js":143,"./filters/dateRange.ngfilter":26,"./info.ngfactory.js":27,"./main-menu/main_menu.ngcontroller":28,"./main.ngcontroller":29,"./right-sidebar/right_sidebar.ngcontroller":30,"./top-navigation/navigation.ngcontroller":31,"./top-navigation/notifications.ngfactory.js":32}],26:[function(require,module,exports){
+(function() {
+    'use strict';
+
+    module.exports = dateRange;
+
+    function dateRange(){
+
+        return function(items, key, from, to) {
+            if(!from){
+                return items;
+            }
+            var df = new Date(from);
+            if(to){
+                var dt = new Date(to);
+            } else {
+                var dt = new Date();
+            }
+            var result = [];
+            for (var i=0; i<items.length; i++){
+                var tf = new Date(items[i][key]),
+                    tt = new Date(items[i][key]);
+                if (tf > df && tt < dt)  {
+                    result.push(items[i]);
+                }
+            }
+            return result;
+        };
+    }
+
+    dateRange.$inject = [];
+
+}());
+
+},{}],27:[function(require,module,exports){
+(function() {
+    'use strict';
+    module.exports = infoFactory;
+
+    function infoFactory(){
+        return {
+            statuses: {
+                "Invoice": {
+                    draft: {
+                        color: "yellow",
+                        label: "Draft"
+                    },
+                    booked: {
+                        color: "orange",
+                        label: "Booked"
+                    },
+                    sent: {
+                        color: "blue",
+                        label: "Sent"
+                    },
+                    paid: {
+                        color: "green",
+                        label: "Paid",
+                        icon: "icon check"
+                    }
+                },
+                "Order": {
+                    pending: {
+                        color: "yellow",
+                        label: "Pending"
+                    },
+                    shipped: {
+                        color: "violet",
+                        label: "Shipped"
+                    },
+                    delivered: {
+                        color: "green",
+                        label: "Delivered",
+                        icon: "icon check"
+                    },
+                    cancelled: {
+                        color: "black",
+                        label: "Cancelled",
+                        icon: "icon remove"
+                    }
+                }
+            }
+        };
+    }
+
+    infoFactory.$inject = [];
+}());
+
+},{}],28:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = mainMenuController;
@@ -799,7 +889,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],27:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = mainController;
@@ -819,7 +909,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],28:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = rightSidebarController;
@@ -833,7 +923,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],29:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = navigationController;
@@ -924,7 +1014,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],30:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = notificationsFactory;
@@ -956,7 +1046,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],31:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -968,7 +1058,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./dashboard.ngcontroller":32,"./dashboard.ngfactory":33,"./dashboard.ngrouter":34,"./finance/dashboard_finance.ngcontroller":35}],32:[function(require,module,exports){
+},{"./dashboard.ngcontroller":34,"./dashboard.ngfactory":35,"./dashboard.ngrouter":36,"./finance/dashboard_finance.ngcontroller":37}],34:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = dashboardController;
@@ -1288,7 +1378,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],33:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = dashboardFactory;
@@ -1316,7 +1406,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],34:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = dashboardRouter;
@@ -1379,7 +1469,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],35:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = dashboardFinanceController;
@@ -1394,7 +1484,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],36:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 (function() {
   "use strict";
   module.exports = cirons_address_selector;
@@ -1420,7 +1510,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],37:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 (function() {
   "use strict";
   module.exports = cirons_attachments;
@@ -1486,7 +1576,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],38:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 (function() {
   "use strict";
   module.exports = cironsCard;
@@ -1517,7 +1607,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],39:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 (function() {
   "use strict";
   module.exports = cirons_checkbox;
@@ -1553,7 +1643,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],40:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 (function() {
   "use strict";
   module.exports = cirons_dropzone;
@@ -1609,7 +1699,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],41:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 (function() {
   "use strict";
   module.exports = cirons_list_card;
@@ -1642,7 +1732,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],42:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 (function() {
   "use strict";
   module.exports = cironsModelSelector;
@@ -1689,7 +1779,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],43:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 (function() {
   "use strict";
   module.exports = cirons_order_download;
@@ -1714,7 +1804,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],44:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 (function() {
     "use strict";
     module.exports = cironsStatbox;
@@ -1741,32 +1831,45 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],45:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 (function() {
   "use strict";
   module.exports = cirons_status_badge;
 
-  function cirons_status_badge() {
+  function cirons_status_badge(infoFactory) {
     return {
       restrict: 'EA',
       scope: {
-          modelType: '@',
+          model: '@',
           step: '@'
       },
       templateUrl: 'components/directives/cirons-status-badge/template.html',
       replace: true,
       link: function(scope, element, attrs) {
-          console.log(attrs.type, attrs.step);
+
+          var info = infoFactory.statuses;
+
+          var status = info[attrs.model][attrs.step];
+
+          scope.color = status.color;
+          scope.label = status.label;
+
+          if(status.icon){
+              scope.icon = status.icon;
+          } else {
+              scope.icon = null;
+          }
+
       }
     }
 
   }
 
-  cirons_status_badge.$inject = [];
+  cirons_status_badge.$inject = ['infoFactory'];
 
 })();
 
-},{}],46:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -1781,19 +1884,20 @@ angular.module('CIRONS-MAIN-APP')
 .directive('cironsCheckbox', require('./cirons-checkbox/cirons_checkbox.ngdirective'))
 .directive('cironsAttachments', require('./cirons-attachments/cirons_attachments.ngdirective'))
 .directive('ngEnter', require('./ng-enter/ng_enter.ngdirective'))
+.directive('suiDropdown', require('./sui-dropdown/sui_dropdown.ngdirective'))
 .directive('cironsStatusBadge', require('./cirons-status-badge/cirons_status_badge.ngdirective'))
 .directive('cironsAddressSelector', require('./cirons-address-selector/cirons_address_selector.ngdirective'));
 
 })();
 
-},{"./cirons-address-selector/cirons_address_selector.ngdirective":36,"./cirons-attachments/cirons_attachments.ngdirective":37,"./cirons-card/cirons_card.ngdirective":38,"./cirons-checkbox/cirons_checkbox.ngdirective":39,"./cirons-dropzone/cirons_dropzone.ngdirective":40,"./cirons-list-view/cirons_list_view.ngdirective":41,"./cirons-model-selector/cirons_model_selector.ngdirective":42,"./cirons-order-download/cirons_order_download.ngdirective":43,"./cirons-statbox/cirons_statbox.ngdirective":44,"./cirons-status-badge/cirons_status_badge.ngdirective":45,"./ng-enter/ng_enter.ngdirective":47}],47:[function(require,module,exports){
+},{"./cirons-address-selector/cirons_address_selector.ngdirective":38,"./cirons-attachments/cirons_attachments.ngdirective":39,"./cirons-card/cirons_card.ngdirective":40,"./cirons-checkbox/cirons_checkbox.ngdirective":41,"./cirons-dropzone/cirons_dropzone.ngdirective":42,"./cirons-list-view/cirons_list_view.ngdirective":43,"./cirons-model-selector/cirons_model_selector.ngdirective":44,"./cirons-order-download/cirons_order_download.ngdirective":45,"./cirons-statbox/cirons_statbox.ngdirective":46,"./cirons-status-badge/cirons_status_badge.ngdirective":47,"./ng-enter/ng_enter.ngdirective":49,"./sui-dropdown/sui_dropdown.ngdirective":50}],49:[function(require,module,exports){
 (function() {
   "use strict";
   module.exports = ng_enter;
 
   function ng_enter() {
     return {
-      restrict: 'EA',
+      restrict: 'A',
       link: function (scope, elements, attrs) {
               elements.bind('keydown keypress', function (event) {
                   if (event.which === 13) {
@@ -1813,7 +1917,35 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],48:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
+(function() {
+  "use strict";
+  module.exports = sui_dropdown;
+
+  function sui_dropdown() {
+    return {
+      restrict: 'A',
+      link: function (scope, elements, attrs) {
+
+          var options = {
+
+          };
+
+          if(attrs.suiAction){
+              options.action = attrs.suiAction;
+          }
+
+          elements.dropdown(options);
+
+      }
+    }
+  }
+
+  sui_dropdown.$inject = [];
+
+})();
+
+},{}],51:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = expensesController;
@@ -1838,7 +1970,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],49:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -1851,7 +1983,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./receipts.ngcontroller":50,"./receipts.ngfactory":51,"./receipts.ngrouter":52,"./receipts_crud.ngcontroller":53,"./receipts_item.ngcontroller":54}],50:[function(require,module,exports){
+},{"./receipts.ngcontroller":53,"./receipts.ngfactory":54,"./receipts.ngrouter":55,"./receipts_crud.ngcontroller":56,"./receipts_item.ngcontroller":57}],53:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = receiptsController;
@@ -1871,7 +2003,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],51:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = receiptsFactory;
@@ -1971,7 +2103,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],52:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = receiptsRouter;
@@ -2048,7 +2180,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],53:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = receiptsCRUDController;
@@ -2085,7 +2217,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],54:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = receiptsSingleItemController;
@@ -2107,7 +2239,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],55:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -2120,7 +2252,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./supplier_invoices.ngcontroller":56,"./supplier_invoices.ngfactory":57,"./supplier_invoices.ngrouter":58,"./supplier_invoices_crud.ngcontroller":59,"./supplier_invoices_item.ngcontroller":60}],56:[function(require,module,exports){
+},{"./supplier_invoices.ngcontroller":59,"./supplier_invoices.ngfactory":60,"./supplier_invoices.ngrouter":61,"./supplier_invoices_crud.ngcontroller":62,"./supplier_invoices_item.ngcontroller":63}],59:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = supplierInvoicesController;
@@ -2139,7 +2271,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],57:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = supplierInvoicesFactory;
@@ -2224,7 +2356,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],58:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = supplierInvoicesRouter;
@@ -2301,7 +2433,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],59:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = supplierInvoicesCRUDController;
@@ -2365,7 +2497,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],60:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = supplierInvoicesSingleItemController;
@@ -2467,7 +2599,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],61:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -2482,7 +2614,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"../expenses.ngcontroller":48,"./suppliers.ngcontroller":62,"./suppliers.ngfactory":63,"./suppliers.ngrouter":64,"./suppliers_crud.ngcontroller":65,"./suppliers_item.ngcontroller":66,"./suppliers_list.ngcontroller":67}],62:[function(require,module,exports){
+},{"../expenses.ngcontroller":51,"./suppliers.ngcontroller":65,"./suppliers.ngfactory":66,"./suppliers.ngrouter":67,"./suppliers_crud.ngcontroller":68,"./suppliers_item.ngcontroller":69,"./suppliers_list.ngcontroller":70}],65:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = suppliersController;
@@ -2497,7 +2629,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],63:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = suppliersFactory;
@@ -2597,7 +2729,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],64:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = expensesRouter;
@@ -2684,7 +2816,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],65:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = suppliersCRUDController;
@@ -2721,7 +2853,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],66:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = suppliersSingleItemController;
@@ -2743,7 +2875,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],67:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = suppliersListController;
@@ -2760,7 +2892,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],68:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -2771,7 +2903,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./hr.ngcontroller":69,"./hr.ngfactory":70,"./hr.ngrouter":71}],69:[function(require,module,exports){
+},{"./hr.ngcontroller":72,"./hr.ngfactory":73,"./hr.ngrouter":74}],72:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = hrController;
@@ -2789,7 +2921,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],70:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = hrFactory;
@@ -2806,7 +2938,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],71:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = hrRouter;
@@ -2827,7 +2959,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],72:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -2840,7 +2972,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./users.ngcontroller":73,"./users.ngfactory":74,"./users.ngrouter":75,"./users_crud.ngcontroller":76,"./users_item.ngcontroller":77}],73:[function(require,module,exports){
+},{"./users.ngcontroller":76,"./users.ngfactory":77,"./users.ngrouter":78,"./users_crud.ngcontroller":79,"./users_item.ngcontroller":80}],76:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = usersController;
@@ -2859,7 +2991,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],74:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = usersFactory;
@@ -2958,7 +3090,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],75:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = usersRouter;
@@ -3035,7 +3167,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],76:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = usersCRUDController;
@@ -3060,7 +3192,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],77:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = usersSingleItemController;
@@ -3145,7 +3277,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],78:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -3158,7 +3290,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./purchase_orders.ngcontroller":79,"./purchase_orders.ngfactory":80,"./purchase_orders.ngrouter":81,"./purchase_orders_crud.ngcontroller":82,"./purchase_orders_item.ngcontroller":83}],79:[function(require,module,exports){
+},{"./purchase_orders.ngcontroller":82,"./purchase_orders.ngfactory":83,"./purchase_orders.ngrouter":84,"./purchase_orders_crud.ngcontroller":85,"./purchase_orders_item.ngcontroller":86}],82:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = purchaseOrdersController;
@@ -3177,7 +3309,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],80:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = purchaseOrdersFactory;
@@ -3262,7 +3394,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],81:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = purchaseOrdersRouter;
@@ -3339,7 +3471,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],82:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = purchaseOrdersCRUDController;
@@ -3466,7 +3598,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],83:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = purchaseOrdersSingleItemController;
@@ -3640,7 +3772,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],84:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -3651,7 +3783,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./purchasing.ngcontroller":85,"./purchasing.ngfactory":86,"./purchasing.ngrouter":87}],85:[function(require,module,exports){
+},{"./purchasing.ngcontroller":88,"./purchasing.ngfactory":89,"./purchasing.ngrouter":90}],88:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = purchasingController;
@@ -3668,7 +3800,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],86:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = purchasingFactory;
@@ -3685,7 +3817,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],87:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = purchasingRouter;
@@ -3706,7 +3838,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],88:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -3719,7 +3851,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./contacts.ngcontroller":89,"./contacts.ngfactory":90,"./contacts.ngrouter":91,"./contacts_crud.ngcontroller":92,"./contacts_item.ngcontroller":93}],89:[function(require,module,exports){
+},{"./contacts.ngcontroller":92,"./contacts.ngfactory":93,"./contacts.ngrouter":94,"./contacts_crud.ngcontroller":95,"./contacts_item.ngcontroller":96}],92:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = contactsController;
@@ -3738,7 +3870,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],90:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = contactsFactory;
@@ -3834,7 +3966,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],91:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = contactsRouter;
@@ -3911,7 +4043,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],92:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = contactsCRUDController;
@@ -3937,7 +4069,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],93:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = contactsSingleItemController;
@@ -3970,7 +4102,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],94:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -3985,26 +4117,61 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./invoices.ngcontroller":95,"./invoices.ngfactory":96,"./invoices.ngrouter":97,"./invoices_create.ngcontroller":98,"./invoices_crud.ngcontroller":99,"./invoices_item.ngcontroller":100,"./payments.ngfactory":101}],95:[function(require,module,exports){
+},{"./invoices.ngcontroller":98,"./invoices.ngfactory":99,"./invoices.ngrouter":100,"./invoices_create.ngcontroller":101,"./invoices_crud.ngcontroller":102,"./invoices_item.ngcontroller":103,"./payments.ngfactory":104}],98:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = invoicesController;
 
-  function invoicesController($scope, $rootScope, $auth, invoicesFactory, $state) {
+  function invoicesController($scope, $rootScope, $auth, invoicesFactory, $state, infoFactory, $filter) {
 
     invoicesFactory.getInvoices().then(function(invoices) {
       $scope.invoices = invoices;
+      for(var i = 0; i < $scope.invoices.length; i++){
+          $scope.invoices[i].invoice_no = parseInt($scope.invoices[i].invoice_no);
+          $scope.invoices[i].date = new Date($scope.invoices[i].date);
+      }
     });
 
+    $scope.search = {
+        step: '',
+        contact: {
+            name: ''
+        }
+    };
 
+    $scope.statuses = [];
+    var statuses = infoFactory.statuses["Invoice"];
+    for(var status in statuses){
+        var s = statuses[status];
+        s.step = status;
+        $scope.statuses.push(s);
+    }
+
+    console.log($scope.statuses);
+
+    $scope.orderByKey = "invoice_no";
+    $scope.orderByReverse = true;
+
+    $scope.dateStart = null;
+    $scope.dateEnd = null;
+
+    $scope.filtered = function(){
+        var items = $scope.invoices;
+
+        if($scope.dateStart){
+            items = $filter('dateRange')(items, 'date', $scope.dateStart, $scope.dateEnd);
+        }
+
+        return items;
+    };
 
   }
 
-  invoicesController.$inject = ['$scope', '$rootScope', '$auth', 'invoicesFactory', '$state'];
+  invoicesController.$inject = ['$scope', '$rootScope', '$auth', 'invoicesFactory', '$state', 'infoFactory', '$filter'];
 
 })();
 
-},{}],96:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = invoicesFactory;
@@ -4150,7 +4317,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],97:[function(require,module,exports){
+},{}],100:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = invoicesRouter;
@@ -4169,10 +4336,10 @@ angular.module('CIRONS-MAIN-APP')
             templateUrl: 'components/sales/invoices/invoices_table.view.html',
             controller: 'invoicesController'
           }
-          ,
-          'invoicesList@invoices': {
-            templateUrl: 'components/sales/invoices/invoices_list.view.html',
-          }
+        //   ,
+        //   'invoicesList@invoices': {
+        //     templateUrl: 'components/sales/invoices/invoices_list.view.html',
+        //   }
         }
       })
 
@@ -4183,14 +4350,14 @@ angular.module('CIRONS-MAIN-APP')
         label: 'Create an Invoice'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/sales/invoices/invoices.view.html'
         },
-        'invoicesList': {
+        'invoicesList@invoices.create': {
           templateUrl: 'components/sales/invoices/invoices_list.view.html',
-
+          controller: 'invoicesController'
         },
-        'invoicesContent': {
+        'invoicesContent@invoices.create': {
           templateUrl: 'components/sales/invoices/invoices_create.view.html',
           controller: 'invoicesCreateController'
         }
@@ -4208,14 +4375,14 @@ angular.module('CIRONS-MAIN-APP')
         label: '{{id}}'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/sales/invoices/invoices.view.html'
         },
-        'invoicesList': {
+        'invoicesList@invoices.item': {
           templateUrl: 'components/sales/invoices/invoices_list.view.html',
-
+          controller: 'invoicesController'
         },
-        'invoicesContent': {
+        'invoicesContent@invoices.item': {
           templateUrl: 'components/sales/invoices/invoices_content.view.html',
           controller: 'invoicesSingleItemController'
         }
@@ -4233,7 +4400,7 @@ angular.module('CIRONS-MAIN-APP')
           label: 'General'
         },
         views: {
-            "tabContent": {
+            "tabContent@invoices.item": {
                 templateUrl: 'components/sales/invoices/tabs/general.view.html'
             }
         }
@@ -4250,7 +4417,7 @@ angular.module('CIRONS-MAIN-APP')
           label: 'Addresses'
         },
         views: {
-            "tabContent": {
+            "tabContent@invoices.item": {
                 templateUrl: 'components/sales/invoices/tabs/addresses.view.html'
             }
         }
@@ -4267,7 +4434,7 @@ angular.module('CIRONS-MAIN-APP')
           label: 'Profit'
         },
         views: {
-            "tabContent": {
+            "tabContent@invoices.item": {
                 templateUrl: 'components/sales/invoices/tabs/profit.view.html'
             }
         }
@@ -4284,7 +4451,7 @@ angular.module('CIRONS-MAIN-APP')
           label: 'Payments'
         },
         views: {
-            "tabContent": {
+            "tabContent@invoices.item": {
                 templateUrl: 'components/sales/invoices/tabs/payments.view.html'
             }
         }
@@ -4301,7 +4468,7 @@ angular.module('CIRONS-MAIN-APP')
           label: 'Accounting'
         },
         views: {
-            "tabContent": {
+            "tabContent@invoices.item": {
                 templateUrl: 'components/sales/invoices/tabs/accounting.view.html'
             }
         }
@@ -4313,7 +4480,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],98:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = invoicesCreateController;
@@ -4477,7 +4644,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],99:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = invoicesCRUDController;
@@ -4514,7 +4681,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],100:[function(require,module,exports){
+},{}],103:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = invoicesSingleItemController;
@@ -4750,7 +4917,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],101:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = paymentsFactory;
@@ -4835,7 +5002,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],102:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = orderRowsFactory;
@@ -4920,7 +5087,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],103:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -4935,7 +5102,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./order_rows.ngfactory":102,"./orders.ngcontroller":104,"./orders.ngfactory":105,"./orders.ngrouter":106,"./orders_create.ngcontroller":107,"./orders_crud.ngcontroller":108,"./orders_item.ngcontroller":109}],104:[function(require,module,exports){
+},{"./order_rows.ngfactory":105,"./orders.ngcontroller":107,"./orders.ngfactory":108,"./orders.ngrouter":109,"./orders_create.ngcontroller":110,"./orders_crud.ngcontroller":111,"./orders_item.ngcontroller":112}],107:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersController;
@@ -4954,7 +5121,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],105:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersFactory;
@@ -5096,7 +5263,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],106:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersRouter;
@@ -5225,7 +5392,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],107:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersCreateController;
@@ -5374,7 +5541,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],108:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersCRUDController;
@@ -5411,7 +5578,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],109:[function(require,module,exports){
+},{}],112:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = ordersSingleItemController;
@@ -5601,7 +5768,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],110:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -5614,7 +5781,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./products.ngcontroller":111,"./products.ngfactory":112,"./products.ngrouter":113,"./products_crud.ngcontroller":114,"./products_item.ngcontroller":115}],111:[function(require,module,exports){
+},{"./products.ngcontroller":114,"./products.ngfactory":115,"./products.ngrouter":116,"./products_crud.ngcontroller":117,"./products_item.ngcontroller":118}],114:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = productsController;
@@ -5633,7 +5800,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],112:[function(require,module,exports){
+},{}],115:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = productsFactory;
@@ -5739,7 +5906,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],113:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = productsRouter;
@@ -5816,7 +5983,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],114:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = productsCRUDController;
@@ -5859,7 +6026,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],115:[function(require,module,exports){
+},{}],118:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = productsSingleItemController;
@@ -5949,7 +6116,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],116:[function(require,module,exports){
+},{}],119:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -5960,7 +6127,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./sales.ngcontroller":117,"./sales.ngfactory":118,"./sales.ngrouter":119}],117:[function(require,module,exports){
+},{"./sales.ngcontroller":120,"./sales.ngfactory":121,"./sales.ngrouter":122}],120:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = salesController;
@@ -6012,7 +6179,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],118:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = salesFactory;
@@ -6029,7 +6196,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],119:[function(require,module,exports){
+},{}],122:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = salesRouter;
@@ -6050,7 +6217,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],120:[function(require,module,exports){
+},{}],123:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -6061,7 +6228,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./stock.ngcontroller":121,"./stock.ngfactory":122,"./stock.ngrouter":123}],121:[function(require,module,exports){
+},{"./stock.ngcontroller":124,"./stock.ngfactory":125,"./stock.ngrouter":126}],124:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockController;
@@ -6082,7 +6249,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],122:[function(require,module,exports){
+},{}],125:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockFactory;
@@ -6099,7 +6266,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],123:[function(require,module,exports){
+},{}],126:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockRouter;
@@ -6120,7 +6287,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],124:[function(require,module,exports){
+},{}],127:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stocksFactory;
@@ -6165,7 +6332,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],125:[function(require,module,exports){
+},{}],128:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -6179,7 +6346,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{"./stocks.ngfactory":124,"./warehouses.ngcontroller":126,"./warehouses.ngfactory":127,"./warehouses.ngrouter":128,"./warehouses_crud.ngcontroller":129,"./warehouses_item.ngcontroller":130}],126:[function(require,module,exports){
+},{"./stocks.ngfactory":127,"./warehouses.ngcontroller":129,"./warehouses.ngfactory":130,"./warehouses.ngrouter":131,"./warehouses_crud.ngcontroller":132,"./warehouses_item.ngcontroller":133}],129:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = warehousesController;
@@ -6198,7 +6365,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],127:[function(require,module,exports){
+},{}],130:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = warehousesFactory;
@@ -6294,7 +6461,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],128:[function(require,module,exports){
+},{}],131:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = warehousesRouter;
@@ -6371,7 +6538,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],129:[function(require,module,exports){
+},{}],132:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = warehousesCRUDController;
@@ -6414,7 +6581,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],130:[function(require,module,exports){
+},{}],133:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = warehousesSingleItemController;
@@ -6499,7 +6666,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],131:[function(require,module,exports){
+},{}],134:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -6509,7 +6676,7 @@ angular.module('CIRONS-MAIN-APP')
     .config(require('./system_admin.ngrouter'));
 })();
 
-},{"./system_admin.ngcontroller":132,"./system_admin.ngfactory":133,"./system_admin.ngrouter":134}],132:[function(require,module,exports){
+},{"./system_admin.ngcontroller":135,"./system_admin.ngfactory":136,"./system_admin.ngrouter":137}],135:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = systemAdminController;
@@ -6521,7 +6688,7 @@ angular.module('CIRONS-MAIN-APP')
   systemAdminController.$inject = ['$scope'];
 })();
 
-},{}],133:[function(require,module,exports){
+},{}],136:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = systemAdminFactory;
@@ -6538,7 +6705,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],134:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = stockRouter;
@@ -6559,7 +6726,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],135:[function(require,module,exports){
+},{}],138:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -6569,7 +6736,7 @@ angular.module('CIRONS-MAIN-APP')
     .config(require('./user_settings.ngrouter'));
 })();
 
-},{"./user_settings.ngcontroller":136,"./user_settings.ngfactory":137,"./user_settings.ngrouter":138}],136:[function(require,module,exports){
+},{"./user_settings.ngcontroller":139,"./user_settings.ngfactory":140,"./user_settings.ngrouter":141}],139:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsController;
@@ -6587,7 +6754,7 @@ angular.module('CIRONS-MAIN-APP')
   userSettingsController.$inject = ['$scope', 'userSettingsFactory', 'meFactory'];
 })();
 
-},{}],137:[function(require,module,exports){
+},{}],140:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsFactory;
@@ -6614,7 +6781,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],138:[function(require,module,exports){
+},{}],141:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsRouter;
@@ -6632,7 +6799,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],139:[function(require,module,exports){
+},{}],142:[function(require,module,exports){
 (function () {
   'use strict';
   require('./app')
@@ -6640,7 +6807,7 @@ angular.module('CIRONS-MAIN-APP')
   .config(require('./app.ngconfig'));
 })();
 
-},{"./app":1,"./app.ngconfig":2,"./app.ngrun":3}],140:[function(require,module,exports){
+},{"./app":1,"./app.ngconfig":2,"./app.ngrun":3}],143:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = settingsFactory;

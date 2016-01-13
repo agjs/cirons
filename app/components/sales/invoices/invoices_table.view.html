@@ -1,8 +1,55 @@
-<table class="ui table celled">
+<div class="object-tabe-heading">
+
+    <div class="ui grid stackable">
+        <div class="column eight wide">
+            <h2>Invoices</h2>
+        </div>
+        <div class="column eight wide">
+            <div class="ui action input pull-right left icon">
+                <i class="icon search"></i>
+
+                <input type="text" placeholder="Search Invoices..." ng-model="search.contact.name">
+
+                <div class="ui floating dropdown labeled icon button" sui-dropdown>
+                    <i class="filter icon"></i>
+                    <span class="text">Filter Invoices</span>
+                    <div class="menu">
+                        <div class="item" ng-click="search = {}">
+                            <div class="ui empty circular black label"></div>
+                            Show All
+                        </div>
+                        <div class="header">
+                          <i class="tags icon"></i>
+                          Invoice Status
+                        </div>
+                        <div class="scrolling menu">
+                            <div class="item" ng-repeat="status in statuses" ng-click="search.step = status.step">
+                                <div ng-class="status.color" class="ui empty circular label"></div>
+                                {{status.label}}
+                            </div>
+                        </div>
+                        <div class="header">
+                          <i class="tags icon"></i>
+                          Invoice Status
+                        </div>
+                        <div class="scrolling menu">
+                            <div class="item" ng-click="search.step = status.step">
+                                Unpaid
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<table class="ui table celled object-table">
     <thead>
 		<tr>
 			<th width="1"></th>
-			<th>ID #</th>
+			<th>NO #</th>
 			<th>Customer</th>
 			<th>Status</th>
 			<th>Order Status</th>
@@ -12,16 +59,30 @@
 		</tr>
 	</thead>
     <tbody>
-        <tr ng-repeat="invoice in invoices" ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
+        <tr ng-repeat="invoice in filtered() | filter: search | orderBy: orderByKey : orderByReverse" ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
 			<td>
                 <input type="checkbox">
             </td>
-			<td>{{invoice.invoice_no}}</td>
+			<td>
+                <span ng-if="invoice.invoice_no">{{invoice.invoice_no}}</span>
+                <a ng-if="!invoice.invoice_no" class="ui tag label">Draft</a>
+            </td>
 			<td>{{invoice.contact.name}}</td>
-			<td>{{invoice.step}}</td>
-			<td>{{ (invoice.order ? invoice.order.step : '') }}</td>
+			<td>
+                <cirons-status-badge
+                    model="Invoice"
+                    step="{{invoice.step}}"
+                ></cirons-status-badge>
+            </td>
+			<td>
+                <cirons-status-badge
+                    ng-if="invoice.order"
+                    model="Order"
+                    step="{{invoice.order.step}}"
+                ></cirons-status-badge>
+            </td>
 			<td class="right">{{invoice.grand_total}} {{invoice.currency}}</td>
-			<td>{{invoice.date}}</td>
+			<td>{{invoice.date | date: 'yyyy-MM-dd'}}</td>
 			<td>
             </td>
 		</tr>

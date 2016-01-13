@@ -4,7 +4,7 @@
 
   function ng_enter() {
     return {
-      restrict: 'EA',
+      restrict: 'A',
       link: function (scope, elements, attrs) {
               elements.bind('keydown keypress', function (event) {
                   if (event.which === 13) {
