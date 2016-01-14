@@ -2,7 +2,7 @@
   'use strict';
   module.exports = supplierInvoicesCRUDController;
 
-  function supplierInvoicesCRUDController($scope, $stateParams, supplierInvoicesFactory, lodash, suppliersFactory, $state) {
+  function supplierInvoicesCRUDController($scope, $stateParams, supplierInvoicesFactory, lodash, suppliersFactory, $state, settingsFactory) {
 
     $scope.supplierInvoice = {
         supplier: null,
@@ -23,6 +23,16 @@
             $scope.changeSupplier = true;
         }
     };
+
+    $scope.settings = settingsFactory.getSettings();
+    if(!$scope.settings.length){
+        settingsFactory.initSettings().then(function(data){
+            $scope.settings = data;
+        });
+    } else {
+
+    }
+
     $scope.checkSupplier();
     $scope.suppliers = [];
     $scope.getSuppliers = function(){
@@ -57,6 +67,6 @@
 
   }
 
-  supplierInvoicesCRUDController.$inject = ['$scope', '$stateParams', 'supplierInvoicesFactory', 'lodash', 'suppliersFactory', '$state'];
+  supplierInvoicesCRUDController.$inject = ['$scope', '$stateParams', 'supplierInvoicesFactory', 'lodash', 'suppliersFactory', '$state', 'settingsFactory'];
 
 })();
