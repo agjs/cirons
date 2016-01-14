@@ -1,0 +1,87 @@
+<div class="object-tabe-heading">
+
+    <div class="ui grid stackable">
+        <div class="column eight wide">
+            <h2>Order</h2>
+        </div>
+        <div class="column eight wide">
+            <div class="ui action input pull-right left icon">
+                <i class="icon search"></i>
+
+                <input type="text" placeholder="Search Invoices..." ng-model="search.contact.name">
+
+                <div class="ui floating dropdown labeled icon button" sui-dropdown>
+                    <i class="filter icon"></i>
+                    <span class="text">Filter Orders</span>
+                    <div class="menu">
+                        <div class="item" ng-click="search = {}">
+                            <div class="ui empty circular black label"></div>
+                            Show All
+                        </div>
+                        <div class="header">
+                          <i class="tags icon"></i>
+                          Order Status
+                        </div>
+                        <div class="scrolling menu">
+                            <div class="item" ng-repeat="status in statuses" ng-click="search.step = status.step">
+                                <div ng-class="status.color" class="ui empty circular label"></div>
+                                {{status.label}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<table class="ui table celled object-table">
+    <thead>
+		<tr>
+			<th width="1"></th>
+			<th>NO #</th>
+			<th>Customer</th>
+			<th>Order Status</th>
+			<th class="right">Order Sum</th>
+			<th>Order Date</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+    <tbody>
+        <tr ng-repeat="order in filtered() | filter: search | orderBy: orderByKey : orderByReverse">
+            <td>
+                <input type="checkbox">
+            </td>
+            <td ui-sref="orders.item.general({id: order.id, order: order})">
+                {{order.id}}
+            </td>
+            <td ui-sref="orders.item.general({id: order.id, order: order})">
+                {{order.contact.name}}
+            </td>
+            <td ui-sref="orders.item.general({id: order.id, order: order})">
+                <cirons-status-badge
+                    model="Order"
+                    step="{{order.step}}"
+                ></cirons-status-badge>
+            </td>
+            <td class="right" ui-sref="orders.item.general({id: order.id, order: order})">
+                {{order.grand_total}} {{order.currency}}
+            </td>
+            <td ui-sref="orders.item.general({id: order.id, order: order})">
+                {{order.date | date: 'yyyy-MM-dd'}}
+            </td>
+            <td>
+                <div sui-dropdown sui-action="nothing" class="ui mini labeled icon top right pointing dropdown teal button">
+                    <i class="icon download cloud"></i>
+                    <span class="text">Download</span>
+                    <div class="menu">
+                        <a href="/orders/{{order.id}}/pdf" class="item"><i class="icon blue file outline pdf"></i> Order Note</a>
+                        <a href="/orders/{{order.id}}/packing_list" class="item"><i class="icon brown file outline pdf"></i> Packing List</a>
+                        <a ng-repeat="invoice in order.invoices" ng-show="invoice.step !== 'draft'" href="/invoices/pdf/{{invoice.id}}" class="item"><i class="icon teal file outline pdf"></i> Invoice #{{invoice.invoice_no}}</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

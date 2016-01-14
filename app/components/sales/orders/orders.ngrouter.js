@@ -13,13 +13,14 @@
         },
         views: {
           '': {
-            templateUrl: 'components/sales/orders/orders.view.html',
+            templateUrl: 'components/sales/orders/orders_table.view.html',
             controller: 'ordersController'
 
-          },
-          'ordersList@orders': {
-            templateUrl: 'components/sales/orders/orders_list.view.html',
           }
+        //   ,
+        //   'ordersList@orders.item': {
+        //     templateUrl: 'components/sales/orders/orders_list.view.html',
+        //   }
         }
       })
 
@@ -30,14 +31,14 @@
         label: 'Create an Order'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/sales/orders/orders.view.html'
         },
-        'ordersList@orders': {
+        'ordersList@orders.create': {
           templateUrl: 'components/sales/orders/orders_list.view.html',
-
+          controller: 'ordersController'
         },
-        'ordersContent@orders': {
+        'ordersContent@orders.create': {
           templateUrl: 'components/sales/orders/orders_create.view.html',
           controller: 'ordersCreateController'
         }
@@ -55,14 +56,14 @@
         label: '{{id}}'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/sales/orders/orders.view.html'
         },
-        'ordersList@orders': {
+        'ordersList@orders.item': {
           templateUrl: 'components/sales/orders/orders_list.view.html',
-
+          controller: 'ordersController'
         },
-        'ordersContent@orders': {
+        'ordersContent@orders.item': {
           templateUrl: 'components/sales/orders/orders_content.view.html',
           controller: 'ordersSingleItemController'
         }

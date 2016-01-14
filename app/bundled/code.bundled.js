@@ -4147,8 +4147,6 @@ angular.module('CIRONS-MAIN-APP')
         $scope.statuses.push(s);
     }
 
-    console.log($scope.statuses);
-
     $scope.orderByKey = "invoice_no";
     $scope.orderByReverse = true;
 
@@ -5107,17 +5105,50 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = ordersController;
 
-  function ordersController($scope, $rootScope, $auth, ordersFactory, $state) {
+  function ordersController($scope, $rootScope, $auth, ordersFactory, $state, infoFactory, $filter) {
 
     ordersFactory.getOrders().then(function(orders) {
       $scope.orders = orders;
+      for(var i = 0; i < $scope.orders.length; i++){
+          $scope.orders[i].id = parseInt($scope.orders[i].id);
+          $scope.orders[i].date = new Date($scope.orders[i].date);
+      }
     });
 
+    $scope.search = {
+        step: '',
+        contact: {
+            name: ''
+        }
+    };
 
+    $scope.statuses = [];
+    var statuses = infoFactory.statuses["Order"];
+    for(var status in statuses){
+        var s = statuses[status];
+        s.step = status;
+        $scope.statuses.push(s);
+    }
+
+    $scope.orderByKey = "id";
+    $scope.orderByReverse = true;
+
+    $scope.dateStart = null;
+    $scope.dateEnd = null;
+
+    $scope.filtered = function(){
+        var items = $scope.orders;
+
+        if($scope.dateStart){
+            items = $filter('dateRange')(items, 'date', $scope.dateStart, $scope.dateEnd);
+        }
+
+        return items;
+    };
 
   }
 
-  ordersController.$inject = ['$scope', '$rootScope', '$auth', 'ordersFactory', '$state'];
+  ordersController.$inject = ['$scope', '$rootScope', '$auth', 'ordersFactory', '$state', 'infoFactory', '$filter'];
 
 })();
 
@@ -5279,13 +5310,14 @@ angular.module('CIRONS-MAIN-APP')
         },
         views: {
           '': {
-            templateUrl: 'components/sales/orders/orders.view.html',
+            templateUrl: 'components/sales/orders/orders_table.view.html',
             controller: 'ordersController'
 
-          },
-          'ordersList@orders': {
-            templateUrl: 'components/sales/orders/orders_list.view.html',
           }
+        //   ,
+        //   'ordersList@orders.item': {
+        //     templateUrl: 'components/sales/orders/orders_list.view.html',
+        //   }
         }
       })
 
@@ -5296,14 +5328,14 @@ angular.module('CIRONS-MAIN-APP')
         label: 'Create an Order'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/sales/orders/orders.view.html'
         },
-        'ordersList@orders': {
+        'ordersList@orders.create': {
           templateUrl: 'components/sales/orders/orders_list.view.html',
-
+          controller: 'ordersController'
         },
-        'ordersContent@orders': {
+        'ordersContent@orders.create': {
           templateUrl: 'components/sales/orders/orders_create.view.html',
           controller: 'ordersCreateController'
         }
@@ -5321,14 +5353,14 @@ angular.module('CIRONS-MAIN-APP')
         label: '{{id}}'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/sales/orders/orders.view.html'
         },
-        'ordersList@orders': {
+        'ordersList@orders.item': {
           templateUrl: 'components/sales/orders/orders_list.view.html',
-
+          controller: 'ordersController'
         },
-        'ordersContent@orders': {
+        'ordersContent@orders.item': {
           templateUrl: 'components/sales/orders/orders_content.view.html',
           controller: 'ordersSingleItemController'
         }
