@@ -27,8 +27,6 @@
         $scope.statuses.push(s);
     }
 
-    console.log($scope.statuses);
-
     $scope.orderByKey = "invoice_no";
     $scope.orderByReverse = true;
 

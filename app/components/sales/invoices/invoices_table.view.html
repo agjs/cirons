@@ -33,7 +33,7 @@
                           Invoice Status
                         </div>
                         <div class="scrolling menu">
-                            <div class="item" ng-click="search.step = status.step">
+                            <div class="item" ng-click="search.step = '!paid'">
                                 Unpaid
                             </div>
                         </div>
@@ -59,31 +59,41 @@
 		</tr>
 	</thead>
     <tbody>
-        <tr ng-repeat="invoice in filtered() | filter: search | orderBy: orderByKey : orderByReverse" ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
+        <tr ng-repeat="invoice in filtered() | filter: search | orderBy: orderByKey : orderByReverse">
 			<td>
                 <input type="checkbox">
             </td>
-			<td>
+			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
                 <span ng-if="invoice.invoice_no">{{invoice.invoice_no}}</span>
                 <a ng-if="!invoice.invoice_no" class="ui tag label">Draft</a>
             </td>
-			<td>{{invoice.contact.name}}</td>
-			<td>
+			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">{{invoice.contact.name}}</td>
+			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
                 <cirons-status-badge
                     model="Invoice"
                     step="{{invoice.step}}"
                 ></cirons-status-badge>
             </td>
-			<td>
+			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
                 <cirons-status-badge
                     ng-if="invoice.order"
                     model="Order"
                     step="{{invoice.order.step}}"
                 ></cirons-status-badge>
             </td>
-			<td class="right">{{invoice.grand_total}} {{invoice.currency}}</td>
-			<td>{{invoice.date | date: 'yyyy-MM-dd'}}</td>
+			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})" class="right">{{invoice.grand_total}} {{invoice.currency}}</td>
+			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">{{invoice.date | date: 'yyyy-MM-dd'}}</td>
 			<td>
+                <div sui-dropdown sui-action="nothing" class="ui labeled icon top right mini pointing dropdown teal button">
+                    <i class="icon download cloud"></i>
+                    <span class="text">Download</span>
+                    <div class="menu">
+                        <a ng-show="invoice.step !== 'draft'" href="/invoices/pdf/{{invoice.id}}" class="item"><i class="icon teal file outline pdf"></i> Invoice PDF</a>
+                        <a href="/orders/{{invoice.order.id}}/pdf" ng-if="invoice.order" class="item"><i class="icon blue file outline pdf"></i> Order Note</a>
+                        <a href="/orders/{{invoice.order.id}}/packing_list" ng-if="invoice.order" class="item"><i class="icon brown file outline pdf"></i> Packing List</a>
+                    </div>
+                </div>
+
             </td>
 		</tr>
     </tbody>

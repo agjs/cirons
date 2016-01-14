@@ -2803,7 +2803,7 @@ table.info-table {
     transition: all 300ms ease; }
     .ui.table.celled.object-table tbody tr td span.ui.label {
       background-color: transparent !important; }
-  .ui.table.celled.object-table tbody tr[ui-sref] {
+  .ui.table.celled.object-table tbody tr {
     cursor: pointer; }
   .ui.table.celled.object-table tbody tr:hover {
     background: rgba(0, 0, 0, 0.1); }

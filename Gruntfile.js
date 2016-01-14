@@ -100,7 +100,8 @@ module.exports = function(grunt) {
         options: {
           transform: function(filePath) {
             filePath = filePath.replace('/dist/', '');
-            return '<script src="' + filePath + '"></script>';
+            var ts = new Date().getTime();
+            return '<script src="' + filePath + '?'+ts+'"></script>';
           },
           starttag: '<!-- injector:js -->',
           endtag: '<!-- endinjector -->'
