@@ -1,0 +1,30 @@
+<div class="cirons-comments" ng-class="{'active': active}">
+
+    <div class="toggler" ng-click="open()">
+        <span class="ui circular label">{{comments.length}}</span>
+        <i class="icon comments"></i>
+    </div>
+
+    <div class="content">
+
+        <div ng-repeat="comment in comments" class="talk-bubble tri-right btm-left">
+          <div class="talktext">
+            <p>{{comment.text}}</p>
+          </div>
+          <div class="user">
+              <p>
+                  {{comment.user.full_name}}
+              </p>
+          </div>
+        </div>
+
+    </div>
+
+    <form ng-submit="postComment()" class="comment-compose">
+        <div class="holder">
+            <input type="text" ng-model="comment_text" placeholder="Write comment...">
+            <button type="submit" class="ui button fluid">Comment</button>
+        </div>
+    </form>
+
+</div>

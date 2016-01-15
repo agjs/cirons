@@ -38,11 +38,11 @@
                 <span>$ Sold</span>
                 <strong>{{product.sold | currency:"SEK ":2}}</strong>
               </td>
-              <td class="arrow">
-                <i class="angle double down icon" ng-click="activeButton()"></i>
+              <td class="arrow" ng-click="product.toggled = !product.toggled">
+                <i class="angle double down icon"></i>
               </td>
             </tr>
-            <tr data-toggle="{{$index + 1}}" ng-class="{'active': isActive}" ng-repeat-end>
+            <tr data-toggle="{{$index + 1}}" ng-hide="!product.toggled" ng-repeat-end>
               <td colspan="5">
                 <table>
                   <tbody>
@@ -103,11 +103,11 @@
                 <span>$ Invoiced</span>
                 <strong>{{ contact.invoiced | currency:"SEK ":2 }}</strong>
               </td>
-              <td class="arrow">
+              <td class="arrow" ng-click="contact.toggled = !contact.toggled">
                 <i class="angle double down icon"></i>
               </td>
             </tr>
-            <tr data-toggle="1" ng-repeat-end>
+            <tr data-toggle="1" ng-hide="!contact.toggled" ng-repeat-end>
               <td colspan="4">
                 <table>
                   <tbody>
@@ -163,11 +163,11 @@
                 <span>$ Billed</span>
                 <strong>{{ supplier.total | currency:"SEK ":2 }}</strong>
               </td>
-              <td class="arrow">
+              <td class="arrow" ng-click="supplier.toggled = !supplier.toggled">
                 <i class="angle double down icon"></i>
               </td>
             </tr>
-            <tr data-toggle="1" ng-repeat-end>
+            <tr data-toggle="1" ng-hide="!supplier.toggled" ng-repeat-end>
               <td colspan="4">
                 <table>
                   <tbody>
@@ -213,14 +213,6 @@
                 </tr>
               </thead>
               <tbody id="list">
-
-                <tr ng-repeat="stock in productStockItems">
-                  <td>{{stock.product.name}}</td>
-                  <td>{{stock.quantity}}</td>
-                  <td>{{stock.exp_date || "Not enough info"}}</td>
-                  <td>{{stock.product.out_of_stock_date}}</td>
-                  <td>{{stock.warehouse.name}}</td>
-                </tr>
 
                   <tr ng-repeat="stock in productStockItems">
                     <td>{{stock.product.name}}</td>

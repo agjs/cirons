@@ -11,19 +11,24 @@
 
       </div>
 
-      <h1>Create new:
-        {{company_name}}</h1>
-
-      <div class="field">
-        <label>Company Name</label>
-        <input ng-model="company_name" type="text">
+      <div>
+          <h4 class="ui dividing header">General Information</h4>
+          <div class="inline field">
+            <label>Company Name</label>
+            <input type="text" ng-model="supplier.company_name">
+          </div>
+          <div class="inline field">
+            <label>VAT-number</label>
+            <input type="text" ng-model="supplier.vat_no">
+          </div>
+          <div class="seperator"></div>
+          <h4 class="ui dividing header">Company Address</h4>
+          <div class="field">
+              <cirons-address-selector
+                  address="supplier.address"
+              ></cirons-address-selector>
+          </div>
       </div>
-
-      <div class="field">
-        <label>Company Address</label>
-        <input ng-model="company_address" type="text">
-      </div>
-
 
     </form>
 

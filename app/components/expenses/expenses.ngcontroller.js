@@ -4,8 +4,8 @@
 
   function expensesController($scope, suppliersFactory, receiptsFactory, $state, supplierInvoicesFactory) {
 
-    suppliersFactory.countSuppliers().then(function(suppliers) {
-      $scope.suppliersCount = suppliers;
+    suppliersFactory.getSuppliers().then(function(suppliers) {
+      $scope.suppliersCount = suppliers.length;
     });
 
     receiptsFactory.countReceipts().then(function(receipts) {

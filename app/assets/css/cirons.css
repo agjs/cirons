@@ -2266,7 +2266,6 @@ body.dashboard .dashboard-content {
   background-color: #8db8d6; }
 
 .widget-table tr[data-toggle] {
-  display: none;
   padding: 0; }
 
 .widget-table tr[data-toggle].active {
@@ -2812,6 +2811,328 @@ table.info-table {
   padding: 20px;
   background: white;
   border-bottom: 1px solid #ccc; }
+
+.cirons-comments {
+  height: 100%;
+  position: absolute;
+  right: -250px;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background: white;
+  transition: all 300ms ease;
+  z-index: 1000; }
+  .cirons-comments .toggler {
+    position: absolute;
+    top: 220px;
+    transition: all 300ms ease;
+    left: -45px;
+    width: 50px;
+    cursor: pointer;
+    height: 50px;
+    background: #3681B1;
+    color: white;
+    font-size: 26px;
+    line-height: 43px;
+    text-align: center;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    -ms-border-radius: 50% !important;
+    border-radius: 50% !important;
+    border: 3px solid white;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.2);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.2);
+    box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.2); }
+    .cirons-comments .toggler span.label {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      -webkit-border-radius: 50% !important;
+      -moz-border-radius: 50% !important;
+      -ms-border-radius: 50% !important;
+      border-radius: 50% !important; }
+  .cirons-comments .content {
+    width: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 20px 20px 60px 20px; }
+    .cirons-comments .content .talk-bubble {
+      margin: 0 0 40px 0;
+      width: 100%;
+      -webkit-border-radius: 5px !important;
+      -moz-border-radius: 5px !important;
+      -ms-border-radius: 5px !important;
+      border-radius: 5px !important; }
+      .cirons-comments .content .talk-bubble .user {
+        position: absolute;
+        bottom: -20px;
+        left: 20px;
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.8); }
+    .cirons-comments .content .this-user:after {
+      border-color: #DBDBDB #DBDBDB transparent transparent; }
+    .cirons-comments .content .this-user {
+      background-color: #DBDBDB; }
+      .cirons-comments .content .this-user .user {
+        left: auto;
+        right: 20px; }
+  .cirons-comments .comment-compose {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%; }
+    .cirons-comments .comment-compose .holder {
+      padding: 10px; }
+      .cirons-comments .comment-compose .holder input {
+        font-size: 14px;
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: none;
+        outline: none;
+        transition: all 300ms ease; }
+      .cirons-comments .comment-compose .holder input:focus {
+        border: 1px solid #509aca; }
+
+.cirons-comments.active {
+  right: 0;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.2);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.2);
+  box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.2); }
+  .cirons-comments.active .toggler {
+    left: -35px; }
+
+/* CSS talk bubble */
+.talk-bubble {
+  margin: 40px;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: auto;
+  background-color: #c6deed; }
+
+/* Right triangle placed top left flush. */
+.tri-right.border.left-top:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -40px;
+  right: auto;
+  top: -8px;
+  bottom: auto;
+  border: 32px solid;
+  border-color: #666 transparent transparent transparent; }
+
+.tri-right.left-top:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -20px;
+  right: auto;
+  top: 0px;
+  bottom: auto;
+  border: 22px solid;
+  border-color: #c6deed transparent transparent transparent; }
+
+/* Right triangle, left side slightly down */
+.tri-right.border.left-in:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -40px;
+  right: auto;
+  top: 30px;
+  bottom: auto;
+  border: 20px solid;
+  border-color: #666 #666 transparent transparent; }
+
+.tri-right.left-in:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -20px;
+  right: auto;
+  top: 38px;
+  bottom: auto;
+  border: 12px solid;
+  border-color: #c6deed #c6deed transparent transparent; }
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -8px;
+  right: auto;
+  top: auto;
+  bottom: -40px;
+  border: 32px solid;
+  border-color: transparent transparent transparent #666; }
+
+.tri-right.btm-left:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0px;
+  right: auto;
+  top: auto;
+  bottom: -20px;
+  border: 22px solid;
+  border-color: transparent transparent transparent #c6deed; }
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left-in:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 30px;
+  right: auto;
+  top: auto;
+  bottom: -40px;
+  border: 20px solid;
+  border-color: #666 transparent transparent #666; }
+
+.tri-right.btm-left-in:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 38px;
+  right: auto;
+  top: auto;
+  bottom: -20px;
+  border: 12px solid;
+  border-color: #c6deed transparent transparent #c6deed; }
+
+/*Right triangle, placed bottom right side slightly in*/
+.tri-right.border.btm-right-in:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: 30px;
+  bottom: -40px;
+  border: 20px solid;
+  border-color: #666 #666 transparent transparent; }
+
+.tri-right.btm-right-in:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: 38px;
+  bottom: -20px;
+  border: 12px solid;
+  border-color: #c6deed #c6deed transparent transparent; }
+
+/*
+	left: -8px;
+  right: auto;
+  top: auto;
+	bottom: -40px;
+	border: 32px solid;
+	border-color: transparent transparent transparent #666;
+	left: 0px;
+  right: auto;
+  top: auto;
+	bottom: -20px;
+	border: 22px solid;
+	border-color: transparent transparent transparent $bubble_color;
+
+/*Right triangle, placed bottom right side slightly in*/
+.tri-right.border.btm-right:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -8px;
+  bottom: -40px;
+  border: 20px solid;
+  border-color: #666 #666 transparent transparent; }
+
+.tri-right.btm-right:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: 0px;
+  bottom: -20px;
+  border: 12px solid;
+  border-color: #c6deed #c6deed transparent transparent; }
+
+/* Right triangle, right side slightly down*/
+.tri-right.border.right-in:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -40px;
+  top: 30px;
+  bottom: auto;
+  border: 20px solid;
+  border-color: #666 transparent transparent #666; }
+
+.tri-right.right-in:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -20px;
+  top: 38px;
+  bottom: auto;
+  border: 12px solid;
+  border-color: #c6deed transparent transparent #c6deed; }
+
+/* Right triangle placed top right flush. */
+.tri-right.border.right-top:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -40px;
+  top: -8px;
+  bottom: auto;
+  border: 32px solid;
+  border-color: #666 transparent transparent transparent; }
+
+.tri-right.right-top:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -20px;
+  top: 0px;
+  bottom: auto;
+  border: 20px solid;
+  border-color: #c6deed transparent transparent transparent; }
+
+/* talk bubble contents */
+.talktext {
+  padding: 1em;
+  text-align: left;
+  line-height: 1.5em; }
+
+.talktext p {
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em; }
 
 .timeline {
   position: relative;

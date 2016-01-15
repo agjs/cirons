@@ -56,6 +56,7 @@
 
     .state('suppliers.item', {
       url: "/:id",
+      abstract: true,
       params: {
         supplier: undefined
       },
@@ -76,6 +77,40 @@
           controller: 'suppliersSingleItemController'
         }
       }
+    })
+
+    .state("suppliers.item.general", {
+        url: "/general",
+        parent: 'suppliers.item',
+        params: {
+          supplier: undefined
+        },
+        ncyBreadcrumb: {
+          parent: 'suppliers.item',
+          label: 'General'
+        },
+        views: {
+            "tabContent@suppliers.item": {
+                templateUrl: 'components/expenses/suppliers/tabs/general.view.html'
+            }
+        }
+    })
+
+    .state("suppliers.item.address", {
+        url: "/address",
+        parent: 'suppliers.item',
+        params: {
+          supplier: undefined
+        },
+        ncyBreadcrumb: {
+          parent: 'suppliers.item',
+          label: 'Address'
+        },
+        views: {
+            "tabContent@suppliers.item": {
+                templateUrl: 'components/expenses/suppliers/tabs/address.view.html'
+            }
+        }
     });
 
   }

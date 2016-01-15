@@ -1105,7 +1105,6 @@ $widget_table_height: 40px;
   background-color: #8db8d6;
 }
 .widget-table tr[data-toggle] {
-  display: none;
   padding: 0;
 }
 .widget-table tr[data-toggle].active {
@@ -1749,11 +1748,11 @@ table.info-table {
     border-bottom: 1px solid #ccc;
 }
 
+@import "_comments";
 @import "_timeline";
 @import "_wizard";
 @import "_orderrows";
 @import "_dashboard";
-@import "_comments";
 @import "_split_table";
 @import "_common";
 @import "_responsive";

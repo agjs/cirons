@@ -1,6 +1,6 @@
 <div class="open-view">
 
-  <div class="open-view-content" ng-controller="suppliersCRUDController">
+  <div class="open-view-content">
 
     <div class="toolbar">
 
@@ -11,7 +11,7 @@
 
     </div>
 
-    <h1 blur="submit" editable-text="supplier.company_name" onaftersave="editSupplier(supplier.company_name)">
+    <h1 blur="submit" editable-text="supplier.company_name" onaftersave="editName(supplier.company_name)">
       {{supplier.company_name}}</h1>
 
     <!-- <div class="field">
@@ -21,21 +21,21 @@
 
     <div class="stats">
 
-      <button class="ui labeled icon button" id="btn_bought" ng-show="supplier.bought_for != 0">
+      <button class="ui labeled icon button" ng-show="supplier.bought_for != 0">
         <i class="money icon"></i>
 
-        <div>{{ supplier.bought_for }}</div>
+        <div>{{ supplier.bought_for | number: 2 }}</div>
         <div>Bought for</div>
       </button>
 
-      <button class="ui labeled icon button" id="btn_si" ng-show="supplier.supplier_invoices.length">
+      <button class="ui labeled icon button" ng-show="supplier.supplier_invoices.length">
         <i class="file outline pdf icon"></i>
 
         <div>{{ supplier.supplier_invoices.length }}</div>
         <div>Supplier Invoices</div>
       </button>
 
-      <button class="ui labeled icon button" id="btn_rec" ng-show="supplier.receipts.length">
+      <button class="ui labeled icon button" ng-show="supplier.receipts.length">
         <i class="file text outline icon"></i>
 
         <div>{{ supplier.receipts.length }}</div>
@@ -96,5 +96,26 @@
       </table>
     </div>
 
+    <div class="seperator"></div>
+
+    <div class="pane-tabs clearfix">
+        <nav>
+          <ul>
+            <li>
+              <a ng-class="currentState === 'suppliers.item.general' ? 'active' : ''" ui-sref="suppliers.item.general({id: supplier.id, supplier: supplier})">
+                <span>General</span>
+              </a>
+            </li>
+            <li>
+              <a ng-class="currentState === 'suppliers.item.address' ? 'active' : ''" ui-sref="suppliers.item.address({id: supplier.id, supplier: supplier})">
+                <span>Address</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+    </div>
+  <div ui-view="tabContent"></div>
+
   </div>
+
 </div>

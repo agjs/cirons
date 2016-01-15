@@ -17,17 +17,6 @@
         });
       },
 
-        countSuppliers: function() {
-        return $http.get('http://janalex.beta.cirons.com/api/v1/suppliers?count').then(function(suppliers) {
-          if (suppliers) {
-            return suppliers.data;
-          } else {
-            throw new Error('Something went wrong');
-          }
-
-        });
-      },
-
       getSupplier: function(id) {
         return $http.get('http://janalex.beta.cirons.com/api/v1/suppliers' + '/' + id).then(function(item) {
           if (item) {
@@ -39,13 +28,11 @@
         });
       },
 
-      addSupplier: function(supplier) {
+      addSupplier: function(data) {
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/suppliers',
           method: 'POST',
-          data: {
-            company_name: supplier
-          }
+          data: data
         }).then(function(item) {
           if (item) {
             return item.data;
@@ -72,13 +59,11 @@
 
       },
 
-      editSupplier: function(id, companyName) {
+      editSupplier: function(id, data) {
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/suppliers/' + id,
           method: 'PUT',
-          data: {
-            company_name: companyName
-          }
+          data: data
         }).then(function(item) {
           if (item) {
             return item.data;

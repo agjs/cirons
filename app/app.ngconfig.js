@@ -5,6 +5,7 @@
 
   function ngConfig($httpProvider, $urlRouterProvider, $locationProvider, $authProvider, $breadcrumbProvider, cfpLoadingBarProvider) {
 
+    cfpLoadingBarProvider.includeSpinner = false;
 
     $httpProvider.interceptors.push('authenticationInterceptor');
 

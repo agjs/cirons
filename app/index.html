@@ -27,6 +27,8 @@ currentState == 'dashboard.expenses' ? 'dashboard' : ''
 ||
 currentState == 'suppliers'                 ||
 currentState == 'suppliers.item'            ||
+currentState == 'suppliers.item.general'            ||
+currentState == 'suppliers.item.address'            ||
 currentState == 'orders' ||
 currentState == 'orders.item' ||
 currentState == 'orders.item.general' ||
@@ -77,6 +79,7 @@ isAuthenticated() ? '' : 'overwriteBg'" data-state="{{currentState}}" ng-control
           <ui-view></ui-view>
         </div>
       </div>
+      <cirons-comments></cirons-comments>
       <ng-include ng-show="isAuthenticated()" src="'components/common/right-sidebar/right-sidebar.html'"></ng-include>
     </section>
   </div>
