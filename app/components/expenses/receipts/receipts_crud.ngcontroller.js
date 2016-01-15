@@ -2,34 +2,59 @@
   'use strict';
   module.exports = receiptsCRUDController;
 
-  function receiptsCRUDController($scope, $stateParams, receiptsFactory, lodash) {
+  function receiptsCRUDController($scope, $stateParams, receiptsFactory, lodash, suppliersFactory, $state, settingsFactory) {
 
-    $scope.addReciept = function() {
-      receiptsFactory.addReciept($scope.company_name).then(function(added) {
-        $scope.expenses.push(added);
-      });
+    $scope.receipt = {
+        supplier: null,
+        date: new Date(),
+        attachments: []
     };
 
-    $scope.removeReciept = function() {
-      receiptsFactory.removeReciept($stateParams.id);
-    };
-
-    $scope.editReciept = function(companyName) {
-      receiptsFactory.editReciept($stateParams.id, companyName).then(function(edited) {
-
-        var findItem = lodash.find($scope.expenses, function(arg) {
-          return arg.id === $stateParams.id;
-        });
-
-        if (findItem) {
-          findItem.company_name = edited.company_name;
+    $scope.changeSupplier = false;
+    $scope.checkSupplier = function(){
+        if(!$scope.receipt){
+            return;
         }
+        if($scope.receipt.supplier){
+            $scope.changeSupplier = false;
+        } else {
+            $scope.changeSupplier = true;
+        }
+    };
 
+    $scope.settings = settingsFactory.getSettings();
+    if(!$scope.settings.length){
+        settingsFactory.initSettings().then(function(data){
+            $scope.settings = data;
+        });
+    } else {
+
+    }
+
+    $scope.checkSupplier();
+    $scope.suppliers = [];
+    $scope.getSuppliers = function(){
+        suppliersFactory.getSuppliers().then(function(suppliers){
+            $scope.suppliers = suppliers;
+        });
+    };
+    $scope.getSuppliers();
+
+    $scope.addReceipt = function() {
+      var newReceipt = $scope.receipt;
+      newReceipt.supplier_id = newReceipt.supplier.id;
+      delete newReceipt.supplier;
+
+      receiptsFactory.addReceipt(newReceipt).then(function(added) {
+        $scope.receipts.unshift(added);
+        $state.go('receipts.item', {id: added.id, receipt: added});
       });
     };
+
+
 
   }
 
-  receiptsCRUDController.$inject = ['$scope', '$stateParams', 'receiptsFactory', 'lodash'];
+  receiptsCRUDController.$inject = ['$scope', '$stateParams', 'receiptsFactory', 'lodash', 'suppliersFactory', '$state', 'settingsFactory'];
 
 })();

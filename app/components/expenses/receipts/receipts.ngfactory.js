@@ -43,9 +43,7 @@
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/receipts',
           method: 'POST',
-          data: {
-            company_name: supplier
-          }
+          data: supplier
         }).then(function(item) {
           if (item) {
             return item.data;
@@ -72,13 +70,11 @@
 
       },
 
-      editReceipt: function(id, companyName) {
+      editReceipt: function(id) {
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/receipts/' + id,
           method: 'PUT',
-          data: {
-            company_name: companyName
-          }
+          data: supplier
         }).then(function(item) {
           if (item) {
             return item.data;

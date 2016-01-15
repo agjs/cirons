@@ -37,8 +37,11 @@
                   return;
               }
 
+              var text = $scope.comment_text;
+              $scope.comment_text = "";
+
               commentsFactory.addComment({
-                  text: $scope.comment_text,
+                  text: text,
                   url: $scope.parsedURL
               }).then(function(comment){
                   $scope.comments.push(comment);

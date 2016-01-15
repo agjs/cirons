@@ -10,168 +10,61 @@
         </button>
         <div class="ui button" onclick="cancel()">Cancel</div>
       </div>
+
       <div class="ui grid stackable">
+          <div class="column eight wide">
 
-        <div class="column eighteen wide">
-
-          <div class="fields four">
-
-            <div class="field">
-              <label>Merchant</label>
-              <input name="merchant" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);" type="text">
-            </div>
-
-            <div class="field">
-              <label>Identifier</label>
-              <input name="identifier" type="text">
-            </div>
-
-            <div class="field">
-              <label>Amount</label>
-              <input name="amount" step="any" type="number">
-
-            </div>
-
-            <div class="field">
-              <label>VAT</label>
-              <select class="select" name="vat">
-                <option value="25.00">VAT (25.00%)</option>
-                <option value="12.00">VAT (12.00%)</option>
-                <option value="6.00">VAT (6.00%)</option>
-                <option value="0.00">EU-VAT 0% (0.00%)</option>
-              </select>
-
-            </div>
-
-          </div>
-
-          <div class="fields four">
-            <div class="field">
-              <label>Date</label>
-              <input name="date" type="date" value="2015-12-25">
-
-            </div>
-            <div class="field">
-              <label>Category</label>
-              <select class="select" name="category">
-                <option value="15">Cab</option>
-                <option value="16">Flight</option>
-                <option value="17">Gas</option>
-                <option value="18">Hotel</option>
-                <option value="19">Rent a car</option>
-                <option value="20">Restaurant</option>
-                <option value="21">Samples</option>
-                <option value="22">Service</option>
-              </select>
-
-            </div>
-            <div class="field">
-              <label>Currency</label>
-              <div class="ui search selection dropdown ">
-                <input name="currency" type="hidden" value="">
-                <i class="dropdown icon" tabindex="0">
-                  <div class="menu" tabindex="-1"></div>
-                </i>
-                <input class="search" tabindex="0">
-                <div class="default text">Select Currency</div>
-                <div class="menu" tabindex="-1">
-                  <div class="item" data-value="SEK">
-                    <i class="se flag"></i>SEK - Svenska Kronor</div>
-                  <div class="item" data-value="GBP">
-                    <i class="gb flag"></i>GBP - Pound Sterling</div>
-                  <div class="item" data-value="EUR">
-                    <i class="eu flag"></i>EUR - Euro</div>
-                  <div class="item" data-value="USD">
-                    <i class="us flag"></i>USD - US Dollar</div>
-                  <div class="item" data-value="DKK">
-                    <i class="dk flag"></i>DKK - Dansk Krone</div>
-                </div>
+              <div class="field" ng-show="receipt.supplier.id">
+                  <label>Supplier</label>
+                  <h3>{{receipt.supplier.company_name}}
+                      <button type="button" class="ui button mini icon" ng-click="changeSupplier = !changeSupplier">
+                          <i class="icon pencil"></i>
+                      </button>
+                  </h3>
               </div>
 
-            </div>
-            <div class="field">
-              <label>Payment Method</label>
-              <select name="payment">
-                <option value="0">Cash</option>
-                <option value="1">CC</option>
-                <option value="2">CC Private</option>
-              </select>
-
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="Account">Account</label>
-            <div class="ui search selection dropdown " id="accounts">
-              <input name="account_no" type="hidden" value="">
-              <i class="dropdown icon" tabindex="0">
-                <div class="menu" tabindex="-1"></div>
-              </i>
-              <input class="search" tabindex="0">
-              <div class="default text">Select account</div>
-              <div class="menu" tabindex="-1">
-                <div class="item" data-value="4000">4000 Inköp av varor från Sverige</div>
-                <div class="item" data-value="4200">4200 Sålda varor VMB</div>
-                <div class="item" data-value="4211">4211 Sålda varor positiv VMB 25 %</div>
-                <div class="item" data-value="4212">4212 Sålda varor negativ VMB 25 %</div>
-                <div class="item" data-value="4400">4400 Momspliktiga inköp i Sverige</div>
-                <div class="item" data-value="4415">4415 Inköpta varor i Sverige, omvänd skattskyldighet, 25 % moms</div>
-                <div class="item" data-value="4416">4416 Inköpta varor i Sverige, omvänd skattskyldighet, 12 % moms</div>
-                <div class="item" data-value="4417">4417 Inköpta varor i Sverige, omvänd skattskyldighet, 6 % moms</div>
-                <div class="item" data-value="4425">4425 "Inköpta tjänster i Sverige, omvänd skattskyldighet, 25 % moms"</div>
-                <div class="item" data-value="4426">4426 Inköpta tjänster i Sverige, omvänd skattskyldighet, 12 %</div>
-                <div class="item" data-value="4427">4427 Inköpta tjänster i Sverige, omvänd skattskyldighet, 6 %</div>
-                <div class="item" data-value="4500">4500 Övriga momspliktiga inköp</div>
-                <div class="item" data-value="4515">4515 Inköp av varor från annat EU-land, 25 %</div>
-                <div class="item" data-value="4516">4516 Inköp av varor från annat EU-land, 12 %</div>
-                <div class="item" data-value="4517">4517 Inköp av varor från annat EU-land, 6 %</div>
-                <div class="item" data-value="4518">4518 Inköp av varor från annat EU-land, momsfri</div>
-                <div class="item" data-value="4531">4531 Inköp av tjänster från ett land utanför EU, 25 % moms</div>
-                <div class="item" data-value="4532">4532 Inköp av tjänster från ett land utanför EU, 12 % moms</div>
-                <div class="item" data-value="4533">4533 Inköp av tjänster från ett land utanför EU, 6 % moms</div>
-                <div class="item" data-value="4535">4535 Inköp av tjänster från annat EU-land, 25 %</div>
-                <div class="item" data-value="4536">4536 Inköp av tjänster från annat EU-land, 12 %</div>
-                <div class="item" data-value="4537">4537 Inköp av tjänster från annat EU-land, 6 %</div>
-                <div class="item" data-value="4538">4538 Inköp av tjänster från annat EU-land, momsfri</div>
-                <div class="item" data-value="4545">4545 Import av varor, 25 % moms</div>
-                <div class="item" data-value="4546">4546 Import av varor, 12 % moms</div>
-                <div class="item" data-value="4547">4547 Import av varor, 6 % moms</div>
+              <div class="field" ng-show="changeSupplier">
+                  <label ng-show="receipt.supplier">Change supplier</label>
+                  <label ng-hide="receipt.supplier">Supplier</label>
+                  <input ng-model="receipt.supplier" type="text" typeahead-on-select="changeSupplier = false;" uib-typeahead="item as item.company_name for item in suppliers | filter:{company_name:$viewValue}" placeholder="Search supplier">
               </div>
-            </div>
-          </div>
 
-        </div>
+              <div class="seperator"></div>
 
-      </div>
-
-      <div class="">
-        <div class="panel uploader panel-default">
-          <div class="panel-heading">
-            Attachments
-          </div>
-          <div class="panel-body">
-            <form action="/attachment/upload" class="dropzone dz-clickable" id="my-dropzone" method="POST">
-              <input name="_token" type="hidden" value="IYEUrC7btKkUTjzuQqYULb4h1WdQqfLFDmmRXLvO">
-              <input name="object_id" type="hidden" value="9d35eaa0348bcdb0abfad7f0ab71b71b">
-              <input name="object_type" type="hidden" value="SupplierInvoice">
-              <div class="dz-message">
-                <h4>Drag Files to Upload</h4>
-                <span>Or click to browse</span>
+              <div class="inline field">
+                <label>Amount</label>
+                <input type="text" ng-blur="save()" ng-model="receipt.amount">
               </div>
-            </form>
-            <table class="ui table celled">
-              <thead>
-                <tr>
-                  <th>File Name</th>
-                  <th>Auto Fill</th>
-                  <th>Type</th>
-                  <th width="1"></th>
-                </tr>
-              </thead>
-              <tbody id="list"></tbody>
-            </table>
+
+              <div class="inline field">
+                <label>VAT</label>
+                <select ng-change="save()" ng-model="receipt.vat">
+                  <option ng-repeat="rule in settings.vat_rules" value="{{rule.percent}}">{{rule.percent}}%</option>
+                </select>
+              </div>
+
+              <div class="inline field">
+                <label>Date</label>
+                <input type="date" ng-blur="save()" ng-model="receipt.date">
+              </div>
+
+              <div class="inline field">
+                  <label>Currency</label>
+                  <select ng-change="save()" ng-model="receipt.currency">
+                      <option ng-repeat="currency in settings.currencies" value="{{currency.ISO}}">{{currency.ISO}}</option>
+                  </select>
+              </div>
+
           </div>
-        </div>
+          <div class="column eight wide">
+
+              <cirons-attachments
+                object-id="receipt.id"
+                object-type="Receipt"
+                attachments="receipt.attachments"
+              ></cirons-attachments>
+
+          </div>
       </div>
     </form>
   </div>

@@ -1234,14 +1234,14 @@ body {
   position: relative;
   padding: 0;
   margin: 0;
-  background: #3681B1;
+  background: #1F77B4;
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif; }
 
 aside.menu.blue nav#main {
   height: 100%; }
 
 aside.menu.blue nav#main ul {
-  background: #3681B1;
+  background: #1F77B4;
   height: 100%;
   padding-top: 10px; }
 
@@ -1249,7 +1249,7 @@ aside.menu nav#main ul {
   overflow: auto; }
 
 aside.menu.blue > nav#main ul li a {
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
   background: rgba(255, 255, 255, 0.1);
   margin-bottom: 3px; }
 
@@ -1342,13 +1342,21 @@ aside.sidebar {
     margin: auto; }
 
 .sidebar-toggle {
-  left: -38px;
-  width: 35px;
+  left: -35px;
+  width: 40px;
   text-align: center;
-  line-height: 30px;
+  line-height: 35px;
   position: absolute;
-  height: 30px;
-  background: #3681B1;
+  height: 40px;
+  background: #1F77B4;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  -ms-border-radius: 50% !important;
+  border-radius: 50% !important;
+  border: 3px solid white;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.2);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.2);
+  box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.2);
   color: #999999; }
 
 .sidebar-toggle > i {
@@ -1514,7 +1522,7 @@ aside.menu header a.logo img {
 
 #normal.active,
 #reminder.active {
-  color: #3681B1; }
+  color: #1F77B4; }
 
 .status-bar > div > button.active i.fa {
   -webkit-animation-name: shakeme;
@@ -1767,7 +1775,7 @@ iframe.qe {
   min-height: 50px; }
 
 table tr.add {
-  background: #3681B1;
+  background: #1F77B4;
   font-weight: bold;
   text-transform: uppercase;
   color: white;
@@ -1954,7 +1962,7 @@ section.content > .inner {
   position: relative; }
 
 .modelselect button.model-select-button {
-  background: #3681B1;
+  background: #1F77B4;
   color: white;
   display: inline-block;
   padding: 0 0.75em;
@@ -2132,7 +2140,7 @@ body.dashboard .dashboard-tabs ul li a span {
   transition: all 300ms ease; }
 
 body.dashboard .dashboard-tabs ul li a.active span {
-  border-bottom: 4px solid #3681B1; }
+  border-bottom: 4px solid #1F77B4; }
 
 body.dashboard .dashboard-tabs ul li a:hover span {
   border-bottom: 4px solid #ccc; }
@@ -2173,7 +2181,7 @@ body.dashboard .dashboard-tabs {
           font-weight: 400;
           color: rgba(0, 0, 0, 0.8); }
         body.dashboard .dashboard-tabs div.tabbar-chart ul li strong {
-          color: #3681B1;
+          color: #1F77B4;
           font-weight: 400;
           display: block;
           margin: 0; }
@@ -2202,7 +2210,7 @@ body.dashboard .dashboard-content {
   font-size: 14px; }
 
 .widget-table td.place {
-  background-color: #3681B1;
+  background-color: #1F77B4;
   width: 40px;
   color: white;
   height: 40px;
@@ -2438,7 +2446,7 @@ table.ui.table.celled td {
   background: #ccc; }
 
 .ts-table .ts-pagination ul li a.ts-page-active {
-  background: #3681B1;
+  background: #1F77B4;
   color: white; }
 
 .select_modal .ts-table table tr {
@@ -2491,12 +2499,12 @@ body > #progress {
   body > #progress .load {
     display: none;
     transition: all 200ms ease;
-    background: #4191c5;
+    background: #2388ce;
     height: 3px;
     width: 10px;
-    -webkit-box-shadow: 0 0 3px 0 #4191c5;
-    -moz-box-shadow: 0 0 3px 0 #4191c5;
-    box-shadow: 0 0 3px 0 #4191c5; }
+    -webkit-box-shadow: 0 0 3px 0 #2388ce;
+    -moz-box-shadow: 0 0 3px 0 #2388ce;
+    box-shadow: 0 0 3px 0 #2388ce; }
   body > #progress .load.hide {
     opacity: 0;
     transition: opacity 1.3s; }
@@ -2560,7 +2568,7 @@ table tr th.right {
     transform: rotate(-45deg); }
 
 #settings .icon.info.circle {
-  color: #3681B1 !important;
+  color: #1F77B4 !important;
   cursor: help; }
 
 .additional_costs {
@@ -2569,7 +2577,7 @@ table tr th.right {
     margin: 0;
     padding: 0;
     line-height: 24px;
-    border-bottom: 2px solid #3681B1;
+    border-bottom: 2px solid #1F77B4;
     color: black;
     text-align: right;
     font-size: 24px;
@@ -2697,7 +2705,7 @@ table.info-table {
   padding-left: 0 !important; }
 
 .pane-tabs ul li a.active span {
-  border-bottom: 4px solid #3681B1; }
+  border-bottom: 4px solid #1F77B4; }
 
 .pane-tabs ul li a:hover span {
   border-bottom: 4px solid #ccc; }
@@ -2718,7 +2726,7 @@ table.info-table {
   .cashflow-sheet select {
     width: 100%; }
   .cashflow-sheet .total td, .cashflow-sheet .end td {
-    border-top: 2px solid #3681B1 !important; }
+    border-top: 2px solid #1F77B4 !important; }
 
 .after-cashflow-chart {
   padding-top: 30px !important; }
@@ -2742,7 +2750,7 @@ table.info-table {
   font-weight: bold;
   display: block;
   text-align: center;
-  color: #3681B1; }
+  color: #1F77B4; }
 .net-positions strong.sum.negative {
   color: #DB2828; }
 .net-positions div.divider {
@@ -2764,7 +2772,7 @@ table.info-table {
 .table-toggle td {
   transition: all 500ms ease; }
 .table-toggle .toggler:hover td, .table-toggle tr.toggled td {
-  background: #d9e9f3; }
+  background: #c4e1f5; }
 
 .open-view .ui.form .inline.field label {
   min-width: 120px;
@@ -2790,7 +2798,7 @@ table.info-table {
     font-size: 14px;
     list-style: none; }
     .cirons-upload ul.list li a {
-      color: #3681B1;
+      color: #1F77B4;
       text-decoration: none; }
 
 .mobile-back-button {
@@ -2830,7 +2838,7 @@ table.info-table {
     width: 50px;
     cursor: pointer;
     height: 50px;
-    background: #3681B1;
+    background: #1F77B4;
     color: white;
     font-size: 26px;
     line-height: 43px;
@@ -2894,7 +2902,7 @@ table.info-table {
         outline: none;
         transition: all 300ms ease; }
       .cirons-comments .comment-compose .holder input:focus {
-        border: 1px solid #509aca; }
+        border: 1px solid #2b93db; }
 
 .cirons-comments.active {
   right: 0;
@@ -2911,7 +2919,7 @@ table.info-table {
   position: relative;
   width: 200px;
   height: auto;
-  background-color: #c6deed; }
+  background-color: #aed6f1; }
 
 /* Right triangle placed top left flush. */
 .tri-right.border.left-top:before {
@@ -2936,7 +2944,7 @@ table.info-table {
   top: 0px;
   bottom: auto;
   border: 22px solid;
-  border-color: #c6deed transparent transparent transparent; }
+  border-color: #aed6f1 transparent transparent transparent; }
 
 /* Right triangle, left side slightly down */
 .tri-right.border.left-in:before {
@@ -2961,7 +2969,7 @@ table.info-table {
   top: 38px;
   bottom: auto;
   border: 12px solid;
-  border-color: #c6deed #c6deed transparent transparent; }
+  border-color: #aed6f1 #aed6f1 transparent transparent; }
 
 /*Right triangle, placed bottom left side slightly in*/
 .tri-right.border.btm-left:before {
@@ -2986,7 +2994,7 @@ table.info-table {
   top: auto;
   bottom: -20px;
   border: 22px solid;
-  border-color: transparent transparent transparent #c6deed; }
+  border-color: transparent transparent transparent #aed6f1; }
 
 /*Right triangle, placed bottom left side slightly in*/
 .tri-right.border.btm-left-in:before {
@@ -3011,7 +3019,7 @@ table.info-table {
   top: auto;
   bottom: -20px;
   border: 12px solid;
-  border-color: #c6deed transparent transparent #c6deed; }
+  border-color: #aed6f1 transparent transparent #aed6f1; }
 
 /*Right triangle, placed bottom right side slightly in*/
 .tri-right.border.btm-right-in:before {
@@ -3034,7 +3042,7 @@ table.info-table {
   right: 38px;
   bottom: -20px;
   border: 12px solid;
-  border-color: #c6deed #c6deed transparent transparent; }
+  border-color: #aed6f1 #aed6f1 transparent transparent; }
 
 /*
 	left: -8px;
@@ -3071,7 +3079,7 @@ table.info-table {
   right: 0px;
   bottom: -20px;
   border: 12px solid;
-  border-color: #c6deed #c6deed transparent transparent; }
+  border-color: #aed6f1 #aed6f1 transparent transparent; }
 
 /* Right triangle, right side slightly down*/
 .tri-right.border.right-in:before {
@@ -3096,7 +3104,7 @@ table.info-table {
   top: 38px;
   bottom: auto;
   border: 12px solid;
-  border-color: #c6deed transparent transparent #c6deed; }
+  border-color: #aed6f1 transparent transparent #aed6f1; }
 
 /* Right triangle placed top right flush. */
 .tri-right.border.right-top:before {
@@ -3121,7 +3129,7 @@ table.info-table {
   top: 0px;
   bottom: auto;
   border: 20px solid;
-  border-color: #c6deed transparent transparent transparent; }
+  border-color: #aed6f1 transparent transparent transparent; }
 
 /* talk bubble contents */
 .talktext {
@@ -3354,7 +3362,7 @@ table.info-table {
         color: rgba(0, 0, 0, 0.8);
         list-style: none; }
       .orderrows .table .price_popup ul li:hover {
-        background: #3681B1;
+        background: #1F77B4;
         color: white; }
 
 .small-box {
@@ -3556,7 +3564,7 @@ body.split_table .page-content {
           bottom: 0;
           transition: all 300ms ease; }
         body.split_table .page-content div.split-table .list ul li.open:before {
-          background: #3681B1;
+          background: #1F77B4;
           -webkit-box-shadow: -1px 0px 5px 0px rgba(50, 50, 50, 0.3);
           -moz-box-shadow: -1px 0px 5px 0px rgba(50, 50, 50, 0.3);
           box-shadow: -1px 0px 5px 0px rgba(50, 50, 50, 0.3); }
@@ -3626,7 +3634,7 @@ body.split_table .page-content {
       color: #777;
       text-decoration: none !important; }
     .page-title h1 ol li a:hover {
-      color: #3681B1; }
+      color: #1F77B4; }
 
 .editable-wrap {
   position: relative;
@@ -3642,7 +3650,7 @@ body.split_table .page-content {
       line-height: 40px;
       font-size: 16px;
       color: rgba(0, 0, 0, 0.8);
-      border: 1px solid #3681B1;
+      border: 1px solid #1F77B4;
       border-radius: 0;
       outline: none !important; }
   .editable-wrap .editable-buttons button {
@@ -3657,7 +3665,7 @@ body.split_table .page-content {
     border-radius: 50%;
     height: 28px;
     width: 28px;
-    background: #3681B1;
+    background: #1F77B4;
     border: none; }
   .editable-wrap .editable-buttons button[type="submit"] {
     right: 40px; }
@@ -3799,7 +3807,7 @@ aside.menu #touch-menu {
       display: none; }
 
   aside.menu.open #touch-menu {
-    background: #3681B1;
+    background: #1F77B4;
     color: white; }
     aside.menu.open #touch-menu .fa.fa-bars {
       display: none; }

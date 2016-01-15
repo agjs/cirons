@@ -4,13 +4,13 @@
 @import "xeditable.scss";
 @import "dropzone.scss";
 
-$cirons_blue: #3681B1;
+$cirons_blue: #1F77B4;
 $cirons_light: lighten($cirons_blue, 45);
 
 $header_color: white;
 
 $nav_item_bg: rgba(255,255,255,0.1);
-$nav_item_color: rgba(255,255,255,0.8);
+$nav_item_color: rgba(255,255,255,1);
 $nav_item_icon_bg: rgba(0,0,0,0.1);
 
 $breadcrumb_color: #777;
@@ -155,13 +155,22 @@ aside.sidebar {
   }
 }
 .sidebar-toggle {
-  left: -38px;
-  width: 35px;
+  left: -35px;
+  width: 40px;
   text-align: center;
-  line-height: 30px;
+  line-height: 35px;
   position: absolute;
-  height: 30px;
+  height: 40px;
   background: $cirons_blue;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  -ms-border-radius: 50% !important;
+  border-radius: 50% !important;
+  border: 3px solid white;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.2);
+  -moz-box-shadow:    0px 2px 5px 0px rgba(50, 50, 50, 0.2);
+  box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.2);
+
   color: #999999;
 }
 .sidebar-toggle > i {

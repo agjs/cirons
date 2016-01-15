@@ -1770,8 +1770,11 @@ angular.module('CIRONS-MAIN-APP')
                   return;
               }
 
+              var text = $scope.comment_text;
+              $scope.comment_text = "";
+
               commentsFactory.addComment({
-                  text: $scope.comment_text,
+                  text: text,
                   url: $scope.parsedURL
               }).then(function(comment){
                   $scope.comments.push(comment);
@@ -2219,9 +2222,7 @@ angular.module('CIRONS-MAIN-APP')
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/receipts',
           method: 'POST',
-          data: {
-            company_name: supplier
-          }
+          data: supplier
         }).then(function(item) {
           if (item) {
             return item.data;
@@ -2248,13 +2249,11 @@ angular.module('CIRONS-MAIN-APP')
 
       },
 
-      editReceipt: function(id, companyName) {
+      editReceipt: function(id) {
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/receipts/' + id,
           method: 'PUT',
-          data: {
-            company_name: companyName
-          }
+          data: supplier
         }).then(function(item) {
           if (item) {
             return item.data;
@@ -2355,35 +2354,60 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = receiptsCRUDController;
 
-  function receiptsCRUDController($scope, $stateParams, receiptsFactory, lodash) {
+  function receiptsCRUDController($scope, $stateParams, receiptsFactory, lodash, suppliersFactory, $state, settingsFactory) {
 
-    $scope.addReciept = function() {
-      receiptsFactory.addReciept($scope.company_name).then(function(added) {
-        $scope.expenses.push(added);
-      });
+    $scope.receipt = {
+        supplier: null,
+        date: new Date(),
+        attachments: []
     };
 
-    $scope.removeReciept = function() {
-      receiptsFactory.removeReciept($stateParams.id);
-    };
-
-    $scope.editReciept = function(companyName) {
-      receiptsFactory.editReciept($stateParams.id, companyName).then(function(edited) {
-
-        var findItem = lodash.find($scope.expenses, function(arg) {
-          return arg.id === $stateParams.id;
-        });
-
-        if (findItem) {
-          findItem.company_name = edited.company_name;
+    $scope.changeSupplier = false;
+    $scope.checkSupplier = function(){
+        if(!$scope.receipt){
+            return;
         }
+        if($scope.receipt.supplier){
+            $scope.changeSupplier = false;
+        } else {
+            $scope.changeSupplier = true;
+        }
+    };
 
+    $scope.settings = settingsFactory.getSettings();
+    if(!$scope.settings.length){
+        settingsFactory.initSettings().then(function(data){
+            $scope.settings = data;
+        });
+    } else {
+
+    }
+
+    $scope.checkSupplier();
+    $scope.suppliers = [];
+    $scope.getSuppliers = function(){
+        suppliersFactory.getSuppliers().then(function(suppliers){
+            $scope.suppliers = suppliers;
+        });
+    };
+    $scope.getSuppliers();
+
+    $scope.addReceipt = function() {
+      var newReceipt = $scope.receipt;
+      newReceipt.supplier_id = newReceipt.supplier.id;
+      delete newReceipt.supplier;
+
+      receiptsFactory.addReceipt(newReceipt).then(function(added) {
+        $scope.receipts.unshift(added);
+        $state.go('receipts.item', {id: added.id, receipt: added});
       });
     };
+
+
 
   }
 
-  receiptsCRUDController.$inject = ['$scope', '$stateParams', 'receiptsFactory', 'lodash'];
+  receiptsCRUDController.$inject = ['$scope', '$stateParams', 'receiptsFactory', 'lodash', 'suppliersFactory', '$state', 'settingsFactory'];
 
 })();
 
@@ -2392,7 +2416,7 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = receiptsSingleItemController;
 
-  function receiptsSingleItemController($scope, $stateParams, receiptsFactory) {
+  function receiptsSingleItemController($scope, $stateParams, receiptsFactory, suppliersFactory, lodash, settingsFactory) {
     $scope.supplier = $stateParams.supplier;
     $scope.id = $stateParams.id;
 
@@ -2400,12 +2424,84 @@ angular.module('CIRONS-MAIN-APP')
     if (!$scope.receipt) {
       receiptsFactory.getReceipt($scope.id).then(function(item) {
         $scope.receipt = item;
+        $scope.formatDates();
       });
     }
 
+    $scope.settings = settingsFactory.getSettings();
+    if(!$scope.settings.length){
+        settingsFactory.initSettings().then(function(data){
+            $scope.settings = data;
+        });
+    } else {
+
+    }
+
+    $scope.save = function(){
+        if($scope.receipt && $scope.receipt.supplier){
+            $scope.saving = $scope.receipt;
+            $scope.saving.supplier_id = $scope.saving.supplier.id;
+            delete $scope.saving.supplier;
+
+            receiptsFactory.editReceipt($scope.id, $scope.saving).then(function(edited){
+                $scope.receipt = edited;
+            });
+        }
+    };
+
+    $scope.paid_date = null;
+
+    $scope.formatDates = function(){
+        $scope.paid_date = new Date();
+        if($scope.receipt){
+            console.log("format dates");
+            $scope.receipt.date = new Date($scope.receipt.date);
+        }
+    };
+    $scope.formatDates();
+
+    $scope.onSupplierSelect = function($item, $model, $label){
+        if($scope.newSupplier.id){
+            receiptsFactory.editReceipt($scope.id, {
+                supplier_id: $scope.newSupplier.id
+            }).then(function(edited){
+                $scope.receipt.supplier = $scope.newSupplier;
+                $scope.newSupplier = null;
+                $scope.changeSupplier = false;
+
+                var findItem = lodash.find($scope.contacts, function(arg) {
+                  return arg.id === $stateParams.id;
+                });
+                if (findItem) {
+                  findItem = edited;
+                }
+            });
+        }
+    };
+
+    $scope.changeSupplier = false;
+    $scope.checkSupplier = function(){
+        if(!$scope.receipt){
+            return;
+        }
+        if($scope.receipt.supplier){
+            $scope.changeSupplier = false;
+        } else {
+            $scope.changeSupplier = true;
+        }
+    };
+    $scope.checkSupplier();
+    $scope.suppliers = [];
+    $scope.getSuppliers = function(){
+        suppliersFactory.getSuppliers().then(function(suppliers){
+            $scope.suppliers = suppliers;
+        });
+    };
+    $scope.getSuppliers();
+
   }
 
-  receiptsSingleItemController.$inject = ['$scope', '$stateParams', 'receiptsFactory'];
+  receiptsSingleItemController.$inject = ['$scope', '$stateParams', 'receiptsFactory', 'suppliersFactory', 'lodash', 'settingsFactory'];
 
 })();
 
