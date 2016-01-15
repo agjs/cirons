@@ -35,7 +35,7 @@
         },
         'receiptsList@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_list.view.html',
-
+          controller: 'receiptsController'
         },
         'receiptsContent@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_create.view.html',
@@ -59,7 +59,7 @@
         },
         'receiptsList@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_list.view.html',
-
+          controller: 'receiptsController'
         },
         'receiptsContent@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_content.view.html',

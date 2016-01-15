@@ -13,9 +13,8 @@
         },
         views: {
           '': {
-            templateUrl: 'components/expenses/supplier_invoices/supplier_invoices.view.html',
+            templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_table.view.html',
             controller: 'supplierInvoicesController'
-
           },
           'supplierInvoicesList@supplier_invoices': {
             templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_list.view.html',
@@ -30,14 +29,14 @@
         label: 'Write a Supplier Invoice'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices.view.html'
         },
-        'supplierInvoicesList@supplier_invoices': {
+        'supplierInvoicesList@supplier_invoices.create': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_list.view.html',
-
+          controller: 'supplierInvoicesController'
         },
-        'supplierInvoicesContent@supplier_invoices': {
+        'supplierInvoicesContent@supplier_invoices.create': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_create.view.html',
           controller: 'supplierInvoicesCRUDController'
         }
@@ -54,14 +53,14 @@
         label: '{{id}}'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices.view.html'
         },
-        'supplierInvoicesList@supplier_invoices': {
+        'supplierInvoicesList@supplier_invoices.item': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_list.view.html',
-
+          controller: 'supplierInvoicesController'
         },
-        'supplierInvoicesContent@supplier_invoices': {
+        'supplierInvoicesContent@supplier_invoices.item': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_content.view.html',
           controller: 'supplierInvoicesSingleItemController'
         }

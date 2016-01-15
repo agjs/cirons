@@ -2311,7 +2311,7 @@ angular.module('CIRONS-MAIN-APP')
         },
         'receiptsList@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_list.view.html',
-
+          controller: 'receiptsController'
         },
         'receiptsContent@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_create.view.html',
@@ -2335,7 +2335,7 @@ angular.module('CIRONS-MAIN-APP')
         },
         'receiptsList@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_list.view.html',
-
+          controller: 'receiptsController'
         },
         'receiptsContent@receipts': {
           templateUrl: 'components/expenses/receipts/receipts_content.view.html',
@@ -2427,17 +2427,34 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = supplierInvoicesController;
 
-  function supplierInvoicesController($scope, $rootScope, $auth, supplierInvoicesFactory, $state) {
+  function supplierInvoicesController($scope, $rootScope, $auth, supplierInvoicesFactory, $state, $filter) {
 
     supplierInvoicesFactory.getSupplierInvoices().then(function(supplierInvoices) {
       $scope.supplierInvoices = supplierInvoices;
     });
 
+    $scope.search = {
+        paid: '',
+        supplier: {
+            company_name: ''
+        }
+    };
 
+    $scope.orderByKey = "id";
+    $scope.orderByReverse = true;
+
+    $scope.filtered = function(){
+        var items = $scope.supplierInvoices;
+
+        if($scope.dateStart){
+            items = $filter('dateRange')(items, 'date', $scope.dateStart, $scope.dateEnd);
+        }
+        return items;
+    };
 
   }
 
-  supplierInvoicesController.$inject = ['$scope', '$rootScope', '$auth', 'supplierInvoicesFactory', '$state'];
+  supplierInvoicesController.$inject = ['$scope', '$rootScope', '$auth', 'supplierInvoicesFactory', '$state', '$filter'];
 
 })();
 
@@ -2542,9 +2559,8 @@ angular.module('CIRONS-MAIN-APP')
         },
         views: {
           '': {
-            templateUrl: 'components/expenses/supplier_invoices/supplier_invoices.view.html',
+            templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_table.view.html',
             controller: 'supplierInvoicesController'
-
           },
           'supplierInvoicesList@supplier_invoices': {
             templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_list.view.html',
@@ -2559,14 +2575,14 @@ angular.module('CIRONS-MAIN-APP')
         label: 'Write a Supplier Invoice'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices.view.html'
         },
-        'supplierInvoicesList@supplier_invoices': {
+        'supplierInvoicesList@supplier_invoices.create': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_list.view.html',
-
+          controller: 'supplierInvoicesController'
         },
-        'supplierInvoicesContent@supplier_invoices': {
+        'supplierInvoicesContent@supplier_invoices.create': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_create.view.html',
           controller: 'supplierInvoicesCRUDController'
         }
@@ -2583,14 +2599,14 @@ angular.module('CIRONS-MAIN-APP')
         label: '{{id}}'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices.view.html'
         },
-        'supplierInvoicesList@supplier_invoices': {
+        'supplierInvoicesList@supplier_invoices.item': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_list.view.html',
-
+          controller: 'supplierInvoicesController'
         },
-        'supplierInvoicesContent@supplier_invoices': {
+        'supplierInvoicesContent@supplier_invoices.item': {
           templateUrl: 'components/expenses/supplier_invoices/supplier_invoices_content.view.html',
           controller: 'supplierInvoicesSingleItemController'
         }
