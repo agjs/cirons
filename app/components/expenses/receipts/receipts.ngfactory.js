@@ -39,11 +39,11 @@
         });
       },
 
-      addReceipt: function(supplier) {
+      addReceipt: function(id, data) {
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/receipts',
           method: 'POST',
-          data: supplier
+          data: data
         }).then(function(item) {
           if (item) {
             return item.data;
@@ -70,11 +70,11 @@
 
       },
 
-      editReceipt: function(id) {
+      editReceipt: function(id, data) {
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/receipts/' + id,
           method: 'PUT',
-          data: supplier
+          data: data
         }).then(function(item) {
           if (item) {
             return item.data;

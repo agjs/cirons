@@ -58,7 +58,7 @@
           ordersFactory.addOrder($scope.order).then(function(data){
               console.log("order saved");
               console.log(data);
-              $scope.orders.unshift(data);
+              //$scope.orders.unshift(data);
               $state.go("orders.item.general", {id: data.id, order: data});
           });
 

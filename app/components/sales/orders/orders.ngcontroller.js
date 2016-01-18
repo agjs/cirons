@@ -19,6 +19,12 @@
         }
     };
 
+    $scope.lastDate = null;
+    $scope.newLastDate = function(date){
+        $scope.lastDate = date;
+        return true;
+    };
+
     $scope.statuses = [];
     var statuses = infoFactory.statuses["Order"];
     for(var status in statuses){

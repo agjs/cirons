@@ -48,7 +48,7 @@
       delete newInvoice.supplier;
 
       supplierInvoicesFactory.addSupplierInvoice(newInvoice).then(function(added) {
-        $scope.supplierInvoices.unshift(added);
+        //$scope.supplierInvoices.unshift(added);
         $state.go('supplier_invoices.item', {id: added.id, supplierInvoice: added});
       });
     };

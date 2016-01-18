@@ -1488,7 +1488,7 @@ header .page-title h1 {
 aside.menu header a.logo {
   height: 50px;
   display: block;
-  line-height: 50px; }
+  line-height: 40px; }
 
 aside.menu header a.logo img {
   max-width: 180px;
@@ -1496,7 +1496,6 @@ aside.menu header a.logo img {
   height: auto; }
 
 .status-bar {
-  position: absolute;
   right: 261px;
   top: 0;
   float: right;
@@ -1558,11 +1557,11 @@ aside.menu header a.logo img {
 
 .user-bar {
   cursor: pointer;
-  position: absolute;
+  position: relative;
   right: 0;
   top: 0;
   float: right;
-  width: 260px;
+  margin-right: 20px;
   height: 50px;
   z-index: 9;
   border-left: 1px solid #eee; }
@@ -2820,6 +2819,9 @@ table.info-table {
   background: white;
   border-bottom: 1px solid #ccc; }
 
+.table-separator {
+  background: #ddd; }
+
 .cirons-comments {
   height: 100%;
   position: absolute;
@@ -3866,6 +3868,9 @@ aside.menu header a.logo img {
   max-width: 180px;
   width: 100%;
   height: auto;
-  margin-top: 10px !important; }
+  margin-top: 8px !important; }
+
+.sidebar-toggle {
+  display: none !important; }
 
 /*# sourceMappingURL=cirons.css.map */

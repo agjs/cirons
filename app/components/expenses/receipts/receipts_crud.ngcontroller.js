@@ -46,7 +46,7 @@
       delete newReceipt.supplier;
 
       receiptsFactory.addReceipt(newReceipt).then(function(added) {
-        $scope.receipts.unshift(added);
+        //$scope.receipts.unshift(added);
         $state.go('receipts.item', {id: added.id, receipt: added});
       });
     };

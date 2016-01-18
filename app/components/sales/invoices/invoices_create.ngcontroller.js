@@ -109,7 +109,7 @@
           invoicesFactory.addInvoice($scope.invoice).then(function(data){
               console.log("invoice saved");
               console.log(data);
-              $scope.invoices.unshift(data);
+              //$scope.invoices.unshift(data);
               $state.go("invoices.item.general", {id: data.id, invoice: data});
           });
 

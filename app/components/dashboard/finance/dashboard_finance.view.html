@@ -85,7 +85,11 @@
             <c3chart bindto-id="expenses_bar_current_chart" chart-x="expenses_bar_currentX" chart-columns="expenses_bar_currentColumns" chart-data="expenses_bar_currentData">
                 <chart-group group-values="variable,fixed,receipts"/>
                 <chart-axis>
-                    <chart-axis-x axis-id="x" axis-type="category"></chart-axis-x>
+                    <chart-axis-x axis-id="x" axis-type="category">
+                    </chart-axis-x>
+                    <chart-axis-y>
+                        <chart-axis-y-tick tick-format=",.2f"/>
+                    </chart-axis-y>
                 </chart-axis>
                 <chart-legend show-legend="false"/>
             </c3chart>

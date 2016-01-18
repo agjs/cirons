@@ -3,6 +3,10 @@
     <div class="ui grid stackable">
         <div class="column eight wide">
             <h2>Invoices</h2>
+            <button type="button" class="ui button small positive labeled icon" ui-sref="invoices.create">
+                <i class="icon plus"></i>
+                Add new
+            </button>
         </div>
         <div class="column eight wide">
             <div class="ui action input pull-right left icon">
@@ -59,7 +63,12 @@
 		</tr>
 	</thead>
     <tbody>
-        <tr ng-repeat="invoice in filtered() | filter: search | orderBy: orderByKey : orderByReverse">
+        <tr ng-repeat-start="invoice in filtered() | filter: search | orderBy: orderByKey : orderByReverse track by $index" ng-show=" ($index == 0 || lastDate.getFullYear().toString()+lastDate.getMonth().toString() != invoice.date.getFullYear().toString()+invoice.date.getMonth().toString() ? newLastDate(invoice.date) : false )">
+            <td class="table-separator" colspan="8">
+                {{ invoice.date | date : 'MMMM yyyy' }}
+            </td>
+        </tr>
+        <tr ng-repeat-end>
 			<td>
                 <input type="checkbox">
             </td>

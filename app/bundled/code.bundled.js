@@ -1503,6 +1503,10 @@ angular.module('CIRONS-MAIN-APP')
       .state('dashboard', {
         url: "/dashboard",
         abstract: true,
+        ncyBreadcrumb: {
+          label: 'Dashboard',
+          parent: ''
+        },
         views: {
           '': {
             templateUrl: "components/dashboard/dashboard.view.html",
@@ -1515,6 +1519,10 @@ angular.module('CIRONS-MAIN-APP')
     .state('dashboard.finance', {
         parent: 'dashboard',
         url: "/finance",
+        ncyBreadcrumb: {
+          parent: 'dashboard',
+          label: 'Dashboard - Finance'
+        },
         controller: 'dashboardFinanceController',
         views: {
           'dashboardContent': {
@@ -1525,6 +1533,10 @@ angular.module('CIRONS-MAIN-APP')
       .state('dashboard.sales', {
         url: "/sales",
         parent: 'dashboard',
+        ncyBreadcrumb: {
+          parent: 'dashboard',
+          label: 'Dashboard - Sales'
+        },
         views: {
           'dashboardContent': {
             templateUrl: "components/dashboard/sales/dashboard_sales.view.html",
@@ -1534,6 +1546,10 @@ angular.module('CIRONS-MAIN-APP')
       .state('dashboard.taxes', {
         url: "/taxes",
         parent: 'dashboard',
+        ncyBreadcrumb: {
+          parent: 'dashboard',
+          label: 'Dashboard - Taxes'
+        },
         views: {
           'dashboardContent': {
             templateUrl: "components/dashboard/taxes/dashboard_taxes.view.html",
@@ -1543,6 +1559,10 @@ angular.module('CIRONS-MAIN-APP')
       .state('dashboard.expenses', {
         url: "/expenses",
         parent: 'dashboard',
+        ncyBreadcrumb: {
+          parent: 'dashboard',
+          label: 'Dashboard - Expenses'
+        },
         views: {
           'dashboardContent': {
             templateUrl: "components/dashboard/expenses/dashboard_expenses.view.html",
@@ -2163,12 +2183,41 @@ angular.module('CIRONS-MAIN-APP')
 
   function receiptsController($scope, $rootScope, $auth, receiptsFactory, $state) {
 
+      var payment = ["Cash", "CC Company", "CC Private"];
+      $scope.paymentMethods = payment;
+
     receiptsFactory.getReceipts().then(function(receipts) {
       $scope.receipts = receipts;
       $scope.cardCounter = receipts.length;
+
+      for(var i = 0; i < $scope.receipts.length; i++){
+          $scope.receipts[i].id = parseInt($scope.receipts[i].id);
+          $scope.receipts[i].date = new Date($scope.receipts[i].date);
+          $scope.receipts[i].payment = payment[parseInt($scope.receipts[i].payment)];
+      }
     });
 
+    $scope.search = {
 
+    };
+
+    $scope.lastDate = null;
+    $scope.newLastDate = function(date){
+        $scope.lastDate = date;
+        return true;
+    };
+
+    $scope.orderByKey = "id";
+    $scope.orderByReverse = true;
+
+    $scope.filtered = function(){
+        var items = $scope.receipts;
+
+        if($scope.dateStart){
+            items = $filter('dateRange')(items, 'date', $scope.dateStart, $scope.dateEnd);
+        }
+        return items;
+    };
 
   }
 
@@ -2218,11 +2267,11 @@ angular.module('CIRONS-MAIN-APP')
         });
       },
 
-      addReceipt: function(supplier) {
+      addReceipt: function(id, data) {
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/receipts',
           method: 'POST',
-          data: supplier
+          data: data
         }).then(function(item) {
           if (item) {
             return item.data;
@@ -2249,11 +2298,11 @@ angular.module('CIRONS-MAIN-APP')
 
       },
 
-      editReceipt: function(id) {
+      editReceipt: function(id, data) {
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/receipts/' + id,
           method: 'PUT',
-          data: supplier
+          data: data
         }).then(function(item) {
           if (item) {
             return item.data;
@@ -2288,13 +2337,14 @@ angular.module('CIRONS-MAIN-APP')
         },
         views: {
           '': {
-            templateUrl: 'components/expenses/receipts/receipts.view.html',
+            templateUrl: 'components/expenses/receipts/receipts_table.view.html',
             controller: 'receiptsController'
 
-          },
-          'receiptsList@receipts': {
-            templateUrl: 'components/expenses/receipts/receipts_list.view.html',
           }
+        //   ,
+        //   'receiptsList@receipts': {
+        //     templateUrl: 'components/expenses/receipts/receipts_list.view.html',
+        //   }
         }
       })
 
@@ -2305,14 +2355,14 @@ angular.module('CIRONS-MAIN-APP')
         label: 'Write a Receipt'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/expenses/receipts/receipts.view.html'
         },
-        'receiptsList@receipts': {
+        'receiptsList@receipts.create': {
           templateUrl: 'components/expenses/receipts/receipts_list.view.html',
           controller: 'receiptsController'
         },
-        'receiptsContent@receipts': {
+        'receiptsContent@receipts.create': {
           templateUrl: 'components/expenses/receipts/receipts_create.view.html',
           controller: 'receiptsCRUDController'
         }
@@ -2322,21 +2372,21 @@ angular.module('CIRONS-MAIN-APP')
     .state('receipts.item', {
       url: "/:id",
       params: {
-        supplier: undefined
+        receipt: undefined
       },
       ncyBreadcrumb: {
         parent: 'receipts',
         label: '{{id}}'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/expenses/receipts/receipts.view.html'
         },
-        'receiptsList@receipts': {
+        'receiptsList@receipts.item': {
           templateUrl: 'components/expenses/receipts/receipts_list.view.html',
           controller: 'receiptsController'
         },
-        'receiptsContent@receipts': {
+        'receiptsContent@receipts.item': {
           templateUrl: 'components/expenses/receipts/receipts_content.view.html',
           controller: 'receiptsSingleItemController'
         }
@@ -2398,7 +2448,7 @@ angular.module('CIRONS-MAIN-APP')
       delete newReceipt.supplier;
 
       receiptsFactory.addReceipt(newReceipt).then(function(added) {
-        $scope.receipts.unshift(added);
+        //$scope.receipts.unshift(added);
         $state.go('receipts.item', {id: added.id, receipt: added});
       });
     };
@@ -2420,11 +2470,14 @@ angular.module('CIRONS-MAIN-APP')
     $scope.supplier = $stateParams.supplier;
     $scope.id = $stateParams.id;
 
+    var payment = ["Cash", "CC Company", "CC Private"];
+    $scope.paymentMethods = payment;
 
     if (!$scope.receipt) {
       receiptsFactory.getReceipt($scope.id).then(function(item) {
         $scope.receipt = item;
         $scope.formatDates();
+        $scope.checkSupplier();
       });
     }
 
@@ -2482,6 +2535,7 @@ angular.module('CIRONS-MAIN-APP')
     $scope.changeSupplier = false;
     $scope.checkSupplier = function(){
         if(!$scope.receipt){
+            $scope.changeSupplier = true;
             return;
         }
         if($scope.receipt.supplier){
@@ -2527,6 +2581,10 @@ angular.module('CIRONS-MAIN-APP')
 
     supplierInvoicesFactory.getSupplierInvoices().then(function(supplierInvoices) {
       $scope.supplierInvoices = supplierInvoices;
+      for(var i = 0; i < $scope.supplierInvoices.length; i++){
+          $scope.supplierInvoices[i].id = parseInt($scope.supplierInvoices[i].id);
+          $scope.supplierInvoices[i].date = new Date($scope.supplierInvoices[i].date);
+      }
     });
 
     $scope.search = {
@@ -2534,6 +2592,12 @@ angular.module('CIRONS-MAIN-APP')
         supplier: {
             company_name: ''
         }
+    };
+
+    $scope.lastDate = null;
+    $scope.newLastDate = function(date){
+        $scope.lastDate = date;
+        return true;
     };
 
     $scope.orderByKey = "id";
@@ -2766,7 +2830,7 @@ angular.module('CIRONS-MAIN-APP')
       delete newInvoice.supplier;
 
       supplierInvoicesFactory.addSupplierInvoice(newInvoice).then(function(added) {
-        $scope.supplierInvoices.unshift(added);
+        //$scope.supplierInvoices.unshift(added);
         $state.go('supplier_invoices.item', {id: added.id, supplierInvoice: added});
       });
     };
@@ -4478,6 +4542,12 @@ angular.module('CIRONS-MAIN-APP')
         }
     };
 
+    $scope.lastDate = null;
+    $scope.newLastDate = function(date){
+        $scope.lastDate = date;
+        return true;
+    };
+
     $scope.statuses = [];
     var statuses = infoFactory.statuses["Invoice"];
     for(var status in statuses){
@@ -4929,7 +4999,7 @@ angular.module('CIRONS-MAIN-APP')
           invoicesFactory.addInvoice($scope.invoice).then(function(data){
               console.log("invoice saved");
               console.log(data);
-              $scope.invoices.unshift(data);
+              //$scope.invoices.unshift(data);
               $state.go("invoices.item.general", {id: data.id, invoice: data});
           });
 
@@ -5461,6 +5531,12 @@ angular.module('CIRONS-MAIN-APP')
         }
     };
 
+    $scope.lastDate = null;
+    $scope.newLastDate = function(date){
+        $scope.lastDate = date;
+        return true;
+    };
+
     $scope.statuses = [];
     var statuses = infoFactory.statuses["Order"];
     for(var status in statuses){
@@ -5824,7 +5900,7 @@ angular.module('CIRONS-MAIN-APP')
           ordersFactory.addOrder($scope.order).then(function(data){
               console.log("order saved");
               console.log(data);
-              $scope.orders.unshift(data);
+              //$scope.orders.unshift(data);
               $state.go("orders.item.general", {id: data.id, order: data});
           });
 

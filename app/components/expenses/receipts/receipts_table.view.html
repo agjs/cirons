@@ -2,8 +2,8 @@
 
     <div class="ui grid stackable">
         <div class="column eight wide">
-            <h2>Supplier Invoices</h2>
-            <button type="button" class="ui button small positive labeled icon" ui-sref="supplier_invoices.create">
+            <h2>Receipts</h2>
+            <button type="button" class="ui button small positive labeled icon" ui-sref="receipts.create">
                 <i class="icon plus"></i>
                 Add new
             </button>
@@ -16,7 +16,7 @@
 
                 <div class="ui floating dropdown labeled icon button" sui-dropdown>
                     <i class="filter icon"></i>
-                    <span class="text">Filter Invoices</span>
+                    <span class="text">Filter Receipts</span>
                     <div class="menu">
                         <div class="item" ng-click="search = {}">
                             <div class="ui empty circular black label"></div>
@@ -24,7 +24,7 @@
                         </div>
                         <div class="header">
                           <i class="tags icon"></i>
-                          Invoice Status
+                          Receipt Status
                         </div>
                         <div class="scrolling menu">
                             <div class="item" ng-click="search.paid = '0000-00-00'">
@@ -48,46 +48,38 @@
 		<tr>
 			<th width="1"></th>
 			<th>Supplier</th>
-			<th>Status</th>
-			<th class="right">Sum</th>
-			<th>Invoice Date</th>
-            <th>Due Date</th>
+			<th>Paid By</th>
+            <th>Paid With</th>
+			<th class="right">Amount</th>
+			<th>Date</th>
 		</tr>
 	</thead>
     <tbody>
-        <tr ng-repeat-start="si in filtered() | filter: search | orderBy: orderByKey : orderByReverse track by $index" ng-show=" ($index == 0 || lastDate.getFullYear().toString()+lastDate.getMonth().toString() != si.date.getFullYear().toString()+si.date.getMonth().toString() ? newLastDate(si.date) : false )">
+        <tr ng-repeat-start="receipt in filtered() | filter: search | orderBy: orderByKey : orderByReverse track by $index" ng-show=" ($index == 0 || lastDate.getFullYear().toString()+lastDate.getMonth().toString() != receipt.date.getFullYear().toString()+receipt.date.getMonth().toString() ? newLastDate(receipt.date) : false )">
             <td class="table-separator" colspan="7">
-                {{ si.date | date : 'MMMM yyyy' }}
+                {{ receipt.date | date : 'MMMM yyyy' }}
             </td>
         </tr>
         <tr ng-repeat-end>
             <td>
                 <input type="checkbox">
             </td>
-            <td ui-sref="supplier_invoices.item({id: si.id, supplierInvoice: si})">
-                {{si.supplier.company_name}}
+            <td ui-sref="receipts.item({id: receipt.id, receipt: receipt})">
+                {{(receipt.supplier ? receipt.supplier.company_name : 'n/a')}}
             </td>
-            <td ui-sref="supplier_invoices.item({id: si.id, supplierInvoice: si})">
-                <span ng-if="si.paid != '0000-00-00'" class="ui green basic label">
-                    <i class="icon check"></i>
-                    Paid
-                </span>
-                <span ng-if="si.paid == '0000-00-00'" class="ui red basic label">
-                    <i class="icon remove"></i>
-                    Unpaid
-                </span>
+            <td ui-sref="receipts.item({id: receipt.id, receipt: receipt})">
+                {{receipt.employee.name}}
             </td>
-            <td class="right" ui-sref="supplier_invoices.item({id: si.id, supplierInvoice: si})">
-                {{si.sum | number:2}}
-                {{si.currency}}
+            <td ui-sref="receipts.item({id: receipt.id, receipt: receipt})">
+                {{receipt.payment}}
             </td>
-            <td ui-sref="supplier_invoices.item({id: si.id, supplierInvoice: si})">
-                {{si.date | date : 'yyyy-MM-dd'}}
+            <td class="right">
+                {{receipt.amount}}
+                {{receipt.currency}}
             </td>
-            <td ui-sref="supplier_invoices.item({id: si.id, supplierInvoice: si})">
-                {{si.duedate}}
+            <td ui-sref="receipts.item({id: receipt.id, receipt: receipt})">
+                {{receipt.date | date : 'yyyy-MM-dd'}}
             </td>
         </tr>
     </tbody>
-
 </table>

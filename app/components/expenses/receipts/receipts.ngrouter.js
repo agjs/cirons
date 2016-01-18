@@ -13,13 +13,14 @@
         },
         views: {
           '': {
-            templateUrl: 'components/expenses/receipts/receipts.view.html',
+            templateUrl: 'components/expenses/receipts/receipts_table.view.html',
             controller: 'receiptsController'
 
-          },
-          'receiptsList@receipts': {
-            templateUrl: 'components/expenses/receipts/receipts_list.view.html',
           }
+        //   ,
+        //   'receiptsList@receipts': {
+        //     templateUrl: 'components/expenses/receipts/receipts_list.view.html',
+        //   }
         }
       })
 
@@ -30,14 +31,14 @@
         label: 'Write a Receipt'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/expenses/receipts/receipts.view.html'
         },
-        'receiptsList@receipts': {
+        'receiptsList@receipts.create': {
           templateUrl: 'components/expenses/receipts/receipts_list.view.html',
           controller: 'receiptsController'
         },
-        'receiptsContent@receipts': {
+        'receiptsContent@receipts.create': {
           templateUrl: 'components/expenses/receipts/receipts_create.view.html',
           controller: 'receiptsCRUDController'
         }
@@ -47,21 +48,21 @@
     .state('receipts.item', {
       url: "/:id",
       params: {
-        supplier: undefined
+        receipt: undefined
       },
       ncyBreadcrumb: {
         parent: 'receipts',
         label: '{{id}}'
       },
       views: {
-        '': {
+        '@': {
           templateUrl: 'components/expenses/receipts/receipts.view.html'
         },
-        'receiptsList@receipts': {
+        'receiptsList@receipts.item': {
           templateUrl: 'components/expenses/receipts/receipts_list.view.html',
           controller: 'receiptsController'
         },
-        'receiptsContent@receipts': {
+        'receiptsContent@receipts.item': {
           templateUrl: 'components/expenses/receipts/receipts_content.view.html',
           controller: 'receiptsSingleItemController'
         }

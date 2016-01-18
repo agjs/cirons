@@ -19,6 +19,7 @@
   require('../libs/angular-loading-bar/build/loading-bar.min.js');
   require('../libs/semantic/dist/semantic.min.js');
 
+  window.d3 = require('d3');
   window.c3 = require('c3');
   require('../libs/c3-angular/c3-angular.min.js');
   require('../libs/angular-ui-calendar/src/calendar.js');

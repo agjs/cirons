@@ -30,7 +30,7 @@
               <div class="field" ng-show="changeSupplier">
                   <label ng-show="receipt.supplier">Change supplier</label>
                   <label ng-hide="receipt.supplier">Supplier</label>
-                  <input ng-model="newSupplier" type="text" typeahead-on-select="changeSupplier = false;" uib-typeahead="item as item.company_name for item in suppliers | filter:{company_name:$viewValue}" placeholder="Search supplier">
+                  <input ng-model="newSupplier" type="text" typeahead-on-select="onSupplierSelect($item,$model,$label); changeSupplier = false;" uib-typeahead="item as item.company_name for item in suppliers | filter:{company_name:$viewValue}" placeholder="Search supplier">
               </div>
 
               <div class="seperator"></div>
@@ -56,6 +56,13 @@
                   <label>Currency</label>
                   <select ng-change="save()" ng-model="receipt.currency">
                       <option ng-repeat="currency in settings.currencies" value="{{currency.ISO}}">{{currency.ISO}}</option>
+                  </select>
+              </div>
+
+              <div class="inline field">
+                  <label>Payment Method</label>
+                  <select ng-change="save()" ng-model="receipt.payment">
+                      <option ng-repeat="pm in paymentMethods track by $index" value="{{$index}}">{{pm}}</option>
                   </select>
               </div>
 

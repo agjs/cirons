@@ -8,19 +8,6 @@
     </h1>
   </div>
 
-  <div class="status-bar">
-    <div id="{{item.div_id}}" ng-repeat="item in iconMenu">
-      <button id="{{item.button_id}}" ng-click="visible(item.button_id)">
-        <i class="{{item.icon}}"></i>
-      </button>
-      <div class="ui flowing popup bottom notification-popup" id="popup_{{item.button_id}}" ng-class="isVisible ? 'visible right' : 'invisible'" style="{{inlineStyle}}">
-        <div class="no-notifications">
-          No notifications at the moment...
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="user-bar">
     <nav>
       <span>
@@ -41,6 +28,19 @@
         </li>
       </ul>
     </nav>
-
   </div>
+
+  <div class="status-bar">
+    <div id="{{item.div_id}}" ng-repeat="item in iconMenu">
+      <button id="{{item.button_id}}" ng-click="visible(item.button_id)">
+        <i class="{{item.icon}}"></i>
+      </button>
+      <div class="ui flowing popup bottom notification-popup" id="popup_{{item.button_id}}" ng-class="isVisible ? 'visible right' : 'invisible'" style="{{inlineStyle}}">
+        <div class="no-notifications">
+          No notifications at the moment...
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </header>

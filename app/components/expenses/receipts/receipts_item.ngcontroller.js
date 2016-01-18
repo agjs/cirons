@@ -6,11 +6,14 @@
     $scope.supplier = $stateParams.supplier;
     $scope.id = $stateParams.id;
 
+    var payment = ["Cash", "CC Company", "CC Private"];
+    $scope.paymentMethods = payment;
 
     if (!$scope.receipt) {
       receiptsFactory.getReceipt($scope.id).then(function(item) {
         $scope.receipt = item;
         $scope.formatDates();
+        $scope.checkSupplier();
       });
     }
 
@@ -68,6 +71,7 @@
     $scope.changeSupplier = false;
     $scope.checkSupplier = function(){
         if(!$scope.receipt){
+            $scope.changeSupplier = true;
             return;
         }
         if($scope.receipt.supplier){
