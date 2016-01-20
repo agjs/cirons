@@ -2,7 +2,7 @@
   'use strict';
   module.exports = usersSingleItemController;
 
-  function usersSingleItemController($scope, $stateParams, usersFactory, lodash) {
+  function usersSingleItemController($scope, $stateParams, usersFactory, lodash, $rootScope) {
     $scope.user = $stateParams.user;
     $scope.id = $stateParams.id;
 
@@ -19,6 +19,12 @@
         delete saveuser.username;
         usersFactory.editUser($scope.user.id, $scope.user).then(function(user){
             $scope.user = user;
+
+            if($rootScope.s.user.id == user.id){
+                // if edited is current user then update rootScope user info
+                $rootScope.s.user = user;
+            }
+
             var findItem = lodash.find($scope.users, function(arg) {
               return arg.id === $stateParams.id;
             });
@@ -78,6 +84,6 @@
 
   }
 
-  usersSingleItemController.$inject = ['$scope', '$stateParams', 'usersFactory', 'lodash'];
+  usersSingleItemController.$inject = ['$scope', '$stateParams', 'usersFactory', 'lodash', '$rootScope'];
 
 })();

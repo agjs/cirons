@@ -175,9 +175,12 @@
         });
     };
 
+    $scope.isGeneratingInvoice = false;
     $scope.generateInvoice = function(){
+        $scope.isGeneratingInvoice = true;
         ordersFactory.generateInvoice($scope.id).then(function(invoice){
-            $state.go('invoices.item', {id: invoice.id, invoice: invoice});
+            $scope.isGeneratingInvoice = false;
+            $state.go('invoices.item.general', {id: invoice.id, invoice: invoice});
         });
     };
 

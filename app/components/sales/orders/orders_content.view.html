@@ -29,7 +29,7 @@
             			<i class="icon shipping"></i>
                         Order is shipped
             		</button>
-                    <button ng-click="generateInvoice()" ng-show="order.invoices.length == 0" class="ui button labeled icon">
+                    <button ng-click="generateInvoice()" ng-disabled="isGeneratingInvoice" ng-show="order.invoices.length == 0" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Create Invoice
 		            </button>
@@ -38,7 +38,7 @@
                     <cirons-order-download
                         order="order"
                     ></cirons-order-download>
-                    <button ng-click="generateInvoice()" ng-show="order.invoices.length == 0" class="ui button labeled icon">
+                    <button ng-click="generateInvoice()" ng-disabled="isGeneratingInvoice" ng-show="order.invoices.length == 0" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Create Invoice
             		</button>
@@ -51,7 +51,7 @@
                     <cirons-order-download
                         order="order"
                     ></cirons-order-download>
-                    <button ng-click="generateInvoice()" ng-show="order.invoices.length == 0" class="ui button labeled icon">
+                    <button ng-click="generateInvoice()" ng-disabled="isGeneratingInvoice" ng-show="order.invoices.length == 0" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Create Invoice
             		</button>

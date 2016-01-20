@@ -4,7 +4,7 @@
   <div class="tab_content">
     <div class="ui grid stackable">
       <div class="column four wide">
-        <div class="small-box" style="border-color: #66bb6a; color: #66bb6a;">
+        <div class="small-box" style="background-color: #808080; color: #fff;">
           <table height="100%" width="100%">
             <tbody>
               <tr>
@@ -14,7 +14,7 @@
                 <td>
 
                   <span id="growth_mini_number">{{dashboardData.growth_mini}}
-                    <span>
+                  </span>
                       <strong>Growth Last Month</strong>
                     </td>
                   </tr>
@@ -24,7 +24,7 @@
           </div>
 
           <div class="column four wide">
-            <div class="small-box interactive" onclick="followFilterLink('/orders/', { eq_step: 'pending' })" style="border-color: #E07B53; color: #E07B53;">
+            <div class="small-box interactive" onclick="followFilterLink('/orders/', { eq_step: 'pending' })" style="background-color: #FFCD02; color: #fff;">
               <table height="100%" width="100%">
                 <tbody>
                   <tr>
@@ -42,7 +42,7 @@
           </div>
 
           <div class="column four wide">
-            <div class="small-box interactive" onclick="followFilterLink('/invoices/',{ gt_date: '2015-12-01' });" style="border-color: #26a69a; color: #26a69a;">
+            <div class="small-box interactive" onclick="followFilterLink('/invoices/',{ gt_date: '2015-12-01' });" style="background-color: #FFB832; color: #fff;">
               <table height="100%" width="100%">
                 <tbody>
                   <tr>
@@ -60,7 +60,7 @@
           </div>
 
           <div class="column four wide">
-            <div class="small-box interactive" id="due_invoices_mini" onclick="followFilterLink('/invoices/', { ne_step: 'paid' })" style="border-color: rgb(246, 100, 100); color: rgb(246, 100, 100);">
+            <div class="small-box interactive" id="due_invoices_mini" onclick="followFilterLink('/invoices/', { ne_step: 'paid' })" style="background-color: rgb(255, 94, 58); color: #fff">
               <table height="100%" width="100%">
                 <tbody>
                   <tr>
@@ -79,7 +79,7 @@
             </div>
           </div>
           <h4 class="ui horizontal divider header">
-            Sales vs. Costs
+            Costs vs. Sales
           </h4>
           <div class="column sixteen wide">
             <c3chart bindto-id="expenses_bar_current_chart" chart-x="expenses_bar_currentX" chart-columns="expenses_bar_currentColumns" chart-data="expenses_bar_currentData">

@@ -22,8 +22,24 @@
       invoicesFactory.getInvoice($scope.id).then(function(item) {
         $scope.invoice = item;
         $scope.getTotals();
+        $scope.formatInvoice();
       });
-    } 
+    }
+
+    $scope.changeDates = function(){
+        invoicesFactory.editInvoice($scope.id, {
+            date: $scope.invoice.date,
+            duedays: $scope.invoice.duedays
+        }).then(function(edited){
+            console.log("invoice date edited");
+        })
+    };
+
+    $scope.formatInvoice = function(){
+        if($scope.invoice){
+            $scope.invoice.date = new Date($scope.invoice.date);
+        }
+    };
 
     $scope.getContacts = function(){
         if($scope.contacts.length){
@@ -94,6 +110,9 @@
 
     $scope.totalDebt = 0;
     $scope.getDebt = function(){
+        if(!$scope.invoice.payments){
+            return false;
+        }
         console.log("getDebt");
         console.log($scope.invoice.payments);
         $scope.totalDebt = $scope.grandTotal;
@@ -219,7 +238,8 @@
 
     $scope.bookInvoice = function(){
         invoicesFactory.bookInvoice($scope.id).then(function(invoice){
-            $scope.invoice = invoice;
+            $scope.invoice.step = invoice.step;
+            $scope.invoice.steps = invoice.steps;
         });
     };
 

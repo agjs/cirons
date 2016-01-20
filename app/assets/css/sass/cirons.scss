@@ -4,10 +4,18 @@
 @import "xeditable.scss";
 @import "dropzone.scss";
 
-$cirons_blue: #1F77B4;
+//rgb(255, 174, 42);
+//original: #1F77B4
+
+$cirons_blue: #ff5e3a;
+$cirons_red: #db2828;
 $cirons_light: lighten($cirons_blue, 45);
 
-$header_color: white;
+$cirons_yellow: #FFB405;
+
+$dashboard_bg: lighten($cirons_blue, 53);
+
+$header_color: rgba(255,255,255,0.60);
 
 $nav_item_bg: rgba(255,255,255,0.1);
 $nav_item_color: rgba(255,255,255,1);
@@ -37,14 +45,22 @@ body {
   position: relative;
   padding: 0;
   margin: 0;
-  background: $cirons_blue;
+  // background: $cirons_blue;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff5e3a+0,ffcd02+100 */
+background: #ff5e3a; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #ff5e3a 0%, #ffcd02 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #ff5e3a 0%,#ffcd02 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #ff5e3a 0%,#ffcd02 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e3a', endColorstr='#ffcd02',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 }
 aside.menu.blue nav#main {
   height: 100%;
 }
 aside.menu.blue nav#main ul {
-  background: $cirons_blue;
+  background: none;
   height: 100%;
   padding-top: 10px;
 }
@@ -931,7 +947,7 @@ ul.notification-list li div .notification-text {
   background: #EBFFFF;
 }
 body.dashboard section.content .inner {
-  background: #dde7ed;
+  background: $dashboard_bg;
 }
 body.dashboard section.content .inner .page-content {
   padding: 0;
@@ -1101,19 +1117,19 @@ $widget_table_height: 40px;
   text-align: left;
 }
 .widget-table td.blue1 {
-  background-color: #d9e9f4;
+  background-color: lighten($cirons_yellow, 30);
 }
 .widget-table td.blue2 {
-  background-color: #e1f4ff;
+  background-color: lighten($cirons_yellow, 35);
 }
 .widget-table td.blue3 {
-  background-color: #b5d3e9;
+  background-color: lighten($cirons_yellow, 40);
 }
 .widget-table td.blue4 {
-  background-color: #a4c7e0;
+  background-color: lighten($cirons_yellow, 45);
 }
 .widget-table td.blue5 {
-  background-color: #8db8d6;
+  background-color: lighten($cirons_yellow, 50);
 }
 .widget-table tr[data-toggle] {
   padding: 0;
@@ -1123,7 +1139,7 @@ $widget_table_height: 40px;
 }
 .widget-table tr[data-id] td,
 .widget-table tr[data-toggle].active > td {
-  border-bottom: 2px solid #aed0e4;
+  border-bottom: 2px solid #E4D1AE;
 }
 .widget-table tr[data-id].active td {
   border: none;
@@ -1757,10 +1773,21 @@ table.info-table {
     padding: 20px;
     background: white;
     border-bottom: 1px solid #ccc;
+    position: relative;
+
+    button.positive {
+        left: 220px !important;
+        top: 12px !important;
+        position: absolute !important;
+    }
 }
 
 .table-separator {
     background: #ddd;
+}
+
+.small-box {
+    border: none !important;
 }
 
 @import "_comments";
@@ -1771,6 +1798,8 @@ table.info-table {
 @import "_split_table";
 @import "_common";
 @import "_responsive";
+@import "_orange";
+
 #loading {
   opacity: 0 !important;
   visibility: hidden !important;

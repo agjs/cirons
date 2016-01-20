@@ -35,14 +35,14 @@
             <span>Minus Costs</span>
             <strong id="tabbar-chart-costs">{{dashboardData.turnover.costs | number: 2}}</strong>
           </li>
-          <li>
+          <li ng-class="{ 'minus' : (dashboardData.turnover.total < 0 ? true : false) }">
             <span>Equals Result</span>
             <strong id="tabbar-chart-total">{{dashboardData.turnover.total | number: 2}}</strong>
           </li>
 
           <li>
             <span>Currency</span>
-            <strong id="tabbar-chart-total">{{dashboardData.turnover.currency}}</strong>
+            <strong id="tabbar-chart-total">{{$root.s.currency}}</strong>
           </li>
 
         </ul>

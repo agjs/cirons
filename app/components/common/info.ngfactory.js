@@ -19,7 +19,7 @@
                         label: "Sent"
                     },
                     paid: {
-                        color: "green",
+                        color: "teal",
                         label: "Paid",
                         icon: "icon check"
                     }
@@ -34,7 +34,7 @@
                         label: "Shipped"
                     },
                     delivered: {
-                        color: "green",
+                        color: "teal",
                         label: "Delivered",
                         icon: "icon check"
                     },

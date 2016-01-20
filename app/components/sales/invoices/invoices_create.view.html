@@ -91,18 +91,18 @@
           </div>
           <div class="column six wide">
               <select ng-model="invoice.currency">
-                  <option ng-repeat="currency in settings.currencies" value="{{currency.ISO}}">{{currency.ISO}}</option>
+                  <option ng-repeat="currency in $root.s.currencies" value="{{currency.ISO}}">{{currency.ISO}}</option>
               </select>
           </div>
           <div class="column six wide"></div>
       </div>
-      <div class="ui grid stackable" ng-show="settings.options.use_level_prices">
+      <div class="ui grid stackable" ng-if="$root.s.get('use_level_prices')">
           <div class="column four wide">
               <label>Price List</label>
           </div>
           <div class="column six wide">
               <select ng-model="invoice.price_list_id">
-                  <option ng-repeat="pricelist in settings.price_lists" value="{{pricelist.id}}">{{pricelist.name}}</option>
+                  <option ng-repeat="pricelist in $root.s.price_lists" value="{{pricelist.id}}">{{pricelist.name}}</option>
               </select>
           </div>
           <div class="column six wide"></div>

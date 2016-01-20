@@ -1,0 +1,62 @@
+$cirons_blue_replace: #ffab13;
+
+.ui.blue.label, .ui.blue.labels .label {
+    background-color: $cirons_blue_replace !important;
+    border-color: $cirons_blue_replace !important;
+}
+
+span.receivable {
+    color: #db2828;
+}
+
+li.ng-scope.active {
+    color: white;
+}
+
+body.firedark {
+
+    header, aside.menu header {
+        background: #453838;
+        color: white !important;
+
+        i.fa {
+            color: white !important;
+        }
+    }
+
+    .ui.table td.positive, .ui.table tr.positive td {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+
+    .dashboard-tabs div.tabbar-chart ul li strong {
+        color: black;
+    }
+
+    .dashboard-tabs div.tabbar-chart ul li.minus strong {
+        color: $cirons_red;
+    }
+
+    .dashboard-tabs {
+        background: #eee;
+    }
+
+    span.receivable {
+        color: #db2828;
+
+        div {
+            display: inline-block !important;
+            // color: white;
+            // background: #DE3163;
+            padding: 15px 7px;
+            padding-left: 0;
+            margin: 10px 0 10px 0;
+        }
+    }
+
+    #accounts_payable_pie, #accounts_receivable_pie {
+        padding-top: 25px;
+    }
+
+}

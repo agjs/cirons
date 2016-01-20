@@ -52,6 +52,14 @@
     </div>
     <div class="column eight wide">
         <div class="ui segment blue">
+			<div class="inline fields">
+                <label>Invoice Date</label>
+                <input type="date" ng-model="invoice.date" ng-change="changeDates()">
+            </div>
+			<div class="inline fields">
+                <label>Due days</label>
+                <input type="number" ng-model="invoice.duedays" ng-blur="changeDates()">
+            </div>
             <div class="inline fields">
                 <label>Currency</label>
                 <select ng-model="invoice.currency" ng-change="changeCurrency()">

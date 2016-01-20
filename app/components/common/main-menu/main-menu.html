@@ -5,12 +5,12 @@
     </button>
   <header>
     <a class="logo" href="#">
-      <img alt="logo" ng-src="assets/images/logo-wide.png">
+      <img alt="logo" ng-src="assets/images/logo-white-wide.png">
     </a>
   </header>
   <nav id="main">
     <ul class="nav nav-main">
-      <li ng-class="menuItem.separateAfter ? 'endgroup' : ''" ng-repeat="menuItem in menu">
+      <li ng-class="menuItem.separateAfter ? 'endgroup' : ''" ng-repeat="menuItem in menu" ng-show="(menuItem.module ? $root.s.hasMod(menuItem.module) : true)">
         <a ui-sref="{{menuItem.state}}">
           <i class="{{menuItem.icon}}"></i>
           <span>{{menuItem.title}}</span>

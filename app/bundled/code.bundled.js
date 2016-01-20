@@ -78,31 +78,110 @@
 
 },{}],3:[function(require,module,exports){
 (function() {
-  "use strict";
+    "use strict";
 
 
-  module.exports = ngRun;
+    module.exports = ngRun;
 
-  function ngRun($rootScope, $location, $state, meFactory, editableOptions, editableThemes, $auth) {
+    function ngRun($rootScope, $location, $state, meFactory, editableOptions, editableThemes, $auth, settingsFactory) {
 
-    editableOptions.theme = 'default';
+        editableOptions.theme = 'default';
 
-    $rootScope.$on('$stateChangeSuccess',
-      function(event, toState, toParams, fromState, fromParams) {
-        $rootScope.currentState = toState.name;
-      }
-    )
+        $rootScope.s = {
+            options: [],
+            cur: null,
+            currency: null,
+            modules: null,
+            module_keys: null,
+            currencies: null,
+            price_lists: null,
+            vat_rules: null,
+            user: {},
+            colors: [
+                "#E4291E", // Fire Red
+                "#C50F30", // Cerine
+                "#F26C1C", // Flame Orange
+                "#FF8F1A", // Orange
+                "#FFB405"  // Yellow
+            ],
 
-    editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
+            get: function(key){
+                if(!this.options || !this.options[key]){
+                    return null;
+                }
 
-    $rootScope.$on('$stateChangeSuccess', function(event, next) {
-      if (!$auth.isAuthenticated()) {
-        event.preventDefault();
-        $location.path('/login');
-      }
-    });
-  }
-  ngRun.$inject = ['$rootScope', '$location', '$state', 'meFactory', 'editableOptions', 'editableThemes', '$auth'];
+                var value = this.options[key];
+
+                if(value == "0"){
+                    return false;
+                }
+
+                return value;
+            },
+            o: function(key){
+                return this.get(key);
+            },
+            hasModule: function(key){
+                if(key == "" || key == null){
+                    return true;
+                }
+                if(this.module_keys && this.module_keys[key]){
+                    return true;
+                }
+                return false;
+            },
+            hasMod: function(key){
+                return this.hasModule(key);
+            }
+        };
+
+        $rootScope.$on('$stateChangeSuccess',
+            function(event, toState, toParams, fromState, fromParams) {
+                $rootScope.currentState = toState.name;
+            }
+        )
+
+        var bypass;
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
+
+            if (bypass) return;
+
+            console.log("no bypass");
+
+            if (toState.name == 'login') {
+                return;
+            }
+
+            event.preventDefault(); // Halt state change from even starting
+
+            if (!$auth.isAuthenticated()) {
+                //$location.path('/login');
+                $state.go("login", {});
+                return;
+            }
+
+            settingsFactory.startGetSettings().then(function(data) {
+                console.log("settings fetched, allowing bypass");
+                bypass = true; // bypass next call
+                $state.go(toState, toParams);
+            });
+
+            // if (meetsRequirement) {  // Continue with the update and state transition if logic allows
+            //     bypass = true;  // bypass next call
+            //     $state.go(toState, toParams); // Continue with the initial state change
+            // }
+        });
+
+        editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
+
+        // $rootScope.$on('$stateChangeSuccess', function(event, next) {
+        //   if (!$auth.isAuthenticated()) {
+        //     event.preventDefault();
+        //     $location.path('/login');
+        //   }
+        // });
+    }
+    ngRun.$inject = ['$rootScope', '$location', '$state', 'meFactory', 'editableOptions', 'editableThemes', '$auth', 'settingsFactory'];
 })();
 
 },{}],4:[function(require,module,exports){
@@ -404,25 +483,26 @@
 
 },{}],15:[function(require,module,exports){
 (function() {
-  'use strict';
-  module.exports = authenticateMe;
+    'use strict';
+    module.exports = authenticateMe;
 
-  function authenticateMe($http, $q) {
+    function authenticateMe($http, $q) {
 
-    return {
-      async: function() {
-        return $http.get('http://janalex.beta.cirons.com/api/v1/me')
-      },
-      promise: function() {
-        return $http.get('http://janalex.beta.cirons.com/api/v1/me').then(function(user) {
-          return user.data;
-        })
-      }
-    };
+        return {
+            async: function() {
+                console.log("async auth");
+                return $http.get('http://janalex.beta.cirons.com/api/v1/me')
+            },
+            promise: function() {
+                return $http.get('http://janalex.beta.cirons.com/api/v1/me').then(function(user) {
+                    return user.data;
+                })
+            }
+        };
 
-  }
+    }
 
-  authenticateMe.$inject = ['$http', '$q'];
+    authenticateMe.$inject = ['$http', '$q'];
 
 })();
 
@@ -878,7 +958,7 @@ angular.module('CIRONS-MAIN-APP')
                         label: "Sent"
                     },
                     paid: {
-                        color: "green",
+                        color: "teal",
                         label: "Paid",
                         icon: "icon check"
                     }
@@ -893,7 +973,7 @@ angular.module('CIRONS-MAIN-APP')
                         label: "Shipped"
                     },
                     delivered: {
-                        color: "green",
+                        color: "teal",
                         label: "Delivered",
                         icon: "icon check"
                     },
@@ -912,67 +992,69 @@ angular.module('CIRONS-MAIN-APP')
 
 },{}],29:[function(require,module,exports){
 (function() {
-  'use strict';
-  module.exports = mainMenuController;
+    'use strict';
+    module.exports = mainMenuController;
 
-  function mainMenuController($scope) {
+    function mainMenuController($scope) {
 
-      $scope.touchMenuOpen = false;
-      $scope.toggleTouchMenu = function(){
-          $scope.touchMenuOpen = !$scope.touchMenuOpen;
-      };
+        $scope.touchMenuOpen = false;
+        $scope.toggleTouchMenu = function() {
+            $scope.touchMenuOpen = !$scope.touchMenuOpen;
+        };
 
-    $scope.logoUrl = 'assets/images/logo.png';
-    $scope.menu = [{
-      title: 'Dashboard',
-      state: 'dashboard.finance',
-      separateAfter: true,
-      icon: 'fa fa-line-chart'
-    }, {
-      title: 'Calendar',
-      state: 'calendar',
-      separateAfter: true,
-      icon: 'fa fa-calendar'
-    }, {
-      title: 'Sales',
-      state: 'sales',
-      separateAfter: false,
-      icon: 'fa fa-file-text-o'
-    }, {
-      title: 'Expenses',
-      state: 'expenses',
-      separateAfter: false,
-      icon: 'fa fa-minus-square-o'
-    }, {
-      title: 'Stock',
-      state: 'stock',
-      separateAfter: false,
-      icon: 'fa fa-cubes'
-    }, {
-      title: 'Purchasing',
-      state: 'purchasing',
-      separateAfter: false,
-      icon: 'fa fa-cart-plus'
-    }, {
-      title: 'HR',
-      state: 'hr',
-      separateAfter: true,
-      icon: 'fa fa-users'
-    }, {
-      title: 'Accounting',
-      state: 'accounting',
-      separateAfter: true,
-      icon: 'fa fa-book'
-    }, {
-      title: 'System Admin',
-      state: 'system_admin',
-      separateAfter: false,
-      icon: 'fa fa-cogs'
-    }];
+        $scope.logoUrl = 'assets/images/logo.png';
+        $scope.menu = [{
+            title: 'Dashboard',
+            state: 'dashboard.finance',
+            separateAfter: true,
+            icon: 'fa fa-line-chart'
+        }, {
+            title: 'Calendar',
+            state: 'calendar',
+            separateAfter: true,
+            icon: 'fa fa-calendar'
+        }, {
+            title: 'Sales',
+            state: 'sales',
+            separateAfter: false,
+            icon: 'fa fa-file-text-o'
+        }, {
+            title: 'Expenses',
+            state: 'expenses',
+            separateAfter: false,
+            icon: 'fa fa-minus-square-o'
+        }, {
+            title: 'Stock',
+            state: 'stock',
+            separateAfter: false,
+            module: "stock",
+            icon: 'fa fa-cubes'
+        }, {
+            title: 'Purchasing',
+            state: 'purchasing',
+            separateAfter: false,
+            icon: 'fa fa-cart-plus'
+        }, {
+            title: 'HR',
+            state: 'hr',
+            separateAfter: true,
+            icon: 'fa fa-users'
+        }, {
+            title: 'Accounting',
+            state: 'accounting',
+            separateAfter: true,
+            module: "accounting",
+            icon: 'fa fa-book'
+        }, {
+            title: 'System Admin',
+            state: 'system_admin',
+            separateAfter: false,
+            icon: 'fa fa-cogs'
+        }];
 
-  }
+    }
 
-  mainMenuController.$inject = ['$scope'];
+    mainMenuController.$inject = ['$scope'];
 
 })();
 
@@ -1012,92 +1094,93 @@ angular.module('CIRONS-MAIN-APP')
 
 },{}],32:[function(require,module,exports){
 (function() {
-  'use strict';
-  module.exports = navigationController;
+    'use strict';
+    module.exports = navigationController;
 
-  function navigationController($scope, $pusher, $auth, $state, meFactory, notificationsFactory) {
+    function navigationController($scope, $pusher, $auth, $state, meFactory, notificationsFactory, $rootScope) {
 
 
-    $scope.logout = function() {
-      $auth.logout();
-      $state.go('login');
+        $scope.logout = function() {
+            $auth.logout();
+            $state.go('login');
+        }
+
+
+        $scope.iconMenu = [
+
+            {
+                icon: 'fa fa-bullhorn',
+                state: '',
+                div_id: 'notifications_normal',
+                button_id: 'normal'
+            }, {
+                icon: 'fa fa-bell',
+                state: '',
+                div_id: 'notifications_reminder',
+                button_id: 'reminder'
+
+            }, {
+                icon: 'fa fa-exclamation-triangle',
+                state: '',
+                div_id: 'notifications_urgent',
+                button_id: 'urgent'
+            }
+
+        ];
+
+        $scope.isVisible = false;
+        $scope.visible = function(arg) {
+            if (arg === 'normal') {
+                $scope.inlineStyle = 'top: 50px; right: 105px; left: auto; bottom: auto; display: block !important;';
+                // notificationsFactory(csrf_token, 'normal');
+
+            } else if (arg === 'reminder') {
+                $scope.inlineStyle = 'top: 50px; right: 52.3125px; left: auto; bottom: auto; display: block !important;';
+                // notificationsFactory(csrf_token, 'reminder');
+
+            } else if (arg === 'urgent') {
+                $scope.inlineStyle = 'top: 50px; right: -0.375px; left: auto; bottom: auto; display: block !important;';
+                // notificationsFactory(csrf_token, 'urgent');
+            }
+
+            $scope.isVisible = !$scope.isVisible;
+
+        }
+
+        console.log("render top navigation");
+
+        $scope.user = $rootScope.s.user;
+
+        $scope.$watch(function() {
+            return $rootScope.s.user;
+        }, function() {
+            $scope.user = $rootScope.s.user;
+        }, true);
+
+        // var pusher = $pusher(pusherClient);
+        //
+        // pusher.subscribe('maacann');
+        // pusher.bind('user_' + user.id, function(data) {
+        //     // var title;
+        //     // switch (data.notification.type) {
+        //     //   case "normal":
+        //     //     title = "Notification";
+        //     //     break;
+        //     //   case "reminder":
+        //     //     title = "Reminder";
+        //     //   case "urgent":
+        //     //     title = "Warning";
+        //     // }
+        //
+        //     getNotificationButton(data.notification.type); // Where does this method comes from ?????
+        //     spawnNotification(title, data.notification.text, data.notification.link); // Where does this method comes from
+        // });
+
+
+
     }
 
-
-    $scope.iconMenu = [
-
-      {
-        icon: 'fa fa-bullhorn',
-        state: '',
-        div_id: 'notifications_normal',
-        button_id: 'normal'
-      }, {
-        icon: 'fa fa-bell',
-        state: '',
-        div_id: 'notifications_reminder',
-        button_id: 'reminder'
-
-      }, {
-        icon: 'fa fa-exclamation-triangle',
-        state: '',
-        div_id: 'notifications_urgent',
-        button_id: 'urgent'
-      }
-
-    ];
-
-    $scope.isVisible = false;
-    $scope.visible = function(arg) {
-      if (arg === 'normal') {
-        $scope.inlineStyle = 'top: 50px; right: 105px; left: auto; bottom: auto; display: block !important;';
-        // notificationsFactory(csrf_token, 'normal');
-
-      } else if (arg === 'reminder') {
-        $scope.inlineStyle = 'top: 50px; right: 52.3125px; left: auto; bottom: auto; display: block !important;';
-        // notificationsFactory(csrf_token, 'reminder');
-
-      } else if (arg === 'urgent') {
-        $scope.inlineStyle = 'top: 50px; right: -0.375px; left: auto; bottom: auto; display: block !important;';
-        // notificationsFactory(csrf_token, 'urgent');
-      }
-
-      $scope.isVisible = !$scope.isVisible;
-
-    }
-
-    meFactory.promise().then(function(user) {
-      $scope.user = user;
-
-
-      var pusher = $pusher(pusherClient);
-
-      pusher.subscribe('maacann');
-      pusher.bind('user_' + user.id, function(data) {
-        // var title;
-        // switch (data.notification.type) {
-        //   case "normal":
-        //     title = "Notification";
-        //     break;
-        //   case "reminder":
-        //     title = "Reminder";
-        //   case "urgent":
-        //     title = "Warning";
-        // }
-
-        getNotificationButton(data.notification.type); // Where does this method comes from ?????
-        spawnNotification(title, data.notification.text, data.notification.link); // Where does this method comes from ?????
-
-
-      });
-
-
-
-    });
-
-
-  }
-
-  navigationController.$inject = ['$scope', '$pusher', '$auth', '$state', 'meFactory', 'notificationsFactory'];
+    navigationController.$inject = ['$scope', '$pusher', '$auth', '$state', 'meFactory', 'notificationsFactory', '$rootScope'];
 
 })();
 
@@ -1147,321 +1230,330 @@ angular.module('CIRONS-MAIN-APP')
 
 },{"./dashboard.ngcontroller":35,"./dashboard.ngfactory":36,"./dashboard.ngrouter":37,"./finance/dashboard_finance.ngcontroller":38}],35:[function(require,module,exports){
 (function() {
-  'use strict';
-  module.exports = dashboardController;
+    'use strict';
+    module.exports = dashboardController;
 
-  function dashboardController($scope, $filter, dashboardFactory, productsFactory) {
+    function dashboardController($rootScope, $scope, $filter, dashboardFactory, productsFactory) {
 
-    //START PRODUCT STOCK
-    $scope.input = {
-      stock: ""
-    };
-    $scope.productStockItems = [];
-    $scope.productStockItemsFilter = function() {
-      console.log("filter products: " + $scope.input.stock);
-      productsFactory.getProductStockFilters($scope.input.stock).then(function(data) {
-        $scope.productStockItems = data;
-      });
-    };
-    productsFactory.getProductStockFilters("").then(function(data) {
-      $scope.productStockItems = data;
-    });
-
-    $scope.daysUntil = function(date){
-        var date = new Date(date);
-        var today = new Date();
-
-        var m = moment(date);
-        var mt = moment(today);
-        var diff = m.diff(mt, 'days');
-
-        return diff;
-    };
-    //END PRODUCT STOCK
-
-    //START REGISTER EXPENSES CHART
-    $scope.expenses_bar_currentData = [];
-    $scope.expenses_bar_currentColumns = [{
-      "id": "variable",
-      "type": "bar",
-      "name": "Variable",
-      "color": "#F2C61F"
-    }, {
-      "id": "fixed",
-      "type": "bar",
-      "name": "Fixed",
-      "color": "#FF8200"
-    }, {
-      "id": "receipts",
-      "type": "bar",
-      "name": "Receipts",
-      "color": "#E07B53"
-    }, {
-      "id": "sales",
-      "type": "bar",
-      "name": "Sales",
-      "color": "#66bb6a"
-    }];
-    $scope.expenses_bar_currentX = {
-      "id": "x"
-    };
-    //END REGISTER EXPENSES CHART
-
-    //START REGISTER EXPENSES PIE
-    $scope.expensesPieData = [];
-    $scope.expensesPieColumns = [];
-    //END REGISTER EXPENSES PIE
-
-    //START REGISTER ACCOUNTS PAYABLE CHART
-    $scope.accountsPayableData = [];
-    $scope.accounts_payableColumns = [{
-      id: "non",
-      type: "pie",
-      name: "Non-overdue",
-      color: "#2185d0"
-    }, {
-      id: "days1",
-      type: "pie",
-      name: "Overdue > 10 days",
-      color: "#fbbd08"
-    }, {
-      id: "days2",
-      type: "pie",
-      name: "Overdue 10 - 60 days",
-      color: "#f2711c"
-    }, {
-      id: "days3",
-      type: "pie",
-      name: "Overdue 60+ days",
-      color: "#db2828"
-    }];
-    //END REGISTER ACCOUNTS PAYABLE CHART
-
-
-    //START REGISTER ACCOUNTS RECEIVABLE CHART
-    $scope.accountsReceivableData = [];
-    $scope.accounts_receivableColumns = [{
-      id: "non",
-      type: "pie",
-      name: "Non-overdue",
-      color: "#2185d0"
-    }, {
-      id: "days1",
-      type: "pie",
-      name: "Overdue > 10 days",
-      color: "#fbbd08"
-    }, {
-      id: "days2",
-      type: "pie",
-      name: "Overdue 10 - 60 days",
-      color: "#f2711c"
-    }, {
-      id: "days3",
-      type: "pie",
-      name: "Overdue 60+ days",
-      color: "#db2828"
-    }];
-    //END REGISTER ACCOUNTS RECEIVABLE CHART
-
-
-    //START REGISTER SALES OVERVIEW CHART
-    $scope.salesOverviewData = [];
-    $scope.salesOverviewColumns = [{
-      id: "in",
-      type: "area-spline",
-      name: "Sales",
-      color: "#66bb6a"
-    }, {
-      id: "out",
-      type: "spline",
-      name: "Earnings",
-      color: "#E07B53"
-    }];
-    $scope.salesOverviewX = {
-      id: "x"
-    };
-    //END REGISTER SALES OVERVIEW CHART
-
-
-    //START REGISTER TOP PRODUCTS PIE
-    $scope.topProductsData = [];
-    $scope.topProductsColumns = [];
-    //END REGISTER TOP PRODUCTS PIE
-
-    //START REGISTER TOP CUSTOMERS PIE
-    $scope.topCustomersData = [];
-    $scope.topCustomersColumns = [];
-    //END REGISTER TOP CUSTOMERS PIE
-
-    //START SUPPLIERS TOP CUSTOMERS PIE
-    $scope.topSuppliersData = [];
-    $scope.topSuppliersColumns = [];
-    //END SUPPLIERS TOP CUSTOMERS PIE
-
-
-    /*
-    GET DASHBOARD DATA.
-    Returns: Object of data
-    */
-    dashboardFactory.getDashboardData().then(function(data) {
-      $scope.dashboardData = data;
-      $scope.dashboardData.due_invoices_mini.total = $filter('currency')(data.due_invoices_mini.total, '', 0);
-      $scope.dashboardData.turnover_this_month_mini.total = $filter('currency')(data.turnover_this_month_mini.total, '', 0);
-      $scope.dashboardData.growth_mini = $filter('number')(data.growth_mini, 0) + '%';
-
-      for (var i = 0; i < data.expenses_bar_current.months.length; i++) {
-        var month = data.expenses_bar_current.months[i];
-        var fixed = parseFloat(data.expenses_bar_current.fixed[i]);
-        var receipts = parseFloat(data.expenses_bar_current.rec[i]);
-        var sales = parseFloat(data.expenses_bar_current.sales[i]);
-        var variable = parseFloat(data.expenses_bar_current.supp[i]);
-
-        $scope.expenses_bar_currentData.push({
-          "x": month,
-          "variable": variable,
-          "fixed": fixed,
-          "receipts": receipts,
-          "sales": sales
-        });
-      }
-      $scope.isActive = false;
-      $scope.activeButton = function() {
-          $scope.isActive = !$scope.isActive;
-        }
-        //SALES OVERVIEW
-      for (var i = 0; i < data.sales_overview.x.length; i++) {
-        var x = data.sales_overview.x[i];
-        var in_data = data.sales_overview.in[i];
-        var out = data.sales_overview.out[i];
-
-        $scope.salesOverviewData.push({
-          "x": x,
-          "in": in_data,
-          "out": out
-        });
-      }
-
-      //END SALES OVERVIEW
-
-      //START EXPENSES PIE
-      var expenses_data = [];
-      for (var i = 0; i < data.expenses_pie_breakdown.length; i++) {
-        var expense = data.expenses_pie_breakdown[i];
-        $scope.expensesPieColumns.push({
-          id: expense[0],
-          name: expense[0],
-          type: "pie"
+        //START PRODUCT STOCK
+        $scope.input = {
+            stock: ""
+        };
+        $scope.productStockItems = [];
+        $scope.productStockItemsFilter = function() {
+            console.log("filter products: " + $scope.input.stock);
+            productsFactory.getProductStockFilters($scope.input.stock).then(function(data) {
+                $scope.productStockItems = data;
+            });
+        };
+        productsFactory.getProductStockFilters("").then(function(data) {
+            $scope.productStockItems = data;
         });
 
-        expenses_data[expense[0]] = expense[1];
-      }
-      $scope.expensesPieData.push(expenses_data);
-      //END EXPENSES PIE
+        $scope.daysUntil = function(date) {
+            var date = new Date(date);
+            var today = new Date();
 
-      //START TOP SUPPLIERS PIE
-      var suppliers_data = [];
-      for (var i = 0; i < data.top_suppliers.length; i++) {
-        var supplier = data.top_suppliers[i];
-        $scope.topSuppliersColumns.push({
-          id: "supplier" + i,
-          type: "pie",
-          name: supplier.company_name
+            var m = moment(date);
+            var mt = moment(today);
+            var diff = m.diff(mt, 'days');
+
+            return diff;
+        };
+        //END PRODUCT STOCK
+
+        //START REGISTER EXPENSES CHART
+        $scope.expenses_bar_currentData = [];
+        $scope.expenses_bar_currentColumns = [{
+            "id": "variable",
+            "type": "bar",
+            "name": "Variable",
+            "color": "#ff9600"
+        }, {
+            "id": "fixed",
+            "type": "bar",
+            "name": "Fixed",
+            "color": "#FF8200"
+        }, {
+            "id": "receipts",
+            "type": "bar",
+            "name": "Receipts",
+            "color": "#ff5e3a"
+        }, {
+            "id": "sales",
+            "type": "bar",
+            "name": "Sales",
+            "color": "#ffcd02"
+        }];
+        $scope.expenses_bar_currentX = {
+            "id": "x"
+        };
+        //END REGISTER EXPENSES CHART
+
+        //START REGISTER EXPENSES PIE
+        $scope.expensesPieData = [];
+        $scope.expensesPieColumns = [];
+        //END REGISTER EXPENSES PIE
+
+        //START REGISTER ACCOUNTS PAYABLE CHART
+        $scope.accountsPayableData = [];
+        $scope.accounts_payableColumns = [{
+            id: "non",
+            type: "pie",
+            name: "Non-overdue",
+            color: "#ffab13"
+        }, {
+            id: "days1",
+            type: "pie",
+            name: "Overdue > 10 days",
+            color: "#fbbd08"
+        }, {
+            id: "days2",
+            type: "pie",
+            name: "Overdue 10 - 60 days",
+            color: "#f2711c"
+        }, {
+            id: "days3",
+            type: "pie",
+            name: "Overdue 60+ days",
+            color: "#db2828"
+        }];
+        //END REGISTER ACCOUNTS PAYABLE CHART
+
+
+        //START REGISTER ACCOUNTS RECEIVABLE CHART
+        $scope.accountsReceivableData = [];
+        $scope.accounts_receivableColumns = [{
+            id: "non",
+            type: "pie",
+            name: "Non-overdue",
+            color: "#ffab13"
+        }, {
+            id: "days1",
+            type: "pie",
+            name: "Overdue > 10 days",
+            color: "#fbbd08"
+        }, {
+            id: "days2",
+            type: "pie",
+            name: "Overdue 10 - 60 days",
+            color: "#f2711c"
+        }, {
+            id: "days3",
+            type: "pie",
+            name: "Overdue 60+ days",
+            color: "#db2828"
+        }];
+        //END REGISTER ACCOUNTS RECEIVABLE CHART
+
+
+        //START REGISTER SALES OVERVIEW CHART
+        $scope.salesOverviewData = [];
+        $scope.salesOverviewColumns = [{
+            id: "in",
+            type: "area-spline",
+            name: "Sales",
+            color: "#FFB405"
+        }, {
+            id: "out",
+            type: "spline",
+            name: "Earnings",
+            color: "#E4291E"
+        }];
+        $scope.salesOverviewX = {
+            id: "x"
+        };
+        //END REGISTER SALES OVERVIEW CHART
+
+
+        //START REGISTER TOP PRODUCTS PIE
+        $scope.topProductsData = [];
+        $scope.topProductsColumns = [];
+        //END REGISTER TOP PRODUCTS PIE
+
+        //START REGISTER TOP CUSTOMERS PIE
+        $scope.topCustomersData = [];
+        $scope.topCustomersColumns = [];
+        //END REGISTER TOP CUSTOMERS PIE
+
+        //START SUPPLIERS TOP CUSTOMERS PIE
+        $scope.topSuppliersData = [];
+        $scope.topSuppliersColumns = [];
+        //END SUPPLIERS TOP CUSTOMERS PIE
+
+
+        /*
+        GET DASHBOARD DATA.
+        Returns: Object of data
+        */
+        dashboardFactory.getDashboardData().then(function(data) {
+            $scope.dashboardData = data;
+            $scope.dashboardData.due_invoices_mini.total = $filter('currency')(data.due_invoices_mini.total, '', 0);
+            $scope.dashboardData.turnover_this_month_mini.total = $filter('currency')(data.turnover_this_month_mini.total, '', 0);
+            $scope.dashboardData.growth_mini = $filter('number')(data.growth_mini, 0) + '%';
+
+            for (var i = 0; i < data.expenses_bar_current.months.length; i++) {
+                var month = data.expenses_bar_current.months[i];
+                var fixed = parseFloat(data.expenses_bar_current.fixed[i]);
+                var receipts = parseFloat(data.expenses_bar_current.rec[i]);
+                var sales = parseFloat(data.expenses_bar_current.sales[i]);
+                var variable = parseFloat(data.expenses_bar_current.supp[i]);
+
+                $scope.expenses_bar_currentData.push({
+                    "x": month,
+                    "variable": variable,
+                    "fixed": fixed,
+                    "receipts": receipts,
+                    "sales": sales
+                });
+            }
+            $scope.isActive = false;
+            $scope.activeButton = function() {
+                    $scope.isActive = !$scope.isActive;
+                }
+                //SALES OVERVIEW
+            for (var i = 0; i < data.sales_overview.x.length; i++) {
+                var x = data.sales_overview.x[i];
+                var in_data = data.sales_overview.in[i];
+                var out = data.sales_overview.out[i];
+
+                $scope.salesOverviewData.push({
+                    "x": x,
+                    "in": in_data,
+                    "out": out
+                });
+            }
+
+            //END SALES OVERVIEW
+
+            //START EXPENSES PIE
+            var expenses_data = [];
+            for (var i = 0; i < data.expenses_pie_breakdown.length; i++) {
+                var expense = data.expenses_pie_breakdown[i];
+                var col = {
+                    id: expense[0],
+                    name: expense[0],
+                    type: "pie"
+                };
+                if($rootScope.s.colors[i]){
+                    col.color = $rootScope.s.colors[i];
+                }
+
+                $scope.expensesPieColumns.push(col);
+
+
+                expenses_data[expense[0]] = expense[1];
+            }
+            $scope.expensesPieData.push(expenses_data);
+            //END EXPENSES PIE
+
+            //START TOP SUPPLIERS PIE
+            var suppliers_data = [];
+            for (var i = 0; i < data.top_suppliers.length; i++) {
+                var supplier = data.top_suppliers[i];
+                $scope.topSuppliersColumns.push({
+                    id: "supplier" + i,
+                    type: "pie",
+                    name: supplier.company_name,
+                    color: $rootScope.s.colors[i]
+                });
+                suppliers_data["supplier" + i] = supplier.total;
+            }
+            $scope.topSuppliersData.push(suppliers_data);
+            //END TOP SUPPLIERS PIE
+
+            //START TOP PRODUCT PIE
+            var product_data = {};
+            for (var i = 0; i < data.top_products.length; i++) {
+                var product = data.top_products[i];
+                $scope.topProductsColumns.push({
+                    id: "product" + i,
+                    type: "pie",
+                    name: product.product_name,
+                    color: $rootScope.s.colors[i]
+                });
+                product_data["product" + i] = product.sold;
+            }
+            $scope.topProductsData.push(product_data);
+            //END TOP PRODUCT PIE
+            //START TOP CUSTOMERS PIE
+            var customer_data = {};
+            for (var i = 0; i < data.top_customers.length; i++) {
+                var contact = data.top_customers[i];
+                $scope.topCustomersColumns.push({
+                    id: "customer" + i,
+                    type: "pie",
+                    name: contact.name,
+                    color: $rootScope.s.colors[i]
+                });
+                customer_data["customer" + i] = contact.invoiced;
+            }
+            $scope.topCustomersData.push(customer_data);
+            //END TOP CUSTOMERS PIE
+
+
+            $scope.accountsPayableData = [{
+                "non": data.accounts_payable.array.non,
+                "days1": data.accounts_payable.array.days1,
+                "days2": data.accounts_payable.array.days2,
+                "days3": data.accounts_payable.array.days3
+            }];
+
+            $scope.accountsPayableEntries = data.accounts_payable.array.non + data.accounts_payable.array.days1 + data.accounts_payable.array.days2 + data.accounts_payable.array.days3;
+
+            $scope.accountsPayableNumbers = {
+                non: [
+                    data.accounts_payable.array.non,
+                    Math.round(data.accounts_payable.array.non / $scope.accountsPayableEntries * 100 * 10) / 10
+                ],
+                days1: [
+                    data.accounts_payable.array.days1,
+                    Math.round(data.accounts_payable.array.days1 / $scope.accountsPayableEntries * 100 * 10) / 10
+                ],
+                days2: [
+                    data.accounts_payable.array.days2,
+                    Math.round(data.accounts_payable.array.days2 / $scope.accountsPayableEntries * 100 * 10) / 10
+                ],
+                days3: [
+                    data.accounts_payable.array.days3,
+                    Math.round(data.accounts_payable.array.days3 / $scope.accountsPayableEntries * 100 * 10) / 10
+                ]
+            };
+
+            $scope.accountsReceivableData = [{
+                "non": data.accounts_receivable.array.non,
+                "days1": data.accounts_receivable.array.days1,
+                "days2": data.accounts_receivable.array.days2,
+                "days3": data.accounts_receivable.array.days3
+            }];
+
+            $scope.accountsReceivableEntries = data.accounts_receivable.array.non + data.accounts_receivable.array.days1 + data.accounts_receivable.array.days2 + data.accounts_receivable.array.days3;
+
+            $scope.accountsReceivableNumbers = {
+                non: [
+                    data.accounts_receivable.array.non,
+                    Math.round(data.accounts_receivable.array.non / $scope.accountsReceivableEntries * 100 * 10) / 10
+                ],
+                days1: [
+                    data.accounts_receivable.array.days1,
+                    Math.round(data.accounts_receivable.array.days1 / $scope.accountsReceivableEntries * 100 * 10) / 10
+                ],
+                days2: [
+                    data.accounts_receivable.array.days2,
+                    Math.round(data.accounts_receivable.array.days2 / $scope.accountsReceivableEntries * 100 * 10) / 10
+                ],
+                days3: [
+                    data.accounts_receivable.array.days3,
+                    Math.round(data.accounts_receivable.array.days3 / $scope.accountsReceivableEntries * 100 * 10) / 10
+                ]
+            };
+
+            $(window).trigger('resize');
+
         });
-        suppliers_data["supplier" + i] = supplier.total;
-      }
-      $scope.topSuppliersData.push(suppliers_data);
-      //END TOP SUPPLIERS PIE
+    }
 
-      //START TOP PRODUCT PIE
-      var product_data = {};
-      for (var i = 0; i < data.top_products.length; i++) {
-        var product = data.top_products[i];
-        $scope.topProductsColumns.push({
-          id: "product" + i,
-          type: "pie",
-          name: product.product_name
-        });
-        product_data["product" + i] = product.sold;
-      }
-      $scope.topProductsData.push(product_data);
-      //END TOP PRODUCT PIE
-      //START TOP CUSTOMERS PIE
-      var customer_data = {};
-      for (var i = 0; i < data.top_customers.length; i++) {
-        var contact = data.top_customers[i];
-        $scope.topCustomersColumns.push({
-          id: "customer" + i,
-          type: "pie",
-          name: contact.name
-        });
-        customer_data["customer" + i] = contact.invoiced;
-      }
-      $scope.topCustomersData.push(customer_data);
-      //END TOP CUSTOMERS PIE
-
-
-      $scope.accountsPayableData = [{
-        "non": data.accounts_payable.array.non,
-        "days1": data.accounts_payable.array.days1,
-        "days2": data.accounts_payable.array.days2,
-        "days3": data.accounts_payable.array.days3
-      }];
-
-      $scope.accountsPayableEntries = data.accounts_payable.array.non + data.accounts_payable.array.days1 + data.accounts_payable.array.days2 + data.accounts_payable.array.days3;
-
-      $scope.accountsPayableNumbers = {
-        non: [
-          data.accounts_payable.array.non,
-          Math.round(data.accounts_payable.array.non / $scope.accountsPayableEntries * 100 * 10) / 10
-        ],
-        days1: [
-          data.accounts_payable.array.days1,
-          Math.round(data.accounts_payable.array.days1 / $scope.accountsPayableEntries * 100 * 10) / 10
-        ],
-        days2: [
-          data.accounts_payable.array.days2,
-          Math.round(data.accounts_payable.array.days2 / $scope.accountsPayableEntries * 100 * 10) / 10
-        ],
-        days3: [
-          data.accounts_payable.array.days3,
-          Math.round(data.accounts_payable.array.days3 / $scope.accountsPayableEntries * 100 * 10) / 10
-        ]
-      };
-
-      $scope.accountsReceivableData = [{
-        "non": data.accounts_receivable.array.non,
-        "days1": data.accounts_receivable.array.days1,
-        "days2": data.accounts_receivable.array.days2,
-        "days3": data.accounts_receivable.array.days3
-      }];
-
-      $scope.accountsReceivableEntries = data.accounts_receivable.array.non + data.accounts_receivable.array.days1 + data.accounts_receivable.array.days2 + data.accounts_receivable.array.days3;
-
-      $scope.accountsReceivableNumbers = {
-        non: [
-          data.accounts_receivable.array.non,
-          Math.round(data.accounts_receivable.array.non / $scope.accountsReceivableEntries * 100 * 10) / 10
-        ],
-        days1: [
-          data.accounts_receivable.array.days1,
-          Math.round(data.accounts_receivable.array.days1 / $scope.accountsReceivableEntries * 100 * 10) / 10
-        ],
-        days2: [
-          data.accounts_receivable.array.days2,
-          Math.round(data.accounts_receivable.array.days2 / $scope.accountsReceivableEntries * 100 * 10) / 10
-        ],
-        days3: [
-          data.accounts_receivable.array.days3,
-          Math.round(data.accounts_receivable.array.days3 / $scope.accountsReceivableEntries * 100 * 10) / 10
-        ]
-      };
-
-      $(window).trigger('resize');
-
-    });
-  }
-
-  dashboardController.$inject = ['$scope', '$filter', 'dashboardFactory', 'productsFactory'];
+    dashboardController.$inject = ['$rootScope', '$scope', '$filter', 'dashboardFactory', 'productsFactory'];
 
 })();
 
@@ -2178,50 +2270,50 @@ angular.module('CIRONS-MAIN-APP')
 
 },{"./receipts.ngcontroller":55,"./receipts.ngfactory":56,"./receipts.ngrouter":57,"./receipts_crud.ngcontroller":58,"./receipts_item.ngcontroller":59}],55:[function(require,module,exports){
 (function() {
-  'use strict';
-  module.exports = receiptsController;
+    'use strict';
+    module.exports = receiptsController;
 
-  function receiptsController($scope, $rootScope, $auth, receiptsFactory, $state) {
+    function receiptsController($scope, $rootScope, $auth, receiptsFactory, $state) {
 
-      var payment = ["Cash", "CC Company", "CC Private"];
-      $scope.paymentMethods = payment;
+        var payment = ["Cash", "CC Company", "CC Private"];
+        $scope.paymentMethods = payment;
 
-    receiptsFactory.getReceipts().then(function(receipts) {
-      $scope.receipts = receipts;
-      $scope.cardCounter = receipts.length;
+        receiptsFactory.getReceipts().then(function(receipts) {
+            $scope.receipts = receipts;
+            $scope.cardCounter = receipts.length;
 
-      for(var i = 0; i < $scope.receipts.length; i++){
-          $scope.receipts[i].id = parseInt($scope.receipts[i].id);
-          $scope.receipts[i].date = new Date($scope.receipts[i].date);
-          $scope.receipts[i].payment = payment[parseInt($scope.receipts[i].payment)];
-      }
-    });
+            for (var i = 0; i < $scope.receipts.length; i++) {
+                $scope.receipts[i].id = parseInt($scope.receipts[i].id);
+                $scope.receipts[i].date = new Date($scope.receipts[i].date);
+                $scope.receipts[i].payment = payment[parseInt($scope.receipts[i].payment)];
+            }
+        });
 
-    $scope.search = {
+        $scope.search = {
+            
+        };
 
-    };
+        $scope.lastDate = null;
+        $scope.newLastDate = function(date) {
+            $scope.lastDate = date;
+            return true;
+        };
 
-    $scope.lastDate = null;
-    $scope.newLastDate = function(date){
-        $scope.lastDate = date;
-        return true;
-    };
+        $scope.orderByKey = "id";
+        $scope.orderByReverse = true;
 
-    $scope.orderByKey = "id";
-    $scope.orderByReverse = true;
+        $scope.filtered = function() {
+            var items = $scope.receipts;
 
-    $scope.filtered = function(){
-        var items = $scope.receipts;
+            if ($scope.dateStart) {
+                items = $filter('dateRange')(items, 'date', $scope.dateStart, $scope.dateEnd);
+            }
+            return items;
+        };
 
-        if($scope.dateStart){
-            items = $filter('dateRange')(items, 'date', $scope.dateStart, $scope.dateEnd);
-        }
-        return items;
-    };
+    }
 
-  }
-
-  receiptsController.$inject = ['$scope', '$rootScope', '$auth', 'receiptsFactory', '$state'];
+    receiptsController.$inject = ['$scope', '$rootScope', '$auth', 'receiptsFactory', '$state'];
 
 })();
 
@@ -3495,78 +3587,78 @@ angular.module('CIRONS-MAIN-APP')
 
 },{}],80:[function(require,module,exports){
 (function() {
-  'use strict';
-  module.exports = usersRouter;
+    'use strict';
+    module.exports = usersRouter;
 
-  function usersRouter($stateProvider) {
-    $stateProvider
-      .state('users', {
-        url: "/hr/users",
+    function usersRouter($stateProvider) {
+        $stateProvider
+            .state('users', {
+                url: "/hr/users",
 
-        ncyBreadcrumb: {
-          label: 'Users',
-          parent: 'hr',
-        },
-        views: {
-          '': {
-            templateUrl: 'components/hr/users/users.view.html',
-            controller: 'usersController'
+                ncyBreadcrumb: {
+                    label: 'Users',
+                    parent: 'hr',
+                },
+                views: {
+                    '': {
+                        templateUrl: 'components/hr/users/users.view.html',
+                        controller: 'usersController'
 
-          },
-          'usersList@users': {
-            templateUrl: 'components/hr/users/users_list.view.html',
-          }
-        }
-      })
+                    },
+                    'usersList@users': {
+                        templateUrl: 'components/hr/users/users_list.view.html',
+                    }
+                }
+            })
 
-    .state('users.create', {
-      url: "/create",
-      ncyBreadcrumb: {
-        parent: 'users',
-        label: 'Write a User'
-      },
-      views: {
-        '': {
-          templateUrl: 'components/hr/users/users.view.html'
-        },
-        'usersList@users': {
-          templateUrl: 'components/hr/users/users_list.view.html',
+        .state('users.create', {
+            url: "/create",
+            ncyBreadcrumb: {
+                parent: 'users',
+                label: 'Write a User'
+            },
+            views: {
+                '': {
+                    templateUrl: 'components/hr/users/users.view.html'
+                },
+                'usersList@users': {
+                    templateUrl: 'components/hr/users/users_list.view.html',
 
-        },
-        'usersContent@users': {
-          templateUrl: 'components/hr/users/users_create.view.html',
-          controller: 'usersCRUDController'
-        }
-      }
-    })
+                },
+                'usersContent@users': {
+                    templateUrl: 'components/hr/users/users_create.view.html',
+                    controller: 'usersCRUDController'
+                }
+            }
+        })
 
-    .state('users.item', {
-      url: "/:id",
-      params: {
-        user: undefined
-      },
-      ncyBreadcrumb: {
-        parent: 'users',
-        label: '{{id}}'
-      },
-      views: {
-        '': {
-          templateUrl: 'components/hr/users/users.view.html'
-        },
-        'usersList@users': {
-          templateUrl: 'components/hr/users/users_list.view.html',
+        .state('users.item', {
+            url: "/:id",
+            params: {
+                user: undefined
+            },
+            ncyBreadcrumb: {
+                parent: 'users',
+                label: '{{id}}'
+            },
+            views: {
+                '': {
+                    templateUrl: 'components/hr/users/users.view.html'
+                },
+                'usersList@users': {
+                    templateUrl: 'components/hr/users/users_list.view.html',
 
-        },
-        'usersContent@users': {
-          templateUrl: 'components/hr/users/users_content.view.html',
-          controller: 'usersSingleItemController'
-        }
-      }
-    });
+                },
+                'usersContent@users': {
+                    templateUrl: 'components/hr/users/users_content.view.html',
+                    controller: 'usersSingleItemController'
+                }
+            }
+        });
 
-  }
+    }
 
-  usersRouter.$inject = ['$stateProvider'];
+    usersRouter.$inject = ['$stateProvider'];
 
 })();
 
@@ -3600,7 +3692,7 @@ angular.module('CIRONS-MAIN-APP')
   'use strict';
   module.exports = usersSingleItemController;
 
-  function usersSingleItemController($scope, $stateParams, usersFactory, lodash) {
+  function usersSingleItemController($scope, $stateParams, usersFactory, lodash, $rootScope) {
     $scope.user = $stateParams.user;
     $scope.id = $stateParams.id;
 
@@ -3617,6 +3709,12 @@ angular.module('CIRONS-MAIN-APP')
         delete saveuser.username;
         usersFactory.editUser($scope.user.id, $scope.user).then(function(user){
             $scope.user = user;
+
+            if($rootScope.s.user.id == user.id){
+                // if edited is current user then update rootScope user info
+                $rootScope.s.user = user;
+            }
+
             var findItem = lodash.find($scope.users, function(arg) {
               return arg.id === $stateParams.id;
             });
@@ -3676,7 +3774,7 @@ angular.module('CIRONS-MAIN-APP')
 
   }
 
-  usersSingleItemController.$inject = ['$scope', '$stateParams', 'usersFactory', 'lodash'];
+  usersSingleItemController.$inject = ['$scope', '$stateParams', 'usersFactory', 'lodash', '$rootScope'];
 
 })();
 
@@ -5113,8 +5211,24 @@ angular.module('CIRONS-MAIN-APP')
       invoicesFactory.getInvoice($scope.id).then(function(item) {
         $scope.invoice = item;
         $scope.getTotals();
+        $scope.formatInvoice();
       });
-    } 
+    }
+
+    $scope.changeDates = function(){
+        invoicesFactory.editInvoice($scope.id, {
+            date: $scope.invoice.date,
+            duedays: $scope.invoice.duedays
+        }).then(function(edited){
+            console.log("invoice date edited");
+        })
+    };
+
+    $scope.formatInvoice = function(){
+        if($scope.invoice){
+            $scope.invoice.date = new Date($scope.invoice.date);
+        }
+    };
 
     $scope.getContacts = function(){
         if($scope.contacts.length){
@@ -5185,6 +5299,9 @@ angular.module('CIRONS-MAIN-APP')
 
     $scope.totalDebt = 0;
     $scope.getDebt = function(){
+        if(!$scope.invoice.payments){
+            return false;
+        }
         console.log("getDebt");
         console.log($scope.invoice.payments);
         $scope.totalDebt = $scope.grandTotal;
@@ -5310,7 +5427,8 @@ angular.module('CIRONS-MAIN-APP')
 
     $scope.bookInvoice = function(){
         invoicesFactory.bookInvoice($scope.id).then(function(invoice){
-            $scope.invoice = invoice;
+            $scope.invoice.step = invoice.step;
+            $scope.invoice.steps = invoice.steps;
         });
     };
 
@@ -6203,9 +6321,12 @@ angular.module('CIRONS-MAIN-APP')
         });
     };
 
+    $scope.isGeneratingInvoice = false;
     $scope.generateInvoice = function(){
+        $scope.isGeneratingInvoice = true;
         ordersFactory.generateInvoice($scope.id).then(function(invoice){
-            $state.go('invoices.item', {id: invoice.id, invoice: invoice});
+            $scope.isGeneratingInvoice = false;
+            $state.go('invoices.item.general', {id: invoice.id, invoice: invoice});
         });
     };
 
@@ -7256,32 +7377,70 @@ angular.module('CIRONS-MAIN-APP')
 
 },{"./app":1,"./app.ngconfig":2,"./app.ngrun":3}],145:[function(require,module,exports){
 (function() {
-  'use strict';
-  module.exports = settingsFactory;
+    'use strict';
+    module.exports = settingsFactory;
 
-  function settingsFactory($http, $q) {
-    var settings = [];
-    return {
-      initSettings: function() {
-        return $http.get("http://janalex.beta.cirons.com/api/v1/settings").then(function(data) {
-          settings = data.data;
-          return data.data;
-        });
-      },
-      startGetSettings: function(){
-          return $http.get("http://janalex.beta.cirons.com/api/v1/settings").then(function(data) {
-            settings = data.data;
-            return data.data;
-          });
-      },
-      getSettings: function() {
-        return settings;
-      }
-    };
+    function settingsFactory($http, $q, $rootScope) {
+        var settings = null;
 
-  }
+        var modules = [];
+        var cur, currency = null;
 
-  settingsFactory.$inject = ['$http', '$q'];
+        return {
+
+            initSettings: function() {
+                return $http.get("http://janalex.beta.cirons.com/api/v1/settings").then(function(data) {
+                    settings = data.data;
+                    return data.data;
+                });
+            },
+            startGetSettings: function() {
+                return $http.get("http://janalex.beta.cirons.com/api/v1/settings").then(function(data) {
+                    settings = data.data;
+
+                    if(!settings){
+                        return false;
+                    }
+
+                    if(settings.default_currency){
+                        cur, currency = settings.default_currency;
+                    }
+
+                    if(settings.modules){
+                        modules = settings.modules;
+
+                        var keys_array = {};
+                        for(var i = 0; i < modules.length; i++){
+                            var m = modules[i];
+                            keys_array[m.key] = m;
+                        }
+
+                        $rootScope.s.module_keys = keys_array;
+
+                    }
+
+                    $rootScope.s.options = settings.options;
+                    $rootScope.s.currencies = settings.currencies;
+                    $rootScope.s.price_lists = settings.price_lists;
+                    $rootScope.s.vat_rules = settings.vat_rules;
+                    $rootScope.s.modules = settings.modules;
+                    $rootScope.s.currency = currency;
+                    $rootScope.s.cur = currency;
+                    $rootScope.s.user = settings.user;
+
+                    console.log($rootScope.s);
+
+                    return data.data;
+                });
+            },
+            getSettings: function() {
+                return settings;
+            }
+        };
+
+    }
+
+    settingsFactory.$inject = ['$http', '$q', '$rootScope'];
 
 })();
 
