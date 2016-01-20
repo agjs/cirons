@@ -2829,7 +2829,7 @@ table.info-table {
   background: white;
   border-bottom: 1px solid #ccc;
   position: relative; }
-  .object-tabe-heading button.positive {
+  .object-tabe-heading button.teal {
     left: 220px !important;
     top: 12px !important;
     position: absolute !important; }

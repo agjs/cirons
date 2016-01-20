@@ -3,7 +3,7 @@
     <div class="ui grid stackable">
         <div class="column eight wide">
             <h2>Supplier Invoices</h2>
-            <button type="button" class="ui button small positive labeled icon" ui-sref="supplier_invoices.create">
+            <button type="button" class="ui button small teal labeled icon" ui-sref="supplier_invoices.create">
                 <i class="icon plus"></i>
                 Add new
             </button>
@@ -32,7 +32,7 @@
                                 Unpaid
                             </div>
                             <div class="item" ng-click="search.paid = '!0000-00-00'">
-                                <div class="ui empty circular label green"></div>
+                                <div class="ui empty circular label teal"></div>
                                 Paid
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                 {{si.supplier.company_name}}
             </td>
             <td ui-sref="supplier_invoices.item({id: si.id, supplierInvoice: si})">
-                <span ng-if="si.paid != '0000-00-00'" class="ui green basic label">
+                <span ng-if="si.paid != '0000-00-00'" class="ui teal basic label">
                     <i class="icon check"></i>
                     Paid
                 </span>

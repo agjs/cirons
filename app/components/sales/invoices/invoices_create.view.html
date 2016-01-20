@@ -4,7 +4,7 @@
     <form class="ui form" ng-submit="saveInvoice()">
       <div class="toolbar">
 
-        <button class="ui dropdown button icon labeled positive">
+        <button class="ui dropdown button icon labeled teal">
           <i class="check icon"></i>
           Save and create
         </button>
@@ -36,7 +36,7 @@
       </div>
       <div class="ui grid stackable" ng-show="billingAddressEdit">
           <div class="column four wide">
-              <button type="button" ng-click="billingAddressEdit = false" class="ui button positive labeled icon">
+              <button type="button" ng-click="billingAddressEdit = false" class="ui button teal labeled icon">
                   <i class="icon check"></i>
                   Save
               </button>
@@ -63,7 +63,7 @@
       </div>
       <div class="ui grid stackable" ng-show="shippingAddressEdit">
           <div class="column four wide">
-              <button type="button" ng-click="shippingAddressEdit = false" class="ui button positive labeled icon">
+              <button type="button" ng-click="shippingAddressEdit = false" class="ui button teal labeled icon">
                   <i class="icon check"></i>
                   Save
               </button>
@@ -226,7 +226,7 @@
                       <input ng-enter="addOrderRow()" type="text" ng-model="newrow.price">
                   </td>
                   <td>
-                      <button type="button" ng-click="addOrderRow()" class="ui button positive tiny">Add</button>
+                      <button type="button" ng-click="addOrderRow()" class="ui button teal tiny">Add</button>
                   </td>
               </tr>
           </tbody>

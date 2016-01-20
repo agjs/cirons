@@ -1,7 +1,7 @@
 <div class="payments" ng-show="invoice.step != 'draft'">
 
 	<div class="add_payment_to_invoice">
-		<button ng-click="addPayment = !addPayment" class="ui button positive labeled icon">
+		<button ng-click="addPayment = !addPayment" class="ui button green labeled icon">
 			<i class="icon plus"></i>
 			Add payment
 		</button>
@@ -25,7 +25,7 @@
             </select>
         </div>
         <div class="field">
-            <button type="button" ng-click="savePayment(); addPayment = false;" class="ui button positive labeled icon">
+            <button type="button" ng-click="savePayment(); addPayment = false;" class="ui button green labeled icon">
                 <i class="icon check"></i>
                 Save and add payment
             </button>

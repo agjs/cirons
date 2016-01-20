@@ -45,7 +45,7 @@
                     <label>Search customers</label>
                     <input ng-model="newContact" type="text" uib-typeahead="item as item.name for item in contacts | filter:{name:$viewValue}">
             </div>
-            <div ng-click="saveContact(newContact); editContact = false;" class="ui bottom attached positive button" tabindex="0">Save</div>
+            <div ng-click="saveContact(newContact); editContact = false;" class="ui bottom attached teal button" tabindex="0">Save</div>
             <div ng-click="editContact = !editContact; newContact = null;" class="ui bottom attached negative button" tabindex="0">Cancel</div>
         </div>
 
@@ -178,7 +178,7 @@
                 <input ng-enter="addOrderRow()" type="text" ng-model="newrow.price">
             </td>
             <td>
-                <button type="button" ng-click="addOrderRow()" class="ui button positive tiny">Add</button>
+                <button type="button" ng-click="addOrderRow()" class="ui button teal tiny">Add</button>
             </td>
         </tr>
     </tbody>
