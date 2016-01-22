@@ -31,7 +31,8 @@
           currency: null,
           price_list_id: 0,
           contact_id: 0,
-          shipping_address: {}
+          shipping_address: {},
+          shipping_cost: 0.00
       };
 
       $scope.newrow = {

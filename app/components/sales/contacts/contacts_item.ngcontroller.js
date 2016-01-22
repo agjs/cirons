@@ -13,6 +13,20 @@
       });
     }
 
+    $scope.removeContact = function() {
+        var c = confirm("Are you sure?");
+        if (c !== false) {
+            contactsFactory.removeContact($scope.contact.id).then(function(res) {
+                if (res) {
+                    lodash.remove($scope.contacts, function(arg){
+                        return arg.id === $stateParams.id;
+                    });
+                    $state.go("contacts");
+                }
+            })
+        }
+    };
+
     $scope.saveContact = function(){
         contactsFactory.editContact($scope.id, $scope.contact).then(function(contact){
             var findItem = lodash.find($scope.contacts, function(arg) {

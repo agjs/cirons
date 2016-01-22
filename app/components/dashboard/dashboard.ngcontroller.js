@@ -31,6 +31,11 @@
         };
         //END PRODUCT STOCK
 
+        $scope.expenses_bar_label_format = function(v, id, i, j){
+            console.log(v, id, i, j);
+            return d3.format(",.2f");
+        };
+
         //START REGISTER EXPENSES CHART
         $scope.expenses_bar_currentData = [];
         $scope.expenses_bar_currentColumns = [{

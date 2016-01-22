@@ -187,6 +187,15 @@
         });
     };
 
+    $scope.saveCosts = function(){
+        invoicesFactory.editInvoice($scope.id, {
+            shipping_cost: $scope.invoice.shipping_cost,
+            invoice_fee: $scope.invoice.invoice_fee
+        }).then(function(data){
+            console.log("costs changed");
+        });
+    };
+
     $scope.saveContact = function(contact){
         console.log(contact);
         if(!contact.id){

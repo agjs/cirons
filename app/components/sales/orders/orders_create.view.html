@@ -8,7 +8,7 @@
           <i class="check icon"></i>
           Save and create
         </button>
-        <div class="ui button" onclick="cancel()">Cancel</div>
+        <div class="ui button" onclick="window.history.back()">Cancel</div>
       </div>
   </form>
       <div class="ui grid stackable">
@@ -206,6 +206,25 @@
               </tr>
           </tfoot>
       </table>
+
+      <div style="height: 40px;"></div>
+
+      <div class="ui grid stackable">
+      	<div class="column eight wide">
+
+      	</div>
+      	<div class="column eight wide">
+      		<div class="ui segment blue">
+
+      			<div class="field">
+      				<label>Shipping Cost</label>
+      				<input type="text" ng-model="order.shipping_cost" ng-enter="saveCosts()" ng-blur="saveCosts()">
+      			</div>
+
+      		</div>
+      	</div>
+      </div>
+
 
   </div>
 </div>

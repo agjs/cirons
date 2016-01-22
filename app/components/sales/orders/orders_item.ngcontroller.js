@@ -166,6 +166,14 @@
         });
     };
 
+    $scope.saveCosts = function(){
+        ordersFactory.editOrder($scope.id, {
+            shipping_cost: $scope.order.shipping_cost
+        }).then(function(data){
+            console.log("costs changed");
+        });
+    };
+
     $scope.changeStep = function(step){
         ordersFactory.editOrder($scope.id, {
             step: step

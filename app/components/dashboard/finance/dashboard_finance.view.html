@@ -83,7 +83,7 @@
           </h4>
           <div class="column sixteen wide">
             <c3chart bindto-id="expenses_bar_current_chart" chart-x="expenses_bar_currentX" chart-columns="expenses_bar_currentColumns" chart-data="expenses_bar_currentData">
-                <chart-group group-values="variable,fixed,receipts"/>
+                <chart-group group-values="variable,fixed,receipts" />
                 <chart-axis>
                     <chart-axis-x axis-id="x" axis-type="category">
                     </chart-axis-x>
@@ -91,7 +91,7 @@
                         <chart-axis-y-tick tick-format=",.2f"/>
                     </chart-axis-y>
                 </chart-axis>
-                <chart-legend show-legend="false"/>
+                <!-- <chart-legend show-legend="false"/> -->
             </c3chart>
           </div>
 
@@ -102,7 +102,7 @@
             <div class="accounts_left">
               <div>
                 <span class="receivable">
-                  <div id="accounts_payable_number" style="display: inline;">{{dashboardData.accounts_payable.total | currency : "SEK " : 2}}</div>
+                  <div id="accounts_payable_number" style="display: inline;">{{dashboardData.accounts_payable.total | currency : $root.s.cur+" " : 2}}</div>
                   <strong id="ap_currency"></strong>
                 </span>
               </div>
@@ -150,7 +150,7 @@
             <div class="accounts_left">
               <div>
                 <span class="receivable">
-                  <div id="accounts_payable_number" style="display: inline;">{{dashboardData.accounts_receivable.total | currency : "SEK " : 2}}</div>
+                  <div id="accounts_payable_number" style="display: inline;">{{dashboardData.accounts_receivable.total | currency : $root.s.cur+" " : 2}}</div>
                   <strong id="ap_currency"></strong>
                 </span>
               </div>

@@ -20,7 +20,7 @@
             </div>
             <div class="steps-toolbar">
                 <div ng-show="invoice.step == 'draft'">
-                    <button class="ui button yellow" ng-click="bookInvoice()">
+                    <button type="button" class="ui button yellow" ng-click="bookInvoice()">
         				Book Invoice
         			</button>
                 </div>
@@ -30,11 +30,11 @@
             			Download PDF
             		</a>
 
-            		<button class="ui button yellow" ng-click="changeStep('sent')">
+            		<button type="button" class="ui button yellow" ng-click="changeStep('sent')">
             			Mark as sent
             		</button>
 
-            		<button ng-click="createCreditNote()" class="ui button blue">
+            		<button type="button" ng-click="createCreditNote()" class="ui button blue">
             			Create Credit Note
             		</button>
                 </div>
@@ -44,12 +44,12 @@
             			Download PDF
             		</a>
 
-                    <!-- <button class="ui button default labeled icon" ng-click="changeStep('draft')">
+                    <!-- <button type="button" class="ui button default labeled icon" ng-click="changeStep('draft')">
             			<i class="icon remove circle"></i>
             			Draft Invoice
             		</button> -->
 
-                    <button ng-click="createCreditNote()" class="ui button blue">
+                    <button type="button" ng-click="createCreditNote()" class="ui button blue">
             			Create Credit Note
             		</button>
                 </div>
@@ -58,7 +58,7 @@
             			<i class="icon file pdf outline"></i>
             			Download PDF
             		</a>
-                    <button ng-click="createCreditNote()" class="ui button blue">
+                    <button type="button" ng-click="createCreditNote()" class="ui button blue">
             			Create Credit Note
             		</button>
                 </div>

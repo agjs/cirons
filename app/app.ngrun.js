@@ -25,6 +25,7 @@
                 "#FF8F1A", // Orange
                 "#FFB405"  // Yellow
             ],
+            employees: [],
 
             get: function(key){
                 if(!this.options || !this.options[key]){
@@ -61,6 +62,17 @@
                 $rootScope.currentState = toState.name;
             }
         )
+
+        console.log("checking token: "+location.hash);
+        if (!$auth.isAuthenticated()) {
+            //send to Cirons Accounts
+            var prefix = "#/token";
+            if(location.hash.substring(0,prefix.length) == prefix){
+                var token = location.hash.substring(prefix.length).trim();
+
+                $auth.setToken(token);
+            }
+        }
 
         var bypass;
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {

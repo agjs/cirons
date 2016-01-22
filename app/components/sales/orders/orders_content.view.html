@@ -25,11 +25,11 @@
                         order="order"
                     ></cirons-order-download>
 
-                    <button ng-click="changeStep('shipped')" class="ui button blue labeled icon">
+                    <button type="button" ng-click="changeStep('shipped')" class="ui button blue labeled icon">
             			<i class="icon shipping"></i>
                         Order is shipped
             		</button>
-                    <button ng-click="generateInvoice()" ng-disabled="isGeneratingInvoice" ng-show="order.invoices.length == 0" class="ui button labeled icon">
+                    <button type="button" ng-click="generateInvoice()" ng-disabled="isGeneratingInvoice" ng-show="order.invoices.length == 0" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Create Invoice
 		            </button>
@@ -38,11 +38,11 @@
                     <cirons-order-download
                         order="order"
                     ></cirons-order-download>
-                    <button ng-click="generateInvoice()" ng-disabled="isGeneratingInvoice" ng-show="order.invoices.length == 0" class="ui button labeled icon">
+                    <button type="button" ng-click="generateInvoice()" ng-disabled="isGeneratingInvoice" ng-show="order.invoices.length == 0" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Create Invoice
             		</button>
-                    <button ng-click="changeStep('delivered')" class="ui button teal labeled icon">
+                    <button type="button" ng-click="changeStep('delivered')" class="ui button teal labeled icon">
             			<i class="icon shipping"></i>
             			Order is delivered
             		</button>
@@ -51,13 +51,13 @@
                     <cirons-order-download
                         order="order"
                     ></cirons-order-download>
-                    <button ng-click="generateInvoice()" ng-disabled="isGeneratingInvoice" ng-show="order.invoices.length == 0" class="ui button labeled icon">
+                    <button type="button" ng-click="generateInvoice()" ng-disabled="isGeneratingInvoice" ng-show="order.invoices.length == 0" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Create Invoice
             		</button>
                 </div>
                 <div ng-show="order.step == 'cancelled'">
-                    <button ng-click="changeStep('pending')" class="ui black button labeled icon">
+                    <button type="button" ng-click="changeStep('pending')" class="ui black button labeled icon">
             			<i class="icon check"></i>
             			Uncancel order
             		</button>

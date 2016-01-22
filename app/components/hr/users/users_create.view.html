@@ -8,7 +8,7 @@
           <i class="check icon"></i>
           Save and create
         </button>
-        <div class="ui button" onclick="cancel()">Cancel</div>
+        <div class="ui button" onclick="window.history.back()">Cancel</div>
       </div>
       <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="4000" close="closeAlert($index)">{{alert.msg}}</uib-alert>
 

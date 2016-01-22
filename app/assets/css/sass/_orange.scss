@@ -1,62 +1,92 @@
 $cirons_blue_replace: #ffab13;
-
-.ui.blue.label, .ui.blue.labels .label {
+.ui.blue.label,
+.ui.blue.labels .label {
     background-color: $cirons_blue_replace !important;
     border-color: $cirons_blue_replace !important;
 }
-
 span.receivable {
     color: #db2828;
 }
-
 li.ng-scope.active {
     color: white;
 }
+body.clean-color {
 
-body.firedark {
+    background: #eee;
 
-    header, aside.menu header {
-        background: #453838;
-        color: white !important;
-
-        i.fa {
-            color: white !important;
-        }
-    }
-
-    .ui.table td.positive, .ui.table tr.positive td {
-        background: white !important;
-        color: black !important;
-        box-shadow: none !important;
-    }
-
-    .dashboard-tabs div.tabbar-chart ul li strong {
-        color: black;
-    }
-
-    .dashboard-tabs div.tabbar-chart ul li.minus strong {
-        color: $cirons_red;
-    }
-
-    .dashboard-tabs {
+    aside.menu.blue nav#main {
         background: #eee;
     }
 
+    section.content > .inner {
+        background: white;
+    }
+
+    header,
+    aside.menu header {
+        background: #bbbbbb;
+        color: rgb(129, 129, 129) !important;
+        i.fa {
+            color: rgb(129, 129, 129) !important;
+        }
+    }
     span.receivable {
         color: #db2828;
-
         div {
             display: inline-block !important;
             // color: white;
             // background: #DE3163;
-            padding: 15px 7px;
-            padding-left: 0;
-            margin: 10px 0 10px 0;
+            padding: 15px 7px 15px 0;
+            margin: 10px 0;
         }
     }
-
-    #accounts_payable_pie, #accounts_receivable_pie {
+}
+body.firedark {
+    background: #ff5e3a;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #ff5e3a 0%, #ffcd02 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #ff5e3a 0%,#ffcd02 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #ff5e3a 0%,#ffcd02 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e3a', endColorstr='#ffcd02',GradientType=1 );
+    /* IE6-9 fallback on horizontal gradient */
+    header,
+    aside.menu header {
+        background: #453838;
+        color: white !important;
+        i.fa {
+            color: white !important;
+        }
+    }
+    .ui.table td.positive,
+    .ui.table tr.positive td {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+    .dashboard-tabs div.tabbar-chart ul li strong {
+        color: black;
+    }
+    .dashboard-tabs div.tabbar-chart ul li.minus strong {
+        color: $cirons_red;
+    }
+    .dashboard-tabs {
+        background: #eee;
+    }
+    span.receivable {
+        color: #db2828;
+        div {
+            display: inline-block !important;
+            // color: white;
+            // background: #DE3163;
+            padding: 15px 7px 15px 0;
+            margin: 10px 0;
+        }
+    }
+    #accounts_payable_pie,
+    #accounts_receivable_pie {
         padding-top: 25px;
     }
-
 }

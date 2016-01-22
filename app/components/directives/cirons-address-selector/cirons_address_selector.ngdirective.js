@@ -13,7 +13,7 @@
       templateUrl: 'components/directives/cirons-address-selector/template.html',
       replace: true,
       link: function(scope, element, attrs) {
-          
+
       }
     }
 

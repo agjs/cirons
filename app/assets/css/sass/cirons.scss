@@ -45,13 +45,8 @@ body {
   position: relative;
   padding: 0;
   margin: 0;
-  // background: $cirons_blue;
+  background: $cirons_blue;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff5e3a+0,ffcd02+100 */
-background: #ff5e3a; /* Old browsers */
-background: -moz-linear-gradient(-45deg,  #ff5e3a 0%, #ffcd02 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg,  #ff5e3a 0%,#ffcd02 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(135deg,  #ff5e3a 0%,#ffcd02 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e3a', endColorstr='#ffcd02',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
@@ -1788,6 +1783,12 @@ table.info-table {
 
 .small-box {
     border: none !important;
+}
+
+.event-duedate {
+    cursor: pointer;
+    background: $cirons_red;
+    color: white;
 }
 
 @import "_comments";

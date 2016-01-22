@@ -1,0 +1,59 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{event.title}}</h3>
+</div>
+<div class="modal-body">
+
+    <form ng-submit="save()" class="ui form" ng-class="{'loading' : loading}">
+
+        <div class="field" ng-if="showTitle()">
+            <label>Title</label>
+            <input type="text" ng-model="event.title">
+        </div>
+
+        <div class="" style="position: relative">
+            <div class="ui grid">
+                <div class="center aligned column eight wide">
+                    <h4 class="ui dividing header">
+                        Start
+                    </h4>
+                    <div class="two fields">
+                        <div class="field">
+                            <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="start_date" is-open="start_date_popup.opened" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-focus="start_date_popup.opened = true;"/>
+                        </div>
+                        <div class="field">
+                            <uib-timepicker ng-model="start_time" hour-step="hstep" show-spinners="false " minute-step="mstep" show-meridian="false"></uib-timepicker>
+                        </div>
+                    </div>
+                </div>
+                <div class="center aligned column eight wide">
+                    <h4 class="ui dividing header">
+                        End
+                    </h4>
+                    <div class="two fields">
+                        <div class="field">
+                            <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="end_date" is-open="end_date_popup.opened" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-focus="end_date_popup.opened = true;"/>
+                        </div>
+                        <div class="field">
+                            <uib-timepicker ng-model="end_time" hour-step="hstep" show-spinners="false " minute-step="mstep" show-meridian="false"></uib-timepicker>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <supplier-invoice-card
+            ng-if="event.object_type == 'SupplierInvoice'"
+            supplier-invoice="event.object"
+            on-open="supplierInvoiceOnOpen()"
+        ></supplier-invoice-card>
+
+        <input type="submit" style="display:none">
+
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-if="showSave()" type="button" ng-click="save()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
+    <button class="btn btn-danger" type="button" ng-click="delete()">Delete</button>
+</div>

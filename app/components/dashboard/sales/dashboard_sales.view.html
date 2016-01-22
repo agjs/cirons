@@ -36,7 +36,7 @@
               </td>
               <td class="stat blue2" width="210px">
                 <span>$ Sold</span>
-                <strong>{{product.sold | currency:"SEK ":2}}</strong>
+                <strong>{{product.sold | currency:$root.s.cur+" ":2}}</strong>
               </td>
               <td class="arrow" ng-click="product.toggled = !product.toggled">
                 <i class="angle double down icon"></i>
@@ -54,11 +54,11 @@
                       </td>
                       <td class="stat blue1" width="">
                         <span>AVG. Earnings A Month</span>
-                        <strong>{{product.avg_profit_per_month | currency:"SEK ":2}}</strong>
+                        <strong>{{product.avg_profit_per_month | currency:$root.s.cur+" ":2}}</strong>
                       </td>
                       <td class="stat blue3" width="">
                         <span>AVG. Earning Per Unit</span>
-                        <strong>{{product.product_name | currency:"SEK ":2}}</strong>
+                        <strong>{{product.product_name | currency:$root.s.cur+" ":2}}</strong>
                       </td>
                       <td class="stat blue4" width="">
                         <span>Stock Level</span>
@@ -101,7 +101,7 @@
               </td>
               <td class="stat blue1" width="150px">
                 <span>$ Invoiced</span>
-                <strong>{{ contact.invoiced | currency:"SEK ":2 }}</strong>
+                <strong>{{ contact.invoiced | currency:$root.s.cur+" ":2 }}</strong>
               </td>
               <td class="arrow" ng-click="contact.toggled = !contact.toggled">
                 <i class="angle double down icon"></i>
@@ -118,7 +118,7 @@
                       </td>
                       <td class="stat blue1" width="">
                         <span>$ Total Earnings</span>
-                        <strong>{{ contact.earnings | currency:"SEK ":2 }}</strong>
+                        <strong>{{ contact.earnings | currency:$root.s.cur+" ":2 }}</strong>
                       </td>
                       <td class="stat blue3" width="">
                         <span>AVG. Margin</span>
@@ -161,7 +161,7 @@
               </td>
               <td class="stat blue1" width="150px">
                 <span>$ Billed</span>
-                <strong>{{ supplier.total | currency:"SEK ":2 }}</strong>
+                <strong>{{ supplier.total | currency:$root.s.cur+" ":2 }}</strong>
               </td>
               <td class="arrow" ng-click="supplier.toggled = !supplier.toggled">
                 <i class="angle double down icon"></i>

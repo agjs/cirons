@@ -49,6 +49,7 @@
                     $rootScope.s.currency = currency;
                     $rootScope.s.cur = currency;
                     $rootScope.s.user = settings.user;
+                    $rootScope.s.employees = settings.employees;
 
                     console.log($rootScope.s);
 

@@ -1234,17 +1234,8 @@ body {
   position: relative;
   padding: 0;
   margin: 0;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff5e3a+0,ffcd02+100 */
   background: #ff5e3a;
-  /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #ff5e3a 0%, #ffcd02 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, #ff5e3a 0%, #ffcd02 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #ff5e3a 0%, #ffcd02 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e3a', endColorstr='#ffcd02',GradientType=1 );
-  /* IE6-9 fallback on horizontal gradient */
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff5e3a+0,ffcd02+100 */
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif; }
 
 aside.menu.blue nav#main {
@@ -2840,6 +2831,11 @@ table.info-table {
 .small-box {
   border: none !important; }
 
+.event-duedate {
+  cursor: pointer;
+  background: #db2828;
+  color: white; }
+
 .cirons-comments {
   height: 100%;
   position: absolute;
@@ -3878,7 +3874,8 @@ aside.menu #touch-menu {
   .body {
     transition: all 300ms ease;
     margin-left: 40px; } }
-.ui.blue.label, .ui.blue.labels .label {
+.ui.blue.label,
+.ui.blue.labels .label {
   background-color: #ffab13 !important;
   border-color: #ffab13 !important; }
 
@@ -3888,30 +3885,64 @@ span.receivable {
 li.ng-scope.active {
   color: white; }
 
-body.firedark header, body.firedark aside.menu header {
-  background: #453838;
-  color: white !important; }
-  body.firedark header i.fa, body.firedark aside.menu header i.fa {
-    color: white !important; }
-body.firedark .ui.table td.positive, body.firedark .ui.table tr.positive td {
-  background: white !important;
-  color: black !important;
-  box-shadow: none !important; }
-body.firedark .dashboard-tabs div.tabbar-chart ul li strong {
-  color: black; }
-body.firedark .dashboard-tabs div.tabbar-chart ul li.minus strong {
-  color: #db2828; }
-body.firedark .dashboard-tabs {
+body.clean-color {
   background: #eee; }
-body.firedark span.receivable {
-  color: #db2828; }
-  body.firedark span.receivable div {
-    display: inline-block !important;
-    padding: 15px 7px;
-    padding-left: 0;
-    margin: 10px 0 10px 0; }
-body.firedark #accounts_payable_pie, body.firedark #accounts_receivable_pie {
-  padding-top: 25px; }
+  body.clean-color aside.menu.blue nav#main {
+    background: #eee; }
+  body.clean-color section.content > .inner {
+    background: white; }
+  body.clean-color header,
+  body.clean-color aside.menu header {
+    background: #bbbbbb;
+    color: #818181 !important; }
+    body.clean-color header i.fa,
+    body.clean-color aside.menu header i.fa {
+      color: #818181 !important; }
+  body.clean-color span.receivable {
+    color: #db2828; }
+    body.clean-color span.receivable div {
+      display: inline-block !important;
+      padding: 15px 7px 15px 0;
+      margin: 10px 0; }
+
+body.firedark {
+  background: #ff5e3a;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #ff5e3a 0%, #ffcd02 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #ff5e3a 0%, #ffcd02 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #ff5e3a 0%, #ffcd02 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e3a', endColorstr='#ffcd02',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+  body.firedark header,
+  body.firedark aside.menu header {
+    background: #453838;
+    color: white !important; }
+    body.firedark header i.fa,
+    body.firedark aside.menu header i.fa {
+      color: white !important; }
+  body.firedark .ui.table td.positive,
+  body.firedark .ui.table tr.positive td {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important; }
+  body.firedark .dashboard-tabs div.tabbar-chart ul li strong {
+    color: black; }
+  body.firedark .dashboard-tabs div.tabbar-chart ul li.minus strong {
+    color: #db2828; }
+  body.firedark .dashboard-tabs {
+    background: #eee; }
+  body.firedark span.receivable {
+    color: #db2828; }
+    body.firedark span.receivable div {
+      display: inline-block !important;
+      padding: 15px 7px 15px 0;
+      margin: 10px 0; }
+  body.firedark #accounts_payable_pie,
+  body.firedark #accounts_receivable_pie {
+    padding-top: 25px; }
 
 #loading {
   opacity: 0 !important;

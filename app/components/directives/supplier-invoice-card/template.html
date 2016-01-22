@@ -1,0 +1,22 @@
+<div class="ui red card">
+    <div class="content">
+        <div class="header">
+            ({{supplierInvoice.supplier_name}})
+        </div>
+        <div class="meta">
+            Supplier Invoice
+        </div>
+    </div>
+    <div class="extra content">
+        <div>
+            <h2 class="ui sub header">
+                Total Amount To Pay
+            </h2>
+            <span>{{supplierInvoice.sum | currency : $root.s.currency + " " : 2}}</span>
+        </div>
+    </div>
+    <div ng-click="open()" class="ui bottom attached button">
+        <i class="arrow left icon"></i>
+        Open Supplier Invoice
+    </div>
+</div>
