@@ -2,19 +2,38 @@
   'use strict';
   module.exports = ordersSingleItemController;
 
-  function ordersSingleItemController($scope, $stateParams, ordersFactory, contactsFactory, orderRowsFactory, productsFactory, $state, lodash, $watch) {
+  function ordersSingleItemController($scope, $stateParams, ordersFactory, contactsFactory, orderRowsFactory, productsFactory, $state, lodash, $auth, $rootScope, settingsFactory) {
     $scope.order = $stateParams.order;
     $scope.id = $stateParams.id;
 
     $scope.editContact = false;
     $scope.newContact = null;
 
+    $scope.getTotals = function(){
+        if(!$scope.order){
+            return;
+        }
+        console.log("calc totals");
+        $scope.subTotal = 0;
+        $scope.grandTotal = 0;
+        $scope.totalVAT = 0;
+
+        for(var i = 0; i < $scope.order.order_rows.length; i++){
+            var row = $scope.order.order_rows[i];
+            console.log(row);
+            $scope.subTotal += row.q * row.price;
+            $scope.totalVAT += (row.q * row.price) * ( row.vat / 100 );
+        }
+        $scope.grandTotal = $scope.subTotal + $scope.totalVAT;
+        console.log($scope.subTotal, $scope.totalVAT, $scope.grandTotal);
+    };
+
+    $scope.getTotals();
+
     if (!$scope.order) {
       ordersFactory.getOrder($scope.id).then(function(item) {
         $scope.order = item;
         $scope.getTotals();
-        $scope.vat_rules = $scope.order.vat_rules;
-        $scope.newrow.vat_id = $scope.vat_rules[0].id.toString();
       });
     }
 
@@ -28,10 +47,10 @@
         object_type: "Order"
     };
 
-    if($scope.order){
-        $scope.vat_rules = $scope.order.vat_rules;
-        $scope.newrow.vat_id = $scope.vat_rules[0].id.toString();
-    }
+    console.log($rootScope.s);
+
+    $scope.vat_rules = $rootScope.s.vat_rules;
+    $scope.newrow.vat_id = $rootScope.s.vat_rules[0].id;
 
     $scope.addOrderRow = function(){
         var row = $scope.newrow;
@@ -78,27 +97,6 @@
             $scope.order.shipping_address = order.shipping_address;
         });
     };
-
-    $scope.getTotals = function(){
-        if(!$scope.order){
-            return;
-        }
-        console.log("calc totals");
-        $scope.subTotal = 0;
-        $scope.grandTotal = 0;
-        $scope.totalVAT = 0;
-
-        for(var i = 0; i < $scope.order.order_rows.length; i++){
-            var row = $scope.order.order_rows[i];
-            console.log(row);
-            $scope.subTotal += row.q * row.price;
-            $scope.totalVAT += (row.q * row.price) * ( row.vat / 100 );
-        }
-        $scope.grandTotal = $scope.subTotal + $scope.totalVAT;
-        console.log($scope.subTotal, $scope.totalVAT, $scope.grandTotal);
-    };
-
-    $scope.getTotals();
 
     $scope.getContacts = function(){
         if($scope.contacts.length){
@@ -192,8 +190,16 @@
         });
     };
 
+    $scope.downloadPDF = function(){
+        window.location = 'http://janalex.beta.cirons.com/api/v1/orders/' + $scope.order.id + '/pdf?token=' + $auth.getToken();
+    };
+
+    $scope.downloadPackingList = function(){
+        window.location = 'http://janalex.beta.cirons.com/api/v1/orders/' + $scope.order.id + '/packing_list?token=' + $auth.getToken();
+    };
+
   }
 
-  ordersSingleItemController.$inject = ['$scope', '$stateParams', 'ordersFactory', 'contactsFactory', 'orderRowsFactory', 'productsFactory', '$state', 'lodash'];
+  ordersSingleItemController.$inject = ['$scope', '$stateParams', 'ordersFactory', 'contactsFactory', 'orderRowsFactory', 'productsFactory', '$state', 'lodash', '$auth', '$rootScope', 'settingsFactory'];
 
 })();

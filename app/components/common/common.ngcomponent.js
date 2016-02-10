@@ -11,4 +11,5 @@
     .factory("commentsFactory", require("./comments.ngfactory.js"))
     .factory("notificationsFactory", require("./top-navigation/notifications.ngfactory.js"))
     .filter("dateRange", require("./filters/dateRange.ngfilter"))
+    .filter("numberDash", require("./filters/numberDash.ngfilter"))
 })();

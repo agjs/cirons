@@ -25,7 +25,7 @@
         return true;
     };
 
-    $scope.orderByKey = "id";
+    $scope.orderByKey = "date";
     $scope.orderByReverse = true;
 
     $scope.filtered = function(){

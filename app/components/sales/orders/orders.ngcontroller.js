@@ -33,7 +33,7 @@
         $scope.statuses.push(s);
     }
 
-    $scope.orderByKey = "id";
+    $scope.orderByKey = "date";
     $scope.orderByReverse = true;
 
     $scope.dateStart = null;

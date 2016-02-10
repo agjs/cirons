@@ -2,7 +2,7 @@
     'use strict';
     module.exports = settingsFactory;
 
-    function settingsFactory($http, $q, $rootScope) {
+    function settingsFactory($http, $q, $rootScope, $auth) {
         var settings = null;
 
         var modules = [];
@@ -19,6 +19,8 @@
             startGetSettings: function() {
                 return $http.get("http://janalex.beta.cirons.com/api/v1/settings").then(function(data) {
                     settings = data.data;
+
+                    $rootScope.token = $auth.getToken();
 
                     if(!settings){
                         return false;
@@ -50,6 +52,8 @@
                     $rootScope.s.cur = currency;
                     $rootScope.s.user = settings.user;
                     $rootScope.s.employees = settings.employees;
+                    $rootScope.s.accounting = settings.accounting;
+                    $rootScope.s.vat_periods = settings.vat_periods;
 
                     console.log($rootScope.s);
 
@@ -63,6 +67,6 @@
 
     }
 
-    settingsFactory.$inject = ['$http', '$q', '$rootScope'];
+    settingsFactory.$inject = ['$http', '$q', '$rootScope', '$auth'];
 
 })();

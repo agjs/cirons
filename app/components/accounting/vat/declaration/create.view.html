@@ -1,0 +1,41 @@
+<div class="vat-declaration-settings ui form">
+    <div class="inline field">
+        <label>VAT Period</label>
+        <select ng-change="changePeriod()" ng-model="period" ng-options="p.title for p in $root.s.vat_periods">
+        </select>
+    </div>
+</div>
+
+<div class="vat-declaration ui grid">
+
+    <div ng-repeat="col in fields track by $index" class="column eight wide">
+        <h4>{{col.title}}</h4>
+
+        <div class="vat-fields">
+            <div ng-repeat="field in col.fields" class="vat-field clearfix">
+                <label>{{field.title}}</label>
+                <span>{{field.number}}</span>
+                <input type="text" ng-model="amounts[field.number]" disabled="disabled">
+            </div>
+        </div>
+    </div>
+
+    <div class="column eight wide sum-fields">
+        <div ng-repeat="col in sumFields track by $index">
+            <h4>{{col.title}}</h4>
+
+            <div class="vat-fields">
+                <div ng-repeat="field in col.fields" class="vat-field clearfix">
+                    <label>{{field.title}}</label>
+                    <span>{{field.number}}</span>
+                    <input type="text" number-input ng-model="amounts[field.number]" disabled="disabled">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="vat-declaration-confirm">
+    
+</div>

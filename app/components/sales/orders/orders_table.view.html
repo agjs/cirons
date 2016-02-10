@@ -75,13 +75,13 @@
                 ></cirons-status-badge>
             </td>
             <td class="right" ui-sref="orders.item.general({id: order.id, order: order})">
-                {{order.grand_total}} {{order.currency}}
+                {{order.grand_total | number: 2}} {{order.currency}}
             </td>
             <td ui-sref="orders.item.general({id: order.id, order: order})">
                 {{order.date | date: 'yyyy-MM-dd'}}
             </td>
             <td>
-                <div sui-dropdown sui-action="nothing" class="ui mini labeled icon top right pointing dropdown teal button">
+                <!-- <div sui-dropdown sui-action="nothing" class="ui mini labeled icon top right pointing dropdown teal button">
                     <i class="icon download cloud"></i>
                     <span class="text">Download</span>
                     <div class="menu">
@@ -89,7 +89,7 @@
                         <a href="/orders/{{order.id}}/packing_list" class="item"><i class="icon brown file outline pdf"></i> Packing List</a>
                         <a ng-repeat="invoice in order.invoices" ng-show="invoice.step !== 'draft'" href="/invoices/pdf/{{invoice.id}}" class="item"><i class="icon teal file outline pdf"></i> Invoice #{{invoice.invoice_no}}</a>
                     </div>
-                </div>
+                </div> -->
             </td>
         </tr>
     </tbody>

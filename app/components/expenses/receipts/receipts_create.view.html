@@ -37,10 +37,8 @@
               </div>
 
               <div class="inline field">
-                <label>VAT</label>
-                <select ng-change="save()" ng-model="receipt.vat">
-                  <option ng-repeat="rule in settings.vat_rules" value="{{rule.percent}}">{{rule.percent}}%</option>
-                </select>
+                <label>VAT Amount</label>
+                <input type="text" ng-blur="save()" ng-model="receipt.vat_amount">
               </div>
 
               <div class="inline field">
@@ -52,6 +50,13 @@
                   <label>Currency</label>
                   <select ng-change="save()" ng-model="receipt.currency">
                       <option ng-repeat="currency in settings.currencies" value="{{currency.ISO}}">{{currency.ISO}}</option>
+                  </select>
+              </div>
+
+              <div class="inline field">
+                  <label>Payment Method</label>
+                  <select ng-change="save()" ng-model="receipt.payment">
+                      <option ng-repeat="pm in paymentMethods track by $index" value="{{$index}}">{{pm}}</option>
                   </select>
               </div>
 

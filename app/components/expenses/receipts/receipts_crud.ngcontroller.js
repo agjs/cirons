@@ -10,6 +10,9 @@
         attachments: []
     };
 
+    var payment = ["Cash", "CC Company", "CC Private"];
+    $scope.paymentMethods = payment;
+
     $scope.changeSupplier = false;
     $scope.checkSupplier = function(){
         if(!$scope.receipt){

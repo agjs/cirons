@@ -2836,6 +2836,78 @@ table.info-table {
   background: #db2828;
   color: white; }
 
+table.vat_sums {
+  margin-top: 20px; }
+  table.vat_sums .sum {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 10px; }
+  table.vat_sums table.vat_ids {
+    padding: 0;
+    margin: 0;
+    padding-top: 15px; }
+    table.vat_sums table.vat_ids td {
+      padding: 0 !important; }
+    table.vat_sums table.vat_ids td.percent {
+      padding: 0 !important;
+      padding-right: 20px !important;
+      padding-bottom: 10px !important; }
+    table.vat_sums table.vat_ids td.amount {
+      color: #db2828;
+      font-weight: bold;
+      padding-bottom: 10px !important; }
+
+.validation-messages {
+  margin: 0 -30px 0 -30px; }
+  .validation-messages .alert {
+    background: #db2828;
+    color: white;
+    font-size: 14px;
+    padding: 20px; }
+
+.vat-declaration h4 {
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  display: block;
+  color: rgba(0, 0, 0, 0.8); }
+.vat-declaration .col {
+  width: 49%;
+  float: left; }
+.vat-declaration .col:nth-child(even), .vat-declaration .col.col-8 {
+  float: right; }
+.vat-declaration .vat-fields {
+  padding-top: 10px; }
+  .vat-declaration .vat-fields .vat-field {
+    padding-bottom: 5px; }
+    .vat-declaration .vat-fields .vat-field label, .vat-declaration .vat-fields .vat-field span {
+      font-size: 14px;
+      font-weight: 300; }
+    .vat-declaration .vat-fields .vat-field label {
+      width: 58.33333%;
+      float: left; }
+    .vat-declaration .vat-fields .vat-field span {
+      width: 8.33333%;
+      text-align: right;
+      float: left; }
+    .vat-declaration .vat-fields .vat-field input {
+      width: 31.33333%;
+      float: right;
+      margin-left: 2%;
+      background: none;
+      text-align: right;
+      border: 1px solid rgba(0, 0, 0, 0.5); }
+.vat-declaration .sum-fields div {
+  padding-bottom: 15px; }
+
+.vat-declaration-settings {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px; }
+
+.vat-declaration-confirm {
+  padding: 40px; }
+
 .cirons-comments {
   height: 100%;
   position: absolute;
@@ -3473,10 +3545,10 @@ span.receivable strong {
 body.split_table .split-view {
   height: 100%; }
 body.split_table .split-view > div:first-child {
-  width: 28%;
+  width: 24%;
   float: left; }
 body.split_table .split-view > div:last-child {
-  width: 72%;
+  width: 76%;
   float: right; }
 body.split_table ui-view {
   height: 100%;

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" ng-app="CIRONS-MAIN-APP">
+<html class="no-js" lang="en" data-ng-app="CIRONS-MAIN-APP">
 
 <head>
   <base href="./">
@@ -17,7 +17,7 @@
 
 </head>
 
-<body ng-class="
+<body data-ng-class="
 
 currentState == 'dashboard'                 ||
 currentState == 'dashboard.finance'         ||
@@ -64,23 +64,24 @@ currentState == 'contacts.create' ||
 currentState == 'receipts'                 ||
 currentState == 'receipts.item'                 ||
 currentState == 'receipts.create'                 ||
+currentState == 'vat.items' ||
 currentState == 'suppliers.create' ? 'split_table' : '' ||
-isAuthenticated() ? '' : 'overwriteBg'" data-state="{{currentState}}" class="firedark" ng-controller="mainController">
+isAuthenticated() ? '' : 'overwriteBg'" data-state="{{currentState}}" class="firedark" data-ng-controller="mainController">
 
 
-  <ng-include ng-show="isAuthenticated()" src="'components/common/main-menu/main-menu.html'"></ng-include>
-  <div ng-class="isAuthenticated() ? 'body' : ''">
+  <div data-ng-show="isAuthenticated()" data-ng-include="'components/common/main-menu/main-menu.html'"></div>
+  <div data-ng-class="isAuthenticated() ? 'body' : ''">
 
-    <ng-include ng-show="isAuthenticated()" src="'components/common/top-navigation/top-navigation.html'"></ng-include>
+    <div data-ng-show="isAuthenticated()" data-ng-include="'components/common/top-navigation/top-navigation.html'"></div>
 
-    <section ng-class="isAuthenticated() ? 'content has-sidebar hide-sidebar' : 'content hide-sidebar'">
-      <div ng-class="isAuthenticated() ? 'inner' : 'overwriteBg'">
-        <div ng-class="isAuthenticated() ? 'page-content' : 'page-content loginUnauth'">
-          <ui-view></ui-view>
+    <section data-ng-class="isAuthenticated() ? 'content has-sidebar hide-sidebar' : 'content hide-sidebar'">
+      <div data-ng-class="isAuthenticated() ? 'inner' : 'overwriteBg'">
+        <div data-ng-class="isAuthenticated() ? 'page-content' : 'page-content loginUnauth'">
+          <div data-ui-view></div>
         </div>
       </div>
       <cirons-comments></cirons-comments>
-      <ng-include ng-show="isAuthenticated()" src="'components/common/right-sidebar/right-sidebar.html'"></ng-include>
+      <div data-ng-show="isAuthenticated()" data-ng-include="'components/common/right-sidebar/right-sidebar.html'"></div>
     </section>
   </div>
 

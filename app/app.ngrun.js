@@ -8,6 +8,7 @@
 
         editableOptions.theme = 'default';
 
+        $rootScope.token = null;
         $rootScope.s = {
             options: [],
             cur: null,
@@ -17,6 +18,8 @@
             currencies: null,
             price_lists: null,
             vat_rules: null,
+            vat_periods: null,
+            accounting: false,
             user: {},
             colors: [
                 "#E4291E", // Fire Red
@@ -74,10 +77,16 @@
             }
         }
 
-        var bypass;
+        var bypass = false;
+        var fetching = false;
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
 
             if (bypass) return;
+
+            if(fetching){
+                event.preventDefault();
+                return false;
+            }
 
             console.log("no bypass");
 
@@ -92,7 +101,7 @@
                 $state.go("login", {});
                 return;
             }
-
+            fetching = true;
             settingsFactory.startGetSettings().then(function(data) {
                 console.log("settings fetched, allowing bypass");
                 bypass = true; // bypass next call

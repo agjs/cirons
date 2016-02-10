@@ -22,6 +22,7 @@
   require('../components/hr/users/users.ngcomponent');
 
   require('../components/accounting/verifications/verifications.ngcomponent');
+  require('../components/accounting/vat/vat.ngcomponent');
 
   require('../components/calendar/calendar.ngcomponent');
   require('../components/hr/hr.ngcomponent');

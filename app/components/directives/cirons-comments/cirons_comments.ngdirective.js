@@ -15,6 +15,12 @@
           $scope.comment_text = "";
           $scope.comments = [];
           $scope.parsedURL = null;
+          $scope.show = true;
+
+          $scope.dontShow = [
+              "vat.declarations.create",
+              "vat.declarations.item"
+          ];
 
           $rootScope.$on('$stateChangeStart',
           function(event, toState, toParams, fromState, fromParams){
@@ -24,10 +30,20 @@
 
           $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
               $scope.comments = [];
+              $scope.show = true;
               $scope.parsedURL = "";
               $timeout(function(){
                   var url = $state.current.ncyBreadcrumbLink;
                   $scope.parsedURL = $scope.parseUrl(url);
+
+                  if($scope.dontShow.indexOf($scope.parsedURL) >= 0){
+                      $scope.show = false;
+                      return;
+                  }
+
+                  if($scope.parsedURL.trim().toString() == ""){
+                      return;
+                  }
                   $scope.getComments();
               }, 100);
           });

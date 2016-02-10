@@ -2,7 +2,7 @@
   'use strict';
   module.exports = contactsSingleItemController;
 
-  function contactsSingleItemController($scope, $stateParams, contactsFactory, lodash) {
+  function contactsSingleItemController($scope, $stateParams, contactsFactory, lodash, $state) {
     $scope.contact = $stateParams.contact;
     $scope.id = $stateParams.id;
 
@@ -29,17 +29,14 @@
 
     $scope.saveContact = function(){
         contactsFactory.editContact($scope.id, $scope.contact).then(function(contact){
-            var findItem = lodash.find($scope.contacts, function(arg) {
-              return arg.id === $stateParams.id;
+            contactsFactory.getContacts().then(function(contacts){
+                $scope.contacts = contacts;
             });
-            if (findItem) {
-              findItem = contact;
-            }
         });
     };
 
   }
 
-  contactsSingleItemController.$inject = ['$scope', '$stateParams', 'contactsFactory', 'lodash'];
+  contactsSingleItemController.$inject = ['$scope', '$stateParams', 'contactsFactory', 'lodash', '$state'];
 
 })();

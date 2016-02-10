@@ -41,10 +41,8 @@
               </div>
 
               <div class="inline field">
-                <label>VAT</label>
-                <select ng-change="save()" ng-model="supplierInvoice.vat">
-                  <option ng-repeat="rule in settings.vat_rules" value="{{rule.percent}}">{{rule.percent}}%</option>
-                </select>
+                <label>Amount VAT</label>
+                <input type="text" ng-blur="save()" ng-model="supplierInvoice.vat_amount">
               </div>
 
               <div class="inline field">

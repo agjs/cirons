@@ -1,0 +1,123 @@
+<div class="object-tabe-heading">
+
+    <div class="ui grid stackable">
+        <div class="column eight wide">
+            <h2>VAT Items</h2>
+        </div>
+        <div class="column four wide">
+
+            <label>From</label>
+            <input type="text" ng-change="countSums()" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="dateStart" is-open="start_date_popup.opened" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-focus="start_date_popup.opened = true;"/>
+
+        </div>
+        <div class="column four wide">
+
+            <label>To</label>
+            <input type="text" ng-change="countSums()" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="dateEnd" is-open="end_date_popup.opened" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-focus="end_date_popup.opened = true;"/>
+
+        </div>
+    </div>
+</div>
+<table class="ui table celled vat_sums">
+    <thead>
+        <tr>
+            <th>
+                Payable
+            </th>
+            <th>
+                Receivable
+            </th>
+            <th>
+                Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td width="33%">
+                <strong class="sum negative">
+                    {{sums.payable | number : 2}}
+                </strong>
+                <table class="vat_ids">
+                    <tr ng-repeat="vat in sums.payable_ids">
+                        <td class="percent">
+                            {{vat.percent}}%
+                        </td>
+                        <td class="amount">
+                            {{vat.sum | number: 2}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="33%">
+                <strong class="sum positive">
+                    {{sums.receivable | number : 2}}
+                </strong>
+            </td>
+            <td width="33%">
+                <strong class="sum total">
+                    {{sums.receivable - sums.payable | number : 2}}
+                </strong>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="ui table celled object-table">
+
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                VAT Rule
+            </th>
+            <th>
+                Object
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                VAT Receivable
+            </th>
+            <th>
+                VAT Payable
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in filtered()">
+            <td>
+                {{ item.date | date: 'yyyy-MM-dd' }}
+            </td>
+            <td>
+                <span ng-if="item.vat_rule">{{ item.vat_rule.percent }}%</span>
+                <span ng-if="!item.vat_rule">–</span>
+            </td>
+            <td>
+                <span class="ui label basic blue" ng-if="item.object_type == 'Invoice'">
+                    Invoice #{{item.object.invoice_no}}
+                </span>
+                <span class="ui label basic red" ng-if="item.object_type == 'Receipt'">
+                    Receipt from
+                    {{item.object.supplier_name}}
+                </span>
+                <span class="ui label basic violet" ng-if="item.object_type == 'SupplierInvoice'">
+                    Supplier Invoice from
+                    {{item.object.supplier_name}}
+                </span>
+            </td>
+            <td>
+                {{ item.amount | number: 2}}
+            </td>
+            <td>
+                {{ item.receivable | numberDash}}
+            </td>
+            <td>
+                {{ item.payable | numberDash}}
+            </td>
+        </tr>
+    </tbody>
+
+</table>

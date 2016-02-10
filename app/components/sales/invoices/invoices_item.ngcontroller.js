@@ -1,263 +1,280 @@
 (function() {
-  'use strict';
-  module.exports = invoicesSingleItemController;
+    'use strict';
+    module.exports = invoicesSingleItemController;
 
-  function invoicesSingleItemController($scope, $stateParams, invoicesFactory, contactsFactory, orderRowsFactory, productsFactory, $state, lodash, settingsFactory, paymentsFactory) {
-    $scope.invoice = $stateParams.invoice;
-    $scope.id = $stateParams.id;
+    function invoicesSingleItemController($scope, $stateParams, invoicesFactory, contactsFactory, orderRowsFactory, productsFactory, $state, lodash, settingsFactory, paymentsFactory, $auth) {
+        $scope.invoice = $stateParams.invoice;
+        $scope.id = $stateParams.id;
 
-    $scope.editContact = false;
-    $scope.newContact = null;
+        $scope.editContact = false;
+        $scope.newContact = null;
 
-    $scope.contacts = [];
-    $scope.products = [];
+        $scope.contacts = [];
+        $scope.products = [];
 
-    productsFactory.getProducts().then(function(products){
-        $scope.products = products;
-    });
-
-
-
-    if (!$scope.invoice) {
-      invoicesFactory.getInvoice($scope.id).then(function(item) {
-        $scope.invoice = item;
-        $scope.getTotals();
-        $scope.formatInvoice();
-      });
-    }
-
-    $scope.changeDates = function(){
-        invoicesFactory.editInvoice($scope.id, {
-            date: $scope.invoice.date,
-            duedays: $scope.invoice.duedays
-        }).then(function(edited){
-            console.log("invoice date edited");
-        })
-    };
-
-    $scope.formatInvoice = function(){
-        if($scope.invoice){
-            $scope.invoice.date = new Date($scope.invoice.date);
-        }
-    };
-
-    $scope.getContacts = function(){
-        if($scope.contacts.length){
-            return;
-        }
-        contactsFactory.getContacts().then(function(contacts){
-            $scope.contacts = contacts;
+        productsFactory.getProducts().then(function(products) {
+            $scope.products = products;
         });
-    }
 
-    $scope.newrow = {
-        ordered: 0,
-        q: 0,
-        q_type: "0",
-        vat_id: 0,
-        vat: 0,
-        price: 0,
-        product: null,
-        object_type: "Invoice"
-    };
 
-    $scope.settings = settingsFactory.getSettings();
-    if(!$scope.settings.length){
-        settingsFactory.initSettings().then(function(data){
-            $scope.settings = data;
-            $scope.newrow.vat_id = $scope.settings.vat_rules[0].id;
-        });
-    } else {
 
-    }
-
-    $scope.getTotals = function(){
-        if(!$scope.invoice){
-            return;
+        if (!$scope.invoice) {
+            invoicesFactory.getInvoice($scope.id).then(function(item) {
+                $scope.invoice = item;
+                $scope.getTotals();
+                $scope.formatInvoice();
+            });
         }
-        console.log("calc totals");
-        $scope.subTotal = 0;
-        $scope.grandTotal = 0;
-        $scope.totalVAT = 0;
 
-        for(var i = 0; i < $scope.invoice.order_rows.length; i++){
-            var row = $scope.invoice.order_rows[i];
-            console.log(row);
-            $scope.subTotal += row.q * row.price;
-            $scope.totalVAT += (row.q * row.price) * ( row.vat / 100 );
-        }
-        $scope.grandTotal = $scope.subTotal + $scope.totalVAT;
-        $scope.getDebt();
-        console.log($scope.subTotal, $scope.totalVAT, $scope.grandTotal);
-    };
-
-    $scope.savePayment = function(){
-        var payment = $scope.newPayment;
-        payment.object_type = "Invoice";
-        payment.object_id = $scope.id;
-        paymentsFactory.addPayment(payment).then(function(data){
-            console.log("payment added");
-            $scope.invoice.payments.push(data);
-            $scope.cleanNewPayment();
-            $scope.getDebt();
-            $scope.addPayment = false;
-
-            if($scope.totalDebt <= 10 && $scope.invoice != "paid"){
-                $scope.changeStep("paid");
-            }
-        });
-    };
-
-    $scope.totalDebt = 0;
-    $scope.getDebt = function(){
-        if(!$scope.invoice.payments){
-            return false;
-        }
-        console.log("getDebt");
-        console.log($scope.invoice.payments);
-        $scope.totalDebt = $scope.grandTotal;
-
-        for(var i = 0; i < $scope.invoice.payments.length; i++){
-            var payment = $scope.invoice.payments[i];
-            $scope.totalDebt -= payment.amount;
-        }
-    };
-
-    $scope.addPayment = false;
-    $scope.newPayment = {};
-    $scope.cleanNewPayment = function(){
-        $scope.newPayment = {
-            income_account_no: 0,
-            date: new Date(),
-            amount: 0
+        $scope.changeDates = function() {
+            invoicesFactory.editInvoice($scope.id, {
+                date: $scope.invoice.date,
+                duedays: $scope.invoice.duedays
+            }).then(function(edited) {
+                console.log("invoice date edited");
+            })
         };
-    }
-    $scope.cleanNewPayment();
 
-    $scope.getTotals();
+        $scope.formatInvoice = function() {
+            if ($scope.invoice) {
+                $scope.invoice.date = new Date($scope.invoice.date);
+            }
+        };
 
-    $scope.addOrderRow = function(){
-        var row = $scope.newrow;
-
-        row.object_id = $scope.id;
-        row.product_id = row.product.id;
-        delete row.product;
-
-        orderRowsFactory.addOrderRow(row).then(function(orderrow){
-            console.log(orderrow);
-            $scope.invoice.order_rows.push(orderrow);
-            $scope.getTotals();
-
-            $scope.newrow = {
-                ordered: 0,
-                q: 0,
-                q_type: "0",
-                vat_id: $scope.settings.vat_rules[0].id.toString(),
-                price: 0,
-                product: null,
-                object_type: "Invoice"
-            };
-        })
-    };
-
-    $scope.updateRow = function(row){
-        orderRowsFactory.editOrderRow(row.id, row).then(function(row){
-            console.log("row updated");
-        });
-        $scope.getTotals();
-    };
-
-    $scope.changeShippingAddress = function(){
-        console.log("change address");
-
-        invoicesFactory.editInvoice($scope.id, {
-            shipping_address: $scope.invoice.shipping_address
-        }).then(function(invoice){
-            $scope.invoice.shipping_address = invoice.shipping_address;
-        });
-    };
-
-    $scope.changeBillingAddress = function(){
-        console.log("change address");
-
-        invoicesFactory.editInvoice($scope.id, {
-            billing_address: $scope.invoice.billing_address
-        }).then(function(invoice){
-            $scope.invoice.billing_address = invoice.billing_address;
-        });
-    };
-
-    $scope.saveCosts = function(){
-        invoicesFactory.editInvoice($scope.id, {
-            shipping_cost: $scope.invoice.shipping_cost,
-            invoice_fee: $scope.invoice.invoice_fee
-        }).then(function(data){
-            console.log("costs changed");
-        });
-    };
-
-    $scope.saveContact = function(contact){
-        console.log(contact);
-        if(!contact.id){
-            console.log("no new contact");
-            return;
+        $scope.getContacts = function() {
+            if ($scope.contacts.length) {
+                return;
+            }
+            contactsFactory.getContacts().then(function(contacts) {
+                $scope.contacts = contacts;
+            });
         }
-        invoicesFactory.editInvoice($scope.id, {
-            contact_id: contact.id
-        }).then(function(order){
-            $scope.invoice.contact = order.contact;
-            console.log("contact saved");
-            $scope.editContact = false;
-            $scope.updateList(order);
-        });
-    },
 
-    $scope.changeCurrency = function(){
-        invoicesFactory.editInvoice($scope.id, {
-            currency: $scope.invoice.currency
-        }).then(function(data){
-            console.log("currency changed");
-        });
-    };
+        $scope.newrow = {
+            ordered: 0,
+            q: 0,
+            q_type: "0",
+            vat_id: 0,
+            vat: 0,
+            price: 0,
+            product: null,
+            object_type: "Invoice"
+        };
 
-    $scope.changeNotes = function(){
-        invoicesFactory.editInvoice($scope.id, {
-            notes: $scope.invoice.notes
-        }).then(function(data){
-            console.log("notes changed");
-        });
-    };
+        $scope.settings = settingsFactory.getSettings();
+        if (!$scope.settings.length) {
+            settingsFactory.initSettings().then(function(data) {
+                $scope.settings = data;
+                $scope.newrow.vat_id = $scope.settings.vat_rules[0].id;
+            });
+        } else {
 
-    $scope.changePriceList = function(){
-        invoicesFactory.editInvoice($scope.id, {
-            price_list_id: $scope.invoice.price_list_id
-        }).then(function(data){
-            console.log("price list changed");
-        });
-    };
+        }
 
-    $scope.changeStep = function(step){
-        invoicesFactory.editInvoice($scope.id, {
-            step: step
-        }).then(function(data){
-            $scope.invoice.step = data.step;
-            $scope.invoice.steps = data.steps;
-        });
-    };
+        $scope.getTotals = function() {
+            if (!$scope.invoice) {
+                return;
+            }
+            console.log("calc totals");
+            $scope.subTotal = 0;
+            $scope.grandTotal = 0;
+            $scope.totalVAT = 0;
 
-    $scope.bookInvoice = function(){
-        invoicesFactory.bookInvoice($scope.id).then(function(invoice){
-            $scope.invoice.step = invoice.step;
-            $scope.invoice.steps = invoice.steps;
-        });
-    };
+            for (var i = 0; i < $scope.invoice.order_rows.length; i++) {
+                var row = $scope.invoice.order_rows[i];
+                console.log(row);
+                $scope.subTotal += row.q * row.price;
+                $scope.totalVAT += (row.q * row.price) * (row.vat / 100);
+            }
+            $scope.grandTotal = $scope.subTotal + $scope.totalVAT;
+            $scope.getDebt();
+            console.log($scope.subTotal, $scope.totalVAT, $scope.grandTotal);
+        };
 
-    $scope.createCreditNote = function(){
-        //do something with state
-    };
+        $scope.savePayment = function() {
+            var payment = $scope.newPayment;
+            payment.object_type = "Invoice";
+            payment.object_id = $scope.id;
+            paymentsFactory.addPayment(payment).then(function(data) {
+                console.log("payment added");
+                $scope.invoice.payments.push(data);
+                $scope.cleanNewPayment();
+                $scope.getDebt();
+                $scope.addPayment = false;
 
-  }
+                if ($scope.totalDebt <= 10 && $scope.invoice != "paid") {
+                    $scope.changeStep("paid");
+                }
+            });
+        };
 
-  invoicesSingleItemController.$inject = ['$scope', '$stateParams', 'invoicesFactory', 'contactsFactory', 'orderRowsFactory', 'productsFactory', '$state', 'lodash', 'settingsFactory', 'paymentsFactory'];
+        $scope.totalDebt = 0;
+        $scope.getDebt = function() {
+            if (!$scope.invoice.payments) {
+                return false;
+            }
+            console.log("getDebt");
+            console.log($scope.invoice.payments);
+            $scope.totalDebt = $scope.grandTotal;
+
+            for (var i = 0; i < $scope.invoice.payments.length; i++) {
+                var payment = $scope.invoice.payments[i];
+                $scope.totalDebt -= payment.amount;
+            }
+        };
+
+        $scope.addPayment = false;
+        $scope.newPayment = {};
+        $scope.cleanNewPayment = function() {
+            $scope.newPayment = {
+                income_account_no: 0,
+                date: new Date(),
+                amount: 0
+            };
+        }
+        $scope.cleanNewPayment();
+
+        $scope.getTotals();
+
+        $scope.addOrderRow = function() {
+            var row = $scope.newrow;
+
+            row.object_id = $scope.id;
+            row.product_id = row.product.id;
+            delete row.product;
+
+            orderRowsFactory.addOrderRow(row).then(function(orderrow) {
+                console.log(orderrow);
+                $scope.invoice.order_rows.push(orderrow);
+                $scope.getTotals();
+
+                $scope.newrow = {
+                    ordered: 0,
+                    q: 0,
+                    q_type: "0",
+                    vat_id: $scope.settings.vat_rules[0].id.toString(),
+                    price: 0,
+                    product: null,
+                    object_type: "Invoice"
+                };
+            })
+        };
+
+        $scope.updateRow = function(row) {
+            orderRowsFactory.editOrderRow(row.id, row).then(function(row) {
+                console.log("row updated");
+            });
+            $scope.getTotals();
+        };
+
+        $scope.changeShippingAddress = function() {
+            console.log("change address");
+
+            invoicesFactory.editInvoice($scope.id, {
+                shipping_address: $scope.invoice.shipping_address
+            }).then(function(invoice) {
+                $scope.invoice.shipping_address = invoice.shipping_address;
+            });
+        };
+
+        $scope.changeBillingAddress = function() {
+            console.log("change address");
+
+            invoicesFactory.editInvoice($scope.id, {
+                billing_address: $scope.invoice.billing_address
+            }).then(function(invoice) {
+                $scope.invoice.billing_address = invoice.billing_address;
+            });
+        };
+
+        $scope.saveCosts = function() {
+            invoicesFactory.editInvoice($scope.id, {
+                shipping_cost: $scope.invoice.shipping_cost,
+                invoice_fee: $scope.invoice.invoice_fee
+            }).then(function(data) {
+                console.log("costs changed");
+            });
+        };
+
+        $scope.saveContact = function(contact) {
+            console.log(contact);
+            if (!contact.id) {
+                console.log("no new contact");
+                return;
+            }
+            invoicesFactory.editInvoice($scope.id, {
+                contact_id: contact.id
+            }).then(function(order) {
+                $scope.invoice.contact = order.contact;
+                console.log("contact saved");
+                $scope.editContact = false;
+                $scope.updateList(order);
+            });
+        };
+
+        $scope.changeCurrency = function() {
+            invoicesFactory.editInvoice($scope.id, {
+                currency: $scope.invoice.currency
+            }).then(function(invoice) {
+                $scope.invoice.order_rows = invoice.order_rows;
+                console.log("currency changed");
+            });
+        };
+
+        $scope.changeNotes = function() {
+            invoicesFactory.editInvoice($scope.id, {
+                notes: $scope.invoice.notes
+            }).then(function(data) {
+                console.log("notes changed");
+            });
+        };
+
+        $scope.changePriceList = function() {
+            invoicesFactory.editInvoice($scope.id, {
+                price_list_id: $scope.invoice.price_list_id
+            }).then(function(data) {
+                console.log("price list changed");
+            });
+        };
+
+        $scope.changeStep = function(step) {
+            invoicesFactory.editInvoice($scope.id, {
+                step: step
+            }).then(function(data) {
+                $scope.invoice.step = data.step;
+                $scope.invoice.steps = data.steps;
+            });
+        };
+
+        $scope.bookInvoice = function() {
+            invoicesFactory.bookInvoice($scope.id).then(function(invoice) {
+                $scope.invoice.step = invoice.step;
+                $scope.invoice.steps = invoice.steps;
+            });
+        };
+
+        $scope.deleteDraft = function() {
+            if ($scope.invoice && $scope.invoice.step == "draft" && confirm("Are you sure that you want to delete this one?")) {
+
+                invoicesFactory.removeInvoice($scope.id).then(function(res) {
+                    if (res == "1") {
+                        $state.go("invoices");
+                    }
+                });
+
+            }
+        };
+
+        $scope.downloadPDF = function() {
+            window.location = 'http://janalex.beta.cirons.com/api/v1/invoices/' + $scope.invoice.id + '/pdf?token=' + $auth.getToken();
+        };
+
+        $scope.createCreditNote = function() {
+            //do something with state
+        };
+
+    }
+
+    invoicesSingleItemController.$inject = ['$scope', '$stateParams', 'invoicesFactory', 'contactsFactory', 'orderRowsFactory', 'productsFactory', '$state', 'lodash', 'settingsFactory', 'paymentsFactory', '$auth'];
 
 })();

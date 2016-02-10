@@ -1,6 +1,13 @@
 <div class="open-view">
 
   <div class="open-view-content">
+
+    <div class="validation-messages">
+        <div class="alert" ng-repeat="alert in invoice.validation_messages">
+            {{alert}}
+        </div>
+    </div>
+
     <form class="ui form">
         <div class="pane-steps">
             <div ng-class="
@@ -23,9 +30,13 @@
                     <button type="button" class="ui button yellow" ng-click="bookInvoice()">
         				Book Invoice
         			</button>
+
+                    <button type="button" class="ui button negative" ng-click="deleteDraft()">
+        				Delete Draft
+        			</button>
                 </div>
                 <div ng-show="invoice.step == 'booked'">
-                    <a href="/invoices/pdf/{{invoice.id}}" class="ui button labeled icon">
+                    <button type="button" ng-click="downloadPDF()" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Download PDF
             		</a>
@@ -39,7 +50,7 @@
             		</button>
                 </div>
                 <div ng-show="invoice.step == 'sent'">
-                    <a href="/invoices/pdf/{{invoice.id}}" class="ui button labeled icon">
+                    <button type="button" ng-click="downloadPDF()" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Download PDF
             		</a>
@@ -54,7 +65,7 @@
             		</button>
                 </div>
                 <div ng-show="invoice.step == 'paid'">
-                    <a href="/invoices/pdf/{{invoice.id}}" class="ui button labeled icon">
+                    <button type="button" ng-click="downloadPDF()" class="ui button labeled icon">
             			<i class="icon file pdf outline"></i>
             			Download PDF
             		</a>

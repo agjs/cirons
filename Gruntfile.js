@@ -67,7 +67,8 @@ module.exports = function(grunt) {
     sass: {
       options: {
         style: 'compressed',
-        compass: true
+        compass: true,
+        sourcemap: 'none'
       },
       dist: {
         files: {
@@ -155,7 +156,7 @@ module.exports = function(grunt) {
   'ftp-deploy': {
       build: {
         auth: {
-          host: 'cirons.com',
+          host: 'ftp.beta.cirons.com',
           port: 21,
           authKey: 'glesys'
         },
@@ -168,6 +169,6 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector']);
-  grunt.registerTask('production', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector', 'string-replace', 'removelogging', 'ftp-deploy']);
+  grunt.registerTask('production', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector', 'string-replace', 'removelogging','ftp-deploy']);
 
 };

@@ -54,13 +54,13 @@
     };
 
     $scope.onSupplierSelect = function($item, $model, $label){
-        if($scope.supplierInvoice.supplier.id){
-            supplierInvoicesFactory.editSupplierInvoice($scope.id, {
-                supplier_id: $scope.supplierInvoice.supplier.id
-            }).then(function(edited){
-                $scope.changeSupplier = false;
-            });
-        }
+        // if($scope.supplierInvoice.supplier.id){
+        //     supplierInvoicesFactory.editSupplierInvoice($scope.id, {
+        //         supplier_id: $scope.supplierInvoice.supplier.id
+        //     }).then(function(edited){
+        //         $scope.changeSupplier = false;
+        //     });
+        // }
     };
 
 

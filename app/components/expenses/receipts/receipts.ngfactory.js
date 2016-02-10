@@ -39,7 +39,7 @@
         });
       },
 
-      addReceipt: function(id, data) {
+      addReceipt: function(data) {
         return $http({
           url: 'http://janalex.beta.cirons.com/api/v1/receipts',
           method: 'POST',

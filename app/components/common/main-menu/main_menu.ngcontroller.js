@@ -50,7 +50,6 @@
             title: 'Accounting',
             state: 'accounting',
             separateAfter: true,
-            module: "accounting",
             icon: 'fa fa-book'
         }, {
             title: 'System Admin',

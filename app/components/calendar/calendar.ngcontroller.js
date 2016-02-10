@@ -10,7 +10,6 @@
         $scope.uiConfig = {
             calendar: {
                 height: $("section.content > .inner").height() - 80,
-                editable: true,
                 header: {
                     right: 'month agendaWeek agendaDay',
                     center: 'title',
