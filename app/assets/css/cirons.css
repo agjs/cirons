@@ -3788,6 +3788,20 @@ aside.menu #touch-menu {
   outline: none !important; }
 
 @media (max-width: 992px) {
+  html, body {
+    overflow: hidden !important; }
+
+  #accounts_payable_pie, #accounts_receivable_pie {
+    text-align: center;
+    padding-bottom: 30px;
+    max-height: none !important; }
+
+  .net-positions .c3 {
+    text-align: center; }
+
+  aside.menu.blue nav#main {
+    background: #ff5e3a; }
+
   .user-bar, aside.menu header a.logo, #speech, .tabbar-chart, section.content.hide-sidebar aside.sidebar {
     display: none; }
 
@@ -3847,6 +3861,11 @@ aside.menu #touch-menu {
   body.split_table[data-state*=".create"] .split-view {
     margin-left: -100%; }
 
+  .dashboard .accounts_left,
+  .dashboard .accounts_right {
+    width: 100%;
+    float: none; }
+
   body.split_table .page-content .open-view .open-view-content {
     padding: 0 15px 15px 15px; }
 
@@ -3879,15 +3898,15 @@ aside.menu #touch-menu {
   aside.menu #touch-menu {
     border: none;
     position: absolute;
-    background: white;
-    color: rgba(0, 0, 0, 0.3);
+    background: none;
+    color: white;
     font-size: 24px;
     height: 50px;
     width: 50px;
     margin-right: 20px;
     line-height: 50px;
     text-align: center;
-    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    border-right: 1px solid white;
     right: -70px;
     display: block;
     z-index: 9999; }
@@ -3916,8 +3935,8 @@ aside.menu #touch-menu {
     font-size: 12px; }
 
   body.dashboard .dashboard-content {
-    padding-left: 20px;
-    padding-right: 20px; } }
+    padding-left: 5px;
+    padding-right: 5px; } }
 @media (min-width: 500px) and (max-width: 992px) {
   .ui.cards > .card {
     width: 45%; } }

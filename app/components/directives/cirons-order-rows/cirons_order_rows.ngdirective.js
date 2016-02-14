@@ -7,15 +7,17 @@
     return {
       restrict: 'EA',
       scope: {
-          rows: '='
+          rows: '=',
+          updateRow: '&',
+          addOrderRow: '&'
       },
       templateUrl: 'components/directives/cirons-order-rows/template.html',
       replace: true,
       link: function(scope, element, attrs) {
-          
+
       },
       controller: function($scope, $auth){
-
+          
       }
     }
 

@@ -85,9 +85,136 @@
 	Invoice Description
 </h4>
 
-<cirons-order-rows
-	rows="invoice.order_rows"
-></cirons-order-rows>
+<table class="ui table celled compact">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Ordered</th>
+            <th>Shipped</th>
+            <th>Unit</th>
+            <th>VAT</th>
+            <th>Unit Price</th>
+            <th>Row Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in invoice.order_rows">
+            <td>{{row.product.name}}</td>
+            <td>
+                <input ng-blur="updateRow(row)" type="text" ng-model="row.ordered">
+            </td>
+            <td>
+                <input ng-blur="updateRow(row)" type="text" ng-model="row.q">
+            </td>
+            <td>
+                <select ng-change="updateRow(row)" ng-model="row.q_type">
+					<option value="0">units</option>
+					<option value="1">litre</option>
+					<option value="2">hour</option>
+					<option value="3">tonne</option>
+					<option value="4">mm</option>
+					<option value="5">kwh</option>
+					<option value="6">m²</option>
+					<option value="7">metre</option>
+					<option value="8">month</option>
+					<option value="9">km</option>
+					<option value="10">m³</option>
+					<option value="11">kg</option>
+					<option value="12">day</option>
+					<option value="13">gram</option>
+				</select>
+            </td>
+            <td>
+                <select ng-change="updateRow(row)" ng-model="row.vat_id">
+					<option ng-repeat="rule in $root.s.vat_rules" value="{{rule.id}}">{{rule.percent}}%</option>
+				</select>
+            </td>
+            <td>
+                <input ng-blur="updateRow(row)" type="text" ng-model="row.price">
+            </td>
+            <td>
+                {{row.price * row.q | number : 2}}
+            </td>
+        </tr>
+        <tr>
+            <th colspan="7">
+                Add new row
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <input ng-model="newrow.product" type="text" uib-typeahead="item as item.name for item in products | filter:{name:$viewValue}">
+            </td>
+            <td>
+                <input ng-enter="addOrderRow()" type="text" ng-model="newrow.ordered">
+            </td>
+            <td>
+                <input ng-enter="addOrderRow()" type="text" ng-model="newrow.q">
+            </td>
+            <td>
+                <select ng-model="newrow.q_type">
+					<option value="0">units</option>
+					<option value="1">litre</option>
+					<option value="2">hour</option>
+					<option value="3">tonne</option>
+					<option value="4">mm</option>
+					<option value="5">kwh</option>
+					<option value="6">m²</option>
+					<option value="7">metre</option>
+					<option value="8">month</option>
+					<option value="9">km</option>
+					<option value="10">m³</option>
+					<option value="11">kg</option>
+					<option value="12">day</option>
+					<option value="13">gram</option>
+				</select>
+            </td>
+            <td>
+                <select ng-model="newrow.vat_id">
+					<option ng-repeat="rule in $root.s.vat_rules" value="{{rule.id}}">{{rule.percent}}%</option>
+				</select>
+            </td>
+            <td>
+                <input ng-enter="addOrderRow()" type="text" ng-model="newrow.price">
+            </td>
+            <td>
+                <button type="button" ng-click="addOrderRow()" class="ui button teal tiny">Add</button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="5">
+            </th>
+            <th>
+                Sub Total
+            </th>
+            <th>
+                {{subTotal | number: 2}}
+            </th>
+        </tr>
+        <tr>
+            <th colspan="5">
+            </th>
+            <th>
+                Total VAT
+            </th>
+            <th>
+                {{totalVAT | number: 2}}
+            </th>
+        </tr>
+        <tr>
+            <th colspan="5">
+            </th>
+            <th>
+                Grand Total
+            </th>
+            <th>
+                {{grandTotal | number: 2}}
+            </th>
+        </tr>
+    </tfoot>
+</table>
 
 <div style="height: 40px;"></div>
 

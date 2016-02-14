@@ -1,5 +1,9 @@
 (function() {
   'use strict';
+
+  // var client = window.location.href.match(/http[s]?:\/\/[a-zA-Z.]*\/([a-zA-Z]+)\/.*/)[0];
+  // console.log(client);
+
   require('../main.ngcomponent');
   require('../components/common/common.ngcomponent');
   require('../components/authentication/authentication.ngcomponent');

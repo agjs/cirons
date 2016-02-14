@@ -6,6 +6,7 @@
     .controller('VATItemsController', require('./vat_items.ngcontroller'))
 
     .controller('VATDeclarationsCreateController', require('./declaration/create.ngcontroller'))
+    .controller('VATDeclarationsController', require('./declaration/list.ngcontroller'))
 
     .factory('VATFactory', require('./vat.ngfactory'))
     .factory('VATDeclarationsFactory', require('./declaration/vat_declarations.ngfactory'))
