@@ -2908,6 +2908,63 @@ table.vat_sums {
 .vat-declaration-confirm {
   padding: 40px; }
 
+.touch-home nav ul {
+  padding: 0;
+  margin: 0; }
+  .touch-home nav ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    .touch-home nav ul li a {
+      width: 29%;
+      padding-top: 29%;
+      margin: 0 2% 35px 2%;
+      position: relative;
+      float: left;
+      background: #db2828; }
+      .touch-home nav ul li a div.icon {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        top: 25%; }
+        .touch-home nav ul li a div.icon i {
+          color: white;
+          font-size: 40px;
+          margin: 0; }
+      .touch-home nav ul li a span {
+        position: absolute;
+        bottom: -20px;
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: auto;
+        color: black;
+        text-transform: uppercase; }
+
+.touch-upload-buttons button {
+  margin-bottom: 20px; }
+
+.touch-upload-success {
+  background: #21BA45;
+  color: white;
+  line-height: 200px;
+  width: 200px;
+  margin: auto;
+  height: 200px;
+  text-align: center; }
+  .touch-upload-success i {
+    font-size: 30px; }
+  .touch-upload-success span {
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px; }
+
 .cirons-comments {
   height: 100%;
   position: absolute;
@@ -3791,6 +3848,18 @@ aside.menu #touch-menu {
   html, body {
     overflow: hidden !important; }
 
+  * {
+    -webkit-overflow-scrolling: touch; }
+
+  .object-tabe-heading {
+    padding-left: 0;
+    padding-right: 0; }
+
+  .object-tabe-heading button.teal {
+    left: auto !important;
+    right: auto !important;
+    position: relative !important; }
+
   #accounts_payable_pie, #accounts_receivable_pie {
     text-align: center;
     padding-bottom: 30px;
@@ -3936,7 +4005,11 @@ aside.menu #touch-menu {
 
   body.dashboard .dashboard-content {
     padding-left: 5px;
-    padding-right: 5px; } }
+    padding-right: 5px; }
+
+  .table-responsive {
+    width: 100%;
+    overflow: scroll; } }
 @media (min-width: 500px) and (max-width: 992px) {
   .ui.cards > .card {
     width: 45%; } }

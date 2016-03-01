@@ -9,6 +9,21 @@ aside.menu #touch-menu {
         overflow: hidden !important;
     }
 
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .object-tabe-heading {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .object-tabe-heading button.teal {
+        left: auto !important;
+        right: auto !important;
+        position: relative !important;
+    }
+
     #accounts_payable_pie, #accounts_receivable_pie {
         text-align: center;
         padding-bottom: 30px;
@@ -189,6 +204,11 @@ aside.menu #touch-menu {
         padding-right: 5px;
     }
 
+    .table-responsive {
+        width: 100%;
+        overflow: scroll;
+    }
+
 }
 
 @media(min-width: 500px) and (max-width: 992px){
@@ -215,6 +235,7 @@ aside.menu #touch-menu {
 
     aside.menu:hover {
         width: 260px;
+        background: $cirons_blue;
     }
 
     aside.menu > nav#main ul, aside.menu > nav#main ul li {

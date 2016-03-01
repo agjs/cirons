@@ -31,48 +31,77 @@
 
 },{}],2:[function(require,module,exports){
 (function() {
-  "use strict";
+    "use strict";
 
-  module.exports = ngConfig;
+    module.exports = ngConfig;
 
-  function ngConfig($httpProvider, $urlRouterProvider, $locationProvider, $authProvider, $breadcrumbProvider, cfpLoadingBarProvider) {
+    function ngConfig($httpProvider, $urlRouterProvider, $locationProvider, $authProvider, $breadcrumbProvider, cfpLoadingBarProvider) {
 
-    cfpLoadingBarProvider.includeSpinner = false;
-
-    $httpProvider.interceptors.push('authenticationInterceptor');
-
-    $httpProvider.interceptors.push(function($q) {
-      return {
-        response: function(response) {
-           if(response.data && response.data.validation_error){
-               for(var key in response.data.validation_error){
-                   var errors = response.data.validation_error[key];
-                   for(var ii = 0; ii < errors.length; ii++){
-                       var error = errors[ii];
-                       alert(error);
-                   }
-               }
-               return $q.reject(response);
-           }
-
-           return response;
+        function detectmob() {
+            if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+                return true;
+            } else {
+                return false;
+            }
         }
-      };
-    });
 
-    $urlRouterProvider.otherwise('/dashboard/finance');
+        // var client = window.location.href.match(/http[s]?:\/\/app\.cirons\.com\/client\/([a-zA-Z]+)\/.*/)[1];
+        // console.log("client: " + client);
 
-    $locationProvider.html5Mode(false);
+        cfpLoadingBarProvider.includeSpinner = false;
 
-    $authProvider.loginUrl = 'http://janalex.beta.cirons.com/api/v1/auth';
-    $breadcrumbProvider.setOptions({
-      template: 'bootstrap3'
-    });
+        $httpProvider.interceptors.push('authenticationInterceptor');
+
+        $httpProvider.interceptors.push(function($q){
+            return {
+                request: function(config){
+                    console.log("config: ");
+                    console.log(config.url);
+
+                    return config;
+                }
+            };
+        });
+
+        $httpProvider.interceptors.push(function($q) {
+            return {
+                response: function(response) {
+                    if (response.data && response.data.validation_error) {
+                        for (var key in response.data.validation_error) {
+                            var errors = response.data.validation_error[key];
+                            for (var ii = 0; ii < errors.length; ii++) {
+                                var error = errors[ii];
+                                alert(error);
+                            }
+                        }
+                        return $q.reject(response);
+                    }
+
+                    return response;
+                }
+            };
+        });
+
+        console.log("is mobile:");
+        console.log(detectmob());
+
+        if (!detectmob()) {
+            $urlRouterProvider.otherwise('/dashboard/finance');
+        } else {
+            $urlRouterProvider.otherwise('/touch');
+        }
+
+        $locationProvider.html5Mode(false);
+
+        $authProvider.loginUrl = 'http://janalex.beta.cirons.com/api/v1/auth';
+        $breadcrumbProvider.setOptions({
+            template: 'bootstrap3'
+        });
 
 
-  }
+    }
 
-  ngConfig.$inject = ['$httpProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', '$breadcrumbProvider', 'cfpLoadingBarProvider'];
+    ngConfig.$inject = ['$httpProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', '$breadcrumbProvider', 'cfpLoadingBarProvider'];
 
 })();
 
@@ -87,6 +116,62 @@
 
         editableOptions.theme = 'default';
 
+        function detectmob() {
+            if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $rootScope.menu = [{
+            title: 'Dashboard',
+            state: 'dashboard.finance',
+            separateAfter: true,
+            icon: 'fa fa-line-chart'
+        }, {
+            title: 'Calendar',
+            state: 'calendar',
+            separateAfter: true,
+            icon: 'fa fa-calendar'
+        }, {
+            title: 'Sales',
+            state: 'sales',
+            separateAfter: false,
+            icon: 'fa fa-file-text-o'
+        }, {
+            title: 'Expenses',
+            state: 'expenses',
+            separateAfter: false,
+            icon: 'fa fa-minus-square-o'
+        }, {
+            title: 'Stock',
+            state: 'stock',
+            separateAfter: false,
+            module: "stock",
+            icon: 'fa fa-cubes'
+        }, {
+            title: 'Purchasing',
+            state: 'purchasing',
+            separateAfter: false,
+            icon: 'fa fa-cart-plus'
+        }, {
+            title: 'HR',
+            state: 'hr',
+            separateAfter: true,
+            icon: 'fa fa-users'
+        }, {
+            title: 'Accounting',
+            state: 'accounting',
+            separateAfter: true,
+            icon: 'fa fa-book'
+        }, {
+            title: 'System Admin',
+            state: 'system_admin',
+            separateAfter: false,
+            icon: 'fa fa-cogs'
+        }];
+
         $rootScope.token = null;
         $rootScope.s = {
             options: [],
@@ -100,6 +185,7 @@
             vat_periods: null,
             accounting: false,
             user: {},
+            touch: detectmob(),
             colors: [
                 "#E4291E", // Fire Red
                 "#C50F30", // Cerine
@@ -207,42 +293,49 @@
 
 },{}],4:[function(require,module,exports){
 (function() {
-  'use strict';
-  require('../main.ngcomponent');
-  require('../components/common/common.ngcomponent');
-  require('../components/authentication/authentication.ngcomponent');
-  require('../components/dashboard/dashboard.ngcomponent');
-  require('../components/accounting/accounting.ngcomponent');
-  require('../components/expenses/suppliers/suppliers.ngcomponent');
-  require('../components/expenses/supplier_invoices/supplier_invoices.ngcomponent');
-  require('../components/expenses/receipts/receipts.ngcomponent');
+    'use strict';
 
-  require('../components/sales/orders/orders.ngcomponent');
-  require('../components/sales/invoices/invoices.ngcomponent');
-  require('../components/sales/products/products.ngcomponent');
-  require('../components/sales/contacts/contacts.ngcomponent');
-  require('../components/sales/webshops/webshops.ngcomponent');
+    // var client = window.location.href.match(/http[s]?:\/\/[a-zA-Z.]*\/([a-zA-Z]+)\/.*/)[0];
+    // console.log(client);
 
-  require('../components/stock/warehouses/warehouses.ngcomponent');
+    require('../main.ngcomponent');
+    require('../components/common/common.ngcomponent');
+    require('../components/authentication/authentication.ngcomponent');
+    require('../components/dashboard/dashboard.ngcomponent');
+    require('../components/accounting/accounting.ngcomponent');
+    require('../components/expenses/suppliers/suppliers.ngcomponent');
+    require('../components/expenses/supplier_invoices/supplier_invoices.ngcomponent');
+    require('../components/expenses/receipts/receipts.ngcomponent');
 
-  require('../components/purchasing/purchase_orders/purchase_orders.ngcomponent');
+    require('../components/sales/orders/orders.ngcomponent');
+    require('../components/sales/invoices/invoices.ngcomponent');
+    require('../components/sales/products/products.ngcomponent');
+    require('../components/sales/contacts/contacts.ngcomponent');
+    require('../components/sales/webshops/webshops.ngcomponent');
 
-  require('../components/hr/users/users.ngcomponent');
+    require('../components/stock/warehouses/warehouses.ngcomponent');
 
-  require('../components/accounting/verifications/verifications.ngcomponent');
-  require('../components/accounting/vat/vat.ngcomponent');
+    require('../components/purchasing/purchase_orders/purchase_orders.ngcomponent');
 
-  require('../components/calendar/calendar.ngcomponent');
-  require('../components/hr/hr.ngcomponent');
-  require('../components/purchasing/purchasing.ngcomponent');
-  require('../components/sales/sales.ngcomponent');
-  require('../components/stock/stock.ngcomponent');
-  require('../components/system_admin/system_admin.ngcomponent');
-  require('../components/user_settings/user_settings.ngcomponent');
-  require('../components/directives/directives.ngcomponent');
+    require('../components/hr/users/users.ngcomponent');
+
+    require('../components/accounting/verifications/verifications.ngcomponent');
+    require('../components/accounting/vat/vat.ngcomponent');
+
+    require('../components/calendar/calendar.ngcomponent');
+    require('../components/hr/hr.ngcomponent');
+    require('../components/purchasing/purchasing.ngcomponent');
+    require('../components/sales/sales.ngcomponent');
+    require('../components/stock/stock.ngcomponent');
+    require('../components/system_admin/system_admin.ngcomponent');
+    require('../components/user_settings/user_settings.ngcomponent');
+    require('../components/directives/directives.ngcomponent');
+
+    require('../components/touch/touch.ngcomponent');
+
 })();
 
-},{"../components/accounting/accounting.ngcomponent":5,"../components/accounting/vat/vat.ngcomponent":12,"../components/accounting/verifications/verifications.ngcomponent":17,"../components/authentication/authentication.ngcomponent":24,"../components/calendar/calendar.ngcomponent":29,"../components/common/common.ngcomponent":36,"../components/dashboard/dashboard.ngcomponent":45,"../components/directives/directives.ngcomponent":62,"../components/expenses/receipts/receipts.ngcomponent":68,"../components/expenses/supplier_invoices/supplier_invoices.ngcomponent":74,"../components/expenses/suppliers/suppliers.ngcomponent":80,"../components/hr/hr.ngcomponent":87,"../components/hr/users/users.ngcomponent":91,"../components/purchasing/purchase_orders/purchase_orders.ngcomponent":97,"../components/purchasing/purchasing.ngcomponent":103,"../components/sales/contacts/contacts.ngcomponent":107,"../components/sales/invoices/invoices.ngcomponent":113,"../components/sales/orders/orders.ngcomponent":122,"../components/sales/products/products.ngcomponent":129,"../components/sales/sales.ngcomponent":135,"../components/sales/webshops/webshops.ngcomponent":139,"../components/stock/stock.ngcomponent":142,"../components/stock/warehouses/warehouses.ngcomponent":147,"../components/system_admin/system_admin.ngcomponent":153,"../components/user_settings/user_settings.ngcomponent":157,"../main.ngcomponent":161}],5:[function(require,module,exports){
+},{"../components/accounting/accounting.ngcomponent":5,"../components/accounting/vat/vat.ngcomponent":12,"../components/accounting/verifications/verifications.ngcomponent":17,"../components/authentication/authentication.ngcomponent":24,"../components/calendar/calendar.ngcomponent":29,"../components/common/common.ngcomponent":36,"../components/dashboard/dashboard.ngcomponent":45,"../components/directives/directives.ngcomponent":62,"../components/expenses/receipts/receipts.ngcomponent":68,"../components/expenses/supplier_invoices/supplier_invoices.ngcomponent":74,"../components/expenses/suppliers/suppliers.ngcomponent":80,"../components/hr/hr.ngcomponent":87,"../components/hr/users/users.ngcomponent":91,"../components/purchasing/purchase_orders/purchase_orders.ngcomponent":97,"../components/purchasing/purchasing.ngcomponent":103,"../components/sales/contacts/contacts.ngcomponent":107,"../components/sales/invoices/invoices.ngcomponent":113,"../components/sales/orders/orders.ngcomponent":122,"../components/sales/products/products.ngcomponent":129,"../components/sales/sales.ngcomponent":135,"../components/sales/webshops/webshops.ngcomponent":139,"../components/stock/stock.ngcomponent":142,"../components/stock/warehouses/warehouses.ngcomponent":147,"../components/system_admin/system_admin.ngcomponent":153,"../components/touch/touch.ngcomponent":157,"../components/user_settings/user_settings.ngcomponent":161,"../main.ngcomponent":165}],5:[function(require,module,exports){
 (function() {
   "use strict";
 
@@ -1555,7 +1648,7 @@ angular.module('CIRONS-MAIN-APP')
     .filter("numberDash", require("./filters/numberDash.ngfilter"))
 })();
 
-},{"../../settings.ngfactory.js":162,"./comments.ngfactory.js":35,"./filters/dateRange.ngfilter":37,"./filters/numberDash.ngfilter":38,"./info.ngfactory.js":39,"./main-menu/main_menu.ngcontroller":40,"./main.ngcontroller":41,"./right-sidebar/right_sidebar.ngcontroller":42,"./top-navigation/navigation.ngcontroller":43,"./top-navigation/notifications.ngfactory.js":44}],37:[function(require,module,exports){
+},{"../../settings.ngfactory.js":166,"./comments.ngfactory.js":35,"./filters/dateRange.ngfilter":37,"./filters/numberDash.ngfilter":38,"./info.ngfactory.js":39,"./main-menu/main_menu.ngcontroller":40,"./main.ngcontroller":41,"./right-sidebar/right_sidebar.ngcontroller":42,"./top-navigation/navigation.ngcontroller":43,"./top-navigation/notifications.ngfactory.js":44}],37:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -1669,7 +1762,7 @@ angular.module('CIRONS-MAIN-APP')
     'use strict';
     module.exports = mainMenuController;
 
-    function mainMenuController($scope) {
+    function mainMenuController($scope, $rootScope) {
 
         $scope.touchMenuOpen = false;
         $scope.toggleTouchMenu = function() {
@@ -1677,57 +1770,11 @@ angular.module('CIRONS-MAIN-APP')
         };
 
         $scope.logoUrl = 'assets/images/logo.png';
-        $scope.menu = [{
-            title: 'Dashboard',
-            state: 'dashboard.finance',
-            separateAfter: true,
-            icon: 'fa fa-line-chart'
-        }, {
-            title: 'Calendar',
-            state: 'calendar',
-            separateAfter: true,
-            icon: 'fa fa-calendar'
-        }, {
-            title: 'Sales',
-            state: 'sales',
-            separateAfter: false,
-            icon: 'fa fa-file-text-o'
-        }, {
-            title: 'Expenses',
-            state: 'expenses',
-            separateAfter: false,
-            icon: 'fa fa-minus-square-o'
-        }, {
-            title: 'Stock',
-            state: 'stock',
-            separateAfter: false,
-            module: "stock",
-            icon: 'fa fa-cubes'
-        }, {
-            title: 'Purchasing',
-            state: 'purchasing',
-            separateAfter: false,
-            icon: 'fa fa-cart-plus'
-        }, {
-            title: 'HR',
-            state: 'hr',
-            separateAfter: true,
-            icon: 'fa fa-users'
-        }, {
-            title: 'Accounting',
-            state: 'accounting',
-            separateAfter: true,
-            icon: 'fa fa-book'
-        }, {
-            title: 'System Admin',
-            state: 'system_admin',
-            separateAfter: false,
-            icon: 'fa fa-cogs'
-        }];
+        $scope.menu = $rootScope.menu;
 
     }
 
-    mainMenuController.$inject = ['$scope'];
+    mainMenuController.$inject = ['$scope', '$rootScope'];
 
 })();
 
@@ -2542,7 +2589,8 @@ angular.module('CIRONS-MAIN-APP')
 
           $scope.dontShow = [
               "vat.declarations.create",
-              "vat.declarations.item"
+              "vat.declarations.item",
+              "login"
           ];
 
           $rootScope.$on('$stateChangeStart',
@@ -2552,10 +2600,18 @@ angular.module('CIRONS-MAIN-APP')
           });
 
           $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+
+              if(!$state.current.ncyBreadcrumbLink){
+                  $scope.show = false;
+                  return true;
+              }
+
               $scope.comments = [];
               $scope.show = true;
               $scope.parsedURL = "";
               $timeout(function(){
+                  $scope.show = true;
+
                   var url = $state.current.ncyBreadcrumbLink;
                   $scope.parsedURL = $scope.parseUrl(url);
 
@@ -2588,6 +2644,9 @@ angular.module('CIRONS-MAIN-APP')
           };
 
           $scope.parseUrl = function(url_to_parse){
+              if(!url_to_parse){
+                  return;
+              }
               url_to_parse = url_to_parse.replace(/general|addresses|address|payments|accounting|profit|/gi, "");
               url_to_parse = url_to_parse.replace(/\//g, ".");
               url_to_parse = url_to_parse.replace(/\.\./g, ".");
@@ -8243,6 +8302,190 @@ angular.module('CIRONS-MAIN-APP')
 })();
 
 },{}],157:[function(require,module,exports){
+(function() {
+    "use strict";
+
+    angular.module('CIRONS-MAIN-APP')
+        .controller('touchController', require('./touch.ngcontroller'))
+        .controller('uploadController', require('./upload.ngcontroller'))
+        .config(require('./touch.ngrouter'));
+
+})();
+
+},{"./touch.ngcontroller":158,"./touch.ngrouter":159,"./upload.ngcontroller":160}],158:[function(require,module,exports){
+(function() {
+    'use strict';
+
+    module.exports = touchController;
+
+    function touchController($scope, $rootScope){
+        $scope.menu = $rootScope.menu;
+
+        $scope.menu.splice(1,0, {
+            title: 'Upload',
+            state: 'touch.upload',
+            separateAfter: true,
+            icon: 'fa fa-cloud-upload'
+        });
+
+    }
+
+    touchController.$inject = ["$scope", "$rootScope"];
+
+}());
+
+},{}],159:[function(require,module,exports){
+(function() {
+    'use strict';
+    module.exports = touchRouter;
+
+    function touchRouter($stateProvider) {
+        $stateProvider
+            .state('touch', {
+                url: "/touch",
+                views: {
+                    '@': {
+                        controller: 'touchController',
+                        templateUrl: "components/touch/touch.view.html"
+                    }
+                }
+            })
+            .state('touch.upload', {
+                url: "/upload",
+                views: {
+                    '@': {
+                        controller: 'uploadController',
+                        templateUrl: "components/touch/upload.view.html"
+                    }
+                }
+            })
+
+    }
+
+    touchRouter.$inject = ['$stateProvider'];
+
+})();
+
+},{}],160:[function(require,module,exports){
+(function() {
+    'use strict';
+
+    module.exports = uploadController;
+
+    function uploadController($scope, $rootScope, receiptsFactory, supplierInvoicesFactory, $state, suppliersFactory, $timeout, $http){
+
+        $scope.uploadType = "";
+        $scope.selectedFile = "";
+        $scope.saved = false;
+
+        var payment = ["Cash", "CC Company", "CC Private"];
+        $scope.paymentMethods = payment;
+
+        $scope.suppliers = [];
+        $scope.supplier = null;
+        suppliersFactory.getSuppliers().then(function(suppliers){
+            $scope.suppliers = suppliers;
+        });
+
+        $scope.item = {
+            sum: 0,
+            attachments: [],
+            vat_amount: 0,
+            date: new Date(),
+            duedate: new Date(),
+            currency: $rootScope.currency,
+            paid: "0000-00-00"
+        };
+
+        $scope.isSI = function(){
+            return $scope.uploadType == "si";
+        };
+
+        $scope.selected = function(type){
+            if(type == "receipt" || type == "si"){
+
+            } else {
+                return;
+            }
+
+            $scope.uploadType = type;
+            $("#touch-upload-input").click();
+            // $scope.selectedFile = true;
+
+        };
+
+        $scope.fileSelected = function(){
+            $timeout(function(){
+                $scope.selectedFile = true;
+
+                var object_type = "Receipt";
+                if($scope.isSI()){
+                    object_type = "SupplierInvoice";
+                }
+
+                var formData = new FormData();
+                formData.append("file", document.getElementById("touch-upload-input").files[0]);
+                formData.append("object_type", object_type);
+                formData.append("object_id", 0);
+
+                $http({
+                    url: "http://janalex.beta.cirons.com/api/v1/attachments",
+                    data: formData,
+                    headers: {'Content-Type': undefined},
+                    method: "POST"
+                }).then(function(attachment){
+                    console.log(attachment);
+                    $scope.item.attachments.push(attachment.data);
+                });
+
+            },0);
+            console.log("selected file");
+        };
+
+        $scope.save = function(){
+
+            if(!$scope.supplier){
+                alert("You need to select a supplier");
+                return;
+            }
+
+            $scope.item.supplier_id = $scope.supplier.id;
+
+            if(!$scope.isSI()){
+                delete $scope.item.duedate;
+                delete $scope.item.paid;
+                $scope.item.amount = $scope.item.sum;
+                delete $scope.item.sum;
+
+                receiptsFactory.addReceipt($scope.item).then(function(item){
+                    $scope.saved = true;
+                    $timeout(function(){
+                        $state.go("touch");
+                    }, 2000);
+                });
+
+            } else {
+
+                supplierInvoicesFactory.addSupplierInvoice($scope.item).then(function(item){
+                    $scope.saved = true;
+                    $timeout(function(){
+                        $state.go("touch");
+                    }, 2000);
+                });
+
+            }
+
+
+
+        };
+
+    }
+
+    uploadController.$inject = ["$scope", "$rootScope", "receiptsFactory", "supplierInvoicesFactory", "$state", "suppliersFactory", "$timeout", "$http"];
+
+}());
+
+},{}],161:[function(require,module,exports){
 (function(){
 "use strict";
 
@@ -8252,7 +8495,7 @@ angular.module('CIRONS-MAIN-APP')
     .config(require('./user_settings.ngrouter'));
 })();
 
-},{"./user_settings.ngcontroller":158,"./user_settings.ngfactory":159,"./user_settings.ngrouter":160}],158:[function(require,module,exports){
+},{"./user_settings.ngcontroller":162,"./user_settings.ngfactory":163,"./user_settings.ngrouter":164}],162:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsController;
@@ -8270,7 +8513,7 @@ angular.module('CIRONS-MAIN-APP')
   userSettingsController.$inject = ['$scope', 'userSettingsFactory', 'meFactory'];
 })();
 
-},{}],159:[function(require,module,exports){
+},{}],163:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsFactory;
@@ -8297,7 +8540,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],160:[function(require,module,exports){
+},{}],164:[function(require,module,exports){
 (function() {
   'use strict';
   module.exports = userSettingsRouter;
@@ -8315,7 +8558,7 @@ angular.module('CIRONS-MAIN-APP')
 
 })();
 
-},{}],161:[function(require,module,exports){
+},{}],165:[function(require,module,exports){
 (function () {
   'use strict';
   require('./app')
@@ -8323,7 +8566,7 @@ angular.module('CIRONS-MAIN-APP')
   .config(require('./app.ngconfig'));
 })();
 
-},{"./app":1,"./app.ngconfig":2,"./app.ngrun":3}],162:[function(require,module,exports){
+},{"./app":1,"./app.ngconfig":2,"./app.ngrun":3}],166:[function(require,module,exports){
 (function() {
     'use strict';
     module.exports = settingsFactory;

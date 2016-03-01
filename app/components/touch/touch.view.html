@@ -1,0 +1,14 @@
+<div class="touch-home">
+    <nav>
+        <ul>
+            <li ng-repeat="menuItem in menu" ng-show="(menuItem.module ? $root.s.hasMod(menuItem.module) : true)">
+                <a ui-sref="{{menuItem.state}}">
+                    <div class="icon">
+                        <i class="{{menuItem.icon}}"></i>
+                    </div>
+                    <span>{{menuItem.title}}</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

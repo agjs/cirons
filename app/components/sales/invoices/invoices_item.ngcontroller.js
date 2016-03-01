@@ -2,7 +2,7 @@
     'use strict';
     module.exports = invoicesSingleItemController;
 
-    function invoicesSingleItemController($scope, $stateParams, invoicesFactory, contactsFactory, orderRowsFactory, productsFactory, $state, lodash, settingsFactory, paymentsFactory, $auth) {
+    function invoicesSingleItemController($scope, $stateParams, invoicesFactory, contactsFactory, orderRowsFactory, productsFactory, $state, lodash, settingsFactory, paymentsFactory, $auth, $rootScope) {
         $scope.invoice = $stateParams.invoice;
         $scope.id = $stateParams.id;
 
@@ -266,7 +266,7 @@
         };
 
         $scope.downloadPDF = function() {
-            window.location = 'http://janalex.beta.cirons.com/api/v1/invoices/' + $scope.invoice.id + '/pdf?token=' + $auth.getToken();
+            window.location = 'http://system.cirons.com/'+$rootScope.client+'/api/v1/invoices/' + $scope.invoice.id + '/pdf?token=' + $auth.getToken();
         };
 
         $scope.createCreditNote = function() {
@@ -275,6 +275,6 @@
 
     }
 
-    invoicesSingleItemController.$inject = ['$scope', '$stateParams', 'invoicesFactory', 'contactsFactory', 'orderRowsFactory', 'productsFactory', '$state', 'lodash', 'settingsFactory', 'paymentsFactory', '$auth'];
+    invoicesSingleItemController.$inject = ['$scope', '$stateParams', 'invoicesFactory', 'contactsFactory', 'orderRowsFactory', 'productsFactory', '$state', 'lodash', 'settingsFactory', 'paymentsFactory', '$auth', '$rootScope'];
 
 })();

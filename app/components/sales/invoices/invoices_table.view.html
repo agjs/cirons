@@ -49,7 +49,8 @@
     </div>
 
 </div>
-<table class="ui table celled object-table">
+<div class="table-responsive">
+<table class="ui table celled unstackable object-table">
     <thead>
 		<tr>
 			<th width="1"></th>
@@ -97,9 +98,9 @@
                     <i class="icon download cloud"></i>
                     <span class="text">Download</span>
                     <div class="menu">
-                        <a ng-show="invoice.step !== 'draft'" href="/api/v1/invoices/pdf/{{invoice.id}}?token={{$root.token}}" class="item"><i class="icon teal file outline pdf"></i> Invoice PDF</a>
-                        <a href="/api/v1/orders/{{invoice.order.id}}/pdf?token={{$root.token}}" ng-if="invoice.order" class="item"><i class="icon blue file outline pdf"></i> Order Note</a>
-                        <a href="/api/v1/orders/{{invoice.order.id}}/packing_list?token={{$root.token}}" ng-if="invoice.order" class="item"><i class="icon brown file outline pdf"></i> Packing List</a>
+                        <a ng-show="invoice.step !== 'draft'" href="http://system.cirons.com/{{$root.client}}/api/v1/invoices/{{invoice.id}}/pdf?token={{$root.token}}" class="item"><i class="icon teal file outline pdf"></i> Invoice PDF</a>
+                        <a href="http://system.cirons.com/{{$root.client}}/api/v1/orders/{{invoice.order.id}}/pdf?token={{$root.token}}" ng-if="invoice.order" class="item"><i class="icon blue file outline pdf"></i> Order Note</a>
+                        <a href="http://system.cirons.com/{{$root.client}}/api/v1/orders/{{invoice.order.id}}/packing_list?token={{$root.token}}" ng-if="invoice.order" class="item"><i class="icon brown file outline pdf"></i> Packing List</a>
                     </div>
                 </div>
 
@@ -119,3 +120,4 @@
         </tr>
     </tfoot>
 </table>
+</div>

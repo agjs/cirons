@@ -8,6 +8,69 @@
 
         editableOptions.theme = 'default';
 
+        function detectmob() {
+            if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        var client;
+        var matcher = window.location.href.match(/http[s]?:\/\/app\.cirons\.com\/client\/([a-zA-Z]+)\/.*/);
+        if(matcher && matcher.length && matcher[1]){
+            client = matcher[1];
+        }
+        $rootScope.client = client;
+
+        $rootScope.menu = [{
+            title: 'Dashboard',
+            state: 'dashboard.finance',
+            separateAfter: true,
+            icon: 'fa fa-line-chart'
+        }, {
+            title: 'Calendar',
+            state: 'calendar',
+            separateAfter: true,
+            icon: 'fa fa-calendar'
+        }, {
+            title: 'Sales',
+            state: 'sales',
+            separateAfter: false,
+            icon: 'fa fa-file-text-o'
+        }, {
+            title: 'Expenses',
+            state: 'expenses',
+            separateAfter: false,
+            icon: 'fa fa-minus-square-o'
+        }, {
+            title: 'Stock',
+            state: 'stock',
+            separateAfter: false,
+            module: "stock",
+            icon: 'fa fa-cubes'
+        }, {
+            title: 'Purchasing',
+            state: 'purchasing',
+            separateAfter: false,
+            icon: 'fa fa-cart-plus'
+        }, {
+            title: 'HR',
+            state: 'hr',
+            separateAfter: true,
+            icon: 'fa fa-users'
+        }, {
+            title: 'Accounting',
+            state: 'accounting',
+            separateAfter: true,
+            icon: 'fa fa-book'
+        }, {
+            title: 'System Admin',
+            state: 'system_admin',
+            separateAfter: false,
+            icon: 'fa fa-cogs'
+        }];
+
         $rootScope.token = null;
         $rootScope.s = {
             options: [],
@@ -21,6 +84,7 @@
             vat_periods: null,
             accounting: false,
             user: {},
+            touch: detectmob(),
             colors: [
                 "#E4291E", // Fire Red
                 "#C50F30", // Cerine

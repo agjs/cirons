@@ -19,7 +19,8 @@
 
           $scope.dontShow = [
               "vat.declarations.create",
-              "vat.declarations.item"
+              "vat.declarations.item",
+              "login"
           ];
 
           $rootScope.$on('$stateChangeStart',
@@ -29,10 +30,18 @@
           });
 
           $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+
+              if(!$state.current.ncyBreadcrumbLink){
+                  $scope.show = false;
+                  return true;
+              }
+
               $scope.comments = [];
               $scope.show = true;
               $scope.parsedURL = "";
               $timeout(function(){
+                  $scope.show = true;
+
                   var url = $state.current.ncyBreadcrumbLink;
                   $scope.parsedURL = $scope.parseUrl(url);
 
@@ -65,6 +74,9 @@
           };
 
           $scope.parseUrl = function(url_to_parse){
+              if(!url_to_parse){
+                  return;
+              }
               url_to_parse = url_to_parse.replace(/general|addresses|address|payments|accounting|profit|/gi, "");
               url_to_parse = url_to_parse.replace(/\//g, ".");
               url_to_parse = url_to_parse.replace(/\.\./g, ".");

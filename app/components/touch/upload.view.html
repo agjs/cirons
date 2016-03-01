@@ -1,0 +1,91 @@
+<div ng-show="saved" class="touch-upload-success">
+    <i class="icon check"></i>
+    <span>Saved</span>
+</div>
+<div ng-hide="saved">
+    <h3>Upload
+        <span ng-show="isSI()">supplier invoice</span>
+        <span ng-hide="isSI()">receipt</span>
+    </h3>
+
+    <div class="touch-upload-buttons" ng-hide="selectedFile">
+
+        <button type="button" ng-click="selected('receipt')" class="ui button fluid positive huge icon">
+            <i class="icon file text"></i>
+            Receipt
+        </button>
+        <div class="ui horizontal divider">
+            Or
+        </div>
+        <button type="button" ng-click="selected('si')" class="ui button fluid positive huge icon">
+            <i class="icon file text"></i>
+            Supplier Invoice
+        </button>
+
+    </div>
+
+    <div class="touch-upload-form ui form" ng-show="selectedFile">
+
+        <input type="file" id="touch-upload-input" ng-model="image" onchange="angular.element(this).scope().fileSelected()" accept="image/*">
+
+        <div class="field">
+            <label>Supplier</label>
+            <input ng-model="supplier" type="text" uib-typeahead="item as item.company_name for item in suppliers | filter:{company_name:$viewValue}" placeholder="Search supplier">
+        </div>
+
+        <div class="field">
+            <label>Amount</label>
+            <input type="text" ng-blur="" ng-model="item.sum">
+        </div>
+
+        <div class="field">
+            <label>Amount VAT</label>
+            <input type="text" ng-blur="" ng-model="item.vat_amount">
+        </div>
+
+        <div class="field" ng-show="isSI()">
+            <label>Invoice No</label>
+            <input type="text" ng-blur="" ng-model="item.identifier">
+        </div>
+
+        <div class="field">
+            <label>Date</label>
+            <input type="date" ng-blur="" ng-model="item.date">
+        </div>
+
+        <div class="field" ng-show="isSI()">
+            <label>Due Date</label>
+            <input type="date" ng-blur="" ng-model="item.duedate">
+        </div>
+
+        <div class="field">
+            <label>Currency</label>
+            <select ng-change="" ng-model="item.currency">
+                <option ng-repeat="currency in $root.s.currencies" value="{{currency.ISO}}">{{currency.ISO}}</option>
+            </select>
+        </div>
+
+        <div class="field" ng-show="isSI()">
+            <label>Payment status</label>
+            <select ng-change="save()" ng-model="item.paid">
+                <option value="0000-00-00">Unpaid</option>
+                <option value="{{paid_date}}">Paid</option>
+            </select>
+        </div>
+
+        <div class="field" ng-hide="isSI()">
+            <label>Payment Method</label>
+            <select ng-change="" ng-model="item.payment">
+                <option ng-repeat="pm in paymentMethods track by $index" value="{{$index}}">{{pm}}</option>
+            </select>
+        </div>
+
+        <div class="ui horizontal divider"></div>
+
+        <button type="button" ng-click="save()" class="ui button fluid large positive">
+            <i class="icon check"></i>
+            Save
+        </button>
+
+    </div>
+</div>

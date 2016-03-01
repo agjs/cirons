@@ -156,13 +156,14 @@ module.exports = function(grunt) {
         'ftp-deploy': {
             build: {
                 auth: {
-                    host: 'ftp.beta.cirons.com',
+                    host: 'app.cirons.com',
                     // host: '52.49.123.36',
                     port: 21,
                     authKey: 'aws'
                 },
                 src: 'dist',
                 dest: '/var/cirons/frontend',
+                // dest: '/var/cirons/frontend',
                 exclusions: ['dist/**/.DS_Store', 'dist/**/Thumbs.db', 'dist/tmp']
             }
         }
@@ -170,6 +171,6 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector']);
-    grunt.registerTask('production', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector', 'string-replace', 'removelogging', 'ftp-deploy']);
+    grunt.registerTask('production', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector', 'string-replace', /*'removelogging',*/ 'ftp-deploy']);
 
 };

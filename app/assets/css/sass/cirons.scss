@@ -1896,6 +1896,83 @@ table.vat_sums {
     padding: 40px;
 }
 
+.touch-home {
+    nav {
+        ul {
+            padding: 0;
+            margin: 0;
+            li {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                a {
+                    width: 29%;
+                    padding-top: 29%;
+                    margin: 0 2% 35px 2%;
+                    position: relative;
+                    float: left;
+                    background: $cirons_red;
+
+                    div.icon {
+                        position: absolute;
+                        text-align: center;
+                        width: 100%;
+                        top: 25%;
+
+                        i {
+                            color: white;
+                            font-size: 40px;
+                            margin: 0;
+                        }
+                    }
+
+                    span {
+                        position: absolute;
+                        bottom: -20px;
+                        font-size: 10px;
+                        font-weight: bold;
+                        text-align: center;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        width: 100%;
+                        left: 0;
+                        right: 0;
+                        top: auto;
+                        color: black;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.touch-upload-buttons {
+    button {
+        margin-bottom: 20px;
+    }
+}
+
+.touch-upload-success {
+    background: #21BA45;
+    color: white;
+    line-height: 200px;
+    width: 200px;
+    margin: auto;
+    height: 200px;
+    text-align: center;
+    i {
+        font-size: 30px;
+    }
+    span {
+        font-size: 18px;
+        font-weight: bold;
+        padding-top: 10px;
+    }
+}
+
 @import "_comments";
 @import "_timeline";
 @import "_wizard";

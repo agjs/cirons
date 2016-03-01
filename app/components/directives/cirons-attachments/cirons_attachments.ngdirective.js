@@ -2,7 +2,7 @@
   "use strict";
   module.exports = cirons_attachments;
 
-  function cirons_attachments($auth, $timeout) {
+  function cirons_attachments($auth, $timeout, $rootScope) {
 
     var _token = "Bearer" + " " + $auth.getToken();
 
@@ -31,7 +31,7 @@
 
 
           element.find(".drop").first().dropzone({
-              url: 'http://janalex.beta.cirons.com/api/v1/attachments',
+              url: 'https://system.cirons.com/'+ $rootScope.client +'/api/v1/attachments',
               multiple: true,
               uploadMultiple: false,
               headers: {
@@ -59,6 +59,6 @@
 
   }
 
-  cirons_attachments.$inject = ['$auth', '$timeout'];
+  cirons_attachments.$inject = ['$auth', '$timeout', '$rootScope'];
 
 })();
