@@ -228,6 +228,7 @@
                 console.log("notes changed");
             });
         };
+        //test
 
         $scope.changePriceList = function() {
             invoicesFactory.editInvoice($scope.id, {
