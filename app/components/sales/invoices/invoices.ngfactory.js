@@ -132,6 +132,19 @@
 
           });
 
+      },
+
+        creditInvoice: function(id){
+            return $http({
+                url: 'http://janalex.beta.cirons.com/api/v1/invoices/' + id + '/credit',
+                method: 'POST'
+            }).then(function(item){
+                if(item){
+                    return item.data;
+                } else {
+                    throw new Error("Credit Note couldnt be created");
+                }
+            })
         }
 
 

@@ -74,24 +74,28 @@
                 <input type="checkbox">
             </td>
 			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
-                <span ng-if="invoice.invoice_no">{{invoice.invoice_no}}</span>
-                <a ng-if="!invoice.invoice_no" class="ui tag label">Draft</a>
+                <span ng-if="invoice.invoice_no == '1'">{{invoice.invoice_no}}</span>
+                <a ng-if="invoice.invoice_no == '0'" class="ui tag label">Draft</a>
             </td>
 			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">{{invoice.contact.name}}</td>
 			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
                 <cirons-status-badge
+                    ng-if="!invoice.credit_invoice"
                     model="Invoice"
                     step="{{invoice.step}}"
                 ></cirons-status-badge>
+                <span class="ui basic label blue" ng-if="invoice.credit_invoice">Credit Note</span>
             </td>
 			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
                 <cirons-status-badge
-                    ng-if="invoice.order"
+                    ng-if="invoice.credit_invoice == '0' && invoice.order"
                     model="Order"
                     step="{{invoice.order.step}}"
                 ></cirons-status-badge>
             </td>
-			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})" class="right">{{invoice.grand_total | number: 2}} {{invoice.currency}}</td>
+			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})" class="right">
+                <span ng-if="invoice.credit_invoice == '1'">-</span>
+                {{invoice.grand_total | number: 2}} {{invoice.currency}}</td>
 			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">{{invoice.date | date: 'yyyy-MM-dd'}}</td>
 			<td>
                 <div sui-dropdown sui-action="nothing" class="ui labeled icon top right mini pointing dropdown teal button">

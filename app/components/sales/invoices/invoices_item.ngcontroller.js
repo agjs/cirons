@@ -271,6 +271,9 @@
 
         $scope.createCreditNote = function() {
             //do something with state
+            invoicesFactory.creditInvoice($scope.id).then(function(credit){
+                window.location = '/#/invoices/'+credit.id;
+            });
         };
 
     }

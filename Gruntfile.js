@@ -171,6 +171,6 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector']);
-    grunt.registerTask('production', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector', 'string-replace', /*'removelogging',*/ 'ftp-deploy']);
+    grunt.registerTask('production', ['browserify', 'sass', 'ngtemplates', 'copy', 'injector', 'string-replace', 'removelogging']);
 
 };
