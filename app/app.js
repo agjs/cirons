@@ -9,7 +9,7 @@
     'http-auth-interceptor',
     'ngCookies',
     'satellizer',
-    // 'ncy-angular-breadcrumb',
+    'ncy-angular-breadcrumb',
     'xeditable',
     'ngLodash',
     'ui.bootstrap',
