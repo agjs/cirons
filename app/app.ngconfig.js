@@ -19,6 +19,7 @@
             client = matcher[1];
         }
         console.log("client: " + client);
+        console.info("client: ", client, matcher);
 
         cfpLoadingBarProvider.includeSpinner = false;
 
