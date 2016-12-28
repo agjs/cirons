@@ -30,7 +30,7 @@
                 request: function(config){
 
                     if(config.url.substring(0,5) == "/api/" && client){
-                        config.url = "https://system-migrate.cirons.com/" + client + config.url;
+                        config.url = "http://system-migrate.cirons.com/" + client + config.url;
                     }
 
                     return config;
