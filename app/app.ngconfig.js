@@ -14,7 +14,7 @@
         }
 
         var client;
-        var matcher = window.location.href.match(/http[s]?:\/\/app\.cirons\.com\/client\/([a-zA-Z]+)\/.*/);
+        var matcher = window.location.href.match(/http[s]?:\/\/app[-a-z]?\.cirons\.com\/client\/([a-zA-Z]+)\/.*/);
         if(matcher && matcher.length && matcher[1]){
             client = matcher[1];
         }
