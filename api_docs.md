@@ -40,3 +40,4 @@ Returns:
 }
 ```
 
+###### Philip Andersson

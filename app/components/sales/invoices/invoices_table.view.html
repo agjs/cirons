@@ -80,11 +80,11 @@
 			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">{{invoice.contact.name}}</td>
 			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
                 <cirons-status-badge
-                    ng-if="!invoice.credit_invoice"
+                    ng-if="invoice.credit_invoice == '0'"
                     model="Invoice"
                     step="{{invoice.step}}"
                 ></cirons-status-badge>
-                <span class="ui basic label blue" ng-if="invoice.credit_invoice">Credit Note</span>
+                <span class="ui basic label blue" ng-if="invoice.credit_invoice == '1'">Credit Note</span>
             </td>
 			<td ui-sref="invoices.item.general({id: invoice.id, invoice: invoice})">
                 <cirons-status-badge
