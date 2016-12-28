@@ -39,5 +39,3 @@ Returns:
   "calendar_color": "#FF3232"
 }
 ```
-
-###### Philip Andersson
