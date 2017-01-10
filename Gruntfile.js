@@ -68,6 +68,8 @@ module.exports = function(grunt) {
             options: {
                 style: 'compressed',
                 compass: true,
+                trace : true,
+                debugInfo : true,
                 sourcemap: 'none'
             },
             dist: {
