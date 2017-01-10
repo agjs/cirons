@@ -68,7 +68,7 @@
 
         $locationProvider.html5Mode(false);
 
-        $authProvider.loginUrl = 'http://janalex.beta.cirons.com/api/v1/auth';
+        // $authProvider.loginUrl = 'http://janalex.beta.cirons.com/api/v1/auth';
         $breadcrumbProvider.setOptions({
             template: 'bootstrap3'
         });
